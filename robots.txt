@@ -1,0 +1,7 @@
+# robots.txt for NexDrive USB Storage Solutions
+# NOTE: Update the Sitemap URL below with your verified production domain prior to deployment.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
