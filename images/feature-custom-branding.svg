@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="laserBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2135"/>
+      <stop offset="100%" stop-color="#182A3A"/>
+    </linearGradient>
+
+    <linearGradient id="usbBodyMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A4D62"/>
+      <stop offset="30%" stop-color="#718298"/>
+      <stop offset="60%" stop-color="#2D3E52"/>
+      <stop offset="100%" stop-color="#1B293A"/>
+    </linearGradient>
+
+    <linearGradient id="usbTipMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+
+    <filter id="coralGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes laserGantry {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(95px); }
+      }
+      @keyframes laserPulse {
+        0%, 100% { opacity: 0.85; stroke-width: 2.2; }
+        50% { opacity: 1; stroke-width: 3.2; }
+      }
+      @keyframes sparkBurst {
+        0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+        50% { transform: scale(1.35) rotate(45deg); opacity: 1; }
+      }
+      @keyframes etchedLogoGlow {
+        0%, 100% { opacity: 0.5; stroke: #94A3B8; }
+        50% { opacity: 1; stroke: #FF6B4A; filter: drop-shadow(0 0 4px #FF6B4A); }
+      }
+      @keyframes liveCoralDot {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #FF6B4A); }
+        50% { opacity: 0.3; filter: none; }
+      }
+
+      .laser-gantry-head {
+        animation: laserGantry 3.8s ease-in-out infinite;
+      }
+      .laser-beam-line {
+        animation: laserPulse 1.2s ease-in-out infinite;
+      }
+      .laser-spark {
+        transform-origin: center;
+        animation: sparkBurst 0.9s ease-in-out infinite;
+      }
+      .engraved-mark {
+        animation: etchedLogoGlow 3.8s ease-in-out infinite;
+      }
+      .coral-status-dot {
+        animation: liveCoralDot 1.4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="400" height="260" rx="16" fill="url(#laserBg)"/>
+  <rect x="1" y="1" width="398" height="258" rx="15" fill="none" stroke="#254A6B" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- Optical Bed Measurement Grid -->
+  <g stroke="#1A3B58" stroke-width="0.8" stroke-opacity="0.35">
+    <line x1="40" y1="0" x2="40" y2="260"/>
+    <line x1="100" y1="0" x2="100" y2="260"/>
+    <line x1="160" y1="0" x2="160" y2="260"/>
+    <line x1="220" y1="0" x2="220" y2="260"/>
+    <line x1="280" y1="0" x2="280" y2="260"/>
+    <line x1="340" y1="0" x2="340" y2="260"/>
+    <line x1="0" y1="60" x2="400" y2="60"/>
+    <line x1="0" y1="120" x2="400" y2="120"/>
+    <line x1="0" y1="180" x2="400" y2="180"/>
+  </g>
+
+  <!-- CNC Rail / Gantry Beam at Top -->
+  <rect x="30" y="30" width="340" height="12" rx="3" fill="#0C1B2A" stroke="#2A537A" stroke-width="1.5"/>
+  <line x1="35" y1="36" x2="365" y2="36" stroke="#4878A4" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Precision Clamping Jig for USB Body -->
+  <rect x="70" y="145" width="260" height="18" rx="4" fill="#091826" stroke="#1D4060" stroke-width="1.2"/>
+  <circle cx="85" cy="154" r="3.5" fill="#3B6990"/>
+  <circle cx="315" cy="154" r="3.5" fill="#3B6990"/>
+
+  <!-- Titanium USB Flash Drive Being Engraved -->
+  <g id="target-usb" transform="translate(100, 110)">
+    <!-- USB Type-A Connector Plug on Left -->
+    <rect x="0" y="8" width="35" height="30" rx="3" fill="url(#usbTipMetal)" stroke="#64748B" stroke-width="1"/>
+    <!-- Connector Internal Pins -->
+    <rect x="8" y="14" width="12" height="6" rx="1" fill="#0B1D2D"/>
+    <rect x="8" y="26" width="12" height="6" rx="1" fill="#0B1D2D"/>
+
+    <!-- Main Titanium Alloy USB Chassis Body -->
+    <rect x="35" y="0" width="165" height="46" rx="6" fill="url(#usbBodyMetal)" stroke="#536982" stroke-width="1.5"/>
+
+    <!-- Chamfer Edge Highlight -->
+    <line x1="42" y1="3" x2="192" y2="3" stroke="#8A9BB2" stroke-width="1.5" stroke-opacity="0.8"/>
+    <line x1="42" y1="43" x2="192" y2="43" stroke="#0F1F30" stroke-width="1.5"/>
+
+    <!-- Lanyard Keyhole Loop on Right -->
+    <rect x="180" y="14" width="12" height="18" rx="4" fill="#0E2133" stroke="#536982" stroke-width="1.2"/>
+
+    <!-- Corporate Brand Artwork Being Laser-Etched -->
+    <!-- Brand Logo Icon -->
+    <g transform="translate(80, 14)">
+      <polygon points="12,0 24,18 0,18" fill="none" stroke="#FF6B4A" stroke-width="2" class="engraved-mark"/>
+      <circle cx="12" cy="10" r="3" fill="#FF6B4A" opacity="0.85" class="engraved-mark"/>
+    </g>
+
+    <!-- Brand Typography Etching -->
+    <text x="115" y="24" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="9" font-weight="900" letter-spacing="1.5" class="engraved-mark">NEXDRIVE</text>
+    <text x="115" y="34" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="700" letter-spacing="0.8">128GB • USB 3.2</text>
+  </g>
+
+  <!-- Animated CNC Laser Carriage Head and Optical Beam -->
+  <g transform="translate(135, 30)" class="laser-gantry-head">
+    <!-- Laser Carriage Block on Rail -->
+    <rect x="0" y="0" width="40" height="24" rx="4" fill="#152B3E" stroke="#FF6B4A" stroke-width="1.5"/>
+    
+    <!-- Status LED on Carriage -->
+    <circle cx="12" cy="12" r="3" fill="#00D2A0"/>
+    
+    <!-- Laser Optics Collimator Cone -->
+    <polygon points="14,24 26,24 23,45 17,45" fill="#24425C" stroke="#3D688E" stroke-width="1"/>
+    <!-- Laser Nozzle Tip -->
+    <rect x="18" y="45" width="4" height="6" fill="#FF6B4A"/>
+
+    <!-- High-Power Focused Laser Beam (Red-Coral) -->
+    <line x1="20" y1="51" x2="20" y2="92" stroke="#FF6B4A" stroke-width="2.5" filter="url(#coralGlow)" class="laser-beam-line"/>
+    <line x1="20" y1="51" x2="20" y2="92" stroke="#FFFFFF" stroke-width="1" class="laser-beam-line"/>
+
+    <!-- Laser Focal Impact Sparks at USB Surface -->
+    <g transform="translate(20, 92)" class="laser-spark">
+      <circle cx="0" cy="0" r="4.5" fill="#FFFFFF" filter="url(#coralGlow)"/>
+      <line x1="-8" y1="-8" x2="8" y2="8" stroke="#FF9478" stroke-width="1.5"/>
+      <line x1="8" y1="-8" x2="-8" y2="8" stroke="#FF9478" stroke-width="1.5"/>
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#FFD0C5" stroke-width="1.8"/>
+    </g>
+  </g>
+
+  <!-- Bottom Laser Engraving Telemetry Panel -->
+  <g transform="translate(30, 205)">
+    <rect x="0" y="0" width="340" height="40" rx="8" fill="#0B1A28" stroke="#1D4060" stroke-width="1"/>
+    
+    <!-- Status Dot -->
+    <circle cx="20" cy="20" r="4" fill="#FF6B4A" class="coral-status-dot"/>
+    <text x="32" y="16" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" letter-spacing="0.5">CUSTOM FINISHING &amp; BRANDING</text>
+    <text x="32" y="29" fill="#FF6B4A" font-family="monospace" font-size="9" font-weight="700">Fiber Laser Etching • UV Spot Colors</text>
+
+    <!-- Tolerance Pill Badge -->
+    <g transform="translate(240, 9)">
+      <rect x="0" y="0" width="85" height="22" rx="11" fill="#132B40" stroke="#FF6B4A" stroke-width="1"/>
+      <text x="42" y="14" fill="#FF6B4A" font-family="-apple-system, sans-serif" font-size="7.5" font-weight="800" text-anchor="middle">±0.05mm OPTIC</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="SecureVault Key USB Flash Drive Animated">
+  <defs>
+    <linearGradient id="k500Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141926"/>
+      <stop offset="100%" stop-color="#090C12"/>
+    </linearGradient>
+    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="20%" stop-color="#CBD5E1"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="80%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="kDrop" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+    <filter id="waterGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes floatKey {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes keyGleam {
+        0% { transform: translateX(-240px) skewX(-25deg); opacity: 0; }
+        15% { opacity: 0.9; }
+        35% { transform: translateX(380px) skewX(-25deg); opacity: 0; }
+        100% { transform: translateX(380px) skewX(-25deg); opacity: 0; }
+      }
+      @keyframes waterRipple {
+        0% { r: 10px; opacity: 0.8; stroke-width: 2px; }
+        100% { r: 60px; opacity: 0; stroke-width: 0.5px; }
+      }
+
+      .anim-key-float { animation: floatKey 5.2s ease-in-out infinite; }
+      .anim-key-gleam { animation: keyGleam 4.2s ease-in-out infinite; }
+      .anim-water-1 { animation: waterRipple 3s ease-out infinite; }
+      .anim-water-2 { animation: waterRipple 3s ease-out infinite 1.5s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .anim-key-float, .anim-key-gleam, .anim-water-1, .anim-water-2 { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="600" height="450" rx="14" fill="url(#k500Bg)" stroke="#1E293B" stroke-width="1.2"/>
+  <circle cx="300" cy="225" r="160" fill="#F59E0B" opacity="0.04"/>
+
+  <!-- IPX7 Waterproof Simulated Ripple Waves -->
+  <g transform="translate(140, 225)">
+    <circle cx="0" cy="0" r="15" stroke="#10B981" fill="none" class="anim-water-1" filter="url(#waterGlow)"/>
+    <circle cx="0" cy="0" r="15" stroke="#10B981" fill="none" class="anim-water-2" filter="url(#waterGlow)"/>
+  </g>
+
+  <!-- Key Graphic with Float Animation -->
+  <g transform="translate(100, 160)" class="anim-key-float" filter="url(#kDrop)">
+    <!-- USB Key Profile Monolithic Stainless Steel -->
+    <g>
+      <clipPath id="keyClip">
+        <path d="M20 40 L90 40 L90 28 L320 28 Q380 28 380 65 Q380 102 320 102 L90 102 L90 90 L20 90 Z"/>
+      </clipPath>
+      <path d="M20 40 L90 40 L90 28 L320 28 Q380 28 380 65 Q380 102 320 102 L90 102 L90 90 L20 90 Z" fill="url(#steelGrad)" stroke="#64748B" stroke-width="1.5"/>
+      <g clip-path="url(#keyClip)">
+        <rect x="20" y="28" width="60" height="74" fill="url(#sheenGrad)" class="anim-key-gleam"/>
+      </g>
+    </g>
+
+    <!-- Key Head Ring Cutout -->
+    <circle cx="340" cy="65" r="22" fill="#090C12"/>
+    <circle cx="340" cy="65" r="25" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    <circle cx="340" cy="65" r="26" stroke="#FDE68A" stroke-width="0.8" opacity="0.8" fill="none"/>
+
+    <!-- Gold Contact Pins directly on the key tip -->
+    <rect x="35" y="46" width="38" height="7" rx="1.5" fill="#F59E0B" stroke="#B45309" stroke-width="0.5"/>
+    <rect x="35" y="56" width="38" height="7" rx="1.5" fill="#F59E0B" stroke="#B45309" stroke-width="0.5"/>
+    <rect x="35" y="66" width="38" height="7" rx="1.5" fill="#F59E0B" stroke="#B45309" stroke-width="0.5"/>
+    <rect x="35" y="76" width="38" height="7" rx="1.5" fill="#F59E0B" stroke="#B45309" stroke-width="0.5"/>
+
+    <!-- Laser Engraving on Key Stem -->
+    <text x="110" y="58" font-family="-apple-system, sans-serif" font-size="14" font-weight="900" fill="#090C12" letter-spacing="1">SECUREVAULT KEY</text>
+    <text x="110" y="74" font-family="-apple-system, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B">MODEL USB-K500 • IPX7 WATERPROOF</text>
+    <text x="110" y="88" font-family="-apple-system, sans-serif" font-size="8.5" font-weight="600" fill="#334155">COB UDP CHIP ARCHITECTURE</text>
+
+    <!-- Key Spine Groove with Gold Accent -->
+    <line x1="100" y1="36" x2="280" y2="36" stroke="#FDE68A" stroke-width="1.5" opacity="0.8"/>
+    <line x1="100" y1="94" x2="280" y2="94" stroke="#0F172A" stroke-width="1.5" opacity="0.8"/>
+  </g>
+
+  <!-- Tag Pill -->
+  <g transform="translate(30, 30)">
+    <rect width="170" height="28" rx="14" fill="#090C12" stroke="#10B981" stroke-width="1.2"/>
+    <text x="85" y="18" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#10B981" text-anchor="middle">RUGGED KEYRING / IPX7</text>
+  </g>
+</svg>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="Apex Titanium USB Flash Drive Model USB-M100 Animated">
+  <defs>
+    <linearGradient id="m100Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141926"/>
+      <stop offset="100%" stop-color="#090C12"/>
+    </linearGradient>
+    <linearGradient id="metalBody" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="25%" stop-color="#CBD5E1"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="80%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="usbPlug" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FDE68A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="mDrop" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+    <filter id="amberGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes floatTitanium {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes ledDataBlink {
+        0%, 100% { opacity: 0.95; }
+        30% { opacity: 0.25; }
+        60% { opacity: 1; }
+        80% { opacity: 0.4; }
+      }
+      @keyframes gleamPass {
+        0% { transform: translateX(-240px) skewX(-25deg); opacity: 0; }
+        15% { opacity: 0.9; }
+        35% { transform: translateX(320px) skewX(-25deg); opacity: 0; }
+        100% { transform: translateX(320px) skewX(-25deg); opacity: 0; }
+      }
+      .anim-titanium-float { animation: floatTitanium 5s ease-in-out infinite; }
+      .anim-titanium-led { animation: ledDataBlink 1.4s ease-in-out infinite; }
+      .anim-gleam { animation: gleamPass 4.5s ease-in-out infinite; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .anim-titanium-float, .anim-titanium-led, .anim-gleam { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="600" height="450" rx="14" fill="url(#m100Bg)" stroke="#1E293B" stroke-width="1.2"/>
+  
+  <circle cx="300" cy="225" r="160" fill="#F59E0B" opacity="0.04"/>
+  <circle cx="300" cy="225" r="120" stroke="#334155" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+
+  <!-- USB Flash Drive Graphic with Floating Animation -->
+  <g transform="translate(130, 160)" class="anim-titanium-float" filter="url(#mDrop)">
+    <!-- USB-A Standard Plug -->
+    <rect x="0" y="32" width="75" height="66" rx="4" fill="url(#usbPlug)"/>
+    <rect x="10" y="38" width="55" height="54" rx="2" fill="#F59E0B"/>
+    <rect x="18" y="44" width="6" height="20" fill="#F8FAFC" rx="1"/>
+    <rect x="29" y="44" width="6" height="20" fill="#F8FAFC" rx="1"/>
+    <rect x="40" y="44" width="6" height="20" fill="#F8FAFC" rx="1"/>
+    <rect x="51" y="44" width="6" height="20" fill="#F8FAFC" rx="1"/>
+    <rect x="68" y="35" width="4" height="60" fill="#475569"/>
+
+    <!-- Unibody Zinc Alloy Main Body -->
+    <g>
+      <clipPath id="bodyClip">
+        <rect x="70" y="20" width="240" height="90" rx="14"/>
+      </clipPath>
+      <rect x="70" y="20" width="240" height="90" rx="14" fill="url(#metalBody)"/>
+      <g clip-path="url(#bodyClip)">
+        <rect x="70" y="20" width="55" height="90" fill="url(#sheenGrad)" class="anim-gleam"/>
+      </g>
+    </g>
+
+    <line x1="74" y1="22" x2="300" y2="22" stroke="#FFFFFF" stroke-width="2" opacity="0.9"/>
+    <line x1="74" y1="108" x2="300" y2="108" stroke="#1E293B" stroke-width="2" opacity="0.8"/>
+
+    <!-- Keyring Loop Hole -->
+    <circle cx="275" cy="65" r="18" fill="#090C12"/>
+    <circle cx="275" cy="65" r="22" stroke="#F59E0B" stroke-width="2.5" fill="none"/>
+    <circle cx="275" cy="65" r="23" stroke="#FDE68A" stroke-width="0.8" opacity="0.8" fill="none"/>
+
+    <!-- Laser Engraved Branding & Model -->
+    <text x="110" y="58" font-family="-apple-system, sans-serif" font-size="16" font-weight="900" fill="#090C12" letter-spacing="1.5">NEXDRIVE</text>
+    <text x="110" y="78" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#1E293B" letter-spacing="0.5">MODEL USB-M100 • 128GB</text>
+    <text x="110" y="93" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#334155">USB 3.2 GEN 1 HIGH SPEED</text>
+
+    <!-- Activity Indicator LED in Amber Glow -->
+    <circle cx="225" cy="65" r="4.5" fill="#F59E0B" filter="url(#amberGlow)" class="anim-titanium-led"/>
+    <circle cx="225" cy="65" r="7" stroke="#FBBF24" stroke-width="1" opacity="0.6" fill="none"/>
+  </g>
+
+  <!-- Tag Pill -->
+  <g transform="translate(30, 30)">
+    <rect width="125" height="28" rx="14" fill="#090C12" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="62" y="18" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">TITANIUM METAL</text>
+  </g>
+</svg>

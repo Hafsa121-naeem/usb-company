@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="CardSlim Executive Credit Card USB Flash Drive Animated">
+  <defs>
+    <linearGradient id="c400Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141926"/>
+      <stop offset="100%" stop-color="#090C12"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#090C12"/>
+    </linearGradient>
+    <filter id="cDrop" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+    <filter id="pinGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes flipChip {
+        0%, 100% { transform: rotate(0deg); }
+        40% { transform: rotate(-35deg); }
+        60% { transform: rotate(-35deg); }
+        85% { transform: rotate(0deg); }
+      }
+      @keyframes goldShimmer {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; filter: drop-shadow(0 0 3px #FBBF24); }
+      }
+
+      .anim-card-float { animation: floatCard 5.4s ease-in-out infinite; }
+      .anim-flip-connector {
+        transform-origin: 30px 110px;
+        animation: flipChip 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      .anim-gold-pins { animation: goldShimmer 2.2s ease-in-out infinite; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .anim-card-float, .anim-flip-connector, .anim-gold-pins { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="600" height="450" rx="14" fill="url(#c400Bg)" stroke="#1E293B" stroke-width="1.2"/>
+  <circle cx="300" cy="225" r="160" fill="#F59E0B" opacity="0.04"/>
+
+  <!-- Card Form Factor with Float Animation -->
+  <g transform="translate(130, 110)" class="anim-card-float" filter="url(#cDrop)">
+    <!-- Main Card Body in Obsidian Carbon with Gold Bevel -->
+    <rect x="0" y="0" width="340" height="215" rx="14" fill="url(#cardGrad)" stroke="#F59E0B" stroke-width="1.5"/>
+    
+    <!-- Subtle Geometric Carbon Fiber Style Mesh -->
+    <path d="M0 0 L160 0 L90 215 L0 215 Z" fill="#F59E0B" opacity="0.08"/>
+    <circle cx="270" cy="60" r="80" fill="#F59E0B" opacity="0.05"/>
+
+    <!-- Flip-Out USB Connector Area Recess -->
+    <rect x="22" y="55" width="85" height="110" rx="8" fill="#090C12" stroke="#334155" stroke-width="1.2" stroke-dasharray="3 3"/>
+    
+    <!-- Flip-out Plug Mechanism (Gold Contact UDP Chip Animated) -->
+    <g class="anim-flip-connector">
+      <rect x="30" y="70" width="68" height="80" rx="6" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
+      <rect x="36" y="76" width="56" height="30" rx="3" fill="#090C12"/>
+      <!-- Gold Contacts -->
+      <g class="anim-gold-pins">
+        <rect x="42" y="80" width="7" height="18" rx="1" fill="#F59E0B"/>
+        <rect x="53" y="80" width="7" height="18" rx="1" fill="#F59E0B"/>
+        <rect x="64" y="80" width="7" height="18" rx="1" fill="#F59E0B"/>
+        <rect x="75" y="80" width="7" height="18" rx="1" fill="#F59E0B"/>
+      </g>
+      
+      <text x="64" y="132" font-family="-apple-system, sans-serif" font-size="7.5" font-weight="800" fill="#FBBF24" text-anchor="middle">UDP COB CHIP</text>
+      <text x="64" y="142" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="700" fill="#94A3B8" text-anchor="middle">FLIP MECHANISM</text>
+    </g>
+
+    <!-- Card Front Typography in Titanium & Gold -->
+    <text x="135" y="65" font-family="-apple-system, sans-serif" font-size="18" font-weight="900" fill="#F8FAFC" letter-spacing="1">CARDSLIM</text>
+    <text x="135" y="84" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" letter-spacing="1">EXECUTIVE WAFER</text>
+    
+    <text x="135" y="125" font-family="-apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#CBD5E1">Model: USB-C400</text>
+    <text x="135" y="142" font-family="-apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#CBD5E1">Thickness: Ultra-Slim 2.2 mm</text>
+    <text x="135" y="159" font-family="-apple-system, sans-serif" font-size="9.5" font-weight="600" fill="#CBD5E1">Capacity: Up to 128GB</text>
+
+    <!-- Full-Color Direct Digital UV Print Zone indicator -->
+    <rect x="135" y="172" width="180" height="26" rx="6" fill="#181E29" stroke="#334155" stroke-width="1"/>
+    <text x="225" y="189" font-family="-apple-system, sans-serif" font-size="9" font-weight="800" fill="#FDE68A" text-anchor="middle">Full-Color Dual-Sided UV Imprint</text>
+  </g>
+
+  <!-- Tag Pill -->
+  <g transform="translate(30, 30)">
+    <rect width="150" height="28" rx="14" fill="#090C12" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="75" y="18" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">CREDIT CARD / SLIM</text>
+  </g>
+</svg>

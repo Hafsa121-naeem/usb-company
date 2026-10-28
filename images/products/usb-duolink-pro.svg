@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="DuoLink Pro Dual USB-C and USB-A Flash Drive Animated">
+  <defs>
+    <linearGradient id="d200Bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141926"/>
+      <stop offset="100%" stop-color="#090C12"/>
+    </linearGradient>
+    <linearGradient id="goldCore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="shieldMetal" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <filter id="dDrop" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+    <filter id="otgGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes floatDuo {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes shieldRock {
+        0%, 100% { transform: rotate(0deg); }
+        35% { transform: rotate(-18deg); }
+        70% { transform: rotate(18deg); }
+      }
+      @keyframes signalPulse {
+        0%, 100% { opacity: 0.2; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+      .anim-duo-float { animation: floatDuo 5.2s ease-in-out infinite; }
+      .anim-shield {
+        transform-origin: 130px 65px;
+        animation: shieldRock 6s ease-in-out infinite;
+      }
+      .anim-signal {
+        animation: signalPulse 2s ease-in-out infinite;
+        transform-origin: 25px 65px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .anim-duo-float, .anim-shield, .anim-signal { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="600" height="450" rx="14" fill="url(#d200Bg)" stroke="#1E293B" stroke-width="1.2"/>
+  <circle cx="300" cy="225" r="160" fill="#F59E0B" opacity="0.04"/>
+  <circle cx="300" cy="225" r="120" stroke="#334155" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+
+  <!-- USB DuoLink Graphic with Float Animation -->
+  <g transform="translate(100, 160)" class="anim-duo-float" filter="url(#dDrop)">
+    
+    <!-- OTG Signal Waves at Type-C Tip -->
+    <g class="anim-signal">
+      <circle cx="10" cy="65" r="18" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#otgGlow)"/>
+      <circle cx="10" cy="65" r="28" stroke="#F59E0B" stroke-width="1" fill="none" opacity="0.3"/>
+    </g>
+
+    <!-- Left Plug: USB Type-C Reversible Connector -->
+    <rect x="0" y="44" width="50" height="42" rx="10" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1"/>
+    <rect x="8" y="58" width="34" height="14" rx="5" fill="#090C12"/>
+    <line x1="16" y1="65" x2="34" y2="65" stroke="#F59E0B" stroke-width="2"/>
+
+    <!-- Inner Core Body in Burnished Gold Anodized Finish -->
+    <rect x="45" y="32" width="280" height="66" rx="8" fill="url(#goldCore)"/>
+    <line x1="46" y1="34" x2="324" y2="34" stroke="#FDE68A" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- Right Plug: USB-A 3.2 Standard Plug -->
+    <rect x="320" y="37" width="60" height="56" rx="3" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1"/>
+    <rect x="328" y="42" width="44" height="46" rx="2" fill="#F59E0B"/>
+    <rect x="334" y="46" width="6" height="16" fill="#FFFFFF" rx="1"/>
+    <rect x="344" y="46" width="6" height="16" fill="#FFFFFF" rx="1"/>
+    <rect x="354" y="46" width="6" height="16" fill="#FFFFFF" rx="1"/>
+
+    <!-- Swiveling Protective Gunmetal Metal Bridge (Animated Rotating Shield) -->
+    <g class="anim-shield">
+      <rect x="110" y="24" width="160" height="82" rx="10" fill="url(#shieldMetal)" stroke="#64748B" stroke-width="1.5"/>
+      <circle cx="130" cy="65" r="8" fill="#F59E0B"/>
+      <circle cx="130" cy="65" r="4" fill="#090C12"/>
+
+      <text x="155" y="60" font-family="-apple-system, sans-serif" font-size="14" font-weight="900" fill="#F8FAFC" letter-spacing="1">DUOLINK PRO</text>
+      <text x="155" y="76" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#F59E0B">USB-C + USB-A 3.2</text>
+      <text x="155" y="90" font-family="-apple-system, sans-serif" font-size="8.5" font-weight="600" fill="#94A3B8">MODEL USB-D200</text>
+
+      <line x1="245" y1="36" x2="245" y2="94" stroke="#475569" stroke-width="2"/>
+      <line x1="252" y1="36" x2="252" y2="94" stroke="#475569" stroke-width="2"/>
+      <line x1="259" y1="36" x2="259" y2="94" stroke="#475569" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Tag Pill -->
+  <g transform="translate(30, 30)">
+    <rect width="140" height="28" rx="14" fill="#090C12" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="70" y="18" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F59E0B" text-anchor="middle">DUAL TYPE-C / OTG</text>
+  </g>
+</svg>

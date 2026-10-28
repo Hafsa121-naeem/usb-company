@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="spBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1D2D"/>
+      <stop offset="100%" stop-color="#142B3E"/>
+    </linearGradient>
+
+    <linearGradient id="spTinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D455E"/>
+      <stop offset="50%" stop-color="#4F6D8C"/>
+      <stop offset="100%" stop-color="#1B2E42"/>
+    </linearGradient>
+
+    <linearGradient id="spFoamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#081420"/>
+      <stop offset="100%" stop-color="#0D2235"/>
+    </linearGradient>
+
+    <linearGradient id="spHoloSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B4A" stop-opacity="0.3"/>
+      <stop offset="35%" stop-color="#F59E0B" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#00D2A0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <style>
+      @keyframes spHoloGlide {
+        0% { transform: translateX(-120%) rotate(25deg); opacity: 0; }
+        30% { opacity: 0.6; }
+        60% { transform: translateX(200%) rotate(25deg); opacity: 0; }
+        100% { transform: translateX(200%) rotate(25deg); opacity: 0; }
+      }
+      @keyframes spBadgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+      @keyframes spStatusDot {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px #00D2A0); }
+        50% { opacity: 0.35; filter: none; }
+      }
+
+      .sp-sheen-bar {
+        animation: spHoloGlide 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      .sp-seal-pulse {
+        transform-origin: center;
+        animation: spBadgePulse 3.2s ease-in-out infinite;
+      }
+      .sp-green-dot {
+        animation: spStatusDot 1.5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="400" height="240" rx="14" fill="url(#spBg)"/>
+  <rect x="1" y="1" width="398" height="238" rx="13" fill="none" stroke="#254A6B" stroke-width="1.5" stroke-opacity="0.55"/>
+
+  <!-- Subtle Studio Presentation Floor Shadow -->
+  <ellipse cx="200" cy="180" rx="140" ry="16" fill="#040B12" opacity="0.6"/>
+
+  <!-- Main Executive Metal Presentation Tin / Box Container -->
+  <g id="presentation-box" transform="translate(90, 45)">
+    <!-- Outer Metal Box Shell -->
+    <rect x="0" y="0" width="220" height="130" rx="10" fill="url(#spTinGrad)" stroke="#5B7C9E" stroke-width="1.8"/>
+
+    <!-- Inner Beveled Border -->
+    <rect x="8" y="8" width="204" height="114" rx="7" fill="none" stroke="#25425E" stroke-width="1.2"/>
+
+    <!-- High-Density Die-Cut EVA Foam Interior -->
+    <rect x="14" y="14" width="192" height="102" rx="6" fill="url(#spFoamGrad)"/>
+
+    <!-- Custom USB Drive Cutout Nest in Foam -->
+    <rect x="35" y="32" width="150" height="42" rx="6" fill="#050E17" stroke="#1D3E5E" stroke-width="1.2"/>
+
+    <!-- Embedded USB Drive Inside Cutout -->
+    <g transform="translate(50, 40)">
+      <rect x="0" y="7" width="22" height="18" rx="2" fill="#94A3B8"/>
+      <rect x="22" y="0" width="85" height="32" rx="4" fill="#3B526B" stroke="#6884A4" stroke-width="1.2"/>
+      <circle cx="95" cy="16" r="5" fill="#1C2D3E"/>
+      <text x="56" y="19" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="7" font-weight="800" text-anchor="middle" letter-spacing="1">NEXDRIVE</text>
+    </g>
+
+    <!-- Clear Acrylic Window Reflection Overlay -->
+    <g overflow="hidden">
+      <!-- Sheen Layer that Glides Across Packaging -->
+      <rect x="-100" y="0" width="80" height="180" fill="url(#spHoloSheen)" class="sp-sheen-bar"/>
+    </g>
+
+    <!-- Holographic Authenticity Seal Badge on Packaging Corner -->
+    <g transform="translate(170, 78)" class="sp-seal-pulse">
+      <circle cx="18" cy="18" r="16" fill="#132B40" stroke="#00D2A0" stroke-width="1.5"/>
+      <circle cx="18" cy="18" r="13" fill="none" stroke="#F59E0B" stroke-dasharray="2,2"/>
+      <text x="18" y="16" fill="#00D2A0" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="900" text-anchor="middle">QC</text>
+      <text x="18" y="24" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="5" font-weight="700" text-anchor="middle">SEALED</text>
+    </g>
+  </g>
+
+  <!-- Bottom Telemetry Readout Bar -->
+  <g transform="translate(30, 195)">
+    <rect x="0" y="0" width="340" height="34" rx="6" fill="#081825" stroke="#1B3E5C" stroke-width="1"/>
+    <circle cx="18" cy="17" r="4" fill="#00D2A0" class="sp-green-dot"/>
+    <text x="32" y="14" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="7.5" font-weight="700">BESPOKE PRESENTATION PACKAGING</text>
+    <text x="32" y="25" fill="#00D2A0" font-family="monospace" font-size="8.5" font-weight="700">ESD Anti-Static Trays • Window Tins • Kraft Gift Boxes</text>
+    <rect x="260" y="8" width="68" height="18" rx="9" fill="#122F47" stroke="#00D2A0" stroke-width="1"/>
+    <text x="294" y="20" fill="#00D2A0" font-family="-apple-system, sans-serif" font-size="7" font-weight="800" text-anchor="middle">OPTIONS 🎁</text>
+  </g>
+</svg>

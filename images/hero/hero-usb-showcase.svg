@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800" height="520" role="img" aria-label="Animated Titanium USB Flash Drive Showcase">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121824"/>
+      <stop offset="60%" stop-color="#090C12"/>
+      <stop offset="100%" stop-color="#040609"/>
+    </linearGradient>
+    <linearGradient id="titanium" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="25%" stop-color="#94A3B8"/>
+      <stop offset="60%" stop-color="#CBD5E1"/>
+      <stop offset="85%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="amberAlum" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="usbMetal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <linearGradient id="glowAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#B45309" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FDE68A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="shadowFilter" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.75"/>
+    </filter>
+    <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes ambientGlowPulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.15); opacity: 1; }
+      }
+      @keyframes floatMainDrive {
+        0%, 100% { transform: translate(320px, 160px) rotate(-18deg); }
+        50% { transform: translate(320px, 144px) rotate(-16deg); }
+      }
+      @keyframes floatDriveRight {
+        0%, 100% { transform: translate(480px, 260px) rotate(22deg); }
+        50% { transform: translate(485px, 248px) rotate(24deg); }
+      }
+      @keyframes floatDriveLeft {
+        0%, 100% { transform: translate(130px, 220px) rotate(-10deg); }
+        50% { transform: translate(128px, 208px) rotate(-8deg); }
+      }
+      @keyframes circuitStream {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes ledFlicker {
+        0%, 100% { opacity: 0.95; transform: scale(1); }
+        20% { opacity: 0.35; transform: scale(0.85); }
+        40% { opacity: 1; transform: scale(1.25); }
+        60% { opacity: 0.5; }
+        80% { opacity: 1; transform: scale(1.2); }
+      }
+      @keyframes sheenSweep {
+        0% { transform: translateX(-180px) skewX(-25deg); opacity: 0; }
+        20% { opacity: 0.85; }
+        45% { transform: translateX(280px) skewX(-25deg); opacity: 0; }
+        100% { transform: translateX(280px) skewX(-25deg); opacity: 0; }
+      }
+      @keyframes badgeBob1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+      @keyframes badgeBob2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+      @keyframes badgeBob3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+      .glow-pulse { animation: ambientGlowPulse 6s ease-in-out infinite; transform-origin: 400px 240px; }
+      .anim-main-drive { animation: floatMainDrive 5s ease-in-out infinite; }
+      .anim-drive-right { animation: floatDriveRight 5.8s ease-in-out infinite; }
+      .anim-drive-left { animation: floatDriveLeft 6.4s ease-in-out infinite; }
+      .circuit-data-stream { stroke-dasharray: 8 6; animation: circuitStream 1.8s linear infinite; }
+      .circuit-data-stream-2 { stroke-dasharray: 6 5; animation: circuitStream 2.2s linear infinite reverse; }
+      .led-active { animation: ledFlicker 1.6s ease-in-out infinite; transform-origin: 160px 61px; }
+      .sheen-layer { animation: sheenSweep 4.2s ease-in-out infinite; }
+      .hud-badge-1 { animation: badgeBob1 4.2s ease-in-out infinite; }
+      .hud-badge-2 { animation: badgeBob2 5s ease-in-out infinite 0.5s; }
+      .hud-badge-3 { animation: badgeBob3 4.6s ease-in-out infinite 1s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .glow-pulse, .anim-main-drive, .anim-drive-right, .anim-drive-left,
+        .circuit-data-stream, .circuit-data-stream-2, .led-active, .sheen-layer,
+        .hud-badge-1, .hud-badge-2, .hud-badge-3 { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <!-- Dark Obsidian Base with Subtle Gold Ambient Light -->
+  <rect width="800" height="520" rx="20" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Cyber Matrix Grid -->
+  <g stroke="#1E293B" stroke-width="1" opacity="0.45">
+    <line x1="80" y1="0" x2="80" y2="520"/>
+    <line x1="200" y1="0" x2="200" y2="520"/>
+    <line x1="320" y1="0" x2="320" y2="520"/>
+    <line x1="440" y1="0" x2="440" y2="520"/>
+    <line x1="560" y1="0" x2="560" y2="520"/>
+    <line x1="680" y1="0" x2="680" y2="520"/>
+    <line x1="0" y1="80" x2="800" y2="80"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="0" y1="440" x2="800" y2="440"/>
+  </g>
+
+  <!-- Ambient Light Halos in Burnished Amber & Dark Emerald -->
+  <circle cx="400" cy="240" r="230" fill="url(#glowAmber)" class="glow-pulse"/>
+  <circle cx="620" cy="180" r="140" fill="#10B981" opacity="0.1" class="glow-pulse"/>
+
+  <!-- Circuit Trace Accents with Flowing Data Stream -->
+  <path d="M120 400 L220 400 L260 360 L380 360" stroke="#F59E0B" stroke-width="2" fill="none" opacity="0.8" class="circuit-data-stream"/>
+  <circle cx="120" cy="400" r="3.5" fill="#FBBF24" filter="url(#glowFilter)"/>
+  <circle cx="380" cy="360" r="3.5" fill="#FBBF24" filter="url(#glowFilter)"/>
+  
+  <path d="M500 120 L580 120 L620 160 L700 160" stroke="#10B981" stroke-width="2" fill="none" opacity="0.8" class="circuit-data-stream-2"/>
+  <circle cx="500" cy="120" r="3.5" fill="#34D399" filter="url(#glowFilter)"/>
+  <circle cx="700" cy="160" r="3.5" fill="#34D399" filter="url(#glowFilter)"/>
+
+  <!-- DRIVE 3: Classic Swivel Drive (Bottom Left - Animated Float) -->
+  <g class="anim-drive-left" filter="url(#shadowFilter)">
+    <rect x="40" y="30" width="130" height="42" rx="5" fill="#181E29" stroke="#334155" stroke-width="0.8"/>
+    <path d="M70 18 L160 8 Q175 6 180 18 L180 65 Q175 75 160 72 L70 64 Z" fill="url(#usbMetal)" stroke="#94A3B8" stroke-width="0.8"/>
+    <circle cx="85" cy="42" r="6" fill="#090C12"/>
+    <circle cx="85" cy="42" r="3" fill="#F59E0B"/>
+    <circle cx="165" cy="40" r="7" fill="#090C12"/>
+    <rect x="0" y="35" width="42" height="32" rx="2" fill="url(#usbMetal)"/>
+    <rect x="6" y="38" width="28" height="26" rx="1" fill="#F59E0B"/>
+    <text x="105" y="44" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" fill="#181E29" letter-spacing="0.5">CUSTOM LOGO</text>
+  </g>
+
+  <!-- DRIVE 2: Dual USB-C & USB-A OTG Drive (Top Right - Animated Float) -->
+  <g class="anim-drive-right" filter="url(#shadowFilter)">
+    <rect x="0" y="35" width="32" height="22" rx="7" fill="url(#usbMetal)"/>
+    <rect x="6" y="43" width="20" height="6" rx="3" fill="#090C12"/>
+    <!-- Amber / Gold Anodized Body -->
+    <rect x="30" y="26" width="125" height="40" rx="6" fill="url(#amberAlum)"/>
+    <!-- Rotating Gunmetal Shield -->
+    <rect x="60" y="22" width="80" height="48" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1.2"/>
+    <circle cx="75" cy="46" r="4" fill="#F59E0B"/>
+    <line x1="120" y1="30" x2="120" y2="62" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="125" y1="30" x2="125" y2="62" stroke="#64748B" stroke-width="1.5"/>
+    <line x1="130" y1="30" x2="130" y2="62" stroke="#64748B" stroke-width="1.5"/>
+    <rect x="150" y="31" width="35" height="30" rx="2" fill="url(#usbMetal)"/>
+    <rect x="156" y="34" width="24" height="24" rx="2" fill="#F59E0B"/>
+    <text x="88" y="50" font-family="-apple-system, sans-serif" font-size="9" font-weight="800" fill="#F8FAFC">DUAL 256G</text>
+  </g>
+
+  <!-- DRIVE 1: Apex Titanium Flagship Drive (Center Front - Animated Hero) -->
+  <g class="anim-main-drive" filter="url(#shadowFilter)">
+    <rect x="0" y="40" width="55" height="42" rx="3" fill="url(#usbMetal)"/>
+    <rect x="10" y="44" width="35" height="34" rx="2" fill="#F59E0B"/> <!-- Gold contact insert -->
+    <rect x="14" y="48" width="5" height="12" fill="#F8FAFC" rx="1"/>
+    <rect x="23" y="48" width="5" height="12" fill="#F8FAFC" rx="1"/>
+    <rect x="31" y="48" width="5" height="12" fill="#F8FAFC" rx="1"/>
+
+    <!-- Outer titanium chassis -->
+    <g>
+      <clipPath id="chassisClip">
+        <rect x="52" y="32" width="165" height="58" rx="8"/>
+      </clipPath>
+      <rect x="52" y="32" width="165" height="58" rx="8" fill="url(#titanium)"/>
+      <!-- Metallic Sheen Sweep Animation in Burnished Champagne -->
+      <g clip-path="url(#chassisClip)">
+        <rect x="52" y="32" width="50" height="58" fill="url(#sheenGrad)" class="sheen-layer"/>
+      </g>
+    </g>
+
+    <line x1="53" y1="33" x2="215" y2="33" stroke="#FDE68A" stroke-width="1.5" opacity="0.8"/>
+    <line x1="53" y1="89" x2="215" y2="89" stroke="#1E293B" stroke-width="1.5"/>
+    
+    <circle cx="196" cy="61" r="11" fill="#090C12"/>
+    <circle cx="196" cy="61" r="14" stroke="#F59E0B" stroke-width="2" fill="none"/>
+    
+    <text x="80" y="58" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC" letter-spacing="1">NEXDRIVE</text>
+    <text x="80" y="74" font-family="-apple-system, sans-serif" font-size="9" font-weight="700" fill="#CBD5E1" letter-spacing="0.5">TITANIUM • 128GB</text>
+    
+    <!-- Gold/Amber Indicator LED with Data Blink -->
+    <circle cx="160" cy="61" r="3.5" fill="#F59E0B" filter="url(#glowFilter)" class="led-active"/>
+  </g>
+
+  <!-- Interactive Floating HUD Badges -->
+  <!-- Badge 1: High Speed -->
+  <g transform="translate(70, 75)" filter="url(#shadowFilter)" class="hud-badge-1">
+    <rect width="180" height="44" rx="22" fill="#131824" stroke="#F59E0B" stroke-width="1.5" opacity="0.96"/>
+    <circle cx="24" cy="22" r="10" fill="#F59E0B" opacity="0.25"/>
+    <path d="M21 16 L27 22 L21 28" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <text x="44" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">USB 3.2 Gen 1</text>
+    <text x="44" y="33" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#F59E0B">Up to 150 MB/s Read</text>
+  </g>
+
+  <!-- Badge 2: Custom Branding -->
+  <g transform="translate(560, 60)" filter="url(#shadowFilter)" class="hud-badge-2">
+    <rect width="185" height="44" rx="22" fill="#131824" stroke="#10B981" stroke-width="1.5" opacity="0.96"/>
+    <circle cx="24" cy="22" r="10" fill="#10B981" opacity="0.25"/>
+    <circle cx="24" cy="22" r="4" fill="#34D399" filter="url(#glowFilter)"/>
+    <text x="44" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">Custom OEM Branding</text>
+    <text x="44" y="33" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#34D399">Fiber Laser &amp; Silkscreen</text>
+  </g>
+
+  <!-- Badge 3: Tier 1 ICs -->
+  <g transform="translate(490, 430)" filter="url(#shadowFilter)" class="hud-badge-3">
+    <rect width="230" height="44" rx="22" fill="#131824" stroke="#475569" stroke-width="1.2" opacity="0.96"/>
+    <circle cx="24" cy="22" r="10" fill="#F59E0B" opacity="0.2"/>
+    <text x="18" y="26" font-family="-apple-system, sans-serif" font-size="10" font-weight="800" fill="#F59E0B">IC</text>
+    <text x="44" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#F8FAFC">Tier-1 Storage ICs</text>
+    <text x="44" y="33" font-family="-apple-system, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">16GB | 32GB | 64GB | 128GB | 256GB</text>
+  </g>
+
+  <!-- Gold Horizon Glow Line -->
+  <line x1="100" y1="510" x2="700" y2="510" stroke="url(#amberAlum)" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+</svg>
