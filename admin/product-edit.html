@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // Clean URL Rewriter: Instantly strip .html from address bar
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+        window.history.replaceState(null, document.title, clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product | NexDrive Admin Portal</title>
+  <script>
+    // URL Cleaner: Strip .html extension immediately
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+        window.history.replaceState(null, document.title, clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --color-petrol-dark: #0B1D2D;
+      --color-petrol-surface: #102A42;
+      --color-petrol-card: #143554;
+      --color-petrol-border: rgba(255, 255, 255, 0.12);
+      --color-petrol-hover: #194064;
+      --color-coral-primary: #FF6B4A;
+      --color-coral-hover: #E85635;
+      --color-amber-gold: #F59E0B;
+      --color-mint-emerald: #00D2A0;
+      --color-danger-red: #EF4444;
+      --color-text-white: #FFFFFF;
+      --color-text-body: #CBD5E1;
+      --color-text-muted: #94A3B8;
+      --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--color-petrol-dark);
+      color: var(--color-text-body);
+      font-family: var(--font-family-base);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    .admin-header {
+      background: var(--color-petrol-surface);
+      border-bottom: 1px solid var(--color-petrol-border);
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .admin-header-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .back-btn {
+      color: var(--color-amber-gold);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      background: rgba(245, 158, 11, 0.25);
+    }
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--color-coral-primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(255, 107, 74, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--color-coral-hover);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-text-white);
+      border: 1px solid var(--color-petrol-border);
+    }
+    .btn-outline:hover {
+      background: var(--color-petrol-hover);
+    }
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--color-danger-red);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+    .btn-danger:hover {
+      background: var(--color-danger-red);
+      color: #FFFFFF;
+    }
+
+    .editor-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+    }
+    @media (max-width: 950px) {
+      .editor-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .editor-card {
+      background: var(--color-petrol-surface);
+      border: 1px solid var(--color-petrol-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .editor-card-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-text-white);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+      .form-grid-2, .form-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--color-petrol-dark);
+      border: 1px solid var(--color-petrol-border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--color-amber-gold);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+    }
+    textarea.form-control {
+      resize: vertical;
+    }
+
+    /* Live Preview Box */
+    .preview-sticky {
+      position: sticky;
+      top: 90px;
+    }
+    .preview-card {
+      background: var(--color-petrol-card);
+      border: 1px solid var(--color-amber-gold);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    .preview-img-box {
+      background: #090C12;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .preview-img-box img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+    .preview-body {
+      padding: 20px;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--color-mint-emerald);
+      color: #0B1D2D;
+      padding: 14px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Top Bar -->
+  <header class="admin-header">
+    <div class="admin-header-title">
+      <a href="../admin/" class="back-btn">
+        &larr; Back to Dashboard
+      </a>
+      <h1 id="page-heading" style="font-size: 1.25rem; color: #FFFFFF; font-weight: 800;">
+        Edit Product Details
+      </h1>
+    </div>
+
+    <div class="header-actions">
+      <a id="btn-view-live" href="../product?id=1" target="_blank" class="btn btn-outline">
+        👁 View Live on Website
+      </a>
+      <button type="button" id="btn-delete" class="btn btn-danger" style="display: none;">
+        🗑 Delete
+      </button>
+      <button type="button" id="btn-save" class="btn btn-primary">
+        💾 Save Product Changes
+      </button>
+    </div>
+  </header>
+
+  <main class="editor-container">
+    
+    <!-- Left Column: Comprehensive Edit Fields -->
+    <div class="editor-main-form">
+      
+      <!-- Card 1: Core Identification -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">📦 Product Identification</h2>
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="prod-name">Product Name *</label>
+            <input type="text" id="prod-name" class="form-control" placeholder="e.g. Apex Titanium Flash Drive" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-code">Model Code *</label>
+            <input type="text" id="prod-code" class="form-control" placeholder="e.g. USB-M100" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="prod-category">Product Category *</label>
+            <select id="prod-category" class="form-control">
+              <option value="Titanium Metal">Titanium Metal (Zinc-Alloy)</option>
+              <option value="Dual USB-C / OTG">Dual USB-C / OTG</option>
+              <option value="Capless Swivel">Capless Swivel</option>
+              <option value="Credit Card Wafer">Credit Card Wafer</option>
+              <option value="Waterproof Key">Waterproof Key</option>
+              <option value="Eco Wood">Eco Wood (Organic Bamboo)</option>
+              <option value="Custom 3D PVC">Custom 3D PVC</option>
+              <option value="Executive Leather">Executive Leather</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-availability">Stock Availability *</label>
+            <select id="prod-availability" class="form-control">
+              <option value="In Stock">In Stock (Ready to Dispatch)</option>
+              <option value="Made to Order">Made to Order (Custom Logo)</option>
+              <option value="Bulk Only">Bulk Only (B2B Tiers)</option>
+              <option value="Out of Stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Pricing & Multi-Currency -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">💰 Pricing &amp; Currency (PKR Primary)</h2>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label" for="prod-price-pkr">Base Unit Price in PKR (₨) *</label>
+            <input type="number" id="prod-price-pkr" class="form-control" placeholder="1250" step="50" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-price-display">Display Price Range *</label>
+            <input type="text" id="prod-price-display" class="form-control" placeholder="₨ 1,250 – ₨ 4,800 / unit">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-moq">Minimum Order Qty (MOQ)</label>
+            <input type="number" id="prod-moq" class="form-control" placeholder="25" value="25">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="prod-stock-qty">Available Stock Units</label>
+            <input type="number" id="prod-stock-qty" class="form-control" placeholder="2500" value="2500">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-capacities">Available Capacities (Comma Separated)</label>
+            <input type="text" id="prod-capacities" class="form-control" placeholder="16GB, 32GB, 64GB, 128GB, 256GB">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Hardware Technical Specifications -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">⚙️ Hardware Technical Specifications</h2>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label" for="prod-interface">USB Interface *</label>
+            <input type="text" id="prod-interface" class="form-control" placeholder="USB 3.2 Gen 1 (Type-A)">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-read-speed">Sequential Read Speed</label>
+            <input type="text" id="prod-read-speed" class="form-control" placeholder="Up to 150 MB/s">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-write-speed">Sequential Write Speed</label>
+            <input type="text" id="prod-write-speed" class="form-control" placeholder="Up to 60 MB/s">
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label" for="prod-material">Housing Casing Material</label>
+            <input type="text" id="prod-material" class="form-control" placeholder="Die-Cast Zinc Alloy Unibody">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-dimensions">Dimensions &amp; Weight</label>
+            <input type="text" id="prod-dimensions" class="form-control" placeholder="48 × 12.2 × 4.6 mm | 14.5g">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-warranty">Warranty Coverage</label>
+            <input type="text" id="prod-warranty" class="form-control" placeholder="5-Year Enterprise Replacement Warranty">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Media & Image Asset -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">🖼️ Product Media &amp; Image Assets</h2>
+
+        <div class="form-group">
+          <label class="form-label" for="prod-image">Image File / URL *</label>
+          <input type="text" id="prod-image" class="form-control" placeholder="images/products/usb-apex-titanium.svg">
+        </div>
+
+        <div style="margin-top: 10px;">
+          <label class="form-label">Or Upload New Image (Auto Base64 &amp; Server Upload):</label>
+          <input type="file" id="file-upload" accept="image/*" class="form-control" style="padding: 8px;">
+        </div>
+      </div>
+
+      <!-- Card 5: Descriptions & Features -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">📝 Descriptions &amp; Marketing Highlights</h2>
+
+        <div class="form-group">
+          <label class="form-label" for="prod-desc">Short Overview (Catalog Cards) *</label>
+          <textarea id="prod-desc" class="form-control" rows="3" placeholder="Brief high-impact product summary..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="prod-features">Key Feature Bullet Points (One per line)</label>
+          <textarea id="prod-features" class="form-control" rows="5" placeholder="Monocoque zinc-alloy casing&#10;IPX7 water & dust resistant&#10;High-retention 3D TLC NAND&#10;Laser engraved corporate branding area"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Live Interactive Card Preview -->
+    <div class="editor-preview-column">
+      <div class="preview-sticky">
+        <h3 style="font-size: 0.95rem; color: var(--color-amber-gold); text-transform: uppercase; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px;">
+          Live Catalog Preview
+        </h3>
+
+        <div class="preview-card">
+          <div class="preview-img-box">
+            <span id="prev-badge" style="position: absolute; top: 12px; left: 12px; background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 800;">
+              In Stock
+            </span>
+            <img id="prev-img" src="../images/products/usb-apex-titanium.svg" alt="Preview Image">
+          </div>
+
+          <div class="preview-body">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94A3B8; margin-bottom: 6px;">
+              <span id="prev-code" style="color: #F59E0B; font-weight: 700;">USB-M100</span>
+              <span id="prev-category">Titanium Metal</span>
+            </div>
+
+            <h4 id="prev-name" style="font-size: 1.15rem; color: #FFFFFF; font-weight: 800; margin-bottom: 8px;">
+              Apex Titanium Flash Drive
+            </h4>
+
+            <p id="prev-desc" style="font-size: 13px; color: #CBD5E1; line-height: 1.4; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+              Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability...
+            </p>
+
+            <div style="background: rgba(11,29,45,0.7); border-radius: 6px; padding: 10px 12px; margin-bottom: 15px;">
+              <div style="font-size: 11px; color: #94A3B8; text-transform: uppercase;">Wholesale Price</div>
+              <div id="prev-price" style="font-size: 1.3rem; font-weight: 900; color: #FF6B4A;">
+                ₨ 1,250
+              </div>
+            </div>
+
+            <a id="prev-link" href="../product?id=1" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; text-align: center;">
+              View Complete Details Page &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="toast" class="toast-msg">
+    <span>✔</span>
+    <span id="toast-text">Product saved successfully!</span>
+  </div>
+
+  <script>
+    (async function () {
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get('id'), 10);
+      const isNew = !productId;
+
+      let currentProduct = {
+        id: productId || Date.now(),
+        name: '',
+        model_code: '',
+        category: 'Titanium Metal',
+        availability: 'In Stock',
+        price_pkr: 1250,
+        price: '₨ 1,250 – ₨ 4,800 / unit',
+        moq: 25,
+        stock_quantity: 2500,
+        capacity: '16GB, 32GB, 64GB, 128GB, 256GB',
+        interface: 'USB 3.2 Gen 1 (Type-A)',
+        read_speed: 'Up to 150 MB/s',
+        write_speed: 'Up to 60 MB/s',
+        material: 'Die-Cast Zinc Alloy Unibody',
+        dimensions: '48 × 12.2 × 4.6 mm | 14.5g',
+        warranty: '5-Year Enterprise Replacement Warranty',
+        image: 'images/products/usb-apex-titanium.svg',
+        description: '',
+        features: ''
+      };
+
+      if (isNew) {
+        document.getElementById('page-heading').textContent = '➕ Add New Product';
+        document.getElementById('btn-view-live').style.display = 'none';
+      } else {
+        document.getElementById('btn-delete').style.display = 'inline-flex';
+        document.getElementById('btn-view-live').href = `../product?id=${productId}`;
+      }
+
+      // Load existing product data
+      if (!isNew) {
+        try {
+          const res = await fetch(`../api/products/${productId}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.success && data.product) {
+              currentProduct = Object.assign({}, currentProduct, data.product);
+            }
+          }
+        } catch (e) {
+          try {
+            const local = localStorage.getItem('nexdrive_products');
+            if (local) {
+              const list = JSON.parse(local);
+              const found = list.find(p => p.id === productId);
+              if (found) currentProduct = Object.assign({}, currentProduct, found);
+            }
+          } catch (err) {}
+        }
+      }
+
+      // Populate Inputs
+      document.getElementById('prod-name').value = currentProduct.name || '';
+      document.getElementById('prod-code').value = currentProduct.model_code || '';
+      document.getElementById('prod-category').value = currentProduct.category || 'Titanium Metal';
+      document.getElementById('prod-availability').value = currentProduct.availability || 'In Stock';
+      document.getElementById('prod-price-pkr').value = currentProduct.price_pkr || 1250;
+      document.getElementById('prod-price-display').value = currentProduct.price || `₨ ${currentProduct.price_pkr || 1250}`;
+      document.getElementById('prod-moq').value = currentProduct.min_order_qty || currentProduct.moq || 25;
+      document.getElementById('prod-stock-qty').value = currentProduct.stock_quantity || 2500;
+      document.getElementById('prod-capacities').value = currentProduct.capacity || '16GB, 32GB, 64GB, 128GB, 256GB';
+      document.getElementById('prod-interface').value = currentProduct.interface || 'USB 3.2 Gen 1 (Type-A)';
+      document.getElementById('prod-read-speed').value = currentProduct.read_speed || 'Up to 150 MB/s';
+      document.getElementById('prod-write-speed').value = currentProduct.write_speed || 'Up to 60 MB/s';
+      document.getElementById('prod-material').value = currentProduct.material || 'Die-Cast Zinc Alloy';
+      document.getElementById('prod-dimensions').value = currentProduct.dimensions || '48 × 12.2 × 4.6 mm';
+      document.getElementById('prod-warranty').value = currentProduct.warranty || '5-Year Replacement Warranty';
+      document.getElementById('prod-image').value = currentProduct.image || 'images/products/usb-apex-titanium.svg';
+      document.getElementById('prod-desc').value = currentProduct.description || '';
+      document.getElementById('prod-features').value = currentProduct.features || '';
+
+      function updatePreview() {
+        const name = document.getElementById('prod-name').value || 'Apex Titanium Flash Drive';
+        const code = document.getElementById('prod-code').value || 'USB-M100';
+        const cat = document.getElementById('prod-category').value;
+        const avail = document.getElementById('prod-availability').value;
+        const pkr = document.getElementById('prod-price-pkr').value || 1250;
+        const img = document.getElementById('prod-image').value || 'images/products/usb-apex-titanium.svg';
+        const desc = document.getElementById('prod-desc').value || 'Hardware engineered for maximum durability...';
+
+        document.getElementById('prev-name').textContent = name;
+        document.getElementById('prev-code').textContent = code;
+        document.getElementById('prev-category').textContent = cat;
+        document.getElementById('prev-badge').textContent = avail;
+        document.getElementById('prev-price').textContent = `₨ ${parseInt(pkr, 10).toLocaleString()}`;
+        document.getElementById('prev-desc').textContent = desc;
+
+        const resolvedImg = img.startsWith('data:') ? img : (img.startsWith('../') ? img : `../${img}`);
+        document.getElementById('prev-img').src = resolvedImg;
+      }
+
+      // Live bind preview
+      document.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('input', updatePreview);
+        input.addEventListener('change', updatePreview);
+      });
+      updatePreview();
+
+      // Handle Image File Upload
+      document.getElementById('file-upload').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const base64 = event.target.result;
+          document.getElementById('prod-image').value = base64;
+          updatePreview();
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Save Handler
+      document.getElementById('btn-save').addEventListener('click', async () => {
+        const pkr = parseFloat(document.getElementById('prod-price-pkr').value) || 1200;
+        const productPayload = {
+          name: document.getElementById('prod-name').value.trim(),
+          model_code: document.getElementById('prod-code').value.trim(),
+          category: document.getElementById('prod-category').value,
+          availability: document.getElementById('prod-availability').value,
+          price_pkr: pkr,
+          price: document.getElementById('prod-price-display').value.trim() || `₨ ${pkr.toLocaleString()} / unit`,
+          min_order_qty: parseInt(document.getElementById('prod-moq').value, 10) || 25,
+          stock_quantity: parseInt(document.getElementById('prod-stock-qty').value, 10) || 1000,
+          capacity: document.getElementById('prod-capacities').value.trim(),
+          interface: document.getElementById('prod-interface').value.trim(),
+          read_speed: document.getElementById('prod-read-speed').value.trim(),
+          write_speed: document.getElementById('prod-write-speed').value.trim(),
+          material: document.getElementById('prod-material').value.trim(),
+          dimensions: document.getElementById('prod-dimensions').value.trim(),
+          warranty: document.getElementById('prod-warranty').value.trim(),
+          image: document.getElementById('prod-image').value.trim(),
+          description: document.getElementById('prod-desc').value.trim(),
+          features: document.getElementById('prod-features').value.trim()
+        };
+
+        if (!productPayload.name) {
+          alert('Please enter a product name.');
+          return;
+        }
+
+        // 1. Dual-Mode LocalStorage Save (Guarantees immediate update on GitHub Pages)
+        try {
+          let list = [];
+          const stored = localStorage.getItem('nexdrive_products');
+          if (stored) list = JSON.parse(stored);
+
+          if (isNew) {
+            const newId = list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : Date.now();
+            productPayload.id = newId;
+            list.push(productPayload);
+          } else {
+            productPayload.id = productId;
+            const idx = list.findIndex(p => p.id === productId);
+            if (idx >= 0) list[idx] = productPayload;
+            else list.push(productPayload);
+          }
+          localStorage.setItem('nexdrive_products', JSON.stringify(list));
+        } catch (err) {}
+
+        // 2. Try REST API Save
+        try {
+          const url = isNew ? '../api/products' : `../api/products/${productId}`;
+          const method = isNew ? 'POST' : 'PUT';
+          await fetch(url, {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(productPayload)
+          });
+        } catch (err) {}
+
+        // Show Toast
+        const toast = document.getElementById('toast');
+        toast.style.display = 'flex';
+        setTimeout(() => {
+          window.location.href = '../admin/';
+        }, 1200);
+      });
+
+      // Delete Handler
+      document.getElementById('btn-delete').addEventListener('click', async () => {
+        if (!confirm('Are you sure you want to permanently delete this product?')) return;
+
+        try {
+          const stored = localStorage.getItem('nexdrive_products');
+          if (stored) {
+            let list = JSON.parse(stored);
+            list = list.filter(p => p.id !== productId);
+            localStorage.setItem('nexdrive_products', JSON.stringify(list));
+          }
+        } catch (err) {}
+
+        try {
+          await fetch(`../api/products/${productId}`, { method: 'DELETE' });
+        } catch (err) {}
+
+        window.location.href = '../admin/';
+      });
+
+    })();
+  </script>
+</body>
+</html>

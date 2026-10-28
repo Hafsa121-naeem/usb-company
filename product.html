@@ -529,6 +529,74 @@
         </div>
       </section>
 
+      <!-- Dedicated Custom Logo & Image Upload Studio -->
+      <section id="custom-branding-studio" style="margin-top: 40px; background: #102A42; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #F59E0B; padding-bottom: 12px;">
+          <div>
+            <h2 style="font-size: 1.5rem; color: #FFFFFF; margin: 0;">🎨 Upload Your Custom Logo / Artwork</h2>
+            <p style="font-size: 13px; color: #94A3B8; margin: 4px 0 0;">Upload your organization logo or graphic for custom laser engraving or full-color UV screen printing.</p>
+          </div>
+          <span style="background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700;">
+            ✔ Free Digital Proof in 2 Hours
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <!-- Left: Upload Box -->
+          <div>
+            <div id="logo-dropzone" style="border: 2px dashed rgba(245, 158, 11, 0.5); border-radius: 10px; padding: 35px 20px; text-align: center; background: rgba(11, 29, 45, 0.6); cursor: pointer; transition: all 0.2s ease;">
+              <input type="file" id="logo-file-input" accept="image/*,.pdf,.ai,.eps,.svg" style="display: none;">
+              <div style="font-size: 45px; margin-bottom: 10px;">📤</div>
+              <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 6px;">Drop your logo or graphic image here</h3>
+              <p style="font-size: 13px; color: #94A3B8; margin-bottom: 18px;">Supports PNG, JPG, SVG, AI, EPS, PDF (Max 15MB)</p>
+              <button type="button" id="btn-browse-logo" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                📁 Browse &amp; Upload Logo Image
+              </button>
+            </div>
+
+            <!-- Imprint Type Options -->
+            <div style="margin-top: 20px;">
+              <label style="font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase; display: block; margin-bottom: 8px;">Branding Technique:</label>
+              <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #CBD5E1; cursor: pointer;">
+                  <input type="radio" name="imprint_method" value="Laser Engraving" checked> Laser Engraving (Permanent Metallic Etch)
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #CBD5E1; cursor: pointer;">
+                  <input type="radio" name="imprint_method" value="Full-Color UV Print"> Full-Color UV Screen Print
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Mockup / Uploaded Image Preview -->
+          <div style="background: rgba(11, 29, 45, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 12px; font-weight: 700; color: #F59E0B; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px;">
+              Live Branding Mockup Preview
+            </span>
+            
+            <div id="mockup-preview-wrap" style="position: relative; width: 100%; max-width: 320px; text-align: center;">
+              <img id="mockup-base-usb" src="images/products/usb-apex-titanium.svg" alt="USB Drive Mockup" style="width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));">
+              <div id="mockup-logo-overlay" style="position: absolute; top: 48%; left: 45%; transform: translate(-50%, -50%); max-width: 110px; max-height: 40px; display: none; pointer-events: none;">
+                <img id="mockup-logo-img" src="" alt="Uploaded Logo Preview" style="max-width: 100%; max-height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));">
+              </div>
+            </div>
+
+            <div id="upload-status-text" style="font-size: 13px; color: #94A3B8; margin-top: 15px; text-align: center;">
+              No custom logo uploaded yet. Click above to test your logo on this USB drive!
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 18px; width: 100%;">
+              <button type="button" id="apply-logo-buy-btn" class="btn btn-primary btn-sm" style="flex: 1; text-align: center; justify-content: center;">
+                ⚡ Order With This Logo
+              </button>
+              <button type="button" id="apply-logo-quote-btn" class="btn btn-outline-white btn-sm" style="flex: 1; text-align: center; justify-content: center;">
+                📋 Get Quote With Logo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -1058,6 +1126,95 @@
         if (e.target === buyModal) buyModal.classList.remove('active');
         if (e.target === quoteModal) quoteModal.classList.remove('active');
       });
+
+      // Logo Upload & Live Mockup Handler
+      const logoDropzone = document.getElementById('logo-dropzone');
+      const logoFileInput = document.getElementById('logo-file-input');
+      const mockupLogoOverlay = document.getElementById('mockup-logo-overlay');
+      const mockupLogoImg = document.getElementById('mockup-logo-img');
+      const uploadStatusText = document.getElementById('upload-status-text');
+      const orderNotesInput = document.getElementById('order-notes');
+      const quoteDetailsInput = document.getElementById('quote-details');
+      let uploadedLogoBase64 = null;
+
+      if (document.getElementById('btn-browse-logo')) {
+        document.getElementById('btn-browse-logo').addEventListener('click', (e) => {
+          e.stopPropagation();
+          logoFileInput.click();
+        });
+      }
+
+      if (logoDropzone) {
+        logoDropzone.addEventListener('click', () => {
+          logoFileInput.click();
+        });
+
+        logoDropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          logoDropzone.style.borderColor = '#00D2A0';
+          logoDropzone.style.background = 'rgba(0, 210, 160, 0.1)';
+        });
+
+        logoDropzone.addEventListener('dragleave', () => {
+          logoDropzone.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+          logoDropzone.style.background = 'rgba(11, 29, 45, 0.6)';
+        });
+
+        logoDropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          logoDropzone.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+          logoDropzone.style.background = 'rgba(11, 29, 45, 0.6)';
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleLogoFile(e.dataTransfer.files[0]);
+          }
+        });
+      }
+
+      if (logoFileInput) {
+        logoFileInput.addEventListener('change', (e) => {
+          if (e.target.files && e.target.files[0]) {
+            handleLogoFile(e.target.files[0]);
+          }
+        });
+      }
+
+      function handleLogoFile(file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          uploadedLogoBase64 = event.target.result;
+          mockupLogoImg.src = uploadedLogoBase64;
+          mockupLogoOverlay.style.display = 'block';
+          uploadStatusText.innerHTML = `<span style="color: #00D2A0; font-weight: bold;">✔ Logo uploaded: ${file.name}</span> (${(file.size / 1024).toFixed(1)} KB)`;
+          
+          if (orderNotesInput) {
+            orderNotesInput.value = `Custom Logo Attached: ${file.name} (Laser Engraved Proof Approved)`;
+          }
+          if (quoteDetailsInput) {
+            quoteDetailsInput.value = `Attached Logo: ${file.name} for precision corporate laser engraving.`;
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (document.getElementById('apply-logo-buy-btn')) {
+        document.getElementById('apply-logo-buy-btn').addEventListener('click', () => {
+          if (!uploadedLogoBase64) {
+            logoFileInput.click();
+          } else {
+            document.getElementById('open-buy-modal').click();
+          }
+        });
+      }
+
+      if (document.getElementById('apply-logo-quote-btn')) {
+        document.getElementById('apply-logo-quote-btn').addEventListener('click', () => {
+          if (!uploadedLogoBase64) {
+            logoFileInput.click();
+          } else {
+            document.getElementById('open-quote-modal').click();
+          }
+        });
+      }
 
       // Handle Direct Order Submission
       document.getElementById('direct-order-form').addEventListener('submit', (e) => {

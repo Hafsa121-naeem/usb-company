@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    // Clean URL Rewriter: Instantly strip .html from address bar
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+        window.history.replaceState(null, document.title, clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexDrive Admin Portal | USB Products Management System</title>
@@ -1034,7 +1044,7 @@ body {
   <header class="admin-header">
     <div class="admin-header-container">
       <div class="admin-brand">
-        <a href="../index.html" title="Go to Public Website" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <a href="../" title="Go to Public Website" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
           <img src="../images/logo.svg" alt="NexDrive Logo" class="admin-brand-logo" onerror="this.src='../images/hero-brand-emblem.svg'">
           <span class="admin-badge-portal">Admin Portal</span>
         </a>
@@ -1048,7 +1058,7 @@ body {
         </div>
 
         <!-- Back to Website Link -->
-        <a href="../index.html" class="btn btn-outline-white btn-sm" target="_blank" title="Open Public Website in New Tab">
+        <a href="../" class="btn btn-outline-white btn-sm" target="_blank" title="Open Public Website in New Tab">
           🌐 View Public Website
         </a>
 
@@ -1660,7 +1670,7 @@ body {
       model_code: 'USB-M100',
       image: '../images/products/usb-apex-titanium.svg',
       capacity: '16GB, 32GB, 64GB, 128GB, 256GB',
-      price: '$4.20 - $18.50 / unit',
+      price: '₨ 1,250 – ₨ 4,800 / unit',
       description: 'Rugged zinc-aluminum alloy monocoque casing with gunmetal titanium finish. Dual-channel high-retention NAND designed for mission-critical enterprise deployment.',
       availability: 'In Stock',
       category: 'Titanium Metal',
@@ -1673,7 +1683,7 @@ body {
       model_code: 'USB-D200',
       image: '../images/products/usb-duolink-pro.svg',
       capacity: '32GB, 64GB, 128GB, 256GB, 512GB',
-      price: '$5.80 - $28.00 / unit',
+      price: '₨ 1,650 – ₨ 6,500 / unit',
       description: 'Reversible dual-interface swivel drive with USB Type-C and USB-A plugs. Instant plug-and-play cross-compatibility between smartphones, modern laptops, and legacy terminals.',
       availability: 'In Stock',
       category: 'Dual USB-C OTG',
@@ -1686,7 +1696,7 @@ body {
       model_code: 'USB-S300',
       image: '../images/products/usb-orbit-swivel.svg',
       capacity: '8GB, 16GB, 32GB, 64GB, 128GB',
-      price: '$2.90 - $11.50 / unit',
+      price: '₨ 850 – ₨ 3,200 / unit',
       description: 'The corporate industry standard capless 360-degree rotational design featuring a protective aluminum swivel clip and soft-touch body.',
       availability: 'In Stock',
       category: 'Capless Swivel',
@@ -1699,7 +1709,7 @@ body {
       model_code: 'USB-C400',
       image: '../images/products/usb-cardslim-executive.svg',
       capacity: '16GB, 32GB, 64GB, 128GB',
-      price: '$3.40 - $12.80 / unit',
+      price: '₨ 950 – ₨ 3,600 / unit',
       description: 'Ultra-slim 2.2mm form factor with flip-out USB connector styled identically to a standard business card. Fits perfectly in wallets with full-bleed photographic UV imprint.',
       availability: 'Made to Order',
       category: 'Credit Card Wafer',
@@ -1712,7 +1722,7 @@ body {
       model_code: 'USB-K500',
       image: '../images/products/usb-securevault-key.svg',
       capacity: '32GB, 64GB, 128GB, 256GB',
-      price: '$6.50 - $22.00 / unit',
+      price: '₨ 1,800 – ₨ 6,200 / unit',
       description: 'IPX7 waterproof monolithic UDP chip architecture shaped like a standard key for everyday keyring carry. Scratch-resistant and shockproof.',
       availability: 'In Stock',
       category: 'Waterproof Key',
@@ -1725,7 +1735,7 @@ body {
       model_code: 'USB-E600',
       image: '../images/products/usb-ecobamboo-wood.svg',
       capacity: '16GB, 32GB, 64GB, 128GB',
-      price: '$4.90 - $14.50 / unit',
+      price: '₨ 1,400 – ₨ 4,200 / unit',
       description: 'FSC-certified organic bamboo wood housing with magnetic cap closure. Sustainable natural aesthetic tailored for eco-conscious corporate gifting.',
       availability: 'Bulk Only',
       category: 'Eco Wood',
@@ -1799,8 +1809,8 @@ body {
 
         products = allLocal.filter(p => {
           const matchQ = !searchQ || (p.name && p.name.toLowerCase().includes(searchQ)) || (p.model_code && p.model_code.toLowerCase().includes(searchQ)) || (p.description && p.description.toLowerCase().includes(searchQ));
-          const matchAvail = !filterAvail || p.availability === filterAvail;
-          const matchCat = !filterCat || p.category === filterCat;
+          const matchAvail = !filterAvail || filterAvail === 'All' || p.availability === filterAvail;
+          const matchCat = !filterCat || filterCat === 'All' || p.category === filterCat;
           return matchQ && matchAvail && matchCat;
         });
       }
