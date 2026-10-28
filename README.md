@@ -201,3 +201,36 @@ The website can be hosted on any static hosting platform with zero configuration
 - **GitHub Pages:** Commit files to a repository and enable GitHub Pages on the `main` branch.
 - **Cloudflare Pages / Netlify / Vercel:** Point the project to the repository with no build command (`Build command: none`, `Publish directory: .`).
 - **AWS S3 / Apache / Nginx:** Upload all files directly to the web root (`public_html` or `/var/www/html`).
+
+
+---
+
+## 9. Products Management System & Admin Dashboard
+
+A lightweight, zero-dependency product management system built directly on **Node.js (native `node:sqlite`)**.
+
+### Features
+- **Admin Dashboard (`/admin`):**
+  - Add, edit, delete, and search USB products.
+  - Dedicated **📁 Upload Product Image** button with instant drag-and-drop & live preview.
+  - Manage product specifications: name, model code, category, capacity, price quote range, read speeds, interface, availability status, and marketing description.
+  - Real-time catalog metrics counters (Total Products, In Stock, Made to Order, Bulk Only, Categories).
+  - Dual view modes: **☰ List Table** and **☷ Grid Cards**.
+- **Public Synchronization (`products.html`):**
+  - Dynamically fetches and renders the live products list from the SQLite database.
+  - Automatic graceful fallback to static catalog cards if running without the server.
+- **Zero Shopping Cart / Payments:** Strictly B2B product showcase and RFQ quotation requests as specified.
+
+### Quick Start (Windows 1-Click)
+Double-click `start-server.bat` in the project folder, or run:
+```powershell
+node server.js
+```
+The server will start at `http://localhost:3000` and open `http://localhost:3000/admin`.
+
+### Optional Docker Deployment
+Docker is **optional** and not required on your machine because Node.js runs directly and consumes less than 30MB of RAM. If you wish to run in a container:
+```powershell
+docker compose up -d
+```
+All database records (`data/products.db`) and uploaded images (`uploads/`) will persist on your host machine.

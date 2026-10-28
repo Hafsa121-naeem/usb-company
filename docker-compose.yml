@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # 1. MySQL 8.0 Database Container
+  mysql-db:
+    image: mysql:8.0
+    container_name: nexdrive-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: usb_company
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./data/products_mysql.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # 2. phpMyAdmin Visual Database Manager (Open http://localhost:8080)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: nexdrive-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql-db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql-db
+
+  # 3. NexDrive Website & Admin Dashboard (Open http://localhost:3000)
+  nexdrive-web:
+    build: .
+    container_name: nexdrive-usb-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    depends_on:
+      - mysql-db
+
+volumes:
+  mysql-data:

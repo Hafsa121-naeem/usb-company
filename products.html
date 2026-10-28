@@ -5,6 +5,2093 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="NexDrive USB Flash Drive Catalog - Browse our complete product lineup including titanium metal, dual USB-C OTG, swivel, credit card, and wooden flash storage drives.">
   <title>Product Catalog | NexDrive Flash Storage Solutions</title>
+  <style>
+/* ==========================================================================
+   NEXDRIVE FLASH STORAGE SOLUTIONS - MASTER STYLESHEET
+   100% Static HTML5 / CSS3 Architecture - Zero JavaScript
+   Palette: Vibrant Multi-Tonal Enterprise Tech (Teal, Amber-Copper, Mint & Amethyst)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (:root)
+   Centralized multi-color palette â€” NOT just black, NOT simple blue/white
+   -------------------------------------------------------------------------- */
+:root {
+  /* Rich Jewel Tones */
+  --color-petrol-dark: #0B1D2D;
+  --color-petrol-surface: #102A42;
+  --color-petrol-card: #143554;
+  --color-indigo-slate: #1A2840;
+
+  /* Daylight Platinum Spectrum (Crisp contrast sections) */
+  --color-pearl-bg: #F4F7FB;
+  --color-pearl-card: #FFFFFF;
+  --color-pearl-surface: #E8EEF5;
+  --color-pearl-border: #D2DEEC;
+
+  /* Multi-Color Accent Highlights */
+  --color-coral-primary: #FF6B4A;
+  --color-coral-hover: #E85635;
+  --color-coral-soft: rgba(255, 107, 74, 0.12);
+
+  --color-amber-gold: #F59E0B;
+  --color-amber-hover: #D97706;
+  --color-amber-soft: rgba(245, 158, 11, 0.14);
+
+  --color-mint-emerald: #00D2A0;
+  --color-mint-hover: #00B388;
+  --color-mint-soft: rgba(0, 210, 160, 0.14);
+
+  --color-amethyst-violet: #8B5CF6;
+  --color-amethyst-soft: rgba(139, 92, 246, 0.14);
+
+  /* Typography Colors */
+  --color-text-heading: #0B1D2D;
+  --color-text-body: #2C3E50;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-text-white: #FFFFFF;
+
+  /* Card Category Accents */
+  --color-card-metal-accent: #F59E0B;
+  --color-card-typec-accent: #00D2A0;
+  --color-card-swivel-accent: #FF6B4A;
+  --color-card-wafer-accent: #8B5CF6;
+  --color-card-key-accent: #0284C7;
+  --color-card-wood-accent: #15803D;
+
+  /* Typography Scale */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.35rem;
+  --font-size-4xl: 3.1rem;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(11, 29, 45, 0.06);
+  --shadow-md: 0 8px 18px rgba(11, 29, 45, 0.08);
+  --shadow-lg: 0 16px 32px rgba(11, 29, 45, 0.12);
+  --shadow-xl: 0 24px 48px rgba(11, 29, 45, 0.18);
+
+  /* Layout */
+  --max-width: 1220px;
+  --header-height: 78px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-body);
+  background-color: var(--color-pearl-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-coral-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-coral-hover);
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-coral-primary);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Keyframe Animations
+   -------------------------------------------------------------------------- */
+@keyframes heroUsbFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(0.8deg); }
+}
+
+@keyframes heroAuraPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.95);
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+    filter: blur(55px);
+  }
+}
+
+@keyframes heroSheenSlide {
+  0% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+  12% { opacity: 0.45; }
+  28% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+  100% { transform: translateX(250%) skewX(-20deg); opacity: 0; }
+}
+
+@keyframes badgeFloat1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes badgeFloat2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+@keyframes horizontalTickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes liveDataStream {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+@keyframes pulseLedDot {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--color-mint-emerald); }
+  50% { opacity: 0.3; transform: scale(0.85); box-shadow: none; }
+}
+
+@keyframes cardSheenSweep {
+  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
+  25% { opacity: 0.5; }
+  50% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+  100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-heading);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--font-size-4xl); margin-bottom: var(--space-4); }
+h2 { font-size: var(--font-size-3xl); margin-bottom: var(--space-4); }
+h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-3); }
+h4 { font-size: var(--font-size-lg); margin-bottom: var(--space-2); }
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-body);
+}
+
+.text-muted { color: var(--color-text-muted); }
+
+.text-lead {
+  font-size: var(--font-size-md);
+  line-height: 1.65;
+  color: var(--color-text-body);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-coral-primary);
+  margin-bottom: var(--space-2);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-coral-primary);
+  border-radius: var(--radius-full);
+}
+
+.eyebrow-mint {
+  color: var(--color-mint-emerald);
+}
+.eyebrow-mint::before {
+  background-color: var(--color-mint-emerald);
+}
+
+/* --------------------------------------------------------------------------
+   5. Shared Layout Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+.container-narrow {
+  max-width: 880px;
+}
+
+.section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  position: relative;
+}
+
+.section-pearl {
+  background-color: var(--color-pearl-bg);
+}
+
+.section-alt {
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-pearl-border);
+  border-bottom: 1px solid var(--color-pearl-border);
+}
+
+.section-petrol {
+  background: linear-gradient(135deg, var(--color-petrol-dark) 0%, var(--color-petrol-surface) 100%);
+  color: var(--color-text-white);
+}
+
+.section-petrol h2, .section-petrol h3, .section-petrol p {
+  color: var(--color-text-white);
+}
+
+.section-petrol .text-muted {
+  color: #CBD5E1;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-12);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-3);
+}
+
+.section-header p {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons & Action Links
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  line-height: 1;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #E25822 100%);
+  color: #FFFFFF;
+  border-color: var(--color-coral-primary);
+  box-shadow: 0 4px 14px rgba(255, 107, 74, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FF7849 0%, var(--color-coral-primary) 100%);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 107, 74, 0.45);
+}
+
+.btn-mint {
+  background: linear-gradient(135deg, var(--color-mint-emerald) 0%, #00B388 100%);
+  color: #07261E;
+  border-color: var(--color-mint-emerald);
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 210, 160, 0.35);
+}
+
+.btn-mint:hover {
+  background: linear-gradient(135deg, #22E6B6 0%, var(--color-mint-emerald) 100%);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-text-heading);
+  border-color: var(--color-pearl-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-pearl-surface);
+  border-color: var(--color-coral-primary);
+  color: var(--color-coral-primary);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 1.05rem 2.2rem;
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-lg);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.15rem;
+  font-size: var(--font-size-xs);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   7. Header & Navigation (Pure CSS Responsive)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-pearl-border);
+  box-shadow: 0 4px 18px rgba(11, 29, 45, 0.05);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  position: relative;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.nav-toggle-input { display: none; }
+
+.nav-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 102;
+}
+
+.nav-toggle-btn span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-petrol-dark);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-link {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  padding: var(--space-2) 0;
+  position: relative;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-coral-primary);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-coral-primary);
+  border-radius: var(--radius-full);
+}
+
+.header-action {
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. Front-Page Hero & Prominent Brand Emblem Banner
+   -------------------------------------------------------------------------- */
+.hero {
+  background: 
+    radial-gradient(circle at 85% 20%, rgba(0, 210, 160, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(255, 107, 74, 0.12) 0%, transparent 40%),
+    linear-gradient(135deg, var(--color-petrol-dark) 0%, #122B42 50%, #1A2840 100%);
+  color: var(--color-text-white);
+  padding: var(--space-16) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  color: var(--color-text-white);
+  font-size: clamp(2.3rem, 3.8vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: var(--space-5);
+}
+
+.hero-title .highlight {
+  background: linear-gradient(135deg, #FF7849 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  color: #D2DEEC;
+  font-size: var(--font-size-md);
+  line-height: 1.65;
+  margin-bottom: var(--space-8);
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.hero-stat-item h4 {
+  color: var(--color-text-white);
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+
+.hero-stat-item h4 span {
+  color: var(--color-mint-emerald);
+}
+
+.hero-stat-item p {
+  color: #94A3B8;
+  font-size: var(--font-size-xs);
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-visual-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  animation: heroUsbFloat 6s ease-in-out infinite;
+  perspective: 1000px;
+}
+
+/* Ambient Backlight Aura */
+.hero-image-aura {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 160, 0.32) 0%, rgba(255, 107, 74, 0.24) 45%, rgba(245, 158, 11, 0.15) 70%, transparent 85%);
+  filter: blur(45px);
+  z-index: 1;
+  pointer-events: none;
+  animation: heroAuraPulse 7s ease-in-out infinite;
+}
+
+/* Framed Container for Hardware Showcase Image */
+.hero-image-frame {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #091724;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 210, 160, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.hero-image-frame:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 35px 75px -12px rgba(0, 0, 0, 0.8), 0 0 45px rgba(255, 107, 74, 0.28);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.hero-showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  transform: scale(1.002);
+  transition: transform 0.5s ease;
+}
+
+.hero-image-frame:hover .hero-showcase-img {
+  transform: scale(1.03);
+}
+
+/* Diagonal Sheen Sweep Light Beam */
+.hero-scan-gleam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.02) 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(0, 210, 160, 0.25) 55%,
+    transparent 65%
+  );
+  animation: heroSheenSlide 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 3;
+}
+
+/* Floating Tech Callout Badges */
+.hero-badge {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 14px;
+  background: rgba(11, 29, 45, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-badge:hover {
+  border-color: var(--color-mint-emerald);
+  transform: scale(1.06);
+}
+
+.hero-badge-top {
+  top: -14px;
+  right: -10px;
+  animation: badgeFloat1 5s ease-in-out infinite;
+}
+
+.hero-badge-bottom {
+  bottom: -14px;
+  left: -10px;
+  animation: badgeFloat2 5.5s ease-in-out infinite 0.7s;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.badge-dot.dot-mint {
+  background-color: var(--color-mint-emerald);
+  box-shadow: 0 0 8px var(--color-mint-emerald);
+}
+
+.badge-dot.dot-coral {
+  background-color: var(--color-coral-primary);
+  box-shadow: 0 0 8px var(--color-coral-primary);
+}
+
+/* ==========================================================================
+   PROMINENT LOGO & BRAND CREST SHOWCASE ON FRONT PAGE
+   ========================================================================== */
+.frontpage-logo-banner {
+  background: #FFFFFF;
+  border-bottom: 2px solid var(--color-pearl-border);
+  padding: var(--space-8) 0;
+  box-shadow: 0 4px 14px rgba(11, 29, 45, 0.04);
+}
+
+.logo-banner-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.logo-banner-emblem img {
+  width: 110px;
+  height: 110px;
+}
+
+.logo-banner-text h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 4px;
+  color: var(--color-petrol-dark);
+}
+
+.logo-banner-text p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.logo-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 1.1rem;
+  background-color: var(--color-mint-soft);
+  border: 1px solid var(--color-mint-emerald);
+  border-radius: var(--radius-full);
+  color: #007A5E;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Subpage Banners */
+.page-banner {
+  background: linear-gradient(135deg, var(--color-petrol-dark) 0%, #15324D 100%);
+  color: var(--color-text-white);
+  padding: var(--space-12) 0;
+}
+
+.page-banner h1 {
+  color: var(--color-text-white);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-3xl);
+}
+
+.page-banner p {
+  color: #D2DEEC;
+  font-size: var(--font-size-md);
+  margin-bottom: 0;
+  max-width: 780px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Breadcrumbs Navigation
+   -------------------------------------------------------------------------- */
+.breadcrumbs-bar {
+  background-color: var(--color-pearl-surface);
+  border-bottom: 1px solid var(--color-pearl-border);
+  padding: var(--space-3) 0;
+}
+
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.breadcrumbs-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs-item:not(:last-child)::after {
+  content: "/";
+  margin: 0 var(--space-2);
+  color: var(--color-text-light);
+}
+
+.breadcrumbs-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs-link:hover {
+  color: var(--color-coral-primary);
+}
+
+.breadcrumbs-item[aria-current="page"] {
+  color: var(--color-text-heading);
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   10. Multi-Colored Product Cards & Grids
+   -------------------------------------------------------------------------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-8);
+}
+
+.product-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-coral-primary);
+}
+
+/* Shimmer beam on hover */
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 40%, rgba(255, 107, 74, 0.08) 50%, transparent 60%);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+  animation: cardSheenSweep 2s ease-in-out;
+}
+
+.product-card-media {
+  background: linear-gradient(135deg, #10263C 0%, #0B1D2D 100%);
+  padding: var(--space-6);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.product-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-card-media img {
+  transform: scale(1.06) translateY(-4px);
+}
+
+.product-card-badge {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  background: linear-gradient(135deg, #FF6B4A 0%, #F59E0B 100%);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.product-card-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-2);
+}
+
+.product-model-code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-coral-primary);
+  background-color: var(--color-coral-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.product-category-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.product-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+
+.product-card-title a {
+  color: var(--color-text-heading);
+  text-decoration: none;
+}
+
+.product-card-title a:hover {
+  color: var(--color-coral-primary);
+}
+
+.product-card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.product-specs-list {
+  list-style: none;
+  font-size: var(--font-size-xs);
+  border-top: 1px solid var(--color-pearl-surface);
+  border-bottom: 1px solid var(--color-pearl-surface);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-5);
+}
+
+.product-spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.spec-label { color: var(--color-text-muted); }
+.spec-val { font-weight: 700; color: var(--color-text-heading); }
+
+.product-card-footer { margin-top: auto; }
+.product-card-footer .btn { width: 100%; }
+
+/* Category Filter Bar */
+.category-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-bottom: var(--space-10);
+  padding: var(--space-2);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 0.55rem 1.15rem;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #F59E0B 100%);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   11. Product Detail Layouts & Live Hardware Benchmark
+   -------------------------------------------------------------------------- */
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--space-12);
+  align-items: start;
+  margin-bottom: var(--space-16);
+}
+
+.product-gallery {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+}
+
+.product-gallery-main {
+  background: linear-gradient(135deg, #10263C 0%, #0B1D2D 100%);
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-gallery-main img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  transition: transform 0.4s ease;
+}
+
+.product-gallery-main:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.gallery-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  color: var(--color-text-heading);
+}
+
+/* Hardware Benchmark Simulation Box */
+.hardware-benchmark-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-top: 3px solid var(--color-mint-emerald);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-top: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.benchmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.benchmark-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.benchmark-led {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-mint-emerald);
+  border-radius: var(--radius-full);
+  animation: pulseLedDot 1.4s ease-in-out infinite;
+}
+
+.benchmark-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-pearl-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--color-pearl-border);
+}
+
+.benchmark-bar-fill {
+  height: 100%;
+  width: 88%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-mint-emerald),
+    var(--color-mint-emerald) 12px,
+    #00B388 12px,
+    #00B388 24px
+  );
+  border-radius: var(--radius-full);
+  animation: liveDataStream 1.5s linear infinite;
+}
+
+.benchmark-metrics {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  font-weight: 600;
+}
+
+.product-info-col h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.product-model-badge-lg {
+  display: inline-block;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-coral-primary);
+  background-color: var(--color-coral-soft);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-4);
+}
+
+.product-summary {
+  font-size: var(--font-size-md);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.key-highlights-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-left: 4px solid var(--color-coral-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.key-highlights-box h4 {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-coral-primary);
+  margin-bottom: var(--space-3);
+}
+
+.key-highlights-list {
+  list-style-type: none;
+  font-size: var(--font-size-sm);
+}
+
+.key-highlights-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-body);
+}
+
+.key-highlights-list li::before {
+  content: "âœ“";
+  position: absolute;
+  left: 0;
+  color: var(--color-mint-emerald);
+  font-weight: 900;
+}
+
+.product-action-card {
+  background: linear-gradient(135deg, var(--color-petrol-dark) 0%, var(--color-petrol-surface) 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-8);
+  box-shadow: var(--shadow-md);
+}
+
+.product-action-card h3 {
+  color: #FFFFFF;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.product-action-card p {
+  color: #D2DEEC;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   12. Specification Tables
+   -------------------------------------------------------------------------- */
+.spec-section {
+  margin-top: var(--space-12);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--font-size-sm);
+}
+
+.spec-table th, .spec-table td {
+  padding: 1.05rem 1.35rem;
+  border-bottom: 1px solid var(--color-pearl-surface);
+}
+
+.spec-table thead th {
+  background-color: var(--color-pearl-surface);
+  color: var(--color-text-heading);
+  font-weight: 800;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--color-pearl-border);
+}
+
+.spec-table tbody tr:last-child td { border-bottom: none; }
+.spec-table tbody tr:nth-child(even) { background-color: #FAFCFE; }
+.spec-table tbody tr:hover { background-color: var(--color-coral-soft); }
+
+.spec-table td.spec-param-title {
+  font-weight: 700;
+  color: var(--color-text-heading);
+  width: 32%;
+  white-space: nowrap;
+}
+
+.spec-table td.spec-param-value { color: var(--color-text-body); }
+
+.related-products-section {
+  margin-top: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 1px solid var(--color-pearl-border);
+}
+
+/* --------------------------------------------------------------------------
+   13. Content Boxes & Category Showcase
+   -------------------------------------------------------------------------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+}
+
+.feature-box {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.feature-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-coral-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-img-box {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+  background: var(--color-petrol-dark);
+  border: 1px solid rgba(11, 29, 45, 0.12);
+  box-shadow: 0 6px 18px rgba(11, 29, 45, 0.08);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.feature-box:hover .feature-img-box {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(11, 29, 45, 0.18);
+}
+
+.feature-animated-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Animated Product Showcase Strip
+   -------------------------------------------------------------------------- */
+.horizontal-showcase-section {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(20, 53, 84, 0.4) 0%, transparent 80%),
+    var(--color-petrol-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-8) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.horizontal-ticker-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.horizontal-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: var(--space-6);
+  animation: horizontalTickerScroll 30s linear infinite;
+  padding: 6px 0;
+}
+
+.horizontal-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.horizontal-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: rgba(16, 42, 66, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: 12px 20px 12px 14px;
+  min-width: 320px;
+  text-decoration: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.horizontal-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--color-coral-primary);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55), 0 0 25px rgba(255, 107, 74, 0.3);
+}
+
+.horizontal-card-img-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-md);
+  background: #081522;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.horizontal-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.horizontal-card:hover .horizontal-card-img-wrap img {
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.horizontal-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-card-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-mint-emerald);
+  margin-bottom: 2px;
+}
+
+.horizontal-card-title {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.horizontal-card-spec {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  font-family: var(--font-family-mono);
+}
+
+/* --------------------------------------------------------------------------
+   Cinematic Page Transition Splash (0.5s - 0.65s Pure CSS Intro Video Effect)
+   -------------------------------------------------------------------------- */
+@keyframes pageIntroFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  65% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes splashEmblemZoom {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+    filter: drop-shadow(0 0 0 rgba(0, 210, 160, 0));
+  }
+  35% {
+    transform: scale(1.04);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(0, 210, 160, 0.6));
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+@keyframes splashProgressSweep {
+  0% { width: 0%; }
+  60% { width: 100%; }
+  100% { width: 100%; }
+}
+
+@keyframes splashScannerBeam {
+  0% { transform: translateY(-40px); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateY(100px); opacity: 0; }
+}
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background: 
+    radial-gradient(circle at center, #102A42 0%, #081622 75%, #050E17 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: pageIntroFadeOut 0.65s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  animation: splashEmblemZoom 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash-emblem-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+
+.splash-emblem {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.splash-scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00D2A0, #FFFFFF, #00D2A0, transparent);
+  box-shadow: 0 0 12px #00D2A0;
+  animation: splashScannerBeam 0.55s ease-in-out infinite;
+}
+
+.splash-brand-title {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.35em;
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #FFFFFF 0%, #00D2A0 60%, #FF6B4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.splash-progress-track {
+  width: 180px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.splash-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF6B4A, #F59E0B, #00D2A0);
+  border-radius: var(--radius-full);
+  animation: splashProgressSweep 0.5s ease-out forwards;
+}
+
+.splash-sub-status {
+  font-size: 0.68rem;
+  font-family: var(--font-family-mono);
+  color: #94A3B8;
+  letter-spacing: 0.15em;
+}
+
+.feature-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-coral-soft) 0%, var(--color-amber-soft) 100%);
+  color: var(--color-coral-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-5);
+}
+
+.feature-box h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.feature-box p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.category-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-6);
+}
+
+.category-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card:hover {
+  border-color: var(--color-coral-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.category-card h3 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-heading);
+}
+
+.category-card p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.category-card-link {
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-coral-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Call to Action Banner */
+.cta-banner {
+  background: 
+    radial-gradient(circle at top right, rgba(0, 210, 160, 0.2) 0%, transparent 60%),
+    linear-gradient(135deg, var(--color-petrol-dark) 0%, #15324D 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-banner h2 {
+  color: #FFFFFF;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-4);
+}
+
+.cta-banner p {
+  color: #D2DEEC;
+  font-size: var(--font-size-md);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   14. Contact Page Styles & Form Prototype
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.contact-info-card, .form-prototype-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-channel-list {
+  list-style: none;
+  margin-top: var(--space-6);
+}
+
+.contact-channel-item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-pearl-surface);
+}
+
+.contact-channel-item:last-child { border-bottom: none; }
+
+.channel-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-coral-soft);
+  color: var(--color-coral-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.channel-details h4 {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.channel-details a, .channel-details span {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+}
+
+.channel-details a:hover { color: var(--color-coral-primary); }
+
+.prototype-notice-banner {
+  background-color: #FEF3C7;
+  border: 1px solid #FCD34D;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+  font-size: var(--font-size-xs);
+  color: #92400E;
+  line-height: 1.5;
+}
+
+.prototype-notice-banner strong {
+  color: #78350F;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.form-group { margin-bottom: var(--space-5); }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--color-text-heading);
+  background-color: #F8FAFD;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  background-color: #FFFFFF;
+  border-color: var(--color-coral-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.2);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-help {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   15. Footer in Petrol Slate & Coral/Mint Accents
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-petrol-dark);
+  color: #94A3B8;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-12);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-10);
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+.footer-brand-desc {
+  font-size: var(--font-size-sm);
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.footer-links-list {
+  list-style: none;
+  font-size: var(--font-size-sm);
+}
+
+.footer-links-list li { margin-bottom: var(--space-2); }
+
+.footer-links-list a {
+  color: #CBD5E1;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-links-list a:hover { color: var(--color-mint-emerald); }
+
+.footer-contact-list {
+  list-style: none;
+  font-size: var(--font-size-sm);
+}
+
+.footer-contact-list li {
+  margin-bottom: var(--space-3);
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contact-label {
+  font-size: var(--font-size-xs);
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-contact-value {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.footer-contact-value a { color: #FFFFFF; }
+.footer-contact-value a:hover { color: var(--color-mint-emerald); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-6) 0;
+  font-size: var(--font-size-xs);
+  color: #94A3B8;
+}
+
+.footer-bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   16. Process Workflow Cards
+   -------------------------------------------------------------------------- */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  position: relative;
+}
+
+.process-step-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-pearl-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.process-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-coral-primary);
+}
+
+.process-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-coral-primary) 0%, var(--color-amber-gold) 100%);
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-4);
+  box-shadow: 0 4px 10px rgba(255, 107, 74, 0.3);
+}
+
+.process-step-card h3 {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-2);
+}
+
+.process-step-card p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Utility Helpers */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.mt-4 { margin-top: var(--space-4); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-16 { margin-top: var(--space-16); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+/* --------------------------------------------------------------------------
+   17. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+  .hero-stats-row { justify-content: center; }
+  .hero-visual { order: -1; }
+  .hero-visual img { max-width: 480px; }
+  .logo-banner-grid { grid-template-columns: 1fr; text-align: center; }
+  .logo-banner-emblem { justify-content: center; display: flex; }
+  .product-detail-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .product-gallery { position: static; }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 66px;
+    --font-size-4xl: 2.2rem;
+    --font-size-3xl: 1.8rem;
+    --font-size-2xl: 1.5rem;
+  }
+  .section { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+
+  .nav-toggle-btn { display: flex; }
+  .site-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid var(--color-coral-primary);
+    box-shadow: 0 15px 30px rgba(11, 29, 45, 0.15);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 var(--space-6);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+    z-index: 99;
+  }
+
+  .nav-toggle-input:checked ~ .site-nav {
+    max-height: 520px;
+    opacity: 1;
+    padding: var(--space-6);
+  }
+
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle-input:checked ~ .nav-toggle-btn span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: var(--font-size-base);
+    display: block;
+    width: 100%;
+    padding: var(--space-2) 0;
+  }
+
+  .header-action { margin-top: var(--space-4); width: 100%; }
+  .header-action .btn { width: 100%; }
+  .product-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom-container { flex-direction: column; text-align: center; }
+  .hero-badge-top { top: 8px; right: 8px; transform: scale(0.9); }
+  .hero-badge-bottom { bottom: 8px; left: 8px; transform: scale(0.9); }
+}
+
+@media (max-width: 480px) {
+  .btn-group { flex-direction: column; width: 100%; }
+  .btn-group .btn { width: 100%; }
+  .hero-stats-row { flex-direction: column; gap: var(--space-4); }
+  .spec-table th, .spec-table td { padding: 0.75rem 0.85rem; font-size: var(--font-size-xs); }
+  .spec-table td.spec-param-title { width: 40%; }
+}
+
+/* --------------------------------------------------------------------------
+   18. Reduced Motion Accessibility
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition-overlay {
+    display: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+</style>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,8 +2100,8 @@
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-container">
-      <a href="index.html" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
-        <img src="images/logo.svg" alt="NexDrive USB Storage Logo" class="brand-logo-img" width="280" height="50">
+            <a href="index.html" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
+        <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 48px; width: auto; max-width: 250px; min-width: 180px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTmV4RHJpdmUgRmxhc2ggU3RvcmFnZSBTb2x1dGlvbnMgTG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImVtYmxlbUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkY3ODQ5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRDJBMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUEyQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImxvZ29HbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gTXVsdGktQ29sb3IgU2hpZWxkIEVtYmxlbSB3aXRoIFVTQiBDb3JlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj4KICAgIDwhLS0gU2hpZWxkIC8gUGx1ZyBCYXNlIHdpdGggRW1lcmFsZCAmIEFtYmVyIEJvcmRlciAtLT4KICAgIDxwYXRoIGQ9Ik00IDYgUTE0IDIgMjQgMiBRMzQgMiA0NCA2IEw0MiAzNCBRMzQgNDYgMjQgNTAgUTE0IDQ2IDYgMzQgWiIgZmlsbD0idXJsKCNzaGllbGRCZykiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIAogICAgPCEtLSBHb2xkIFVTQiBQbHVnIFRlcm1pbmFsIGF0b3Agc2hpZWxkIC0tPgogICAgPHJlY3QgeD0iMTYiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI1IiByeD0iMS41IiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOSIgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzBCMUEyQyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMwQjFBMkMiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIEdsb3dpbmcgR2VvbWV0cmljIFVTQiBUcmlkZW50IC0tPgogICAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxOCIgcj0iMy4yIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbG9nb0dsb3cpIi8+CiAgICA8cGF0aCBkPSJNMjQgMjEuNSBMMjQgMzgiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE2IDI2IEwyNCAzMCBMMzIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjI1IiByPSIyLjIiIGZpbGw9IiNGRjc4NDkiLz4KICAgIDxyZWN0IHg9IjMwIiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNDAiIHI9IjIuMiIgZmlsbD0iIzAwRDJBMCIgZmlsdGVyPSJ1cmwoI2xvZ29HbG93KSIvPgogIDwvZz4KCiAgPCEtLSBCb2xkIE1vZGVybiBXb3JkbWFyayAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzBGMjMzOCIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPk5FWDx0c3BhbiBmaWxsPSIjRkY3ODQ5Ij5EUklWRTwvdHNwYW4+PC90ZXh0PgogIDx0ZXh0IHg9IjY1IiB5PSI0NyIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwMEE4ODQiIGxldHRlci1zcGFjaW5nPSIyLjQiPkZMQVNIIFNUT1JBR0UgU1lTVEVNUzwvdGV4dD4KPC9zdmc+Cg=='">
       </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
@@ -31,6 +2118,7 @@
           <li><a href="products.html" class="nav-link active" aria-current="page">Products</a></li>
           <li><a href="why-us.html" class="nav-link">Why Choose Us</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="admin/index.html" class="nav-link" style="color: var(--color-amber-gold); font-weight: 800;">Admin 🔐</a></li>
         </ul>
 
         <div class="header-action">
@@ -39,6 +2127,36 @@
       </nav>
     </div>
   </header>
+
+  <!-- ========================================================================
+       PROMINENT BRAND LOGO & CREST SHOWCASE
+       ======================================================================== -->
+  <section class="frontpage-logo-banner">
+    <div class="container">
+      <div class="logo-banner-grid">
+        <!-- Animated Brand Crest Emblem -->
+        <div class="logo-banner-emblem">
+          <img src="images/hero-brand-emblem.svg" alt="NexDrive Corporate Seal and USB Trident Crest" width="110" height="110" style="width: 110px; height: 110px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMzYwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjM2MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJOZXhEcml2ZSBPZmZpY2lhbCBDb3Jwb3JhdGUgQnJhbmQgQ3Jlc3QiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRjc4NDkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiNGNTlFMEIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMEQyQTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOEI1Q0Y2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjb3JlQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMEQxRTMxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA4MTQyMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFRyaWRlbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZFMDgyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0Q5NzcwNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImVtYmxlbVNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIxOCIgZmxvb2QtY29sb3I9IiMwODE0MjIiIGZsb29kLW9wYWNpdHk9IjAuNDUiLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0ibmVvbkdsb3ciIHg9Ii0zMCUiIHk9Ii0zMCUiIHdpZHRoPSIxNjAlIiBoZWlnaHQ9IjE2MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KCiAgICA8c3R5bGU+CiAgICAgIEBrZXlmcmFtZXMgY3Jlc3RGbG9hdCB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCkgcm90YXRlKDBkZWcpOyB9CiAgICAgICAgNTAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0xMHB4KSByb3RhdGUoMS41ZGVnKTsgfQogICAgICB9CiAgICAgIEBrZXlmcmFtZXMgb3JiaXRSaW5nIHsKICAgICAgICAwJSB7IHRyYW5zZm9ybTogcm90YXRlKDBkZWcpOyB9CiAgICAgICAgMTAwJSB7IHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIHB1bHNlR2xvd1JpbmcgewogICAgICAgIDAlLCAxMDAlIHsgb3BhY2l0eTogMC43OyB0cmFuc2Zvcm06IHNjYWxlKDEpOyB9CiAgICAgICAgNTAlIHsgb3BhY2l0eTogMTsgdHJhbnNmb3JtOiBzY2FsZSgxLjA1KTsgfQogICAgICB9CiAgICAgIC5hbmltLWNyZXN0IHsgYW5pbWF0aW9uOiBjcmVzdEZsb2F0IDZzIGVhc2UtaW4tb3V0IGluZmluaXRlOyB0cmFuc2Zvcm0tb3JpZ2luOiAxODBweCAxODBweDsgfQogICAgICAuYW5pbS1vcmJpdCB7IGFuaW1hdGlvbjogb3JiaXRSaW5nIDI0cyBsaW5lYXIgaW5maW5pdGU7IHRyYW5zZm9ybS1vcmlnaW46IDE4MHB4IDE4MHB4OyB9CiAgICAgIC5hbmltLWdsb3cgeyBhbmltYXRpb246IHB1bHNlR2xvd1JpbmcgNHMgZWFzZS1pbi1vdXQgaW5maW5pdGU7IHRyYW5zZm9ybS1vcmlnaW46IDE4MHB4IDE4MHB4OyB9CgogICAgICBAbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkgewogICAgICAgIC5hbmltLWNyZXN0LCAuYW5pbS1vcmJpdCwgLmFuaW0tZ2xvdyB7IGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50OyB9CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgoKICA8ZyBjbGFzcz0iYW5pbS1jcmVzdCIgZmlsdGVyPSJ1cmwoI2VtYmxlbVNoYWRvdykiPgogICAgPCEtLSBPdXRlciBBbWJpZW50IEdsb3cgQ2lyY2xlIC0tPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMTgwIiByPSIxNjAiIGZpbGw9InVybCgjcmluZ0dyYWQpIiBvcGFjaXR5PSIwLjE4IiBjbGFzcz0iYW5pbS1nbG93IiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CgogICAgPCEtLSBSb3RhdGluZyBPdXRlciBPcmJpdCBSaW5nIHdpdGggRGF0YSBOb2RlIE1hcmtzIC0tPgogICAgPGcgY2xhc3M9ImFuaW0tb3JiaXQiPgogICAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxODAiIHI9IjE1MCIgc3Ryb2tlPSJ1cmwoI3JpbmdHcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1kYXNoYXJyYXk9IjE0IDEwIDMyIDEwIi8+CiAgICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjMwIiByPSI2IiBmaWxsPSIjRkY3ODQ5IiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjMzMCIgY3k9IjE4MCIgcj0iNiIgZmlsbD0iI0Y1OUUwQiIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgogICAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIzMzAiIHI9IjYiIGZpbGw9IiMwMEQyQTAiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KICAgICAgPGNpcmNsZSBjeD0iMzAiIGN5PSIxODAiIHI9IjYiIGZpbGw9IiM4QjVDRjYiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KICAgIDwvZz4KCiAgICA8IS0tIENvbmNlbnRyaWMgSW5uZXIgVGVjaCBSaW5nIC0tPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMTgwIiByPSIxMzIiIHN0cm9rZT0icmdiYSgyNTUsIDEyMCwgNzMsIDAuMykiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSI0IDQiIGZpbGw9Im5vbmUiLz4KCiAgICA8IS0tIENlbnRyYWwgQ29yZSBTaGllbGQgLyBNZWRhbGxpb24gLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxODAiIHI9IjEyMCIgZmlsbD0idXJsKCNjb3JlQmcpIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjMuNSIvPgoKICAgIDwhLS0gVVNCIFBsdWcgQ2FwIG9uIFRvcCBvZiBNZWRhbGxpb24gLS0+CiAgICA8cmVjdCB4PSIxNTAiIHk9IjcwIiB3aWR0aD0iNjAiIGhlaWdodD0iMjgiIHJ4PSI2IiBmaWxsPSIjMUEzQTVBIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHJlY3QgeD0iMTYwIiB5PSI3NiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEyIiByeD0iMS41IiBmaWxsPSIjRkZFMDgyIi8+CiAgICA8cmVjdCB4PSIxOTAiIHk9Ijc2IiB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIHJ4PSIxLjUiIGZpbGw9IiNGRkUwODIiLz4KCiAgICA8IS0tIENlbnRyYWwgTWFqZXN0aWMgR2VvbWV0cmljIFRyaWRlbnQgRW1ibGVtIC0tPgogICAgPCEtLSBUb3AgQ2VudHJhbCBOb2RlIGluIEVtZXJhbGQgLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMzAiIHI9IjExIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMzAiIHI9IjYiIGZpbGw9IiNGRkZGRkYiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIFN0ZW0gLS0+CiAgICA8cGF0aCBkPSJNMTgwIDE0NCBMMTgwIDIzNiIgc3Ryb2tlPSJ1cmwoI2dvbGRUcmlkZW50KSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIAogICAgPCEtLSBMZWZ0IFdpbmcgKENvcmFsKSAtLT4KICAgIDxwYXRoIGQ9Ik0xNDIgMTY1IEwxODAgMTkwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE0MiAxNjUgTDE0MiAxNTIiIHN0cm9rZT0iI0ZGNzg0OSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjE0OCIgcj0iOCIgZmlsbD0iI0ZGNzg0OSIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgogICAgPGNpcmNsZSBjeD0iMTQyIiBjeT0iMTQ4IiByPSI0IiBmaWxsPSIjRkZGRkZGIi8+CgogICAgPCEtLSBSaWdodCBXaW5nIChBbWJlciBEaWFtb25kKSAtLT4KICAgIDxwYXRoIGQ9Ik0yMTggMTY1IEwxODAgMTkwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTIxOCAxNjUgTDIxOCAxNTIiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxyZWN0IHg9IjIxMCIgeT0iMTQwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHJ4PSIzIiBmaWxsPSIjRjU5RTBCIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyMTggMTQ4KSIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgoKICAgIDwhLS0gQm90dG9tIE5vZGUgKEFtZXRoeXN0IFZpb2xldCkgLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIyNDIiIHI9IjgiIGZpbGw9IiM4QjVDRjYiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KCiAgICA8IS0tIEJyYW5kIFR5cG9ncmFwaHkgYXJvdW5kIE1lZGFsbGlvbiAtLT4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMjcyIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIzIj5ORVhEUklWRTwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMjg4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOC41IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMDBEMkEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+VElFUi0xIEZMQVNIIFZFUklGSUVEPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg=='">
+        </div>
+
+        <!-- Brand Statement -->
+        <div class="logo-banner-text">
+          <span class="eyebrow" style="margin-bottom: 2px;">Official Hardware Supplier</span>
+          <h3>NexDrive Flash Storage Solutions</h3>
+          <p>
+            Direct manufacturer-grade supply of commercial USB flash drives, high-speed dual OTG memory, and bespoke corporate identity hardware.
+          </p>
+        </div>
+
+        <!-- Trust Badges -->
+        <div>
+          <span class="logo-badge-pill">
+            ⭐ Verified Tier-1 Flash Memory
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Page Banner -->
   <section class="page-banner">
@@ -87,7 +2205,7 @@
         <article id="metal-series" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">Titanium Series</span>
-            <img src="images/products/usb-apex-titanium.svg" alt="Apex Titanium USB Flash Drive Model USB-M100" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBcGV4IFRpdGFuaXVtIFVTQiBGbGFzaCBEcml2ZSBNb2RlbCBVU0ItTTEwMCBBbmltYXRlZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Im0xMDBCZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTQxOTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA5MEMxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibWV0YWxCb2R5IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjFGNUY5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjQ0JENUUxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOTRBM0I4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iODAlIiBzdG9wLWNvbG9yPSIjNjQ3NDhCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzMzNDE1NSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idXNiUGx1ZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjQ0JENUUxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY0NzQ4QiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hlZW5HcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI0ZERTY4QSIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ibURyb3AiIHg9Ii0xMCUiIHk9Ii0xMCUiIHdpZHRoPSIxMzAlIiBoZWlnaHQ9IjEzMCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTYiIHN0ZERldmlhdGlvbj0iMTYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIiBmbG9vZC1vcGFjaXR5PSIwLjgiLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0iYW1iZXJHbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZUNvbXBvc2l0ZSBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJibHVyIiBvcGVyYXRvcj0ib3ZlciIvPgogICAgPC9maWx0ZXI+CgogICAgPHN0eWxlPgogICAgICBAa2V5ZnJhbWVzIGZsb2F0VGl0YW5pdW0gewogICAgICAgIDAlLCAxMDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApOyB9CiAgICAgICAgNTAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC03cHgpOyB9CiAgICAgIH0KICAgICAgQGtleWZyYW1lcyBsZWREYXRhQmxpbmsgewogICAgICAgIDAlLCAxMDAlIHsgb3BhY2l0eTogMC45NTsgfQogICAgICAgIDMwJSB7IG9wYWNpdHk6IDAuMjU7IH0KICAgICAgICA2MCUgeyBvcGFjaXR5OiAxOyB9CiAgICAgICAgODAlIHsgb3BhY2l0eTogMC40OyB9CiAgICAgIH0KICAgICAgQGtleWZyYW1lcyBnbGVhbVBhc3MgewogICAgICAgIDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC0yNDBweCkgc2tld1goLTI1ZGVnKTsgb3BhY2l0eTogMDsgfQogICAgICAgIDE1JSB7IG9wYWNpdHk6IDAuOTsgfQogICAgICAgIDM1JSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWCgzMjBweCkgc2tld1goLTI1ZGVnKTsgb3BhY2l0eTogMDsgfQogICAgICAgIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzIwcHgpIHNrZXdYKC0yNWRlZyk7IG9wYWNpdHk6IDA7IH0KICAgICAgfQogICAgICAuYW5pbS10aXRhbml1bS1mbG9hdCB7IGFuaW1hdGlvbjogZmxvYXRUaXRhbml1bSA1cyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS10aXRhbml1bS1sZWQgeyBhbmltYXRpb246IGxlZERhdGFCbGluayAxLjRzIGVhc2UtaW4tb3V0IGluZmluaXRlOyB9CiAgICAgIC5hbmltLWdsZWFtIHsgYW5pbWF0aW9uOiBnbGVhbVBhc3MgNC41cyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQoKICAgICAgQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiByZWR1Y2UpIHsKICAgICAgICAuYW5pbS10aXRhbml1bS1mbG9hdCwgLmFuaW0tdGl0YW5pdW0tbGVkLCAuYW5pbS1nbGVhbSB7IGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50OyB9CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcng9IjE0IiBmaWxsPSJ1cmwoI20xMDBCZykiIHN0cm9rZT0iIzFFMjkzQiIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICAKICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIyMjUiIHI9IjE2MCIgZmlsbD0iI0Y1OUUwQiIgb3BhY2l0eT0iMC4wNCIvPgogIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIyNSIgcj0iMTIwIiBzdHJva2U9IiMzMzQxNTUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIiBmaWxsPSJub25lIi8+CgogIDwhLS0gVVNCIEZsYXNoIERyaXZlIEdyYXBoaWMgd2l0aCBGbG9hdGluZyBBbmltYXRpb24gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMwLCAxNjApIiBjbGFzcz0iYW5pbS10aXRhbml1bS1mbG9hdCIgZmlsdGVyPSJ1cmwoI21Ecm9wKSI+CiAgICA8IS0tIFVTQi1BIFN0YW5kYXJkIFBsdWcgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSIzMiIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjY2IiByeD0iNCIgZmlsbD0idXJsKCN1c2JQbHVnKSIvPgogICAgPHJlY3QgeD0iMTAiIHk9IjM4IiB3aWR0aD0iNTUiIGhlaWdodD0iNTQiIHJ4PSIyIiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOCIgeT0iNDQiIHdpZHRoPSI2IiBoZWlnaHQ9IjIwIiBmaWxsPSIjRjhGQUZDIiByeD0iMSIvPgogICAgPHJlY3QgeD0iMjkiIHk9IjQ0IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgZmlsbD0iI0Y4RkFGQyIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjQwIiB5PSI0NCIgd2lkdGg9IjYiIGhlaWdodD0iMjAiIGZpbGw9IiNGOEZBRkMiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI1MSIgeT0iNDQiIHdpZHRoPSI2IiBoZWlnaHQ9IjIwIiBmaWxsPSIjRjhGQUZDIiByeD0iMSIvPgogICAgPHJlY3QgeD0iNjgiIHk9IjM1IiB3aWR0aD0iNCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzQ3NTU2OSIvPgoKICAgIDwhLS0gVW5pYm9keSBaaW5jIEFsbG95IE1haW4gQm9keSAtLT4KICAgIDxnPgogICAgICA8Y2xpcFBhdGggaWQ9ImJvZHlDbGlwIj4KICAgICAgICA8cmVjdCB4PSI3MCIgeT0iMjAiIHdpZHRoPSIyNDAiIGhlaWdodD0iOTAiIHJ4PSIxNCIvPgogICAgICA8L2NsaXBQYXRoPgogICAgICA8cmVjdCB4PSI3MCIgeT0iMjAiIHdpZHRoPSIyNDAiIGhlaWdodD0iOTAiIHJ4PSIxNCIgZmlsbD0idXJsKCNtZXRhbEJvZHkpIi8+CiAgICAgIDxnIGNsaXAtcGF0aD0idXJsKCNib2R5Q2xpcCkiPgogICAgICAgIDxyZWN0IHg9IjcwIiB5PSIyMCIgd2lkdGg9IjU1IiBoZWlnaHQ9IjkwIiBmaWxsPSJ1cmwoI3NoZWVuR3JhZCkiIGNsYXNzPSJhbmltLWdsZWFtIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KCiAgICA8bGluZSB4MT0iNzQiIHkxPSIyMiIgeDI9IjMwMCIgeTI9IjIyIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMC45Ii8+CiAgICA8bGluZSB4MT0iNzQiIHkxPSIxMDgiIHgyPSIzMDAiIHkyPSIxMDgiIHN0cm9rZT0iIzFFMjkzQiIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjgiLz4KCiAgICA8IS0tIEtleXJpbmcgTG9vcCBIb2xlIC0tPgogICAgPGNpcmNsZSBjeD0iMjc1IiBjeT0iNjUiIHI9IjE4IiBmaWxsPSIjMDkwQzEyIi8+CiAgICA8Y2lyY2xlIGN4PSIyNzUiIGN5PSI2NSIgcj0iMjIiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiLz4KICAgIDxjaXJjbGUgY3g9IjI3NSIgY3k9IjY1IiByPSIyMyIgc3Ryb2tlPSIjRkRFNjhBIiBzdHJva2Utd2lkdGg9IjAuOCIgb3BhY2l0eT0iMC44IiBmaWxsPSJub25lIi8+CgogICAgPCEtLSBMYXNlciBFbmdyYXZlZCBCcmFuZGluZyAmIE1vZGVsIC0tPgogICAgPHRleHQgeD0iMTEwIiB5PSI1OCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwOTBDMTIiIGxldHRlci1zcGFjaW5nPSIxLjUiPk5FWERSSVZFPC90ZXh0PgogICAgPHRleHQgeD0iMTEwIiB5PSI3OCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMxRTI5M0IiIGxldHRlci1zcGFjaW5nPSIwLjUiPk1PREVMIFVTQi1NMTAwIOKAoiAxMjhHQjwvdGV4dD4KICAgIDx0ZXh0IHg9IjExMCIgeT0iOTMiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMzMzQxNTUiPlVTQiAzLjIgR0VOIDEgSElHSCBTUEVFRDwvdGV4dD4KCiAgICA8IS0tIEFjdGl2aXR5IEluZGljYXRvciBMRUQgaW4gQW1iZXIgR2xvdyAtLT4KICAgIDxjaXJjbGUgY3g9IjIyNSIgY3k9IjY1IiByPSI0LjUiIGZpbGw9IiNGNTlFMEIiIGZpbHRlcj0idXJsKCNhbWJlckdsb3cpIiBjbGFzcz0iYW5pbS10aXRhbml1bS1sZWQiLz4KICAgIDxjaXJjbGUgY3g9IjIyNSIgY3k9IjY1IiByPSI3IiBzdHJva2U9IiNGQkJGMjQiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC42IiBmaWxsPSJub25lIi8+CiAgPC9nPgoKICA8IS0tIFRhZyBQaWxsIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLCAzMCkiPgogICAgPHJlY3Qgd2lkdGg9IjEyNSIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjMDkwQzEyIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgICA8dGV4dCB4PSI2MiIgeT0iMTgiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRjU5RTBCIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5USVRBTklVTSBNRVRBTDwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="Apex Titanium USB Flash Drive Model USB-M100" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -128,7 +2246,7 @@
         <article id="dual-type-c" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">USB-C Dual OTG</span>
-            <img src="images/products/usb-duolink-pro.svg" alt="DuoLink Pro Dual USB-C and USB-A Flash Drive Model USB-D200" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJEdW9MaW5rIFBybyBEdWFsIFVTQi1DIGFuZCBVU0ItQSBGbGFzaCBEcml2ZSBBbmltYXRlZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImQyMDBCZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTQxOTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA5MEMxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZENvcmUiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkRFNjhBIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzkyNDAwRSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkTWV0YWwiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzMzQxNTUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxRTI5M0IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMEYxNzJBIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZERyb3AiIHg9Ii0xMCUiIHk9Ii0xMCUiIHdpZHRoPSIxMzAlIiBoZWlnaHQ9IjEzMCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTYiIHN0ZERldmlhdGlvbj0iMTYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIiBmbG9vZC1vcGFjaXR5PSIwLjgiLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0ib3RnR2xvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMiIHJlc3VsdD0iYmx1ciIvPgogICAgICA8ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz4KICAgIDwvZmlsdGVyPgoKICAgIDxzdHlsZT4KICAgICAgQGtleWZyYW1lcyBmbG9hdER1byB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7IH0KICAgICAgICA1MCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTdweCk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIHNoaWVsZFJvY2sgewogICAgICAgIDAlLCAxMDAlIHsgdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7IH0KICAgICAgICAzNSUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgtMThkZWcpOyB9CiAgICAgICAgNzAlIHsgdHJhbnNmb3JtOiByb3RhdGUoMThkZWcpOyB9CiAgICAgIH0KICAgICAgQGtleWZyYW1lcyBzaWduYWxQdWxzZSB7CiAgICAgICAgMCUsIDEwMCUgeyBvcGFjaXR5OiAwLjI7IHRyYW5zZm9ybTogc2NhbGUoMC45KTsgfQogICAgICAgIDUwJSB7IG9wYWNpdHk6IDE7IHRyYW5zZm9ybTogc2NhbGUoMS4xKTsgfQogICAgICB9CiAgICAgIC5hbmltLWR1by1mbG9hdCB7IGFuaW1hdGlvbjogZmxvYXREdW8gNS4ycyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS1zaGllbGQgewogICAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDEzMHB4IDY1cHg7CiAgICAgICAgYW5pbWF0aW9uOiBzaGllbGRSb2NrIDZzIGVhc2UtaW4tb3V0IGluZmluaXRlOwogICAgICB9CiAgICAgIC5hbmltLXNpZ25hbCB7CiAgICAgICAgYW5pbWF0aW9uOiBzaWduYWxQdWxzZSAycyBlYXNlLWluLW91dCBpbmZpbml0ZTsKICAgICAgICB0cmFuc2Zvcm0tb3JpZ2luOiAyNXB4IDY1cHg7CiAgICAgIH0KICAgICAgQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiByZWR1Y2UpIHsKICAgICAgICAuYW5pbS1kdW8tZmxvYXQsIC5hbmltLXNoaWVsZCwgLmFuaW0tc2lnbmFsIHsgYW5pbWF0aW9uOiBub25lICFpbXBvcnRhbnQ7IH0KICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDUwIiByeD0iMTQiIGZpbGw9InVybCgjZDIwMEJnKSIgc3Ryb2tlPSIjMUUyOTNCIiBzdHJva2Utd2lkdGg9IjEuMiIvPgogIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIyNSIgcj0iMTYwIiBmaWxsPSIjRjU5RTBCIiBvcGFjaXR5PSIwLjA0Ii8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMjI1IiByPSIxMjAiIHN0cm9rZT0iIzMzNDE1NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtZGFzaGFycmF5PSIzIDMiIGZpbGw9Im5vbmUiLz4KCiAgPCEtLSBVU0IgRHVvTGluayBHcmFwaGljIHdpdGggRmxvYXQgQW5pbWF0aW9uIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCwgMTYwKSIgY2xhc3M9ImFuaW0tZHVvLWZsb2F0IiBmaWx0ZXI9InVybCgjZERyb3ApIj4KICAgIAogICAgPCEtLSBPVEcgU2lnbmFsIFdhdmVzIGF0IFR5cGUtQyBUaXAgLS0+CiAgICA8ZyBjbGFzcz0iYW5pbS1zaWduYWwiPgogICAgICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjY1IiByPSIxOCIgc3Ryb2tlPSIjRjU5RTBCIiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC42IiBmaWx0ZXI9InVybCgjb3RnR2xvdykiLz4KICAgICAgPGNpcmNsZSBjeD0iMTAiIGN5PSI2NSIgcj0iMjgiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjMiLz4KICAgIDwvZz4KCiAgICA8IS0tIExlZnQgUGx1ZzogVVNCIFR5cGUtQyBSZXZlcnNpYmxlIENvbm5lY3RvciAtLT4KICAgIDxyZWN0IHg9IjAiIHk9IjQ0IiB3aWR0aD0iNTAiIGhlaWdodD0iNDIiIHJ4PSIxMCIgZmlsbD0iI0NCRDVFMSIgc3Ryb2tlPSIjOTRBM0I4IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDxyZWN0IHg9IjgiIHk9IjU4IiB3aWR0aD0iMzQiIGhlaWdodD0iMTQiIHJ4PSI1IiBmaWxsPSIjMDkwQzEyIi8+CiAgICA8bGluZSB4MT0iMTYiIHkxPSI2NSIgeDI9IjM0IiB5Mj0iNjUiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIyIi8+CgogICAgPCEtLSBJbm5lciBDb3JlIEJvZHkgaW4gQnVybmlzaGVkIEdvbGQgQW5vZGl6ZWQgRmluaXNoIC0tPgogICAgPHJlY3QgeD0iNDUiIHk9IjMyIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjY2IiByeD0iOCIgZmlsbD0idXJsKCNnb2xkQ29yZSkiLz4KICAgIDxsaW5lIHgxPSI0NiIgeTE9IjM0IiB4Mj0iMzI0IiB5Mj0iMzQiIHN0cm9rZT0iI0ZERTY4QSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuOCIvPgoKICAgIDwhLS0gUmlnaHQgUGx1ZzogVVNCLUEgMy4yIFN0YW5kYXJkIFBsdWcgLS0+CiAgICA8cmVjdCB4PSIzMjAiIHk9IjM3IiB3aWR0aD0iNjAiIGhlaWdodD0iNTYiIHJ4PSIzIiBmaWxsPSIjRTJFOEYwIiBzdHJva2U9IiM5NEEzQjgiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPHJlY3QgeD0iMzI4IiB5PSI0MiIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjQ2IiByeD0iMiIgZmlsbD0iI0Y1OUUwQiIvPgogICAgPHJlY3QgeD0iMzM0IiB5PSI0NiIgd2lkdGg9IjYiIGhlaWdodD0iMTYiIGZpbGw9IiNGRkZGRkYiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSIzNDQiIHk9IjQ2IiB3aWR0aD0iNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI0ZGRkZGRiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjM1NCIgeT0iNDYiIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjRkZGRkZGIiByeD0iMSIvPgoKICAgIDwhLS0gU3dpdmVsaW5nIFByb3RlY3RpdmUgR3VubWV0YWwgTWV0YWwgQnJpZGdlIChBbmltYXRlZCBSb3RhdGluZyBTaGllbGQpIC0tPgogICAgPGcgY2xhc3M9ImFuaW0tc2hpZWxkIj4KICAgICAgPHJlY3QgeD0iMTEwIiB5PSIyNCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI4MiIgcng9IjEwIiBmaWxsPSJ1cmwoI3NoaWVsZE1ldGFsKSIgc3Ryb2tlPSIjNjQ3NDhCIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgICA8Y2lyY2xlIGN4PSIxMzAiIGN5PSI2NSIgcj0iOCIgZmlsbD0iI0Y1OUUwQiIvPgogICAgICA8Y2lyY2xlIGN4PSIxMzAiIGN5PSI2NSIgcj0iNCIgZmlsbD0iIzA5MEMxMiIvPgoKICAgICAgPHRleHQgeD0iMTU1IiB5PSI2MCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGOEZBRkMiIGxldHRlci1zcGFjaW5nPSIxIj5EVU9MSU5LIFBSTzwvdGV4dD4KICAgICAgPHRleHQgeD0iMTU1IiB5PSI3NiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNGNTlFMEIiPlVTQi1DICsgVVNCLUEgMy4yPC90ZXh0PgogICAgICA8dGV4dCB4PSIxNTUiIHk9IjkwIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4LjUiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiM5NEEzQjgiPk1PREVMIFVTQi1EMjAwPC90ZXh0PgoKICAgICAgPGxpbmUgeDE9IjI0NSIgeTE9IjM2IiB4Mj0iMjQ1IiB5Mj0iOTQiIHN0cm9rZT0iIzQ3NTU2OSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICAgIDxsaW5lIHgxPSIyNTIiIHkxPSIzNiIgeDI9IjI1MiIgeTI9Ijk0IiBzdHJva2U9IiM0NzU1NjkiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgICA8bGluZSB4MT0iMjU5IiB5MT0iMzYiIHgyPSIyNTkiIHkyPSI5NCIgc3Ryb2tlPSIjNDc1NTY5IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDwvZz4KICA8L2c+CgogIDwhLS0gVGFnIFBpbGwgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAsIDMwKSI+CiAgICA8cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjI4IiByeD0iMTQiIGZpbGw9IiMwOTBDMTIiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICAgIDx0ZXh0IHg9IjcwIiB5PSIxOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNGNTlFMEIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRVQUwgVFlQRS1DIC8gT1RHPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="DuoLink Pro Dual USB-C and USB-A Flash Drive Model USB-D200" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -169,7 +2287,7 @@
         <article id="swivel-series" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">Swivel Series</span>
-            <img src="images/products/usb-orbit-swivel.svg" alt="Orbit Swivel Flash Drive Model USB-S300" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJPcmJpdCBTd2l2ZWwgRmxhc2ggRHJpdmUgTW9kZWwgVVNCLVMzMDAgQW5pbWF0ZWQiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzMzAwQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE0MTkyNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwOTBDMTIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InN3aXZlbEFybSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iNTAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI0UyRThGMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iIzk0QTNCOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0NzU1NjkiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJzRHJvcCIgeD0iLTEwJSIgeT0iLTEwJSIgd2lkdGg9IjEzMCUiIGhlaWdodD0iMTMwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIxNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiIGZsb29kLW9wYWNpdHk9IjAuOCIvPgogICAgPC9maWx0ZXI+CiAgICA8ZmlsdGVyIGlkPSJhbWJlckdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIzIiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KCiAgICA8c3R5bGU+CiAgICAgIEBrZXlmcmFtZXMgc3dpdmVsU3dpbmcgewogICAgICAgIDAlLCAxMDAlIHsgdHJhbnNmb3JtOiByb3RhdGUoLTE2ZGVnKTsgfQogICAgICAgIDUwJSB7IHRyYW5zZm9ybTogcm90YXRlKDI2ZGVnKTsgfQogICAgICB9CiAgICAgIEBrZXlmcmFtZXMgZmxvYXRCb2R5IHsKICAgICAgICAwJSwgMTAwJSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgwKTsgfQogICAgICAgIDUwJSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtN3B4KTsgfQogICAgICB9CiAgICAgIEBrZXlmcmFtZXMgbGVkUHVsc2UgewogICAgICAgIDAlLCAxMDAlIHsgb3BhY2l0eTogMC45NTsgfQogICAgICAgIDUwJSB7IG9wYWNpdHk6IDAuMjU7IH0KICAgICAgfQoKICAgICAgLmFuaW0tc3dpdmVsLWNsaXAgewogICAgICAgIHRyYW5zZm9ybS1vcmlnaW46IDE2MHB4IDcwcHg7CiAgICAgICAgYW5pbWF0aW9uOiBzd2l2ZWxTd2luZyA0LjVzIGVhc2UtaW4tb3V0IGluZmluaXRlOwogICAgICB9CiAgICAgIC5hbmltLWJvZHktZ3JvdXAgeyBhbmltYXRpb246IGZsb2F0Qm9keSA1cyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS1sZWQgeyBhbmltYXRpb246IGxlZFB1bHNlIDEuNHMgZWFzZS1pbi1vdXQgaW5maW5pdGU7IH0KCiAgICAgIEBtZWRpYSAocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogcmVkdWNlKSB7CiAgICAgICAgLmFuaW0tc3dpdmVsLWNsaXAsIC5hbmltLWJvZHktZ3JvdXAsIC5hbmltLWxlZCB7IGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50OyB9CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcng9IjE0IiBmaWxsPSJ1cmwoI3MzMDBCZykiIHN0cm9rZT0iIzFFMjkzQiIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIyMjUiIHI9IjE2MCIgZmlsbD0iI0Y1OUUwQiIgb3BhY2l0eT0iMC4wNCIvPgogIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIyNSIgcj0iMTIwIiBzdHJva2U9IiMzMzQxNTUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIiBmaWxsPSJub25lIi8+CgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCwgMTYwKSIgY2xhc3M9ImFuaW0tYm9keS1ncm91cCIgZmlsdGVyPSJ1cmwoI3NEcm9wKSI+CiAgICA8IS0tIFVTQi1BIFBsdWcgKExlZnQpIC0tPgogICAgPHJlY3QgeD0iMCIgeT0iNDIiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NiIgcng9IjMiIGZpbGw9IiNFMkU4RjAiIHN0cm9rZT0iIzk0QTNCOCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICA8cmVjdCB4PSIxMCIgeT0iNDgiIHdpZHRoPSI1MCIgaGVpZ2h0PSI0NCIgcng9IjIiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxyZWN0IHg9IjE4IiB5PSI1MiIgd2lkdGg9IjYiIGhlaWdodD0iMTYiIGZpbGw9IiNGRkZGRkYiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iNTIiIHdpZHRoPSI2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjRkZGRkZGIiByeD0iMSIvPgogICAgPHJlY3QgeD0iMzgiIHk9IjUyIiB3aWR0aD0iNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI0ZGRkZGRiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjQ4IiB5PSI1MiIgd2lkdGg9IjYiIGhlaWdodD0iMTYiIGZpbGw9IiNGRkZGRkYiIHJ4PSIxIi8+CgogICAgPCEtLSBNYXR0ZSBCbGFjayBSdWJiZXJpemVkIEhvdXNpbmcgQm9keSAtLT4KICAgIDxyZWN0IHg9IjY1IiB5PSIzMiIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI3NiIgcng9IjgiIGZpbGw9IiMxODFFMjkiIHN0cm9rZT0iIzMzNDE1NSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICAgIAogICAgPCEtLSBMRUQgQWN0aXZpdHkgaW5kaWNhdG9yIHNsb3Qgd2l0aCBBbWJlciBBbmltYXRpb24gLS0+CiAgICA8cmVjdCB4PSIyNjAiIHk9IjY1IiB3aWR0aD0iMTIiIGhlaWdodD0iMTAiIHJ4PSIyIiBmaWxsPSIjRjU5RTBCIiBmaWx0ZXI9InVybCgjYW1iZXJHbG93KSIgY2xhc3M9ImFuaW0tbGVkIi8+CgogICAgPCEtLSBTd2l2ZWxpbmcgQ2xpcCBHcm91cCAoQW5pbWF0ZWQgMzYwwrAgUm90YXRpb25hbCBEZW1vbnN0cmF0aW9uKSAtLT4KICAgIDxnIGNsYXNzPSJhbmltLXN3aXZlbC1jbGlwIj4KICAgICAgPHBhdGggZD0iTTEyMCAyMiBMMzEwIDE2IFEzMzUgMTUgMzQwIDQwIEwzNDAgMTAwIFEzMzUgMTI1IDMxMCAxMjQgTDEyMCAxMTggWiIgZmlsbD0idXJsKCNzd2l2ZWxBcm0pIiBzdHJva2U9IiM5NEEzQjgiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgICAgIAogICAgICA8Y2lyY2xlIGN4PSIzMTgiIGN5PSI3MCIgcj0iMTIiIGZpbGw9IiMwOTBDMTIiLz4KICAgICAgPGNpcmNsZSBjeD0iMzE4IiBjeT0iNzAiIHI9IjE1IiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgoKICAgICAgPHJlY3QgeD0iMTUwIiB5PSI0NSIgd2lkdGg9IjEzMCIgaGVpZ2h0PSI1MCIgcng9IjQiIGZpbGw9IiMwOTBDMTIiIG9wYWNpdHk9IjAuMTIiLz4KICAgICAgPHRleHQgeD0iMTYwIiB5PSI3MCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMwOTBDMTIiIGxldHRlci1zcGFjaW5nPSIxIj5PUkJJVCBTV0lWRUw8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjE2MCIgeT0iODUiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMxRTI5M0IiPlVTQi1TMzAwIOKAoiBDQVBMRVNTIDM2MMKwPC90ZXh0PgogICAgPC9nPgoKICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjcwIiByPSIxMSIgZmlsbD0iIzMzNDE1NSIvPgogICAgPGNpcmNsZSBjeD0iMTYwIiBjeT0iNzAiIHI9IjciIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjcwIiByPSIzIiBmaWxsPSIjMDkwQzEyIi8+CiAgPC9nPgoKICA8IS0tIFRhZyBQaWxsIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLCAzMCkiPgogICAgPHJlY3Qgd2lkdGg9IjEzNSIgaGVpZ2h0PSIyOCIgcng9IjE0IiBmaWxsPSIjMDkwQzEyIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgICA8dGV4dCB4PSI2NyIgeT0iMTgiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRjU5RTBCIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TV0lWRUwgLyBCVUxLPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="Orbit Swivel Flash Drive Model USB-S300" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -210,7 +2328,7 @@
         <article id="card-series" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">Credit Card Series</span>
-            <img src="images/products/usb-cardslim-executive.svg" alt="CardSlim Executive Credit Card Flash Drive Model USB-C400" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJDYXJkU2xpbSBFeGVjdXRpdmUgQ3JlZGl0IENhcmQgVVNCIEZsYXNoIERyaXZlIEFuaW1hdGVkIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYzQwMEJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxNDE5MjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDkwQzEyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjYXJkR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxRTI5M0IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwRjE3MkEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDkwQzEyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iY0Ryb3AiIHg9Ii0xMCUiIHk9Ii0xMCUiIHdpZHRoPSIxMzAlIiBoZWlnaHQ9IjEzMCUiPgogICAgICA8ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iMTYiIHN0ZERldmlhdGlvbj0iMTYiIGZsb29kLWNvbG9yPSIjMDAwMDAwIiBmbG9vZC1vcGFjaXR5PSIwLjgiLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0icGluR2xvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIiIHJlc3VsdD0iYmx1ciIvPgogICAgICA8ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz4KICAgIDwvZmlsdGVyPgoKICAgIDxzdHlsZT4KICAgICAgQGtleWZyYW1lcyBmbG9hdENhcmQgewogICAgICAgIDAlLCAxMDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApOyB9CiAgICAgICAgNTAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC02cHgpOyB9CiAgICAgIH0KICAgICAgQGtleWZyYW1lcyBmbGlwQ2hpcCB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTsgfQogICAgICAgIDQwJSB7IHRyYW5zZm9ybTogcm90YXRlKC0zNWRlZyk7IH0KICAgICAgICA2MCUgeyB0cmFuc2Zvcm06IHJvdGF0ZSgtMzVkZWcpOyB9CiAgICAgICAgODUlIHsgdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIGdvbGRTaGltbWVyIHsKICAgICAgICAwJSwgMTAwJSB7IG9wYWNpdHk6IDAuODsgfQogICAgICAgIDUwJSB7IG9wYWNpdHk6IDE7IGZpbHRlcjogZHJvcC1zaGFkb3coMCAwIDNweCAjRkJCRjI0KTsgfQogICAgICB9CgogICAgICAuYW5pbS1jYXJkLWZsb2F0IHsgYW5pbWF0aW9uOiBmbG9hdENhcmQgNS40cyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS1mbGlwLWNvbm5lY3RvciB7CiAgICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMzBweCAxMTBweDsKICAgICAgICBhbmltYXRpb246IGZsaXBDaGlwIDVzIGN1YmljLWJlemllcigwLjQsIDAsIDAuMiwgMSkgaW5maW5pdGU7CiAgICAgIH0KICAgICAgLmFuaW0tZ29sZC1waW5zIHsgYW5pbWF0aW9uOiBnb2xkU2hpbW1lciAyLjJzIGVhc2UtaW4tb3V0IGluZmluaXRlOyB9CgogICAgICBAbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkgewogICAgICAgIC5hbmltLWNhcmQtZmxvYXQsIC5hbmltLWZsaXAtY29ubmVjdG9yLCAuYW5pbS1nb2xkLXBpbnMgeyBhbmltYXRpb246IG5vbmUgIWltcG9ydGFudDsgfQogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0NTAiIHJ4PSIxNCIgZmlsbD0idXJsKCNjNDAwQmcpIiBzdHJva2U9IiMxRTI5M0IiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMjI1IiByPSIxNjAiIGZpbGw9IiNGNTlFMEIiIG9wYWNpdHk9IjAuMDQiLz4KCiAgPCEtLSBDYXJkIEZvcm0gRmFjdG9yIHdpdGggRmxvYXQgQW5pbWF0aW9uIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMCwgMTEwKSIgY2xhc3M9ImFuaW0tY2FyZC1mbG9hdCIgZmlsdGVyPSJ1cmwoI2NEcm9wKSI+CiAgICA8IS0tIE1haW4gQ2FyZCBCb2R5IGluIE9ic2lkaWFuIENhcmJvbiB3aXRoIEdvbGQgQmV2ZWwgLS0+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjIxNSIgcng9IjE0IiBmaWxsPSJ1cmwoI2NhcmRHcmFkKSIgc3Ryb2tlPSIjRjU5RTBCIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogICAgCiAgICA8IS0tIFN1YnRsZSBHZW9tZXRyaWMgQ2FyYm9uIEZpYmVyIFN0eWxlIE1lc2ggLS0+CiAgICA8cGF0aCBkPSJNMCAwIEwxNjAgMCBMOTAgMjE1IEwwIDIxNSBaIiBmaWxsPSIjRjU5RTBCIiBvcGFjaXR5PSIwLjA4Ii8+CiAgICA8Y2lyY2xlIGN4PSIyNzAiIGN5PSI2MCIgcj0iODAiIGZpbGw9IiNGNTlFMEIiIG9wYWNpdHk9IjAuMDUiLz4KCiAgICA8IS0tIEZsaXAtT3V0IFVTQiBDb25uZWN0b3IgQXJlYSBSZWNlc3MgLS0+CiAgICA8cmVjdCB4PSIyMiIgeT0iNTUiIHdpZHRoPSI4NSIgaGVpZ2h0PSIxMTAiIHJ4PSI4IiBmaWxsPSIjMDkwQzEyIiBzdHJva2U9IiMzMzQxNTUiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtZGFzaGFycmF5PSIzIDMiLz4KICAgIAogICAgPCEtLSBGbGlwLW91dCBQbHVnIE1lY2hhbmlzbSAoR29sZCBDb250YWN0IFVEUCBDaGlwIEFuaW1hdGVkKSAtLT4KICAgIDxnIGNsYXNzPSJhbmltLWZsaXAtY29ubmVjdG9yIj4KICAgICAgPHJlY3QgeD0iMzAiIHk9IjcwIiB3aWR0aD0iNjgiIGhlaWdodD0iODAiIHJ4PSI2IiBmaWxsPSIjMUUyOTNCIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgICAgIDxyZWN0IHg9IjM2IiB5PSI3NiIgd2lkdGg9IjU2IiBoZWlnaHQ9IjMwIiByeD0iMyIgZmlsbD0iIzA5MEMxMiIvPgogICAgICA8IS0tIEdvbGQgQ29udGFjdHMgLS0+CiAgICAgIDxnIGNsYXNzPSJhbmltLWdvbGQtcGlucyI+CiAgICAgICAgPHJlY3QgeD0iNDIiIHk9IjgwIiB3aWR0aD0iNyIgaGVpZ2h0PSIxOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgICAgICA8cmVjdCB4PSI1MyIgeT0iODAiIHdpZHRoPSI3IiBoZWlnaHQ9IjE4IiByeD0iMSIgZmlsbD0iI0Y1OUUwQiIvPgogICAgICAgIDxyZWN0IHg9IjY0IiB5PSI4MCIgd2lkdGg9IjciIGhlaWdodD0iMTgiIHJ4PSIxIiBmaWxsPSIjRjU5RTBCIi8+CiAgICAgICAgPHJlY3QgeD0iNzUiIHk9IjgwIiB3aWR0aD0iNyIgaGVpZ2h0PSIxOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgICAgPC9nPgogICAgICAKICAgICAgPHRleHQgeD0iNjQiIHk9IjEzMiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNy41IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRkJCRjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VRFAgQ09CIENISVA8L3RleHQ+CiAgICAgIDx0ZXh0IHg9IjY0IiB5PSIxNDIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjYuNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzk0QTNCOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RkxJUCBNRUNIQU5JU008L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBDYXJkIEZyb250IFR5cG9ncmFwaHkgaW4gVGl0YW5pdW0gJiBHb2xkIC0tPgogICAgPHRleHQgeD0iMTM1IiB5PSI2NSIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGOEZBRkMiIGxldHRlci1zcGFjaW5nPSIxIj5DQVJEU0xJTTwvdGV4dD4KICAgIDx0ZXh0IHg9IjEzNSIgeT0iODQiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRjU5RTBCIiBsZXR0ZXItc3BhY2luZz0iMSI+RVhFQ1VUSVZFIFdBRkVSPC90ZXh0PgogICAgCiAgICA8dGV4dCB4PSIxMzUiIHk9IjEyNSIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOS41IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjQ0JENUUxIj5Nb2RlbDogVVNCLUM0MDA8L3RleHQ+CiAgICA8dGV4dCB4PSIxMzUiIHk9IjE0MiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOS41IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjQ0JENUUxIj5UaGlja25lc3M6IFVsdHJhLVNsaW0gMi4yIG1tPC90ZXh0PgogICAgPHRleHQgeD0iMTM1IiB5PSIxNTkiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkuNSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI0NCRDVFMSI+Q2FwYWNpdHk6IFVwIHRvIDEyOEdCPC90ZXh0PgoKICAgIDwhLS0gRnVsbC1Db2xvciBEaXJlY3QgRGlnaXRhbCBVViBQcmludCBab25lIGluZGljYXRvciAtLT4KICAgIDxyZWN0IHg9IjEzNSIgeT0iMTcyIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI2IiByeD0iNiIgZmlsbD0iIzE4MUUyOSIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDx0ZXh0IHg9IjIyNSIgeT0iMTg5IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRkRFNjhBIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GdWxsLUNvbG9yIER1YWwtU2lkZWQgVVYgSW1wcmludDwvdGV4dD4KICA8L2c+CgogIDwhLS0gVGFnIFBpbGwgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAsIDMwKSI+CiAgICA8cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjI4IiByeD0iMTQiIGZpbGw9IiMwOTBDMTIiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICAgIDx0ZXh0IHg9Ijc1IiB5PSIxOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiNGNTlFMEIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNSRURJVCBDQVJEIC8gU0xJTTwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="CardSlim Executive Credit Card Flash Drive Model USB-C400" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -251,7 +2369,7 @@
         <article id="specialty-key" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">Rugged Keyring</span>
-            <img src="images/products/usb-securevault-key.svg" alt="SecureVault Key USB Flash Drive Model USB-K500" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTZWN1cmVWYXVsdCBLZXkgVVNCIEZsYXNoIERyaXZlIEFuaW1hdGVkIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iazUwMEJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxNDE5MjYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDkwQzEyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzdGVlbEdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIyMCUiIHN0b3AtY29sb3I9IiNDQkQ1RTEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM5NEEzQjgiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4MCUiIHN0b3AtY29sb3I9IiM0NzU1NjkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMUUyOTNCIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzaGVlbkdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0ZGRkZGRiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRkZGRkZGIiBzdG9wLW9wYWNpdHk9IjAuOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNGRkZGRkYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImtEcm9wIiB4PSItMTAlIiB5PSItMTAlIiB3aWR0aD0iMTMwJSIgaGVpZ2h0PSIxMzAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjE2IiBzdGREZXZpYXRpb249IjE2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC44Ii8+CiAgICA8L2ZpbHRlcj4KICAgIDxmaWx0ZXIgaWQ9IndhdGVyR2xvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjMiIHJlc3VsdD0iYmx1ciIvPgogICAgICA8ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iYmx1ciIgb3BlcmF0b3I9Im92ZXIiLz4KICAgIDwvZmlsdGVyPgoKICAgIDxzdHlsZT4KICAgICAgQGtleWZyYW1lcyBmbG9hdEtleSB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7IH0KICAgICAgICA1MCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTdweCk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIGtleUdsZWFtIHsKICAgICAgICAwJSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtMjQwcHgpIHNrZXdYKC0yNWRlZyk7IG9wYWNpdHk6IDA7IH0KICAgICAgICAxNSUgeyBvcGFjaXR5OiAwLjk7IH0KICAgICAgICAzNSUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMzgwcHgpIHNrZXdYKC0yNWRlZyk7IG9wYWNpdHk6IDA7IH0KICAgICAgICAxMDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDM4MHB4KSBza2V3WCgtMjVkZWcpOyBvcGFjaXR5OiAwOyB9CiAgICAgIH0KICAgICAgQGtleWZyYW1lcyB3YXRlclJpcHBsZSB7CiAgICAgICAgMCUgeyByOiAxMHB4OyBvcGFjaXR5OiAwLjg7IHN0cm9rZS13aWR0aDogMnB4OyB9CiAgICAgICAgMTAwJSB7IHI6IDYwcHg7IG9wYWNpdHk6IDA7IHN0cm9rZS13aWR0aDogMC41cHg7IH0KICAgICAgfQoKICAgICAgLmFuaW0ta2V5LWZsb2F0IHsgYW5pbWF0aW9uOiBmbG9hdEtleSA1LjJzIGVhc2UtaW4tb3V0IGluZmluaXRlOyB9CiAgICAgIC5hbmltLWtleS1nbGVhbSB7IGFuaW1hdGlvbjoga2V5R2xlYW0gNC4ycyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS13YXRlci0xIHsgYW5pbWF0aW9uOiB3YXRlclJpcHBsZSAzcyBlYXNlLW91dCBpbmZpbml0ZTsgfQogICAgICAuYW5pbS13YXRlci0yIHsgYW5pbWF0aW9uOiB3YXRlclJpcHBsZSAzcyBlYXNlLW91dCBpbmZpbml0ZSAxLjVzOyB9CgogICAgICBAbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkgewogICAgICAgIC5hbmltLWtleS1mbG9hdCwgLmFuaW0ta2V5LWdsZWFtLCAuYW5pbS13YXRlci0xLCAuYW5pbS13YXRlci0yIHsgYW5pbWF0aW9uOiBub25lICFpbXBvcnRhbnQ7IH0KICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNDUwIiByeD0iMTQiIGZpbGw9InVybCgjazUwMEJnKSIgc3Ryb2tlPSIjMUUyOTNCIiBzdHJva2Utd2lkdGg9IjEuMiIvPgogIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIyNSIgcj0iMTYwIiBmaWxsPSIjRjU5RTBCIiBvcGFjaXR5PSIwLjA0Ii8+CgogIDwhLS0gSVBYNyBXYXRlcnByb29mIFNpbXVsYXRlZCBSaXBwbGUgV2F2ZXMgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQwLCAyMjUpIj4KICAgIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIxNSIgc3Ryb2tlPSIjMTBCOTgxIiBmaWxsPSJub25lIiBjbGFzcz0iYW5pbS13YXRlci0xIiBmaWx0ZXI9InVybCgjd2F0ZXJHbG93KSIvPgogICAgPGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjE1IiBzdHJva2U9IiMxMEI5ODEiIGZpbGw9Im5vbmUiIGNsYXNzPSJhbmltLXdhdGVyLTIiIGZpbHRlcj0idXJsKCN3YXRlckdsb3cpIi8+CiAgPC9nPgoKICA8IS0tIEtleSBHcmFwaGljIHdpdGggRmxvYXQgQW5pbWF0aW9uIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCwgMTYwKSIgY2xhc3M9ImFuaW0ta2V5LWZsb2F0IiBmaWx0ZXI9InVybCgja0Ryb3ApIj4KICAgIDwhLS0gVVNCIEtleSBQcm9maWxlIE1vbm9saXRoaWMgU3RhaW5sZXNzIFN0ZWVsIC0tPgogICAgPGc+CiAgICAgIDxjbGlwUGF0aCBpZD0ia2V5Q2xpcCI+CiAgICAgICAgPHBhdGggZD0iTTIwIDQwIEw5MCA0MCBMOTAgMjggTDMyMCAyOCBRMzgwIDI4IDM4MCA2NSBRMzgwIDEwMiAzMjAgMTAyIEw5MCAxMDIgTDkwIDkwIEwyMCA5MCBaIi8+CiAgICAgIDwvY2xpcFBhdGg+CiAgICAgIDxwYXRoIGQ9Ik0yMCA0MCBMOTAgNDAgTDkwIDI4IEwzMjAgMjggUTM4MCAyOCAzODAgNjUgUTM4MCAxMDIgMzIwIDEwMiBMOTAgMTAyIEw5MCA5MCBMMjAgOTAgWiIgZmlsbD0idXJsKCNzdGVlbEdyYWQpIiBzdHJva2U9IiM2NDc0OEIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgIDxnIGNsaXAtcGF0aD0idXJsKCNrZXlDbGlwKSI+CiAgICAgICAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iNjAiIGhlaWdodD0iNzQiIGZpbGw9InVybCgjc2hlZW5HcmFkKSIgY2xhc3M9ImFuaW0ta2V5LWdsZWFtIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KCiAgICA8IS0tIEtleSBIZWFkIFJpbmcgQ3V0b3V0IC0tPgogICAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iNjUiIHI9IjIyIiBmaWxsPSIjMDkwQzEyIi8+CiAgICA8Y2lyY2xlIGN4PSIzNDAiIGN5PSI2NSIgcj0iMjUiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiLz4KICAgIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjY1IiByPSIyNiIgc3Ryb2tlPSIjRkRFNjhBIiBzdHJva2Utd2lkdGg9IjAuOCIgb3BhY2l0eT0iMC44IiBmaWxsPSJub25lIi8+CgogICAgPCEtLSBHb2xkIENvbnRhY3QgUGlucyBkaXJlY3RseSBvbiB0aGUga2V5IHRpcCAtLT4KICAgIDxyZWN0IHg9IjM1IiB5PSI0NiIgd2lkdGg9IjM4IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiNGNTlFMEIiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDxyZWN0IHg9IjM1IiB5PSI1NiIgd2lkdGg9IjM4IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiNGNTlFMEIiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDxyZWN0IHg9IjM1IiB5PSI2NiIgd2lkdGg9IjM4IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiNGNTlFMEIiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDxyZWN0IHg9IjM1IiB5PSI3NiIgd2lkdGg9IjM4IiBoZWlnaHQ9IjciIHJ4PSIxLjUiIGZpbGw9IiNGNTlFMEIiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KCiAgICA8IS0tIExhc2VyIEVuZ3JhdmluZyBvbiBLZXkgU3RlbSAtLT4KICAgIDx0ZXh0IHg9IjExMCIgeT0iNTgiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMDkwQzEyIiBsZXR0ZXItc3BhY2luZz0iMSI+U0VDVVJFVkFVTFQgS0VZPC90ZXh0PgogICAgPHRleHQgeD0iMTEwIiB5PSI3NCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOS41IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMUUyOTNCIj5NT0RFTCBVU0ItSzUwMCDigKIgSVBYNyBXQVRFUlBST09GPC90ZXh0PgogICAgPHRleHQgeD0iMTEwIiB5PSI4OCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOC41IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMzM0MTU1Ij5DT0IgVURQIENISVAgQVJDSElURUNUVVJFPC90ZXh0PgoKICAgIDwhLS0gS2V5IFNwaW5lIEdyb292ZSB3aXRoIEdvbGQgQWNjZW50IC0tPgogICAgPGxpbmUgeDE9IjEwMCIgeTE9IjM2IiB4Mj0iMjgwIiB5Mj0iMzYiIHN0cm9rZT0iI0ZERTY4QSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuOCIvPgogICAgPGxpbmUgeDE9IjEwMCIgeTE9Ijk0IiB4Mj0iMjgwIiB5Mj0iOTQiIHN0cm9rZT0iIzBGMTcyQSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuOCIvPgogIDwvZz4KCiAgPCEtLSBUYWcgUGlsbCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMCwgMzApIj4KICAgIDxyZWN0IHdpZHRoPSIxNzAiIGhlaWdodD0iMjgiIHJ4PSIxNCIgZmlsbD0iIzA5MEMxMiIgc3Ryb2tlPSIjMTBCOTgxIiBzdHJva2Utd2lkdGg9IjEuMiIvPgogICAgPHRleHQgeD0iODUiIHk9IjE4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzEwQjk4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UlVHR0VEIEtFWVJJTkcgLyBJUFg3PC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="SecureVault Key USB Flash Drive Model USB-K500" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -292,7 +2410,7 @@
         <article id="sustainable-series" class="product-card">
           <div class="product-card-media">
             <span class="product-card-badge">Sustainable Series</span>
-            <img src="images/products/usb-ecobamboo-wood.svg" alt="EcoBamboo Wooden USB Flash Drive Model USB-E600" width="600" height="450" loading="lazy">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgNDUwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJFY29CYW1ib28gV29vZGVuIFVTQiBGbGFzaCBEcml2ZSBBbmltYXRlZCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImU2MDBCZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTQxOTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA5MEMxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id29vZEdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRDk3NzA2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMjUlIiBzdG9wLWNvbG9yPSIjQjQ1MzA5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNjAlIiBzdG9wLWNvbG9yPSIjRDk3NzA2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iODUlIiBzdG9wLWNvbG9yPSIjOTI0MDBFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc4MzUwRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idXNiUGx1Z0dvbGQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI0YxRjVGOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI0NCRDVFMSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5NEEzQjgiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8ZmlsdGVyIGlkPSJ3RHJvcCIgeD0iLTEwJSIgeT0iLTEwJSIgd2lkdGg9IjEzMCUiIGhlaWdodD0iMTMwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIxNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiIGZsb29kLW9wYWNpdHk9IjAuOCIvPgogICAgPC9maWx0ZXI+CgogICAgPHN0eWxlPgogICAgICBAa2V5ZnJhbWVzIGNhcFNuYXBBY3Rpb24gewogICAgICAgIDAlLCAxMDAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApOyB9CiAgICAgICAgMzUlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC0xOHB4KTsgfQogICAgICAgIDU1JSB7IHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtMThweCk7IH0KICAgICAgICA3NSUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIGZsb2F0V29vZCB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCk7IH0KICAgICAgICA1MCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTZweCk7IH0KICAgICAgfQogICAgICAuYW5pbS1jYXAgeyBhbmltYXRpb246IGNhcFNuYXBBY3Rpb24gNXMgY3ViaWMtYmV6aWVyKDAuNCwgMCwgMC4yLCAxKSBpbmZpbml0ZTsgfQogICAgICAuYW5pbS13b29kLWdyb3VwIHsgYW5pbWF0aW9uOiBmbG9hdFdvb2QgNS41cyBlYXNlLWluLW91dCBpbmZpbml0ZTsgfQogICAgICBAbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkgewogICAgICAgIC5hbmltLWNhcCwgLmFuaW0td29vZC1ncm91cCB7IGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50OyB9CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgoKICA8cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgcng9IjE0IiBmaWxsPSJ1cmwoI2U2MDBCZykiIHN0cm9rZT0iIzFFMjkzQiIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIyMjUiIHI9IjE2MCIgZmlsbD0iI0Y1OUUwQiIgb3BhY2l0eT0iMC4wNCIvPgoKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAsIDE2MCkiIGNsYXNzPSJhbmltLXdvb2QtZ3JvdXAiIGZpbHRlcj0idXJsKCN3RHJvcCkiPgogICAgPCEtLSBBbmltYXRlZCBVU0IgTWFnbmV0aWMgQ2FwIC0tPgogICAgPGcgY2xhc3M9ImFuaW0tY2FwIj4KICAgICAgPHJlY3QgeD0iMCIgeT0iMjQiIHdpZHRoPSI3NSIgaGVpZ2h0PSI4MiIgcng9IjgiIGZpbGw9InVybCgjd29vZEdyYWQpIiBzdHJva2U9IiM3ODM1MEYiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgICAgIDxwYXRoIGQ9Ik0xMCAzNSBRNDAgNDAgNzAgMzQgTTE1IDU1IFE0NSA1MiA2NSA1OCBNMTAgNzUgUTM1IDc4IDY4IDc0IE0yMCA5MiBRNTAgOTAgNzAgOTQiIHN0cm9rZT0iIzQ1MUEwMyIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNiIgZmlsbD0ibm9uZSIvPgogICAgICA8Y2lyY2xlIGN4PSI3MCIgY3k9IjY1IiByPSIzLjUiIGZpbGw9IiNGREU2OEEiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICAgIDwvZz4KCiAgICA8IS0tIEV4cG9zZWQgVVNCLUEgMy4wIENvbm5lY3RvciAtLT4KICAgIDxyZWN0IHg9Ijg1IiB5PSIzNyIgd2lkdGg9IjQ1IiBoZWlnaHQ9IjU2IiByeD0iMiIgZmlsbD0idXJsKCN1c2JQbHVnR29sZCkiLz4KICAgIDxyZWN0IHg9IjkyIiB5PSI0MiIgd2lkdGg9IjM0IiBoZWlnaHQ9IjQ2IiByeD0iMiIgZmlsbD0iI0Y1OUUwQiIvPgogICAgPHJlY3QgeD0iOTgiIHk9IjQ2IiB3aWR0aD0iNSIgaGVpZ2h0PSIxNiIgZmlsbD0iI0ZGRkZGRiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjEwOCIgeT0iNDYiIHdpZHRoPSI1IiBoZWlnaHQ9IjE2IiBmaWxsPSIjRkZGRkZGIiByeD0iMSIvPgogICAgPHJlY3QgeD0iMTE4IiB5PSI0NiIgd2lkdGg9IjUiIGhlaWdodD0iMTYiIGZpbGw9IiNGRkZGRkYiIHJ4PSIxIi8+CgogICAgPCEtLSBNYWluIEJhbWJvbyBXb29kIEJvZHkgLS0+CiAgICA8cmVjdCB4PSIxMzAiIHk9IjI0IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjgyIiByeD0iOCIgZmlsbD0idXJsKCN3b29kR3JhZCkiIHN0cm9rZT0iIzc4MzUwRiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDxjaXJjbGUgY3g9IjEzNSIgY3k9IjY1IiByPSIzLjUiIGZpbGw9IiNGREU2OEEiIHN0cm9rZT0iI0I0NTMwOSIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KCiAgICA8cGF0aCBkPSJNMTQwIDM4IFEyNDAgNDIgMzQwIDM2IE0xNTAgNTQgUTI1MCA1MCAzMzUgNTYgTTE0MCA3MiBRMjMwIDc2IDM0MCA3MCBNMTQ1IDkwIFEyNjAgODggMzM1IDkyIiBzdHJva2U9IiM0NTFBMDMiIHN0cm9rZS13aWR0aD0iMS40IiBvcGFjaXR5PSIwLjYiIGZpbGw9Im5vbmUiLz4KCiAgICA8IS0tIExhc2VyIEJ1cm4gRW5ncmF2ZWQgQnJhbmRpbmcgLS0+CiAgICA8dGV4dCB4PSIxNzAiIHk9IjU4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzJFMTAwNSIgbGV0dGVyLXNwYWNpbmc9IjEiPkVDT0JBTUJPTzwvdGV4dD4KICAgIDx0ZXh0IHg9IjE3MCIgeT0iNzQiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjM0QxODA3IiBsZXR0ZXItc3BhY2luZz0iMC41Ij5NT0RFTCBVU0ItRTYwMCDigKIgVVNCIDMuMDwvdGV4dD4KICAgIDx0ZXh0IHg9IjE3MCIgeT0iODgiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjguNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzQ1MUEwMyI+RlNDwq4gQ0VSVElGSUVEIE5BVFVSQUwgQkFNQk9PPC90ZXh0PgoKICAgIDwhLS0gRWNvIExlYWYgU3RhbXAgaW4gRW1lcmFsZCAtLT4KICAgIDxwYXRoIGQ9Ik0zMTUgNTAgUTMyNSA0NSAzMzAgNTUgUTMyNSA2NSAzMTUgNjUgUTMxMCA1OCAzMTUgNTAgWiIgZmlsbD0iIzEwQjk4MSIgb3BhY2l0eT0iMC45NSIvPgogIDwvZz4KCiAgPCEtLSBUYWcgUGlsbCAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMCwgMzApIj4KICAgIDxyZWN0IHdpZHRoPSIxNzAiIGhlaWdodD0iMjgiIHJ4PSIxNCIgZmlsbD0iIzA5MEMxMiIgc3Ryb2tlPSIjMTBCOTgxIiBzdHJva2Utd2lkdGg9IjEuMiIvPgogICAgPHRleHQgeD0iODUiIHk9IjE4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzEwQjk4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U1VTVEFJTkFCTEUgQkFNQk9PPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" alt="EcoBamboo Wooden USB Flash Drive Model USB-E600" width="600" height="450" loading="lazy">
           </div>
           <div class="product-card-body">
             <div class="product-meta-header">
@@ -351,7 +2469,7 @@
     <div class="container footer-top">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="images/logo.svg" alt="NexDrive Logo" width="220" height="42">
+          <img src="images/logo.svg" alt="NexDrive Logo" width="220" height="42" class="footer-brand-logo" style="height: 40px; width: auto; max-width: 220px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTmV4RHJpdmUgRmxhc2ggU3RvcmFnZSBTb2x1dGlvbnMgTG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImVtYmxlbUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkY3ODQ5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRDJBMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUEyQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImxvZ29HbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gTXVsdGktQ29sb3IgU2hpZWxkIEVtYmxlbSB3aXRoIFVTQiBDb3JlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj4KICAgIDwhLS0gU2hpZWxkIC8gUGx1ZyBCYXNlIHdpdGggRW1lcmFsZCAmIEFtYmVyIEJvcmRlciAtLT4KICAgIDxwYXRoIGQ9Ik00IDYgUTE0IDIgMjQgMiBRMzQgMiA0NCA2IEw0MiAzNCBRMzQgNDYgMjQgNTAgUTE0IDQ2IDYgMzQgWiIgZmlsbD0idXJsKCNzaGllbGRCZykiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIAogICAgPCEtLSBHb2xkIFVTQiBQbHVnIFRlcm1pbmFsIGF0b3Agc2hpZWxkIC0tPgogICAgPHJlY3QgeD0iMTYiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI1IiByeD0iMS41IiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOSIgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzBCMUEyQyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMwQjFBMkMiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIEdsb3dpbmcgR2VvbWV0cmljIFVTQiBUcmlkZW50IC0tPgogICAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxOCIgcj0iMy4yIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbG9nb0dsb3cpIi8+CiAgICA8cGF0aCBkPSJNMjQgMjEuNSBMMjQgMzgiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE2IDI2IEwyNCAzMCBMMzIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjI1IiByPSIyLjIiIGZpbGw9IiNGRjc4NDkiLz4KICAgIDxyZWN0IHg9IjMwIiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNDAiIHI9IjIuMiIgZmlsbD0iIzAwRDJBMCIgZmlsdGVyPSJ1cmwoI2xvZ29HbG93KSIvPgogIDwvZz4KCiAgPCEtLSBCb2xkIE1vZGVybiBXb3JkbWFyayAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzBGMjMzOCIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPk5FWDx0c3BhbiBmaWxsPSIjRkY3ODQ5Ij5EUklWRTwvdHNwYW4+PC90ZXh0PgogIDx0ZXh0IHg9IjY1IiB5PSI0NyIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwMEE4ODQiIGxldHRlci1zcGFjaW5nPSIyLjQiPkZMQVNIIFNUT1JBR0UgU1lTVEVNUzwvdGV4dD4KPC9zdmc+Cg=='">
           <p class="footer-brand-desc">
             Professional B2B supplier of USB flash drives, high-speed memory solutions, and custom branded flash media for enterprise and institutional clients.
           </p>
@@ -404,7 +2522,7 @@
             </li>
             <li>
               <span class="footer-contact-label">Operating Hours:</span>
-              <span class="footer-contact-value">Mon – Fri: 09:00 – 18:00</span>
+              <span class="footer-contact-value">Mon â€“ Fri: 09:00 â€“ 18:00</span>
             </li>
           </ul>
         </div>
@@ -414,10 +2532,85 @@
     <div class="footer-bottom">
       <div class="container footer-bottom-container">
         <p>&copy; 2026 NexDrive [Company Name Placeholder]. All rights reserved. Informational B2B catalog without e-commerce or online ordering.</p>
-        <p>Pure Static HTML5 &amp; CSS3 • Zero JavaScript</p>
+        <p>Pure Static HTML5 &amp; CSS3 â€¢ Zero JavaScript</p>
       </div>
     </div>
   </footer>
 
+  <!-- Dynamic Catalog Synchronization with Backend API & GitHub Pages Client Storage -->
+  <script>
+    (async function() {
+      let productsList = null;
+      try {
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && data.products && data.products.length > 0) {
+            productsList = data.products;
+          }
+        }
+      } catch (err) {}
+
+      // Fallback: Read from LocalStorage if on GitHub Pages or static host
+      if (!productsList) {
+        try {
+          const localData = localStorage.getItem('nexdrive_products');
+          if (localData) {
+            productsList = JSON.parse(localData);
+          }
+        } catch (err) {}
+      }
+
+      if (!productsList || productsList.length === 0) return;
+
+      const grid = document.querySelector('.product-grid');
+      if (!grid) return;
+
+      grid.innerHTML = productsList.map(p => {
+        const imgSrc = (p.image || 'images/products/usb-apex-titanium.svg').replace(/^\.\.\//, '');
+        return `
+          <article class="product-card" id="product-${p.id}">
+            <div class="product-card-media">
+              <span class="product-card-badge">${p.availability || 'In Stock'}</span>
+              <img src="${imgSrc}" alt="${p.name}" width="600" height="450" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <div class="product-meta-header">
+                <span class="product-model-code">${p.model_code || 'USB-STD'}</span>
+                <span class="product-category-name">${p.category || 'USB Storage'}</span>
+              </div>
+              <h3 class="product-card-title">
+                <a href="contact.html?product=${encodeURIComponent(p.name)}">${p.name}</a>
+              </h3>
+              <p class="product-card-desc">
+                ${p.description || 'Enterprise USB storage hardware engineered for reliability.'}
+              </p>
+              <ul class="product-specs-list">
+                <li class="product-spec-row">
+                  <span class="spec-label">Interface:</span>
+                  <span class="spec-val">${p.interface || 'USB 3.2 Gen 1'}</span>
+                </li>
+                <li class="product-spec-row">
+                  <span class="spec-label">Capacities:</span>
+                  <span class="spec-val">${p.capacity || '16GB – 256GB'}</span>
+                </li>
+                <li class="product-spec-row">
+                  <span class="spec-label">Read Speed:</span>
+                  <span class="spec-val">${p.read_speed || 'Up to 150 MB/s'}</span>
+                </li>
+                <li class="product-spec-row">
+                  <span class="spec-label">B2B Quote:</span>
+                  <span class="spec-val" style="color: var(--color-coral-primary); font-weight: 800;">${p.price || 'Inquire'}</span>
+                </li>
+              </ul>
+              <div class="product-card-footer">
+                <a href="contact.html?product=${encodeURIComponent(p.name)}" class="btn btn-primary">Request B2B Quote</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    })();
+  </script>
 </body>
 </html>

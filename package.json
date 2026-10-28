@@ -1,0 +1,13 @@
+{
+  "name": "usb-company-website",
+  "version": "1.0.0",
+  "description": "A complete, production-ready, professional B2B static company profile and product catalog website for a USB flash drive supplier.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
