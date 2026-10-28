@@ -6,9 +6,9 @@ echo           STARTING NEXDRIVE MYSQL & DOCKER CONTAINERS
 echo ======================================================================
 echo.
 cd /d "%~dp0"
-echo [*] Running: docker compose up -d ...
+echo [*] Rebuilding and starting containers with latest files: docker compose up -d --build ...
 echo.
-docker compose up -d
+docker compose up -d --build
 if %errorlevel% neq 0 (
     echo.
     echo [X] Error starting containers. Please make sure Docker Desktop is running.
@@ -26,7 +26,7 @@ echo  - Public Website:        http://localhost:3000
 echo ----------------------------------------------------------------------
 echo.
 echo [*] Opening phpMyAdmin and Admin Dashboard in browser...
-timeout /t 3 >nul
+timeout /t 2 >nul
 start http://localhost:8080
 start http://localhost:3000/admin/index.html
 echo.

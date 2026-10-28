@@ -38,8 +38,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./data:/app/data
-      - ./uploads:/app/uploads
+      # Live host volume mount ensures all HTML, CSS, JS, and admin files are instantly updated
+      - ./:/app
     depends_on:
       - mysql-db
 

@@ -189,7 +189,7 @@ function sendJson(res, statusCode, data) {
   res.end(JSON.stringify(data));
 }
 
-// Helper: Serve Static File
+// Helper: Serve Static File with Extensionless HTML resolution
 function serveStatic(req, res, filePath) {
   // Prevent path traversal
   const safePath = path.normalize(filePath);
@@ -198,20 +198,46 @@ function serveStatic(req, res, filePath) {
     return res.end('Access Denied');
   }
 
+  const streamFile = (targetFile) => {
+    fs.stat(targetFile, (err, stats) => {
+      if (err || !stats.isFile()) {
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end('<h1>404 Not Found</h1><p>Requested file does not exist.</p>');
+      }
+
+      const ext = path.extname(targetFile).toLowerCase();
+      const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Content-Length': stats.size,
+        'Cache-Control': 'no-cache'
+      });
+      fs.createReadStream(targetFile).pipe(res);
+    });
+  };
+
   fs.stat(safePath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-      return res.end('<h1>404 Not Found</h1><p>Requested file does not exist.</p>');
+    // 1. Direct file match
+    if (!err && stats.isFile()) {
+      return streamFile(safePath);
     }
 
-    const ext = path.extname(safePath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      'Content-Length': stats.size,
-      'Cache-Control': 'no-cache'
-    });
-    fs.createReadStream(safePath).pipe(res);
+    // 2. Extensionless .html fallback (e.g. /about -> /about.html, /products -> /products.html)
+    const htmlCandidate = safePath + '.html';
+    if (fs.existsSync(htmlCandidate) && fs.statSync(htmlCandidate).isFile()) {
+      return streamFile(htmlCandidate);
+    }
+
+    // 3. Directory index fallback (e.g. /admin/ -> /admin/index.html)
+    if (!err && stats.isDirectory()) {
+      const indexCandidate = path.join(safePath, 'index.html');
+      if (fs.existsSync(indexCandidate) && fs.statSync(indexCandidate).isFile()) {
+        return streamFile(indexCandidate);
+      }
+    }
+
+    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end('<h1>404 Not Found</h1><p>Requested file does not exist.</p>');
   });
 }
 
@@ -283,21 +309,36 @@ const server = http.createServer(async (req, res) => {
       }
 
       const stmt = db.prepare(`
-        INSERT INTO products (name, model_code, image, capacity, price, description, availability, category, read_speed, interface, updated_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+        INSERT INTO products (
+          name, model_code, image, capacity, price, price_pkr,
+          description, availability, category, read_speed, write_speed,
+          interface, material, dimensions, weight, warranty,
+          features, stock_quantity, min_order_qty, updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
       `);
 
+      const pkr = parseFloat(data.price_pkr) || 1200;
       const result = stmt.run(
         data.name.trim(),
         data.model_code ? data.model_code.trim() : `USB-N${Math.floor(100 + Math.random() * 900)}`,
         data.image ? data.image.trim() : 'images/products/usb-apex-titanium.svg',
         data.capacity ? data.capacity.trim() : '16GB, 32GB, 64GB',
-        data.price ? data.price.trim() : '$5.00 / unit',
+        data.price ? data.price.trim() : `₨ ${pkr.toLocaleString()} / unit`,
+        pkr,
         data.description ? data.description.trim() : '',
         data.availability ? data.availability.trim() : 'In Stock',
         data.category ? data.category.trim() : 'Standard USB',
         data.read_speed ? data.read_speed.trim() : 'Up to 100 MB/s',
-        data.interface ? data.interface.trim() : 'USB 3.0'
+        data.write_speed ? data.write_speed.trim() : 'Up to 45 MB/s',
+        data.interface ? data.interface.trim() : 'USB 3.0',
+        data.material ? data.material.trim() : 'Metal / Zinc Alloy',
+        data.dimensions ? data.dimensions.trim() : '48 × 12 × 4.6 mm',
+        data.weight ? data.weight.trim() : '15g',
+        data.warranty ? data.warranty.trim() : '5-Year Enterprise Replacement Warranty',
+        data.features ? data.features.trim() : '',
+        parseInt(data.stock_quantity, 10) || 1000,
+        parseInt(data.min_order_qty, 10) || 25
       );
 
       const newProduct = db.prepare('SELECT * FROM products WHERE id = ?').get(result.lastInsertRowid);
@@ -324,14 +365,25 @@ const server = http.createServer(async (req, res) => {
             image = ?,
             capacity = ?,
             price = ?,
+            price_pkr = ?,
             description = ?,
             availability = ?,
             category = ?,
             read_speed = ?,
+            write_speed = ?,
             interface = ?,
+            material = ?,
+            dimensions = ?,
+            weight = ?,
+            warranty = ?,
+            features = ?,
+            stock_quantity = ?,
+            min_order_qty = ?,
             updated_at = CURRENT_TIMESTAMP
         WHERE id = ?
       `);
+
+      const pkr = data.price_pkr !== undefined ? parseFloat(data.price_pkr) : existing.price_pkr;
 
       stmt.run(
         data.name !== undefined ? data.name.trim() : existing.name,
@@ -339,11 +391,20 @@ const server = http.createServer(async (req, res) => {
         data.image !== undefined ? data.image.trim() : existing.image,
         data.capacity !== undefined ? data.capacity.trim() : existing.capacity,
         data.price !== undefined ? data.price.trim() : existing.price,
+        pkr,
         data.description !== undefined ? data.description.trim() : existing.description,
         data.availability !== undefined ? data.availability.trim() : existing.availability,
         data.category !== undefined ? data.category.trim() : existing.category,
         data.read_speed !== undefined ? data.read_speed.trim() : existing.read_speed,
+        data.write_speed !== undefined ? data.write_speed.trim() : existing.write_speed,
         data.interface !== undefined ? data.interface.trim() : existing.interface,
+        data.material !== undefined ? data.material.trim() : existing.material,
+        data.dimensions !== undefined ? data.dimensions.trim() : existing.dimensions,
+        data.weight !== undefined ? data.weight.trim() : existing.weight,
+        data.warranty !== undefined ? data.warranty.trim() : existing.warranty,
+        data.features !== undefined ? data.features.trim() : existing.features,
+        data.stock_quantity !== undefined ? parseInt(data.stock_quantity, 10) : existing.stock_quantity,
+        data.min_order_qty !== undefined ? parseInt(data.min_order_qty, 10) : existing.min_order_qty,
         id
       );
 
@@ -427,16 +488,37 @@ const server = http.createServer(async (req, res) => {
   }
 
   // ============================================================================
-  // Static Files & Admin Routing
+  // Static Files & Clean URL Routing
   // ============================================================================
 
-  // Ensure trailing slash for /admin so relative assets always resolve
-  if (pathname === '/admin') {
-    res.writeHead(301, { 'Location': '/admin/' });
+  // 1. Clean URL redirect: If requested with .html, 301 redirect to extensionless URL
+  if (pathname.endsWith('.html')) {
+    let clean = pathname.slice(0, -5);
+    if (clean === '/index' || clean === '') {
+      clean = '/';
+    } else if (clean === '/admin/index') {
+      clean = '/admin/';
+    } else if (clean === '/products/index') {
+      clean = '/products';
+    }
+    const search = parsedUrl.search || '';
+    res.writeHead(301, { 'Location': clean + search });
     return res.end();
   }
 
-  // Serve Admin SPA
+  // 2. Trailing slash normalization
+  // Admin: /admin -> /admin/
+  if (pathname === '/admin') {
+    res.writeHead(301, { 'Location': '/admin/' + (parsedUrl.search || '') });
+    return res.end();
+  }
+  // Products catalog: /products/ -> /products
+  if (pathname === '/products/') {
+    res.writeHead(301, { 'Location': '/products' + (parsedUrl.search || '') });
+    return res.end();
+  }
+
+  // 3. Serve Admin SPA
   if (pathname === '/admin/' || pathname === '/admin/index.html') {
     return serveStatic(req, res, path.join(ROOT_DIR, 'admin', 'index.html'));
   }
@@ -449,7 +531,22 @@ const server = http.createServer(async (req, res) => {
     return serveStatic(req, res, path.join(ROOT_DIR, 'admin', 'js', 'admin.js'));
   }
 
-  // Default file fallback
+  // 4. Products Catalog page (/products)
+  if (pathname === '/products') {
+    return serveStatic(req, res, path.join(ROOT_DIR, 'products.html'));
+  }
+
+  // 5. Product Details page (/product)
+  if (pathname === '/product') {
+    return serveStatic(req, res, path.join(ROOT_DIR, 'product.html'));
+  }
+
+  // 6. Admin Dedicated Product Edit page (/admin/product-edit)
+  if (pathname === '/admin/product-edit') {
+    return serveStatic(req, res, path.join(ROOT_DIR, 'admin', 'product-edit.html'));
+  }
+
+  // 7. Default file fallback
   let relativeFilePath = pathname;
   if (relativeFilePath === '/' || relativeFilePath === '') {
     relativeFilePath = '/index.html';

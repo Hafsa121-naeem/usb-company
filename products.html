@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    // Clean URL Rewriter: Instantly strip .html from address bar
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+        window.history.replaceState(null, document.title, clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="NexDrive USB Flash Drive Catalog - Browse our complete product lineup including titanium metal, dual USB-C OTG, swivel, credit card, and wooden flash storage drives.">
@@ -2100,7 +2110,7 @@ textarea.form-control {
   <!-- Site Header -->
   <header class="site-header">
     <div class="container header-container">
-            <a href="index.html" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
+            <a href="./" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
         <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 48px; width: auto; max-width: 250px; min-width: 180px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTmV4RHJpdmUgRmxhc2ggU3RvcmFnZSBTb2x1dGlvbnMgTG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImVtYmxlbUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkY3ODQ5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRDJBMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUEyQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImxvZ29HbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gTXVsdGktQ29sb3IgU2hpZWxkIEVtYmxlbSB3aXRoIFVTQiBDb3JlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj4KICAgIDwhLS0gU2hpZWxkIC8gUGx1ZyBCYXNlIHdpdGggRW1lcmFsZCAmIEFtYmVyIEJvcmRlciAtLT4KICAgIDxwYXRoIGQ9Ik00IDYgUTE0IDIgMjQgMiBRMzQgMiA0NCA2IEw0MiAzNCBRMzQgNDYgMjQgNTAgUTE0IDQ2IDYgMzQgWiIgZmlsbD0idXJsKCNzaGllbGRCZykiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIAogICAgPCEtLSBHb2xkIFVTQiBQbHVnIFRlcm1pbmFsIGF0b3Agc2hpZWxkIC0tPgogICAgPHJlY3QgeD0iMTYiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI1IiByeD0iMS41IiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOSIgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzBCMUEyQyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMwQjFBMkMiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIEdsb3dpbmcgR2VvbWV0cmljIFVTQiBUcmlkZW50IC0tPgogICAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxOCIgcj0iMy4yIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbG9nb0dsb3cpIi8+CiAgICA8cGF0aCBkPSJNMjQgMjEuNSBMMjQgMzgiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE2IDI2IEwyNCAzMCBMMzIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjI1IiByPSIyLjIiIGZpbGw9IiNGRjc4NDkiLz4KICAgIDxyZWN0IHg9IjMwIiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNDAiIHI9IjIuMiIgZmlsbD0iIzAwRDJBMCIgZmlsdGVyPSJ1cmwoI2xvZ29HbG93KSIvPgogIDwvZz4KCiAgPCEtLSBCb2xkIE1vZGVybiBXb3JkbWFyayAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzBGMjMzOCIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPk5FWDx0c3BhbiBmaWxsPSIjRkY3ODQ5Ij5EUklWRTwvdHNwYW4+PC90ZXh0PgogIDx0ZXh0IHg9IjY1IiB5PSI0NyIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwMEE4ODQiIGxldHRlci1zcGFjaW5nPSIyLjQiPkZMQVNIIFNUT1JBR0UgU1lTVEVNUzwvdGV4dD4KPC9zdmc+Cg=='">
       </a>
 
@@ -2113,16 +2123,16 @@ textarea.form-control {
 
       <nav class="site-nav" aria-label="Main Navigation">
         <ul class="nav-list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="products.html" class="nav-link active" aria-current="page">Products</a></li>
-          <li><a href="why-us.html" class="nav-link">Why Choose Us</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-          <li><a href="admin/index.html" class="nav-link" style="color: var(--color-amber-gold); font-weight: 800;">Admin 🔐</a></li>
+          <li><a href="./" class="nav-link">Home</a></li>
+          <li><a href="about" class="nav-link">About Us</a></li>
+          <li><a href="products" class="nav-link active" aria-current="page">Products</a></li>
+          <li><a href="why-us" class="nav-link">Why Choose Us</a></li>
+          <li><a href="contact" class="nav-link">Contact</a></li>
+          <li><a href="admin/" class="nav-link" style="color: var(--color-amber-gold); font-weight: 800;">Admin 🔐</a></li>
         </ul>
 
         <div class="header-action">
-          <a href="contact.html#quote-inquiry" class="btn btn-primary btn-sm">Request a Quote</a>
+          <a href="contact#quote-inquiry" class="btn btn-primary btn-sm">Request a Quote</a>
         </div>
       </nav>
     </div>
@@ -2173,7 +2183,7 @@ textarea.form-control {
   <nav class="breadcrumbs-bar" aria-label="Breadcrumb navigation">
     <div class="container">
       <ol class="breadcrumbs-list">
-        <li class="breadcrumbs-item"><a href="index.html" class="breadcrumbs-link">Home</a></li>
+        <li class="breadcrumbs-item"><a href="./" class="breadcrumbs-link">Home</a></li>
         <li class="breadcrumbs-item" aria-current="page">Product Catalog</li>
       </ol>
     </div>
@@ -2213,7 +2223,7 @@ textarea.form-control {
               <span class="product-category-name">Zinc-Alloy Metal</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-apex-titanium.html">Apex Titanium Flash Drive</a>
+              <a href="product?id=1">Apex Titanium Flash Drive</a>
             </h2>
             <p class="product-card-desc">
               Unibody zinc-alloy high-strength flash drive designed for demanding commercial applications, rugged keyring daily carry, and laser-engraved corporate branding.
@@ -2237,7 +2247,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-apex-titanium.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=1" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=1#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2254,7 +2267,7 @@ textarea.form-control {
               <span class="product-category-name">Dual USB-C / OTG</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-duolink-pro.html">DuoLink Pro Dual OTG Drive</a>
+              <a href="product?id=2">DuoLink Pro Dual OTG Drive</a>
             </h2>
             <p class="product-card-desc">
               Dual-connector bridge drive facilitating rapid, driverless cross-platform data transfers between modern USB-C mobile devices/laptops and legacy USB-A workstations.
@@ -2278,7 +2291,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-duolink-pro.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=2" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=2#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2295,7 +2311,7 @@ textarea.form-control {
               <span class="product-category-name">Capless Swivel</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-orbit-swivel.html">Orbit Swivel Flash Drive</a>
+              <a href="product?id=3">Orbit Swivel Flash Drive</a>
             </h2>
             <p class="product-card-desc">
               The industry's most popular bulk distribution flash drive, engineered with a 360-degree capless rotating metal clip and soft-touch rubberized body.
@@ -2319,7 +2335,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-orbit-swivel.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=3" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=3#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2336,7 +2355,7 @@ textarea.form-control {
               <span class="product-category-name">Wafer Card Drive</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-cardslim-executive.html">CardSlim Executive Drive</a>
+              <a href="product?id=4">CardSlim Executive Drive</a>
             </h2>
             <p class="product-card-desc">
               Standard credit card dimensions with ultra-thin 2.2mm profile and flip-out gold-pinned USB connector, offering expansive dual-sided full-color print area.
@@ -2360,7 +2379,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-cardslim-executive.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=4" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=4#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2377,7 +2399,7 @@ textarea.form-control {
               <span class="product-category-name">Waterproof Key Drive</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-securevault-key.html">SecureVault Key Flash Drive</a>
+              <a href="product?id=5">SecureVault Key Flash Drive</a>
             </h2>
             <p class="product-card-desc">
               Monolithic stainless steel key-shaped USB drive featuring hermetically sealed IPX7 waterproof and dustproof Chip-On-Board (COB) architecture.
@@ -2401,7 +2423,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-securevault-key.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=5" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=5#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2418,7 +2443,7 @@ textarea.form-control {
               <span class="product-category-name">Wooden Flash Drive</span>
             </div>
             <h2 class="product-card-title">
-              <a href="products/usb-ecobamboo-wood.html">EcoBamboo Flash Drive</a>
+              <a href="product?id=6">EcoBamboo Flash Drive</a>
             </h2>
             <p class="product-card-desc">
               Natural renewable bamboo wood housing featuring a magnetic protective cap, precision laser scorch engraving, and environmentally conscious presentation.
@@ -2442,7 +2467,10 @@ textarea.form-control {
               </li>
             </ul>
             <div class="product-card-footer">
-              <a href="products/usb-ecobamboo-wood.html" class="btn btn-primary">View Full Specifications</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+              <a href="product?id=6" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+              <a href="product?id=6#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
+            </div>
             </div>
           </div>
         </article>
@@ -2456,8 +2484,8 @@ textarea.form-control {
           We provide enterprise hardware quotations, custom controller configuration, and logo mockups within 24 hours. Connect with our dedicated account managers.
         </p>
         <div class="btn-group" style="justify-content: center;">
-          <a href="contact.html#quote-inquiry" class="btn btn-primary btn-lg">Request Quotation &amp; Sample</a>
-          <a href="why-us.html" class="btn btn-secondary btn-lg">Review Procurement Process</a>
+          <a href="contact#quote-inquiry" class="btn btn-primary btn-lg">Request Quotation &amp; Sample</a>
+          <a href="why-us" class="btn btn-secondary btn-lg">Review Procurement Process</a>
         </div>
       </div>
 
@@ -2481,23 +2509,23 @@ textarea.form-control {
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html">Product Catalog</a></li>
-            <li><a href="why-us.html">Why Choose Us</a></li>
-            <li><a href="contact.html">Contact &amp; Quotations</a></li>
+            <li><a href="./">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="products">Product Catalog</a></li>
+            <li><a href="why-us">Why Choose Us</a></li>
+            <li><a href="contact">Contact &amp; Quotations</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>USB Models</h4>
           <ul class="footer-links-list">
-            <li><a href="products/usb-apex-titanium.html">Apex Titanium (USB-M100)</a></li>
-            <li><a href="products/usb-duolink-pro.html">DuoLink Pro USB-C (USB-D200)</a></li>
-            <li><a href="products/usb-orbit-swivel.html">Orbit Swivel (USB-S300)</a></li>
-            <li><a href="products/usb-cardslim-executive.html">CardSlim Wafer (USB-C400)</a></li>
-            <li><a href="products/usb-securevault-key.html">SecureVault Key (USB-K500)</a></li>
-            <li><a href="products/usb-ecobamboo-wood.html">EcoBamboo Wood (USB-E600)</a></li>
+            <li><a href="product?id=1">Apex Titanium (USB-M100)</a></li>
+            <li><a href="product?id=2">DuoLink Pro USB-C (USB-D200)</a></li>
+            <li><a href="product?id=3">Orbit Swivel (USB-S300)</a></li>
+            <li><a href="product?id=4">CardSlim Wafer (USB-C400)</a></li>
+            <li><a href="product?id=5">SecureVault Key (USB-K500)</a></li>
+            <li><a href="product?id=6">EcoBamboo Wood (USB-E600)</a></li>
           </ul>
         </div>
 
@@ -2580,7 +2608,7 @@ textarea.form-control {
                 <span class="product-category-name">${p.category || 'USB Storage'}</span>
               </div>
               <h3 class="product-card-title">
-                <a href="contact.html?product=${encodeURIComponent(p.name)}">${p.name}</a>
+                <a href="product?id=${p.id}">${p.name}</a>
               </h3>
               <p class="product-card-desc">
                 ${p.description || 'Enterprise USB storage hardware engineered for reliability.'}
@@ -2599,18 +2627,22 @@ textarea.form-control {
                   <span class="spec-val">${p.read_speed || 'Up to 150 MB/s'}</span>
                 </li>
                 <li class="product-spec-row">
-                  <span class="spec-label">B2B Quote:</span>
-                  <span class="spec-val" style="color: var(--color-coral-primary); font-weight: 800;">${p.price || 'Inquire'}</span>
+                  <span class="spec-label">Price:</span>
+                  <span class="spec-val" style="color: var(--color-coral-primary); font-weight: 800;" data-price-pkr="${p.price_pkr || 1200}">${p.price || '₨ 1,200'}</span>
                 </li>
               </ul>
-              <div class="product-card-footer">
-                <a href="contact.html?product=${encodeURIComponent(p.name)}" class="btn btn-primary">Request B2B Quote</a>
+              <div class="product-card-footer" style="display: flex; gap: 8px;">
+                <a href="product?id=${p.id}" class="btn btn-primary" style="flex: 1; text-align: center;">View Details &amp; Buy</a>
+                <a href="product?id=${p.id}#quote" class="btn btn-outline-white" style="flex: 1; text-align: center;">B2B Quote</a>
               </div>
             </div>
           </article>
         `;
       }).join('');
+
+      if (window.CurrencyEngine) window.CurrencyEngine.apply();
     })();
   </script>
+  <script src="js/currency.js"></script>
 </body>
 </html>
