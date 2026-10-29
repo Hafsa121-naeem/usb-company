@@ -13,6 +13,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/currency.js"></script>
+  <script src="js/admin-auth.js"></script>
   <title>Edit Product | NexDrive Admin Portal</title>
   <script>
     // URL Cleaner: Strip .html extension immediately
@@ -285,6 +287,12 @@
       <button type="button" id="btn-delete" class="btn btn-danger" style="display: none;">
         🗑 Delete
       </button>
+      <button type="button" id="btn-duplicate" class="btn btn-outline" style="border-color: #38BDF8; color: #38BDF8;">
+        📋 Duplicate
+      </button>
+      <button type="button" onclick="window.AdminAuth && window.AdminAuth.logout()" class="btn btn-outline" title="Log out">
+        🚪 Logout
+      </button>
       <button type="button" id="btn-save" class="btn btn-primary">
         💾 Save Product Changes
       </button>
@@ -330,9 +338,22 @@
             <select id="prod-availability" class="form-control">
               <option value="In Stock">In Stock (Ready to Dispatch)</option>
               <option value="Made to Order">Made to Order (Custom Logo)</option>
-              <option value="Bulk Only">Bulk Only (B2B Tiers)</option>
+              <option value="Bulk Only">Bulk Wholesale Only</option>
               <option value="Out of Stock">Out of Stock</option>
             </select>
+          </div>
+        </div>
+        <div class="form-grid-2" style="margin-top: 15px;">
+          <div class="form-group">
+            <label class="form-label" for="prod-status">Publication Status *</label>
+            <select id="prod-status" class="form-control">
+              <option value="Published">✅ Published (Live on Public Website)</option>
+              <option value="Draft">👁️ Draft (Unpublished / Internal Only)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-slug">Clean URL Slug *</label>
+            <input type="text" id="prod-slug" class="form-control" placeholder="e.g. usb-apex-titanium">
           </div>
         </div>
       </div>
@@ -434,6 +455,71 @@
       </div>
 
     </div>
+
+
+      <!-- Card 2B: Dynamic Storage Variants & Pricing Matrix -->
+      <div class="editor-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h2 class="editor-card-title" style="margin: 0;">📊 Dynamic Storage Variants &amp; Price Matrix</h2>
+          <button type="button" id="btn-add-variant" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #F59E0B; color: #F59E0B;">
+            ➕ Add Variant
+          </button>
+        </div>
+        <div id="variants-container" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Card 3B: Custom Dynamic Specifications -->
+      <div class="editor-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h2 class="editor-card-title" style="margin: 0;">⚙️ Custom Dynamic Specifications</h2>
+          <button type="button" id="btn-add-spec" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #38BDF8; color: #38BDF8;">
+            ➕ Add Specification
+          </button>
+        </div>
+        <div id="specs-container" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Card 4B: Customization, Branding & Packaging Options -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">🎨 Customization, Branding &amp; Packaging Options</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-laser" checked> Precision Laser Engraving
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-uv" checked> Full-Color UV Photographic Print
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-screen" checked> Screen Spot-Color Imprint
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-preload" checked> Preloaded Data / Autorun Partition
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-pouch" checked> Black Velvet Presentation Pouch
+          </label>
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+            <input type="checkbox" id="opt-tin" checked> Metallic Window Tin Box
+          </label>
+        </div>
+      </div>
+
+      <!-- Card 5B: SEO & Clean Metadata -->
+      <div class="editor-card">
+        <h2 class="editor-card-title">🔍 SEO &amp; Public Metadata</h2>
+        <div class="form-group">
+          <label class="form-label" for="prod-seo-title">SEO Page Title</label>
+          <input type="text" id="prod-seo-title" class="form-control" placeholder="Apex Titanium USB Flash Drive | NexDrive Hardware">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="prod-seo-desc">SEO Meta Description</label>
+          <textarea id="prod-seo-desc" class="form-control" rows="2" placeholder="High-speed USB 3.2 enterprise storage hardware engineered for mission-critical reliability..."></textarea>
+        </div>
+      </div>
 
     <!-- Right Column: Live Interactive Card Preview -->
     <div class="editor-preview-column">
@@ -544,8 +630,160 @@
         }
       }
 
+      
+      // Dynamic Variants Management
+      let dynamicVariants = [
+        { capacity: '16GB', price_pkr: 1250 },
+        { capacity: '32GB', price_pkr: 1650 },
+        { capacity: '64GB', price_pkr: 2400 },
+        { capacity: '128GB', price_pkr: 3600 },
+        { capacity: '256GB', price_pkr: 4800 }
+      ];
+
+      function renderVariants() {
+        const container = document.getElementById('variants-container');
+        if (!container) return;
+        container.innerHTML = dynamicVariants.map((v, i) => `
+          <div style="display: flex; gap: 10px; align-items: center; background: rgba(11,29,45,0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+            <input type="text" class="form-control variant-cap" data-idx="${i}" value="${v.capacity}" placeholder="e.g. 64GB" style="flex: 1; padding: 6px 10px;">
+            <div style="display: flex; align-items: center; gap: 6px; flex: 1.5;">
+              <span style="color: #F59E0B; font-weight: bold; font-size: 13px;">₨</span>
+              <input type="number" class="form-control variant-price" data-idx="${i}" value="${v.price_pkr}" placeholder="Price PKR" style="padding: 6px 10px;">
+            </div>
+            <button type="button" class="btn btn-danger btn-remove-var" data-idx="${i}" style="padding: 6px 10px; font-size: 12px;">❌</button>
+          </div>
+        `).join('');
+
+        container.querySelectorAll('.variant-cap').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            dynamicVariants[idx].capacity = e.target.value.trim();
+            syncCapacitiesInput();
+          });
+        });
+
+        container.querySelectorAll('.variant-price').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            dynamicVariants[idx].price_pkr = parseFloat(e.target.value) || 0;
+            syncPriceDisplay();
+          });
+        });
+
+        container.querySelectorAll('.btn-remove-var').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            dynamicVariants.splice(idx, 1);
+            renderVariants();
+            syncCapacitiesInput();
+            syncPriceDisplay();
+          });
+        });
+      }
+
+      function syncCapacitiesInput() {
+        const caps = dynamicVariants.map(v => v.capacity).filter(Boolean);
+        document.getElementById('prod-capacities').value = caps.join(', ');
+      }
+
+      function syncPriceDisplay() {
+        if (!dynamicVariants.length) return;
+        const prices = dynamicVariants.map(v => v.price_pkr).filter(p => p > 0);
+        if (prices.length) {
+          const min = Math.min(...prices);
+          const max = Math.max(...prices);
+          document.getElementById('prod-price-pkr').value = min;
+          document.getElementById('prod-price-display').value = `₨ ${min.toLocaleString()} – ₨ ${max.toLocaleString()} / unit`;
+          updatePreview();
+        }
+      }
+
+      const btnAddVar = document.getElementById('btn-add-variant');
+      if (btnAddVar) {
+        btnAddVar.addEventListener('click', () => {
+          dynamicVariants.push({ capacity: '64GB', price_pkr: 2000 });
+          renderVariants();
+          syncCapacitiesInput();
+          syncPriceDisplay();
+        });
+      }
+
+      // Dynamic Specifications Management
+      let customSpecs = [
+        { label: 'Operating Temp', value: '0°C to 60°C' },
+        { label: 'Shock Resistance', value: 'Up to 1500G' }
+      ];
+
+      function renderSpecs() {
+        const container = document.getElementById('specs-container');
+        if (!container) return;
+        container.innerHTML = customSpecs.map((s, i) => `
+          <div style="display: flex; gap: 10px; align-items: center; background: rgba(11,29,45,0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+            <input type="text" class="form-control spec-lbl" data-idx="${i}" value="${s.label}" placeholder="Parameter (e.g. NAND Flash)" style="flex: 1; padding: 6px 10px;">
+            <input type="text" class="form-control spec-val" data-idx="${i}" value="${s.value}" placeholder="Rating / Value" style="flex: 1.5; padding: 6px 10px;">
+            <button type="button" class="btn btn-danger btn-remove-spec" data-idx="${i}" style="padding: 6px 10px; font-size: 12px;">❌</button>
+          </div>
+        `).join('');
+
+        container.querySelectorAll('.spec-lbl').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            customSpecs[idx].label = e.target.value.trim();
+          });
+        });
+
+        container.querySelectorAll('.spec-val').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            customSpecs[idx].value = e.target.value.trim();
+          });
+        });
+
+        container.querySelectorAll('.btn-remove-spec').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.target.dataset.idx, 10);
+            customSpecs.splice(idx, 1);
+            renderSpecs();
+          });
+        });
+      }
+
+      const btnAddSpec = document.getElementById('btn-add-spec');
+      if (btnAddSpec) {
+        btnAddSpec.addEventListener('click', () => {
+          customSpecs.push({ label: 'Controller', value: 'Silicon Motion High-Retention' });
+          renderSpecs();
+        });
+      }
+
+      // Duplicate Handler
+      const btnDup = document.getElementById('btn-duplicate');
+      if (btnDup) {
+        btnDup.addEventListener('click', () => {
+          const cloneName = (document.getElementById('prod-name').value || 'Product') + ' (Copy)';
+          const cloneCode = (document.getElementById('prod-code').value || 'USB') + '-COPY';
+          document.getElementById('prod-name').value = cloneName;
+          document.getElementById('prod-code').value = cloneCode;
+          document.getElementById('prod-slug').value = (document.getElementById('prod-slug').value || 'usb') + '-copy';
+          document.getElementById('prod-status').value = 'Draft';
+          isNew = true;
+          productId = null;
+          document.getElementById('page-heading').textContent = '➕ Duplicate: ' + cloneName;
+          document.getElementById('btn-delete').style.display = 'none';
+          document.getElementById('btn-view-live').style.display = 'none';
+          updatePreview();
+          alert('Product cloned into memory as a Draft. Review details and click Save Changes to persist.');
+        });
+      }
+
       // Populate Inputs
       document.getElementById('prod-name').value = currentProduct.name || '';
+      document.getElementById('prod-status').value = currentProduct.status || 'Published';
+      document.getElementById('prod-slug').value = currentProduct.slug || (currentProduct.name ? currentProduct.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '');
+      document.getElementById('prod-seo-title').value = currentProduct.seo_title || (currentProduct.name ? `${currentProduct.name} | NexDrive` : '');
+      document.getElementById('prod-seo-desc').value = currentProduct.seo_description || currentProduct.description || '';
+      renderVariants();
+      renderSpecs();
       document.getElementById('prod-code').value = currentProduct.model_code || '';
       document.getElementById('prod-category').value = currentProduct.category || 'Titanium Metal';
       document.getElementById('prod-availability').value = currentProduct.availability || 'In Stock';
@@ -610,6 +848,12 @@
         const pkr = parseFloat(document.getElementById('prod-price-pkr').value) || 1200;
         const productPayload = {
           name: document.getElementById('prod-name').value.trim(),
+          status: document.getElementById('prod-status').value,
+          slug: document.getElementById('prod-slug').value.trim(),
+          seo_title: document.getElementById('prod-seo-title').value.trim(),
+          seo_description: document.getElementById('prod-seo-desc').value.trim(),
+          variants: dynamicVariants,
+          custom_specs: customSpecs,
           model_code: document.getElementById('prod-code').value.trim(),
           category: document.getElementById('prod-category').value,
           availability: document.getElementById('prod-availability').value,

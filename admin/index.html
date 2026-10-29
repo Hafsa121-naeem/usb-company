@@ -13,6 +13,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/currency.js"></script>
+  <script src="js/admin-auth.js"></script>
   <title>NexDrive Admin Portal | USB Products Management System</title>
   
   
@@ -1057,6 +1059,10 @@ body {
           <span id="dbStatusText">SQLite Connected (products.db)</span>
         </div>
 
+        <!-- Logout Button -->
+        <button onclick="window.AdminAuth && window.AdminAuth.logout()" class="btn btn-outline-white btn-sm" title="Log out of admin session">
+          🚪 Logout
+        </button>
         <!-- Back to Website Link -->
         <a href="../" class="btn btn-outline-white btn-sm" target="_blank" title="Open Public Website in New Tab">
           🌐 View Public Website
@@ -1145,6 +1151,16 @@ body {
           <option value="Custom Hardware">Custom Hardware</option>
         </select>
 
+        <!-- Sort By Dropdown -->
+        <select id="sortBy" class="select-filter">
+          <option value="default">Sort: Default</option>
+          <option value="name-asc">Name: A to Z</option>
+          <option value="name-desc">Name: Z to A</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="status">Status (Published First)</option>
+        </select>
+
         <!-- View Switcher (Table vs Grid) -->
         <div class="view-toggle-btns" role="group" aria-label="View toggle">
           <button id="tableViewBtn" class="view-toggle-btn active" title="Table View">☰ List</button>
@@ -1162,8 +1178,9 @@ body {
               <th>Product Details</th>
               <th>Category</th>
               <th>Available Capacities</th>
-              <th>B2B Quote Price</th>
+              <th>Price (PKR ₨)</th>
               <th>Availability</th>
+              <th>Status</th>
               <th style="text-align: right;">Actions</th>
             </tr>
           </thead>
@@ -1232,6 +1249,15 @@ body {
               </select>
             </div>
 
+            <!-- Publication Status -->
+            <div class="form-group">
+              <label for="productStatus" class="form-label">Publication Status</label>
+              <select id="productStatus" class="form-select">
+                <option value="Published">Published (Visible in Catalog)</option>
+                <option value="Draft">Draft (Internal Only / Hidden)</option>
+              </select>
+            </div>
+
             <!-- Availability Status -->
             <div class="form-group">
               <label for="productAvailability" class="form-label">Availability Status</label>
@@ -1244,10 +1270,10 @@ body {
               </select>
             </div>
 
-            <!-- Reference Price / B2B Quote -->
+            <!-- Reference Price / Unit Price -->
             <div class="form-group">
-              <label for="productPrice" class="form-label">Price / Quote Range</label>
-              <input type="text" id="productPrice" class="form-input" placeholder="e.g. $4.50 - $18.00 / unit">
+              <label for="productPrice" class="form-label">Price Range (PKR ₨) *</label>
+              <input type="text" id="productPrice" class="form-input" placeholder="e.g. ₨ 1,250 – ₨ 4,800 / unit">
             </div>
 
             <!-- Capacities -->
@@ -1503,6 +1529,8 @@ body {
 
     filterAvailability.addEventListener('change', loadProducts);
     filterCategory.addEventListener('change', loadProducts);
+    const sortByEl = document.getElementById('sortBy');
+    if (sortByEl) sortByEl.addEventListener('change', loadProducts);
 
     // View Switching
     tableViewBtn.addEventListener('click', () => setView('table'));
@@ -1674,6 +1702,7 @@ body {
       description: 'Rugged zinc-aluminum alloy monocoque casing with gunmetal titanium finish. Dual-channel high-retention NAND designed for mission-critical enterprise deployment.',
       availability: 'In Stock',
       category: 'Titanium Metal',
+      status: 'Published',
       read_speed: 'Up to 120 MB/s',
       interface: 'USB 3.2 Gen 1'
     },
@@ -1687,6 +1716,7 @@ body {
       description: 'Reversible dual-interface swivel drive with USB Type-C and USB-A plugs. Instant plug-and-play cross-compatibility between smartphones, modern laptops, and legacy terminals.',
       availability: 'In Stock',
       category: 'Dual USB-C OTG',
+      status: 'Published',
       read_speed: 'Up to 150 MB/s',
       interface: 'USB-C & USB 3.1 Gen 1'
     },
@@ -1700,6 +1730,7 @@ body {
       description: 'The corporate industry standard capless 360-degree rotational design featuring a protective aluminum swivel clip and soft-touch body.',
       availability: 'In Stock',
       category: 'Capless Swivel',
+      status: 'Published',
       read_speed: 'Up to 90 MB/s',
       interface: 'USB 3.0 / USB 2.0'
     },
@@ -1713,6 +1744,7 @@ body {
       description: 'Ultra-slim 2.2mm form factor with flip-out USB connector styled identically to a standard business card. Fits perfectly in wallets with full-bleed photographic UV imprint.',
       availability: 'Made to Order',
       category: 'Credit Card Wafer',
+      status: 'Published',
       read_speed: 'Up to 80 MB/s',
       interface: 'USB 3.0 Monolithic UDP'
     },
@@ -1726,6 +1758,7 @@ body {
       description: 'IPX7 waterproof monolithic UDP chip architecture shaped like a standard key for everyday keyring carry. Scratch-resistant and shockproof.',
       availability: 'In Stock',
       category: 'Waterproof Key',
+      status: 'Published',
       read_speed: 'Up to 140 MB/s',
       interface: 'USB 3.2 Gen 1 UDP'
     },
@@ -1739,6 +1772,7 @@ body {
       description: 'FSC-certified organic bamboo wood housing with magnetic cap closure. Sustainable natural aesthetic tailored for eco-conscious corporate gifting.',
       availability: 'Bulk Only',
       category: 'Eco Wood',
+      status: 'Published',
       read_speed: 'Up to 100 MB/s',
       interface: 'USB 3.0 Interface'
     }
@@ -1747,17 +1781,41 @@ body {
   let isClientStorageMode = false;
   const dbStatusText = document.getElementById('dbStatusText');
 
+  function formatPricePKR(priceStr) {
+    if (!priceStr || typeof priceStr !== 'string') return '₨ 1,250 – ₨ 4,800 / unit';
+    // If it has $, convert it to PKR at 1 USD = 280 PKR
+    if (priceStr.includes('$')) {
+      return priceStr.replace(/\$([0-9.]+)/g, (match, num) => {
+        const pkr = Math.round(parseFloat(num) * 280);
+        return `₨ ${pkr.toLocaleString()}`;
+      });
+    }
+    return priceStr;
+  }
+
   function initLocalStorageIfNeeded() {
     const raw = localStorage.getItem('nexdrive_products');
-    if (!raw) {
+    const version = localStorage.getItem('nexdrive_pkr_version');
+
+    // If no data, or cached data has dollars '$', or version is not '2.0', update to PKR immediately
+    if (!raw || version !== '3.0' || (raw && raw.includes('$'))) {
       localStorage.setItem('nexdrive_products', JSON.stringify(DEFAULT_SEED_PRODUCTS));
+      localStorage.setItem('nexdrive_pkr_version', '3.0');
+      return;
     }
   }
 
   function getLocalProducts() {
     initLocalStorageIfNeeded();
     try {
-      return JSON.parse(localStorage.getItem('nexdrive_products')) || DEFAULT_SEED_PRODUCTS;
+      let list = JSON.parse(localStorage.getItem('nexdrive_products')) || DEFAULT_SEED_PRODUCTS;
+      list = list.map(p => {
+        if (p.price && p.price.includes('$')) {
+          p.price = formatPricePKR(p.price);
+        }
+        return p;
+      });
+      return list;
     } catch {
       return DEFAULT_SEED_PRODUCTS;
     }
@@ -1884,7 +1942,7 @@ body {
           </div>
         </td>
         <td>
-          <span class="price-tag">${escapeHtml(p.price || 'Quote')}</span>
+          <span class="price-tag">${escapeHtml(formatPricePKR(p.price))}</span>
         </td>
         <td>
           <span class="badge-status ${getBadgeClass(p.availability)}">
@@ -1892,9 +1950,20 @@ body {
           </span>
         </td>
         <td>
+          <span class="badge-status ${p.status === 'Draft' ? 'badge-low-stock' : 'badge-in-stock'}" style="cursor: pointer;" onclick="window.adminApp.toggleStatus(${p.id})" title="Click to toggle Published/Draft">
+            ${p.status === 'Draft' ? '👁️ Draft' : '✅ Live'}
+          </span>
+        </td>
+        <td>
           <div class="table-actions">
-            <button class="action-btn edit-btn" title="Edit Product" onclick="window.adminApp.editProduct(${p.id})">
+            <button class="action-btn edit-btn" title="Quick Edit" onclick="window.adminApp.editProduct(${p.id})">
               ✏️
+            </button>
+            <a href="product-edit?id=${p.id}" class="action-btn" title="Advanced Editor" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+              ⚙️
+            </a>
+            <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
+              📋
             </button>
             <button class="action-btn delete-btn" title="Delete Product" onclick="window.adminApp.promptDelete(${p.id})">
               🗑️
@@ -1930,12 +1999,18 @@ body {
 
           <div class="card-meta-row">
             <div>
-              <span style="font-size: 0.7rem; text-transform: uppercase; color: #94A3B8; display: block;">Reference Quote</span>
-              <span class="price-tag">${escapeHtml(p.price || 'Quote')}</span>
+              <span style="font-size: 0.7rem; text-transform: uppercase; color: #94A3B8; display: block;">Price (PKR ₨)</span>
+              <span class="price-tag">${escapeHtml(formatPricePKR(p.price))}</span>
             </div>
             <div class="table-actions">
-              <button class="action-btn edit-btn" title="Edit Product" onclick="window.adminApp.editProduct(${p.id})">
+              <button class="action-btn edit-btn" title="Quick Edit" onclick="window.adminApp.editProduct(${p.id})">
                 ✏️
+              </button>
+              <a href="product-edit?id=${p.id}" class="action-btn" title="Advanced Editor" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
+                ⚙️
+              </a>
+              <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
+                📋
               </button>
               <button class="action-btn delete-btn" title="Delete Product" onclick="window.adminApp.promptDelete(${p.id})">
                 🗑️
@@ -2129,6 +2204,7 @@ body {
     document.getElementById('productModelCode').value = p.model_code || '';
     document.getElementById('productCategory').value = p.category || 'Titanium Metal';
     document.getElementById('productAvailability').value = p.availability || 'In Stock';
+    if (document.getElementById('productStatus')) document.getElementById('productStatus').value = p.status || 'Published';
     document.getElementById('productCapacity').value = p.capacity || '';
     document.getElementById('productPrice').value = p.price || '';
     document.getElementById('productReadSpeed').value = p.read_speed || 'Up to 150 MB/s';
@@ -2168,6 +2244,7 @@ body {
       model_code: document.getElementById('productModelCode').value.trim(),
       category: document.getElementById('productCategory').value,
       availability: document.getElementById('productAvailability').value,
+      status: document.getElementById('productStatus') ? document.getElementById('productStatus').value : 'Published',
       capacity: document.getElementById('productCapacity').value.trim(),
       price: document.getElementById('productPrice').value.trim(),
       read_speed: document.getElementById('productReadSpeed').value.trim(),
@@ -2176,6 +2253,25 @@ body {
       image: productImageVal.value.trim() || 'images/products/usb-apex-titanium.svg'
     };
 
+    if (isClientStorageMode) {
+      let list = getLocalProducts();
+      if (editingProductId) {
+        const idx = list.findIndex(item => item.id === editingProductId);
+        if (idx >= 0) {
+          payload.id = editingProductId;
+          list[idx] = Object.assign({}, list[idx], payload);
+        }
+      } else {
+        payload.id = list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : 1;
+        list.push(payload);
+      }
+      setLocalProducts(list);
+      closeModal();
+      showToast(editingProductId ? 'Product updated successfully!' : 'New USB Product added successfully!', 'success');
+      loadProducts();
+      loadStats();
+      return;
+    }
     saveProductBtn.disabled = true;
     saveProductBtn.textContent = 'Saving...';
 
@@ -2236,6 +2332,16 @@ body {
   async function executeDelete() {
     if (!deletingProductId) return;
 
+    if (isClientStorageMode) {
+      let list = getLocalProducts();
+      list = list.filter(p => p.id !== deletingProductId);
+      setLocalProducts(list);
+      closeDeleteModal();
+      showToast('Product deleted from catalog', 'success');
+      loadProducts();
+      loadStats();
+      return;
+    }
     const confirmBtn = document.getElementById('confirmDeleteBtn');
     confirmBtn.disabled = true;
     confirmBtn.textContent = 'Deleting...';
@@ -2294,7 +2400,84 @@ body {
   }
 
   // Expose global methods for inline HTML onclick handlers
+    async function duplicateProduct(id) {
+    const orig = products.find(p => p.id === id);
+    if (!orig) return;
+    const copy = Object.assign({}, orig);
+    delete copy.id;
+    copy.name = orig.name + ' (Copy)';
+    copy.model_code = (orig.model_code || 'USB-STD') + '-COPY';
+    copy.status = 'Draft';
+
+    if (isClientStorageMode) {
+      const list = getLocalProducts();
+      copy.id = list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : 1;
+      list.push(copy);
+      setLocalProducts(list);
+      showToast(`Duplicated: ${copy.name}`, 'success');
+      loadProducts();
+    } else {
+      try {
+        const res = await fetch('/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(copy)
+        });
+        if (res.ok) {
+          showToast(`Duplicated: ${copy.name}`, 'success');
+          loadProducts();
+        } else {
+          throw new Error('API failed');
+        }
+      } catch (e) {
+        const list = getLocalProducts();
+        copy.id = list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : 1;
+        list.push(copy);
+        setLocalProducts(list);
+        showToast(`Duplicated: ${copy.name} (Local)`, 'success');
+        loadProducts();
+      }
+    }
+  }
+
+  async function toggleStatus(id) {
+    const prod = products.find(p => p.id === id);
+    if (!prod) return;
+    prod.status = prod.status === 'Draft' ? 'Published' : 'Draft';
+
+    if (isClientStorageMode) {
+      const list = getLocalProducts();
+      const idx = list.findIndex(p => p.id === id);
+      if (idx >= 0) list[idx].status = prod.status;
+      setLocalProducts(list);
+      showToast(`Status: ${prod.status}`, 'success');
+      renderProducts();
+    } else {
+      try {
+        await fetch(`/api/products/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(prod)
+        });
+        showToast(`Status: ${prod.status}`, 'success');
+        renderProducts();
+      } catch (e) {
+        const list = getLocalProducts();
+        const idx = list.findIndex(p => p.id === id);
+        if (idx >= 0) list[idx].status = prod.status;
+        setLocalProducts(list);
+        showToast(`Status: ${prod.status} (Local)`, 'success');
+        renderProducts();
+      }
+    }
+  }
+
+  // Dual-mode form save fallback
+  const origHandleFormSubmit = handleFormSubmit;
+
   window.adminApp = {
+    duplicateProduct: duplicateProduct,
+    toggleStatus: toggleStatus,
     editProduct: openEditModal,
     promptDelete: promptDelete,
     showToast: showToast
