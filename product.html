@@ -46,13 +46,13 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
     .product-media-card img {
-      max-width: 100%;
-      height: auto;
-      max-height: 380px;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
-      transition: transform 0.3s ease;
-    }
+  max-width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
     .product-media-card:hover img {
       transform: scale(1.03);
     }
@@ -400,7 +400,7 @@
         
         <!-- Left: Product Media Card -->
         <div class="product-media-card">
-          <img id="product-img" src="images/products/usb-apex-titanium.svg" alt="Product Image" width="600" height="450">
+          <img id="product-img" src="images/products/usb-apex-titanium.jpg" alt="Product Image" width="600" height="450">
           <div style="margin-top: 20px; font-size: 12px; color: #94A3B8; text-align: center;">
             <span style="color: #00D2A0;">✔ 100% Original NAND Tested</span> • Grade-A Silicon Controller
           </div>
@@ -575,7 +575,7 @@
             </span>
             
             <div id="mockup-preview-wrap" style="position: relative; width: 100%; max-width: 320px; text-align: center;">
-              <img id="mockup-base-usb" src="images/products/usb-apex-titanium.svg" alt="USB Drive Mockup" style="width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));">
+              <img id="mockup-base-usb" src="images/products/usb-apex-titanium.jpg" alt="USB Drive Mockup" style="width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));">
               <div id="mockup-logo-overlay" style="position: absolute; top: 48%; left: 45%; transform: translate(-50%, -50%); max-width: 110px; max-height: 40px; display: none; pointer-events: none;">
                 <img id="mockup-logo-img" src="" alt="Uploaded Logo Preview" style="max-width: 100%; max-height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));">
               </div>
@@ -816,7 +816,7 @@
           availability: "In Stock",
           price_pkr: 1250,
           description: "Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.",
-          image: "images/products/usb-apex-titanium.svg",
+          image: "images/products/usb-apex-titanium.jpg",
           interface: "USB 3.2 Gen 1 (Backwards 2.0)",
           read_speed: "Up to 150 MB/s",
           write_speed: "Up to 60 MB/s",
@@ -841,7 +841,7 @@
           availability: "In Stock",
           price_pkr: 1650,
           description: "Versatile 2-in-1 flash drive featuring reversible USB Type-C and standard USB Type-A connectors for seamless file transfer between smartphones, MacBooks, tablets, and Windows PCs.",
-          image: "images/products/usb-duolink-pro.svg",
+          image: "images/products/usb-duolink-pro.jpg",
           interface: "Dual USB-C & USB-A 3.2",
           read_speed: "Up to 160 MB/s",
           write_speed: "Up to 75 MB/s",
@@ -866,7 +866,7 @@
           availability: "In Stock",
           price_pkr: 850,
           description: "The corporate industry standard capless 360-degree rotational design featuring a protective aluminum swivel clip and soft-touch body. Large surface area for laser engraving and screen printing.",
-          image: "images/products/usb-orbit-swivel.svg",
+          image: "images/products/usb-orbit-swivel.jpg",
           interface: "USB 3.0 / USB 2.0",
           read_speed: "Up to 90 MB/s",
           write_speed: "Up to 35 MB/s",
@@ -891,7 +891,7 @@
           availability: "Made to Order",
           price_pkr: 950,
           description: "Ultra-slim 2.2mm form factor with flip-out USB connector styled identically to a standard business card. Fits perfectly in wallets with full-bleed double-sided photographic UV imprint area.",
-          image: "images/products/usb-cardslim-executive.svg",
+          image: "images/products/usb-cardslim-executive.jpg",
           interface: "USB 3.0 Monolithic UDP",
           read_speed: "Up to 80 MB/s",
           write_speed: "Up to 30 MB/s",
@@ -916,7 +916,7 @@
           availability: "In Stock",
           price_pkr: 1800,
           description: "IPX8 waterproof monolithic UDP chip architecture shaped like a standard key for everyday keyring carry. Scratch-resistant, shockproof, and ideal for confidential file distribution.",
-          image: "images/products/usb-securevault-key.svg",
+          image: "images/products/usb-securevault-key.jpg",
           interface: "USB 3.2 Gen 1 UDP",
           read_speed: "Up to 140 MB/s",
           write_speed: "Up to 55 MB/s",
@@ -941,7 +941,7 @@
           availability: "Bulk Only",
           price_pkr: 1400,
           description: "FSC-certified organic bamboo wood housing with magnetic cap closure. Sustainable natural aesthetic tailored for eco-conscious corporate gifting, environmental summits, and ESG initiatives.",
-          image: "images/products/usb-ecobamboo-wood.svg",
+          image: "images/products/usb-ecobamboo-wood.jpg",
           interface: "USB 3.0 Interface",
           read_speed: "Up to 100 MB/s",
           write_speed: "Up to 40 MB/s",
@@ -1019,7 +1019,7 @@
       document.getElementById('badge-code').textContent = currentProduct.model_code || 'USB-STD';
 
       const imgEl = document.getElementById('product-img');
-      imgEl.src = (currentProduct.image || 'images/products/usb-apex-titanium.svg').replace(/^\.\.\//, '');
+      imgEl.src = (currentProduct.image || 'images/products/usb-apex-titanium.jpg').replace(/^\.\.\//, '');
       imgEl.alt = currentProduct.name;
 
       // Specs
