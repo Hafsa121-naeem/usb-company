@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting | NexDrive</title>
+  <script>
+    // GitHub Pages & Static Server Clean URL Routing
+    (function() {
+      var fullPath = window.location.pathname;
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+
+      // Normalize trailing slash
+      var clean = fullPath.replace(/\/$/, '');
+      var segments = clean.split('/').filter(Boolean);
+      var lastSegment = segments[segments.length - 1] || '';
+
+      // Map known clean routes
+      var routeMap = {
+        'about': 'about.html',
+        'contact': 'contact.html',
+        'why-us': 'why-us.html',
+        'products': 'products.html',
+        'product': 'product.html',
+        'product-edit': 'admin/product-edit.html'
+      };
+
+      // Check if root or known page
+      if (routeMap[lastSegment]) {
+        // Calculate relative prefix
+        var target = routeMap[lastSegment];
+        window.location.replace(target + search + hash);
+        return;
+      }
+
+      // Check if it is a product subpage, e.g. /products/usb-apex-titanium
+      if (segments.length >= 2 && segments[segments.length - 2] === 'products') {
+        window.location.replace('products/' + lastSegment + '.html' + search + hash);
+        return;
+      }
+
+      // Fallback: reload home
+      window.location.replace('index.html' + search + hash);
+    })();
+  </script>
+  <style>
+    body {
+      background: #0B1D2D;
+      color: #CBD5E1;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .loading-box {
+      background: #102A42;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(245, 158, 11, 0.2);
+      border-top-color: #F59E0B;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <h2 style="color: #FFFFFF; margin: 0 0 8px;">Loading Page...</h2>
+    <p style="color: #94A3B8; margin: 0; font-size: 14px;">Routing to requested destination...</p>
+  </div>
+</body>
+</html>

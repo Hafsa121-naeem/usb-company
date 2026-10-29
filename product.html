@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details | NexDrive Flash Storage Solutions</title>
-  <meta name="description" content="Technical specifications, direct purchase, and volume B2B quotation for NexDrive high-performance enterprise USB flash drives.">
+  <meta name="description" content="Technical specifications, direct purchase, and volume Commercial Wholesale quotation for NexDrive high-performance enterprise USB flash drives.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -960,12 +960,33 @@
         }
       };
 
-      // Extract target product ID from URL query parameters
+      // Extract target product ID or slug from URL query parameters
       const params = new URLSearchParams(window.location.search);
-      let targetId = parseInt(params.get('id'), 10) || 1;
+      let targetId = parseInt(params.get('id'), 10);
       const targetModel = params.get('model');
+      const targetSlug = params.get('slug');
 
-      let currentProduct = DEFAULT_PRODUCTS[targetId] || DEFAULT_PRODUCTS[1];
+      function findMatch(list) {
+        if (!list || !list.length) return null;
+        if (targetId) {
+          const byId = list.find(p => p.id === targetId);
+          if (byId) return byId;
+        }
+        if (targetModel) {
+          const byModel = list.find(p => p.model_code && p.model_code.toLowerCase() === targetModel.toLowerCase());
+          if (byModel) return byModel;
+        }
+        if (targetSlug) {
+          const bySlug = list.find(p => {
+            const s = (p.slug || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+            return s.includes(targetSlug) || targetSlug.includes(s);
+          });
+          if (bySlug) return bySlug;
+        }
+        return list[0];
+      }
+
+      let currentProduct = DEFAULT_PRODUCTS[targetId || 1] || DEFAULT_PRODUCTS[1];
 
       // Try fetching live data from API or LocalStorage
       try {
@@ -973,9 +994,7 @@
         if (res.ok) {
           const json = await res.json();
           if (json.success && json.products) {
-            const found = targetModel 
-              ? json.products.find(p => p.model_code === targetModel)
-              : json.products.find(p => p.id === targetId);
+            const found = findMatch(json.products);
             if (found) currentProduct = Object.assign({}, currentProduct, found);
           }
         }
@@ -984,9 +1003,7 @@
           const local = localStorage.getItem('nexdrive_products');
           if (local) {
             const list = JSON.parse(local);
-            const found = targetModel
-              ? list.find(p => p.model_code === targetModel)
-              : list.find(p => p.id === targetId);
+            const found = findMatch(list);
             if (found) currentProduct = Object.assign({}, currentProduct, found);
           }
         } catch (err) {}
