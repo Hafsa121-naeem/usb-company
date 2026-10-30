@@ -88,19 +88,25 @@
       color: #E2E8F0;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .product-headline {
-      font-size: 2.2rem;
-      font-weight: 900;
+    .product-headline,
+    #product-title {
+      font-size: 2.2rem !important;
+      font-weight: 900 !important;
       color: #0B1D2D !important;
-      margin: 0 0 12px;
-      line-height: 1.2;
-      letter-spacing: -0.5px;
+      -webkit-text-fill-color: #0B1D2D !important;
+      margin: 0 0 12px !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.5px !important;
+      display: block !important;
     }
-    .product-desc {
+    .product-desc,
+    #product-desc {
       color: #334155 !important;
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      -webkit-text-fill-color: #334155 !important;
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+      display: block !important;
     }
     .option-label {
       color: #0B1D2D !important;
@@ -507,8 +513,8 @@
             <span id="badge-code" class="badge-pill badge-code">USB-M100</span>
           </div>
 
-          <h1 id="product-title" class="product-headline">Apex Titanium Flash Drive</h1>
-          <p id="product-desc" class="product-desc" style="color: #334155; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          <h1 id="product-title" class="product-headline" style="color: #0B1D2D !important; -webkit-text-fill-color: #0B1D2D !important; font-size: 2.2rem !important; font-weight: 900 !important; margin: 0 0 12px !important; line-height: 1.2 !important;">Apex Titanium Flash Drive</h1>
+          <p id="product-desc" class="product-desc" style="color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 20px !important;">
             Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.
           </p>
 
@@ -1115,8 +1121,18 @@
       // Populate UI with Product Data
       document.title = `${currentProduct.name} (${currentProduct.model_code}) | NexDrive`;
       document.getElementById('crumb-product-name').textContent = currentProduct.name;
-      document.getElementById('product-title').textContent = currentProduct.name;
-      document.getElementById('product-desc').textContent = currentProduct.description || '';
+      const pTitleEl = document.getElementById('product-title');
+      if (pTitleEl) {
+        pTitleEl.textContent = currentProduct.name;
+        pTitleEl.style.setProperty('color', '#0B1D2D', 'important');
+        pTitleEl.style.setProperty('-webkit-text-fill-color', '#0B1D2D', 'important');
+      }
+      const pDescEl = document.getElementById('product-desc');
+      if (pDescEl) {
+        pDescEl.textContent = currentProduct.description || '';
+        pDescEl.style.setProperty('color', '#334155', 'important');
+        pDescEl.style.setProperty('-webkit-text-fill-color', '#334155', 'important');
+      }
       document.getElementById('badge-stock').textContent = currentProduct.availability || 'In Stock';
       document.getElementById('badge-category').textContent = currentProduct.category || 'USB Storage';
       document.getElementById('badge-code').textContent = currentProduct.model_code || 'USB-STD';
@@ -1226,7 +1242,201 @@
       // ====================================================================
       const buyModal = document.getElementById('buy-modal');
       const quoteModal = document.getElementById('quote-modal');
+      const cartModal = document.getElementById('cartModal');
+      const cartToast = document.getElementById('cartToast');
+      const cartCounter = document.getElementById('cart-counter');
+      const navCartBtn = document.getElementById('nav-cart-btn');
+      const closeCartModal = document.getElementById('close-cart-modal');
+      const btnAddToCart = document.getElementById('btn-add-to-cart');
+      const btnClearCart = document.getElementById('btn-clear-cart');
+      const btnCartWhatsApp = document.getElementById('btn-cart-whatsapp');
+      const cartItemsList = document.getElementById('cart-items-list');
+      const cartTotalVal = document.getElementById('cart-total-val');
 
+      // Helper: Cart Storage Functions
+      function getCartItems() {
+        try {
+          return JSON.parse(localStorage.getItem('nexdrive_cart') || '[]');
+        } catch(e) {
+          return [];
+        }
+      }
+
+      function saveCartItems(cart) {
+        localStorage.setItem('nexdrive_cart', JSON.stringify(cart));
+        updateCartBadge();
+      }
+
+      function updateCartBadge() {
+        const cart = getCartItems();
+        const count = cart.reduce((total, item) => total + (parseInt(item.qty, 10) || 1), 0);
+        if (cartCounter) {
+          cartCounter.textContent = `(${count})`;
+        }
+      }
+
+      function showCartToast(title, desc) {
+        if (!cartToast) return;
+        const titleEl = document.getElementById('cartToastTitle');
+        const descEl = document.getElementById('cartToastDesc');
+        if (titleEl) titleEl.textContent = title;
+        if (descEl) descEl.textContent = desc;
+        cartToast.classList.add('active');
+        clearTimeout(cartToast._timer);
+        cartToast._timer = setTimeout(() => {
+          cartToast.classList.remove('active');
+        }, 3500);
+      }
+
+      function renderCartDrawer() {
+        if (!cartItemsList) return;
+        const cart = getCartItems();
+
+        if (cart.length === 0) {
+          cartItemsList.innerHTML = `
+            <div style="text-align: center; padding: 35px 15px; color: #94A3B8;">
+              <div style="font-size: 3.2rem; margin-bottom: 12px;">🛒</div>
+              <p style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Your cart is currently empty.</p>
+              <p style="font-size: 13px; color: #64748B;">Browse our USB drives and click "Add to Cart" to start your order.</p>
+            </div>
+          `;
+          if (cartTotalVal) cartTotalVal.textContent = '₨ 0';
+          if (btnCartWhatsApp) {
+            btnCartWhatsApp.style.opacity = '0.5';
+            btnCartWhatsApp.style.pointerEvents = 'none';
+          }
+          return;
+        }
+
+        if (btnCartWhatsApp) {
+          btnCartWhatsApp.style.opacity = '1';
+          btnCartWhatsApp.style.pointerEvents = 'auto';
+        }
+
+        let total = 0;
+        cartItemsList.innerHTML = cart.map((item, index) => {
+          const sub = (item.unitPrice || 0) * (item.qty || 1);
+          total += sub;
+          return `
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px; background: rgba(11, 29, 45, 0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; margin-bottom: 10px;">
+              <img src="${item.image || 'images/products/usb-apex-titanium.jpg'}" alt="${item.name}" style="width: 52px; height: 52px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);" onerror="this.src='images/products/usb-apex-titanium.jpg'">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-weight: 800; color: #FFFFFF; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.name}</div>
+                <div style="font-size: 12px; color: #94A3B8; margin-top: 3px;">
+                  Capacity: <span style="color: #F59E0B; font-weight: 700;">${item.capacity}</span> &bull; ₨ ${item.unitPrice.toLocaleString()} × ${item.qty}
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 800; color: #00D2A0; font-size: 14px;">₨ ${sub.toLocaleString()}</div>
+                <button type="button" class="remove-cart-item-btn" data-index="${index}" style="background: none; border: none; color: #EF4444; font-size: 12px; cursor: pointer; text-decoration: underline; padding: 2px 0;">Remove</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        if (cartTotalVal) {
+          cartTotalVal.textContent = `₨ ${total.toLocaleString()}`;
+        }
+
+        // Attach removal handlers
+        cartItemsList.querySelectorAll('.remove-cart-item-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.target.getAttribute('data-index'), 10);
+            const currentCart = getCartItems();
+            currentCart.splice(idx, 1);
+            saveCartItems(currentCart);
+            renderCartDrawer();
+          });
+        });
+      }
+
+      // 1. Add to Cart Button Click Handler
+      if (btnAddToCart) {
+        btnAddToCart.addEventListener('click', (e) => {
+          e.preventDefault();
+          const currentUnitPkr = Math.round(basePkr * capacityMultiplier);
+          const qty = parseInt(qtyInput.value, 10) || 1;
+          const subtotalPkr = currentUnitPkr * qty;
+
+          const cart = getCartItems();
+          const existing = cart.find(i => i.id === currentProduct.id && i.capacity === selectedCapacity);
+          if (existing) {
+            existing.qty += qty;
+            existing.subtotal = existing.qty * existing.unitPrice;
+          } else {
+            cart.push({
+              id: currentProduct.id,
+              name: currentProduct.name,
+              capacity: selectedCapacity,
+              unitPrice: currentUnitPkr,
+              qty: qty,
+              subtotal: subtotalPkr,
+              image: (currentProduct.gallery && currentProduct.gallery[0]) || currentProduct.image || 'images/products/usb-apex-titanium.jpg'
+            });
+          }
+          saveCartItems(cart);
+          showCartToast('🛒 Added to Cart!', `${qty}x ${currentProduct.name} (${selectedCapacity}) added.`);
+        });
+      }
+
+      // 2. Open Cart Drawer
+      if (navCartBtn) {
+        navCartBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          renderCartDrawer();
+          if (cartModal) cartModal.classList.add('active');
+        });
+      }
+
+      // 3. Close Cart Drawer
+      if (closeCartModal) {
+        closeCartModal.addEventListener('click', () => {
+          if (cartModal) cartModal.classList.remove('active');
+        });
+      }
+
+      // 4. Clear Cart
+      if (btnClearCart) {
+        btnClearCart.addEventListener('click', () => {
+          if (confirm('Clear all items from your shopping cart?')) {
+            saveCartItems([]);
+            renderCartDrawer();
+          }
+        });
+      }
+
+      // 5. Checkout via WhatsApp
+      if (btnCartWhatsApp) {
+        btnCartWhatsApp.addEventListener('click', () => {
+          const cart = getCartItems();
+          if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+          }
+          let grandTotal = 0;
+          const itemsText = cart.map((item, idx) => {
+            const sub = (item.unitPrice || 0) * (item.qty || 1);
+            grandTotal += sub;
+            return `${idx + 1}. ${item.name} (${item.capacity})\n   • Qty: ${item.qty} units @ ₨ ${item.unitPrice.toLocaleString()}\n   • Subtotal: ₨ ${sub.toLocaleString()}`;
+          }).join('\n\n');
+
+          const orderRef = 'CART-' + Math.floor(100000 + Math.random() * 900000);
+          const message = encodeURIComponent(
+            `🛒 *NexDrive Cart Checkout Request*\n\n` +
+            `Order Ref: *${orderRef}*\n\n` +
+            `*ORDERED ITEMS:*\n${itemsText}\n\n` +
+            `*ESTIMATED TOTAL:* ₨ ${grandTotal.toLocaleString()}\n\n` +
+            `Please confirm my order and share TCS/COD delivery timeline. Thank you!`
+          );
+
+          window.open(`https://wa.me/923000000000?text=${message}`, '_blank');
+        });
+      }
+
+      // Initialize Cart Counter Badge on page load
+      updateCartBadge();
+
+      // Direct Buy Modal Triggers
       document.getElementById('open-buy-modal').addEventListener('click', () => {
         buyModal.classList.add('active');
       });
@@ -1245,6 +1455,7 @@
       window.addEventListener('click', (e) => {
         if (e.target === buyModal) buyModal.classList.remove('active');
         if (e.target === quoteModal) quoteModal.classList.remove('active');
+        if (e.target === cartModal) cartModal.classList.remove('active');
       });
 
       // Logo Upload & Live Mockup Handler
