@@ -2568,6 +2568,18 @@ textarea.form-control {
   <!-- Dynamic Catalog Synchronization with Backend API & GitHub Pages Client Storage -->
   <script>
     (async function() {
+      // Auto-migrate any legacy SVG references in localStorage to high-res JPG photos
+      try {
+        const rawLocal = localStorage.getItem('nexdrive_products');
+        if (rawLocal && rawLocal.includes('.svg')) {
+          const prods = JSON.parse(rawLocal);
+          prods.forEach(p => {
+            if (p.image) p.image = p.image.replace(/\.svg$/, '.jpg');
+          });
+          localStorage.setItem('nexdrive_products', JSON.stringify(prods));
+        }
+      } catch (e) {}
+
       let productsList = null;
       try {
         const res = await fetch('/api/products');
