@@ -89,11 +89,27 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .product-headline {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #FFFFFF;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #0B1D2D !important;
       margin: 0 0 12px;
       line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .product-desc {
+      color: #334155 !important;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .option-label {
+      color: #0B1D2D !important;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: block;
     }
     .product-pricing-box {
       background: rgba(11, 29, 45, 0.6);
@@ -238,6 +254,79 @@
       box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
     }
 
+    
+    .action-cta-grid {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .btn-add-cart {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #0B1D2D;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+      flex: 1;
+      min-width: 170px;
+    }
+    .btn-add-cart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+      filter: brightness(1.08);
+    }
+    .cart-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F59E0B;
+      color: #0B1D2D;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin-left: 10px;
+    }
+    .cart-nav-badge:hover {
+      transform: scale(1.05);
+      background: #D97706;
+    }
+    /* Toast Alert for Cart */
+    .cart-toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #0B1D2D;
+      border: 1px solid #00D2A0;
+      color: #FFFFFF;
+      padding: 16px 22px;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cart-toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
     /* Modal Styles */
     .modal-overlay {
       position: fixed;
@@ -372,6 +461,9 @@
 
         <!-- Currency Switcher Mount -->
         <div id="currency-picker-mount" style="display: inline-flex; align-items: center; margin: 0 10px;"></div>
+        <a href="#view-cart" id="nav-cart-btn" class="cart-nav-badge" title="View your shopping cart">
+          🛒 Cart <span id="cart-counter">(0)</span>
+        </a>
 
         <div class="header-action">
           <a href="contact#quote-inquiry" class="btn btn-primary btn-sm">Request a Quote</a>
@@ -416,7 +508,7 @@
           </div>
 
           <h1 id="product-title" class="product-headline">Apex Titanium Flash Drive</h1>
-          <p id="product-desc" style="color: #CBD5E1; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          <p id="product-desc" class="product-desc" style="color: #334155; font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
             Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.
           </p>
 
@@ -468,6 +560,17 @@
 
           <!-- Two Direct Action Buttons -->
           <div class="action-cta-grid">
+            <!-- 1. Add to Cart Option (Added before Buy Directly) -->
+            <button type="button" id="btn-add-to-cart" class="btn-add-cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              Add to Cart
+            </button>
+
+            <!-- 2. Buy Directly Option -->
             <button type="button" id="open-buy-modal" class="btn-buy-direct">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
               Buy Directly (Place Order)
@@ -1312,5 +1415,48 @@
 
     })();
   </script>
+
+  <!-- Cart Notification Toast -->
+  <div id="cartToast" class="cart-toast" role="alert">
+    <span style="font-size: 24px;">🛒</span>
+    <div>
+      <div id="cartToastTitle" style="font-weight: 800; font-size: 14px; color: #00D2A0;">Added to Cart!</div>
+      <div id="cartToastDesc" style="font-size: 12px; color: #CBD5E1;">Item successfully added to your order.</div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer / Modal -->
+  <div id="cartModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cartModalTitle">
+    <div class="modal-card" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 id="cartModalTitle" style="display: flex; align-items: center; gap: 8px;">
+          <span>🛒</span> Your Shopping Cart
+        </h3>
+        <button id="close-cart-modal" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 24px;">
+        <div id="cart-items-list" style="margin-bottom: 20px;">
+          <!-- Populated by JS -->
+        </div>
+
+        <div style="background: rgba(11,29,45,0.7); border-radius: 8px; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; color: #FFFFFF;">
+            <span>Estimated Cart Total:</span>
+            <span id="cart-total-val" style="color: var(--color-coral-primary, #FF6B4A); font-size: 1.3rem;">₨ 0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button type="button" id="btn-clear-cart" class="btn btn-secondary" style="flex: 1;">
+            Clear Cart
+          </button>
+          <button type="button" id="btn-cart-whatsapp" class="btn btn-primary" style="flex: 2; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+            💬 Checkout via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
