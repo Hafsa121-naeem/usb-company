@@ -507,15 +507,19 @@ body {
 
 /* Availability Badges */
 .badge-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  gap: 5px !important;
+  padding: 5px 12px !important;
+  border-radius: var(--radius-full) !important;
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1 !important;
 }
 
 .badge-in-stock {
@@ -1102,9 +1106,9 @@ body {
         </button>
 
         <!-- Add Product Primary Button -->
-        <button id="openAddProductBtn" class="btn btn-primary btn-sm">
+        <a href="product-edit?action=new" id="openAddProductBtn" class="btn btn-primary btn-sm" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
           ➕ Add New USB Product
-        </button>
+        </a>
       </div>
     </div>
   </header>
@@ -1978,17 +1982,14 @@ body {
           </span>
         </td>
         <td>
-          <span class="badge-status ${p.status === 'Draft' ? 'badge-low-stock' : 'badge-in-stock'}" style="cursor: pointer;" onclick="window.adminApp.toggleStatus(${p.id})" title="Click to toggle Published/Draft">
-            ${p.status === 'Draft' ? '👁️ Draft' : '✅ Live'}
+          <span class="badge-status ${p.status === 'Draft' ? 'badge-low-stock' : 'badge-in-stock'}" style="cursor: pointer; display: inline-flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; white-space: nowrap !important; gap: 6px !important; min-width: 90px !important; padding: 6px 14px !important; border-radius: 9999px !important; font-size: 0.74rem !important; font-weight: 800 !important; line-height: 1 !important;" onclick="window.adminApp.toggleStatus(${p.id})" title="Click to toggle Published/Draft">
+            ${p.status === 'Draft' ? '👁️&nbsp;Draft' : '✅&nbsp;Live'}
           </span>
         </td>
         <td>
           <div class="table-actions">
-            <button class="action-btn edit-btn" title="Quick Edit" onclick="window.adminApp.editProduct(${p.id})">
+            <a href="product-edit?id=${p.id}" class="action-btn edit-btn" title="Edit Product on Separate Page" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; color: var(--color-coral-primary);">
               ✏️
-            </button>
-            <a href="product-edit?id=${p.id}" class="action-btn" title="Advanced Editor" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
-              ⚙️
             </a>
             <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
               📋
@@ -2031,11 +2032,8 @@ body {
               <span class="price-tag">${escapeHtml(formatPricePKR(p.price))}</span>
             </div>
             <div class="table-actions">
-              <button class="action-btn edit-btn" title="Quick Edit" onclick="window.adminApp.editProduct(${p.id})">
+              <a href="product-edit?id=${p.id}" class="action-btn edit-btn" title="Edit Product on Dedicated Page" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; color: var(--color-coral-primary);">
                 ✏️
-              </button>
-              <a href="product-edit?id=${p.id}" class="action-btn" title="Advanced Editor" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">
-                ⚙️
               </a>
               <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
                 📋
@@ -2206,54 +2204,22 @@ body {
     reader.readAsDataURL(file);
   }
 
-  // Open Create Modal
+  // Open Create Page (Dedicated Separate Page)
   function openCreateModal() {
-    editingProductId = null;
-    modalTitle.textContent = 'Add New USB Product';
-    saveProductBtn.textContent = 'Save Product';
-    productForm.reset();
-    resetImageUpload();
-    document.getElementById('productAvailability').value = 'In Stock';
-    document.getElementById('productCategory').value = 'Titanium Metal';
-    document.getElementById('productModelCode').value = `USB-M${Math.floor(100 + Math.random() * 899)}`;
-    document.body.style.overflow = 'hidden'; productModal.classList.add('active');
+    window.location.href = 'product-edit?action=new';
   }
 
-  // Open Edit Modal
+  // Open Edit Page (Dedicated Separate Page)
   function openEditModal(id) {
-    const p = products.find(item => item.id === id);
-    if (!p) return;
-
-    editingProductId = id;
-    modalTitle.textContent = `Edit Product: ${p.name}`;
-    saveProductBtn.textContent = 'Update Product';
-
-    document.getElementById('productName').value = p.name || '';
-    document.getElementById('productModelCode').value = p.model_code || '';
-    document.getElementById('productCategory').value = p.category || 'Titanium Metal';
-    document.getElementById('productAvailability').value = p.availability || 'In Stock';
-    if (document.getElementById('productStatus')) document.getElementById('productStatus').value = p.status || 'Published';
-    document.getElementById('productCapacity').value = p.capacity || '';
-    document.getElementById('productPrice').value = p.price || '';
-    document.getElementById('productReadSpeed').value = p.read_speed || 'Up to 150 MB/s';
-    document.getElementById('productInterface').value = p.interface || 'USB 3.2 Gen 1';
-    document.getElementById('productDesc').value = p.description || '';
-
-    // Handle existing image
-    if (p.image) {
-      uploadedImageUrl = p.image;
-      productImageVal.value = p.image;
-      showImagePreview(p.image);
-    } else {
-      resetImageUpload();
-    }
-
-    productModal.classList.add('active');
+    window.location.href = `product-edit?id=${id}`;
   }
 
-  // Close Product Modal
+  // Close Product Modal (Fallback)
   function closeModal() {
-    document.body.style.overflow = ''; productModal.classList.remove('active');
+    if (productModal) {
+      document.body.style.overflow = '';
+      productModal.classList.remove('active');
+    }
     editingProductId = null;
   }
 
