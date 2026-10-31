@@ -139,9 +139,9 @@
       <div class="currency-picker-wrap" style="position: relative; display: inline-flex; align-items: center; font-family: var(--font-family-base, sans-serif);">
         <label for="currency-select-box" class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Select Currency</label>
         <select id="currency-select-box" class="currency-select" aria-label="Select Currency" style="
-          background: rgba(16, 42, 66, 0.9);
-          color: #F59E0B;
-          border: 1px solid rgba(245, 158, 11, 0.4);
+          background: #FAF9F5;
+          color: #1C231E;
+          border: 1.5px solid #E6E0D4;
           border-radius: 6px;
           padding: 6px 10px;
           font-size: 13px;
@@ -154,7 +154,7 @@
           ${Object.keys(RATES).map(k => {
             const r = RATES[k];
             const sel = k === current ? 'selected' : '';
-            return `<option value="${r.code}" ${sel} style="background: #0B1D2D; color: #FFFFFF;">${r.flag} ${r.code} (${r.symbol.trim()})</option>`;
+            return `<option value="${r.code}" ${sel} style="background: #FFFFFF; color: #1C231E;">${r.flag} ${r.code} (${r.symbol.trim()})</option>`;
           }).join('')}
         </select>
       </div>
@@ -166,11 +166,11 @@
         setActiveCurrency(e.target.value);
       });
       select.addEventListener('mouseenter', () => {
-        select.style.borderColor = '#F59E0B';
-        select.style.boxShadow = '0 0 10px rgba(245, 158, 11, 0.35)';
+        select.style.borderColor = '#5C7C64';
+        select.style.boxShadow = '0 0 0 3px rgba(92, 124, 100, 0.15)';
       });
       select.addEventListener('mouseleave', () => {
-        select.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+        select.style.borderColor = '#E6E0D4';
         select.style.boxShadow = 'none';
       });
     }
