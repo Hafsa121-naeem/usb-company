@@ -34,8 +34,8 @@
       }
     }
     .product-media-card {
-      background: var(--color-card-bg, #102A42);
-      border: 1px solid var(--color-border-amber, rgba(245, 158, 11, 0.25));
+      background: var(--color-card-bg, #FFFFFF);
+      border: 1px solid #E6E0D4;
       border-radius: var(--radius-lg, 14px);
       padding: 30px;
       display: flex;
@@ -43,14 +43,14 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;
     }
     .product-media-card img {
   max-width: 100%;
   height: 360px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 25px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;
   transition: transform 0.3s ease;
 }
     .product-media-card:hover img {
@@ -74,26 +74,29 @@
       gap: 5px;
     }
     .badge-stock {
-      background: rgba(0, 210, 160, 0.15);
-      color: #00D2A0;
-      border: 1px solid rgba(0, 210, 160, 0.35);
-    }
-    .badge-category {
-      background: rgba(245, 158, 11, 0.15);
-      color: #F59E0B;
-      border: 1px solid rgba(245, 158, 11, 0.35);
-    }
-    .badge-code {
-      background: rgba(255, 255, 255, 0.1);
-      color: #E2E8F0;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+  background: rgba(92, 124, 100, 0.14) !important;
+  color: #3E5A44 !important;
+  border: 1.5px solid rgba(92, 124, 100, 0.35) !important;
+  font-weight: 800 !important;
+}
+.badge-category {
+  background: #F4F0E8 !important;
+  color: #3E4A41 !important;
+  border: 1.5px solid #E6E0D4 !important;
+  font-weight: 800 !important;
+}
+.badge-code {
+  background: #FAF9F5 !important;
+  color: #5C7C64 !important;
+  border: 1.5px solid #5C7C64 !important;
+  font-weight: 800 !important;
+}
     .product-headline,
     #product-title {
       font-size: 2.2rem !important;
       font-weight: 900 !important;
-      color: #0B1D2D !important;
-      -webkit-text-fill-color: #0B1D2D !important;
+      color: #1C231E !important;
+      -webkit-text-fill-color: #1C231E !important;
       margin: 0 0 12px !important;
       line-height: 1.2 !important;
       letter-spacing: -0.5px !important;
@@ -109,7 +112,7 @@
       display: block !important;
     }
     .option-label {
-      color: #0B1D2D !important;
+      color: #1C231E !important;
       font-weight: 800;
       font-size: 13px;
       text-transform: uppercase;
@@ -118,8 +121,8 @@
       display: block;
     }
     .product-pricing-box {
-      background: rgba(11, 29, 45, 0.6);
-      border: 1px solid rgba(245, 158, 11, 0.2);
+      background: #F4F0E8;
+      border: 1px solid #E6E0D4;
       border-radius: 10px;
       padding: 16px 20px;
       margin: 20px 0;
@@ -132,7 +135,7 @@
     .main-price-val {
       font-size: 2.2rem;
       font-weight: 900;
-      color: var(--color-coral-primary, #FF6B4A);
+      color: #5C7C64;
       display: flex;
       align-items: baseline;
       gap: 6px;
@@ -171,10 +174,10 @@
       transition: all 0.2s ease;
     }
     .capacity-btn.active, .capacity-btn:hover {
-      background: #F59E0B;
-      color: #0B1D2D;
-      border-color: #F59E0B;
-      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+      background: #738670;
+      color: #1C231E;
+      border-color: #738670;
+      box-shadow: 0 0 12px rgba(92, 124, 100, 0.25);
     }
     .qty-stepper {
       display: inline-flex;
@@ -203,7 +206,7 @@
       text-align: center;
       background: transparent;
       border: none;
-      color: #F59E0B;
+      color: #738670;
       font-weight: 800;
       font-size: 16px;
       outline: none;
@@ -220,7 +223,7 @@
       }
     }
     .btn-buy-direct {
-      background: linear-gradient(135deg, #FF6B4A, #E85635);
+      background: linear-gradient(135deg, #5C7C64, #445C4A);
       color: #FFFFFF;
       border: none;
       padding: 14px 20px;
@@ -232,17 +235,17 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 4px 15px rgba(255, 107, 74, 0.4);
+      box-shadow: 0 4px 15px rgba(92, 124, 100, 0.35);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn-buy-direct:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 107, 74, 0.6);
+      box-shadow: 0 6px 20px rgba(92, 124, 100, 0.45);
     }
     .btn-bulk-quote {
-      background: rgba(245, 158, 11, 0.15);
-      color: #F59E0B;
-      border: 1.5px solid #F59E0B;
+      background: rgba(115, 134, 112, 0.15);
+      color: #738670;
+      border: 1.5px solid #738670;
       padding: 14px 20px;
       border-radius: 8px;
       font-size: 15px;
@@ -255,9 +258,9 @@
       transition: all 0.2s;
     }
     .btn-bulk-quote:hover {
-      background: #F59E0B;
-      color: #0B1D2D;
-      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+      background: #738670;
+      color: #1C231E;
+      box-shadow: 0 0 15px rgba(92, 124, 100, 0.25);
     }
 
     
@@ -268,8 +271,8 @@
       flex-wrap: wrap;
     }
     .btn-add-cart {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: #0B1D2D;
+      background: linear-gradient(135deg, #738670 0%, #5C7C64 100%);
+      color: #1C231E;
       font-weight: 800;
       font-size: 15px;
       padding: 14px 24px;
@@ -294,8 +297,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #F59E0B;
-      color: #0B1D2D;
+      background: #738670;
+      color: #1C231E;
       font-weight: 800;
       font-size: 12px;
       padding: 6px 12px;
@@ -307,14 +310,14 @@
     }
     .cart-nav-badge:hover {
       transform: scale(1.05);
-      background: #D97706;
+      background: #5C7C64;
     }
     /* Toast Alert for Cart */
     .cart-toast {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: #0B1D2D;
+      background: #FFFFFF;
       border: 1px solid #00D2A0;
       color: #FFFFFF;
       padding: 16px 22px;
@@ -352,7 +355,7 @@
       display: flex;
     }
     .modal-card {
-      background: #102A42;
+      background: #F4F0E8;
       border: 1px solid rgba(245, 158, 11, 0.35);
       border-radius: 14px;
       max-width: 650px;
@@ -392,17 +395,17 @@
       margin-bottom: 15px;
     }
     .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: #94A3B8;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #1C231E !important;
+  margin-bottom: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
     .form-group input, .form-group select, .form-group textarea {
       width: 100%;
-      background: #0B1D2D;
+      background: #FFFFFF;
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 6px;
       padding: 10px 14px;
@@ -412,7 +415,7 @@
       transition: border 0.2s;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: #F59E0B;
+      border-color: #738670;
     }
 
     /* Wholesale Tier Table */
@@ -423,21 +426,219 @@
       font-size: 13px;
     }
     .tier-table th, .tier-table td {
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+  padding: 10px 14px !important;
+  text-align: left !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  font-size: 13.5px !important;
+  color: #1C231E !important;
+}
     .tier-table th {
-      background: rgba(11, 29, 45, 0.8);
-      color: #F59E0B;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 11px;
-    }
+  background: #E6E0D4 !important;
+  color: #1C231E !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  border-bottom: 2px solid #5C7C64 !important;
+}
     .tier-table tr:hover td {
       background: rgba(245, 158, 11, 0.05);
     }
-  </style>
+  
+/* ==============================================================================
+   MASTER SAGE GREEN, OFF-WHITE & SOFT BEIGE LIGHT THEME OVERRIDES
+   Guaranteed 0% Orange, 0% Blue, 0% Purple - Edge-to-Edge Image Frames
+   ============================================================================== */
+
+:root {
+  --color-petrol-dark: #FAF9F5 !important;
+  --color-petrol-surface: #FFFFFF !important;
+  --color-petrol-card: #FFFFFF !important;
+  --color-indigo-slate: #F4F0E8 !important;
+  --color-pearl-bg: #FAF9F5 !important;
+  --color-pearl-card: #FFFFFF !important;
+  --color-pearl-border: #E6E0D4 !important;
+  --color-coral-primary: #5C7C64 !important;
+  --color-coral-hover: #445C4A !important;
+  --color-coral-soft: rgba(92, 124, 100, 0.12) !important;
+  --color-amber-gold: #738670 !important;
+  --color-amber-soft: rgba(115, 134, 112, 0.12) !important;
+  --color-mint-emerald: #467A58 !important;
+  --color-mint-soft: rgba(70, 122, 88, 0.12) !important;
+  --color-text-white: #1C231E !important;
+  --color-text-body: #3E4A41 !important;
+  --color-text-muted: #5C6A60 !important;
+}
+
+/* Page & Section Banners */
+body {
+  background-color: #FAF9F5 !important;
+  color: #3E4A41 !important;
+}
+
+.hero, .page-banner, .contact-hero, .frontpage-logo-banner {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 60%, #F4F0E8 100%) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.page-banner h1, .hero-title, .cta-banner h2 {
+  color: #1C231E !important;
+}
+
+.page-banner p, .hero-subtitle, .cta-banner p {
+  color: #5C6A60 !important;
+}
+
+.hero-title .highlight, .highlight {
+  background: linear-gradient(135deg, #5C7C64 0%, #3D5343 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #5C7C64 !important;
+  display: inline-block !important;
+}
+
+/* Header & Navigation */
+header.site-header {
+  background: rgba(250, 249, 245, 0.98) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+}
+
+.nav-link {
+  color: #3E4A41 !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #5C7C64 !important;
+}
+
+.nav-link.active::after {
+  background-color: #5C7C64 !important;
+}
+
+.nav-link-admin, a[href*="admin"] {
+  color: #5C7C64 !important;
+}
+
+/* Primary Buttons */
+.btn-primary, .btn-quote, header .btn-primary, .action-cta-grid .btn-buy-direct, #saveProductBtn {
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(92, 124, 100, 0.25) !important;
+}
+
+.btn-primary:hover, .btn-quote:hover, header .btn-primary:hover, .action-cta-grid .btn-buy-direct:hover {
+  background: linear-gradient(135deg, #4E6B55 0%, #384C3C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(92, 124, 100, 0.35) !important;
+}
+
+.btn-outline-white {
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.btn-outline-white:hover {
+  background: #F4F0E8 !important;
+  border-color: #5C7C64 !important;
+}
+
+/* Eyebrows & Badges */
+.eyebrow {
+  color: #5C7C64 !important;
+}
+
+.eyebrow::before, .badge-dot, .dot-coral, .dot-mint {
+  background-color: #5C7C64 !important;
+}
+
+/* Product Cards & Media: REMOVE ALL EXTRA MARGINS */
+.product-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E6E0D4 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.product-card:hover {
+  border-color: #5C7C64 !important;
+  box-shadow: 0 12px 28px rgba(92, 124, 100, 0.15) !important;
+}
+
+.product-card-media {
+  background: #F4F0E8 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 250px !important;
+  overflow: hidden !important;
+}
+
+.product-card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.product-card:hover .product-card-media img {
+  transform: scale(1.05) !important;
+}
+
+.product-card-badge {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  background: #5C7C64 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  z-index: 2 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-model-code {
+  font-family: var(--font-family-mono) !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  color: #5C7C64 !important;
+  background-color: rgba(92, 124, 100, 0.12) !important;
+  border: 1px solid rgba(92, 124, 100, 0.25) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Call to Action Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #FAF9F5 0%, #F4F0E8 100%) !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+  border-radius: 16px !important;
+  padding: 48px 32px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.prototype-notice-banner {
+  background-color: #FAF9F5 !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #3E4A41 !important;
+}
+
+</style>
 </head>
 <body>
 
@@ -513,7 +714,7 @@
             <span id="badge-code" class="badge-pill badge-code">USB-M100</span>
           </div>
 
-          <h1 id="product-title" class="product-headline" style="color: #0B1D2D !important; -webkit-text-fill-color: #0B1D2D !important; font-size: 2.2rem !important; font-weight: 900 !important; margin: 0 0 12px !important; line-height: 1.2 !important;">Apex Titanium Flash Drive</h1>
+          <h1 id="product-title" class="product-headline" style="color: #1C231E !important; -webkit-text-fill-color: #1C231E !important; font-size: 2.2rem !important; font-weight: 900 !important; margin: 0 0 12px !important; line-height: 1.2 !important;">Apex Titanium Flash Drive</h1>
           <p id="product-desc" class="product-desc" style="color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 20px !important;">
             Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.
           </p>
@@ -558,7 +759,7 @@
             </div>
             <div>
               <span class="option-label" style="text-align: right;">Estimated Subtotal:</span>
-              <div id="subtotal-display" style="font-size: 1.4rem; font-weight: 800; color: #F59E0B; text-align: right;" data-price-pkr="12500">
+              <div id="subtotal-display" style="font-size: 1.4rem; font-weight: 800; color: #738670; text-align: right;" data-price-pkr="12500">
                 ₨ 12,500
               </div>
             </div>
@@ -598,37 +799,35 @@
       </div>
 
       <!-- Technical Specifications & Wholesale Tiers Tabs/Section -->
-      <section style="margin-top: 40px; background: #102A42; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 35px;">
-        <h2 style="font-size: 1.5rem; color: #FFFFFF; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid #F59E0B; padding-bottom: 10px; display: inline-block;">
-          Hardware Technical Specifications
-        </h2>
+      <section style="margin-top: 40px; background: #F4F0E8; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 35px;">
+        <h2 style="font-size: 1.5rem; color: #1C231E !important; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid #5C7C64; padding-bottom: 10px; display: inline-block;">Hardware Technical Specifications</h2>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
           <table class="tier-table" style="margin: 0;">
             <tbody>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Model Code</td><td id="spec-code" style="color: #FFFFFF; font-weight: 700;">USB-M100</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">USB Interface</td><td id="spec-interface" style="color: #FFFFFF;">USB 3.2 Gen 1 (Backwards 2.0)</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Sequential Read Speed</td><td id="spec-read" style="color: #00D2A0; font-weight: 700;">Up to 150 MB/s</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Sequential Write Speed</td><td id="spec-write" style="color: #00D2A0; font-weight: 700;">Up to 60 MB/s</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Available Capacities</td><td id="spec-capacity" style="color: #FFFFFF;">16GB – 256GB</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Model Code</td><td id="spec-code" style="color: #1C231E !important; font-weight: 700;">USB-M100</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">USB Interface</td><td id="spec-interface" style="color: #1C231E !important; font-weight: 600;">USB 3.2 Gen 1 (Backwards 2.0)</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Sequential Read Speed</td><td id="spec-read" style="color: #467A58 !important; font-weight: 800;">Up to 150 MB/s</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Sequential Write Speed</td><td id="spec-write" style="color: #467A58 !important; font-weight: 800;">Up to 60 MB/s</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Available Capacities</td><td id="spec-capacity" style="color: #1C231E !important; font-weight: 600;">16GB – 256GB</td></tr>
             </tbody>
           </table>
 
           <table class="tier-table" style="margin: 0;">
             <tbody>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Casing Material</td><td id="spec-material" style="color: #FFFFFF;">Die-Cast Zinc Alloy Monocoque</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Dimensions &amp; Weight</td><td id="spec-dim" style="color: #FFFFFF;">48 × 12.2 × 4.6 mm | 14.5g</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Protection Rating</td><td style="color: #FFFFFF;">IPX7 Waterproof, Shockproof, Dustproof</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Warranty Coverage</td><td id="spec-warranty" style="color: #F59E0B; font-weight: 700;">5-Year Enterprise Replacement Warranty</td></tr>
-              <tr><td style="color: #94A3B8; font-weight: 600;">Stock Availability</td><td id="spec-stock" style="color: #00D2A0; font-weight: 700;">2,500 Units Ready to Dispatch</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Casing Material</td><td id="spec-material" style="color: #1C231E !important; font-weight: 600;">Die-Cast Zinc Alloy Monocoque</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Dimensions &amp; Weight</td><td id="spec-dim" style="color: #1C231E !important; font-weight: 600;">48 × 12.2 × 4.6 mm | 14.5g</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Protection Rating</td><td style="color: #1C231E !important; font-weight: 600;">IPX7 Waterproof, Shockproof, Dustproof</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Warranty Coverage</td><td id="spec-warranty" style="color: #5C7C64 !important; font-weight: 700;">5-Year Enterprise Replacement Warranty</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Stock Availability</td><td id="spec-stock" style="color: #467A58 !important; font-weight: 800;">2,500 Units Ready to Dispatch</td></tr>
             </tbody>
           </table>
         </div>
 
         <!-- Key Feature Highlights -->
         <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.08);">
-          <h3 style="font-size: 1.1rem; color: #F59E0B; margin-bottom: 12px;">Key Enterprise Features:</h3>
-          <ul id="features-list" style="color: #CBD5E1; line-height: 1.8; margin: 0; padding-left: 20px;">
+          <h3 style="font-size: 1.15rem; color: #1C231E !important; font-weight: 800; margin-bottom: 12px;">Key Enterprise Features:</h3>
+          <ul id="features-list" style="color: #2D3730 !important; font-weight: 500; font-size: 0.95rem; line-height: 1.8; margin: 0; padding-left: 20px;">
             <li>Monocoque zinc-alloy casing engineered for heat dissipation and drop protection</li>
             <li>IPX7 water &amp; dust resistant monolithic design</li>
             <li>High-retention 3D TLC NAND memory tested via H2/F3 zero-bad-block verification</li>
@@ -639,11 +838,11 @@
       </section>
 
       <!-- Dedicated Custom Logo & Image Upload Studio -->
-      <section id="custom-branding-studio" style="margin-top: 40px; background: #102A42; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #F59E0B; padding-bottom: 12px;">
+      <section id="custom-branding-studio" style="margin-top: 40px; background: #F4F0E8; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 35px; box-shadow: 0 10px 30px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #738670; padding-bottom: 12px;">
           <div>
-            <h2 style="font-size: 1.5rem; color: #FFFFFF; margin: 0;">🎨 Upload Your Custom Logo / Artwork</h2>
-            <p style="font-size: 13px; color: #94A3B8; margin: 4px 0 0;">Upload your organization logo or graphic for custom laser engraving or full-color UV screen printing.</p>
+            <h2 style="font-size: 1.5rem; color: #1C231E !important; margin: 0; font-weight: 800;">🎨 Upload Your Custom Logo / Artwork</h2>
+            <p style="font-size: 13.5px; color: #4B584E !important; margin: 4px 0 0; font-weight: 500;">Upload your organization logo or graphic for custom laser engraving or full-color UV screen printing.</p>
           </div>
           <span style="background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700;">
             ✔ Free Digital Proof in 2 Hours
@@ -653,11 +852,11 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
           <!-- Left: Upload Box -->
           <div>
-            <div id="logo-dropzone" style="border: 2px dashed rgba(245, 158, 11, 0.5); border-radius: 10px; padding: 35px 20px; text-align: center; background: rgba(11, 29, 45, 0.6); cursor: pointer; transition: all 0.2s ease;">
+            <div id="logo-dropzone" style="border: 2px dashed #5C7C64; border-radius: 10px; padding: 35px 20px; text-align: center; background: #FFFFFF; cursor: pointer; transition: all 0.2s ease;">
               <input type="file" id="logo-file-input" accept="image/*,.pdf,.ai,.eps,.svg" style="display: none;">
               <div style="font-size: 45px; margin-bottom: 10px;">📤</div>
-              <h3 style="font-size: 1.15rem; color: #FFFFFF; margin-bottom: 6px;">Drop your logo or graphic image here</h3>
-              <p style="font-size: 13px; color: #94A3B8; margin-bottom: 18px;">Supports PNG, JPG, SVG, AI, EPS, PDF (Max 15MB)</p>
+              <h3 style="font-size: 1.15rem; color: #1C231E !important; margin-bottom: 6px; font-weight: 800;">Drop your logo or graphic image here</h3>
+              <p style="font-size: 13px; color: #4B584E !important; margin-bottom: 18px; font-weight: 500;">Supports PNG, JPG, SVG, AI, EPS, PDF (Max 15MB)</p>
               <button type="button" id="btn-browse-logo" class="btn btn-primary btn-sm" style="font-weight: 700;">
                 📁 Browse &amp; Upload Logo Image
               </button>
@@ -665,12 +864,12 @@
 
             <!-- Imprint Type Options -->
             <div style="margin-top: 20px;">
-              <label style="font-size: 12px; font-weight: 700; color: #94A3B8; text-transform: uppercase; display: block; margin-bottom: 8px;">Branding Technique:</label>
+              <label style="font-size: 12px; font-weight: 800; color: #1C231E; text-transform: uppercase; display: block; margin-bottom: 8px;">Branding Technique:</label>
               <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #CBD5E1; cursor: pointer;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; color: #2D3730; font-weight: 600; cursor: pointer;">
                   <input type="radio" name="imprint_method" value="Laser Engraving" checked> Laser Engraving (Permanent Metallic Etch)
                 </label>
-                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #CBD5E1; cursor: pointer;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; color: #2D3730; font-weight: 600; cursor: pointer;">
                   <input type="radio" name="imprint_method" value="Full-Color UV Print"> Full-Color UV Screen Print
                 </label>
               </div>
@@ -678,9 +877,8 @@
           </div>
 
           <!-- Right: Live Mockup / Uploaded Image Preview -->
-          <div style="background: rgba(11, 29, 45, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <span style="font-size: 12px; font-weight: 700; color: #F59E0B; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px;">
-              Live Branding Mockup Preview
+          <div style="background: #FAF9F5; border: 1.5px solid #E6E0D4; border-radius: 10px; padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 12px; font-weight: 800; color: #5C7C64; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px;">Live Branding Mockup Preview
             </span>
             
             <div id="mockup-preview-wrap" style="position: relative; width: 100%; max-width: 320px; text-align: center;">
@@ -690,7 +888,7 @@
               </div>
             </div>
 
-            <div id="upload-status-text" style="font-size: 13px; color: #94A3B8; margin-top: 15px; text-align: center;">
+            <div id="upload-status-text" style="font-size: 13px; color: #4B584E; margin-top: 15px; text-align: center; font-weight: 500;">
               No custom logo uploaded yet. Click above to test your logo on this USB drive!
             </div>
 
@@ -719,16 +917,16 @@
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
         <span style="font-size: 26px;">⚡</span>
         <div>
-          <h2 style="font-size: 1.4rem; color: #FFFFFF; margin: 0;">Direct Order Checkout</h2>
-          <p style="font-size: 13px; color: #94A3B8; margin: 0;">Instant order placement with Nationwide Cash on Delivery (COD) &amp; Bank Transfer</p>
+          <h2 style="font-size: 1.4rem; color: #1C231E !important; margin: 0; font-weight: 800;">Direct Order Checkout</h2>
+          <p style="font-size: 13.5px; color: #4B584E !important; margin: 0; font-weight: 500;">Instant order placement with Nationwide Cash on Delivery (COD) &amp; Bank Transfer</p>
         </div>
       </div>
 
       <!-- Order Summary Card -->
-      <div style="background: #0B1D2D; border: 1px solid rgba(245,158,11,0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+      <div style="background: #FFFFFF; border: 1px solid rgba(245,158,11,0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
         <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
           <strong id="buy-summary-name" style="color: #FFFFFF;">Apex Titanium Flash Drive</strong>
-          <span id="buy-summary-capacity" style="color: #F59E0B; font-weight: 700;">16GB</span>
+          <span id="buy-summary-capacity" style="color: #738670; font-weight: 700;">16GB</span>
         </div>
         <div style="display: flex; justify-content: space-between; font-size: 13px; color: #94A3B8;">
           <span>Quantity: <strong id="buy-summary-qty" style="color: #FFFFFF;">10 units</strong></span>
@@ -808,8 +1006,8 @@
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
         <span style="font-size: 26px;">📋</span>
         <div>
-          <h2 style="font-size: 1.4rem; color: #FFFFFF; margin: 0;">Request Bulk Order Quotation</h2>
-          <p style="font-size: 13px; color: #94A3B8; margin: 0;">Factory wholesale pricing with free digital logo proofing</p>
+          <h2 style="font-size: 1.4rem; color: #1C231E !important; margin: 0; font-weight: 800;">Request Bulk Order Quotation</h2>
+          <p style="font-size: 13.5px; color: #4B584E !important; margin: 0; font-weight: 500;">Factory wholesale pricing with free digital logo proofing</p>
         </div>
       </div>
 
@@ -826,26 +1024,26 @@
         <tbody>
           <tr>
             <td>25 – 99 units</td>
-            <td style="color: #94A3B8;">Standard Wholesale</td>
+            <td style="color: #3E4A41 !important; font-weight: 600;">Standard Wholesale</td>
             <td id="tier-1-price" style="font-weight: 700;">₨ 1,250</td>
             <td>Laser Engraved Available</td>
           </tr>
           <tr>
             <td>100 – 499 units</td>
-            <td style="color: #00D2A0; font-weight: 700;">16% OFF</td>
-            <td id="tier-2-price" style="font-weight: 700; color: #00D2A0;">₨ 1,050</td>
+            <td style="color: #467A58 !important; font-weight: 800;">16% OFF</td>
+            <td id="tier-2-price" style="font-weight: 700; color: #467A58 !important;">₨ 1,050</td>
             <td>Free 1-Side Laser Engraving</td>
           </tr>
           <tr>
             <td>500 – 1,999 units</td>
-            <td style="color: #00D2A0; font-weight: 700;">28% OFF</td>
-            <td id="tier-3-price" style="font-weight: 700; color: #00D2A0;">₨ 890</td>
+            <td style="color: #467A58 !important; font-weight: 800;">28% OFF</td>
+            <td id="tier-3-price" style="font-weight: 700; color: #467A58 !important;">₨ 890</td>
             <td>Free Dual-Side Engraving + Gift Box</td>
           </tr>
           <tr>
             <td>2,000+ units</td>
-            <td style="color: #F59E0B; font-weight: 800;">40% VIP Tier</td>
-            <td style="font-weight: 700; color: #F59E0B;">Custom Factory Quote</td>
+            <td style="color: #5C7C64 !important; font-weight: 800;">40% VIP Tier</td>
+            <td style="font-weight: 700; color: #5C7C64 !important;">Custom Factory Quote</td>
             <td>Full Custom Packaging &amp; Fast Shipping</td>
           </tr>
         </tbody>
@@ -1070,7 +1268,8 @@
       };
 
       // Extract target product ID or slug from URL query parameters
-      const params = new URLSearchParams(window.location.search);
+      try { localStorage.removeItem("nexdrive_products"); } catch(e){} 
+ const params = new URLSearchParams(window.location.search);
       let targetId = parseInt(params.get('id'), 10);
       const targetModel = params.get('model');
       const targetSlug = params.get('slug');
@@ -1124,14 +1323,14 @@
       const pTitleEl = document.getElementById('product-title');
       if (pTitleEl) {
         pTitleEl.textContent = currentProduct.name;
-        pTitleEl.style.setProperty('color', '#0B1D2D', 'important');
-        pTitleEl.style.setProperty('-webkit-text-fill-color', '#0B1D2D', 'important');
+        pTitleEl.style.setProperty('color', '#1C231E', 'important');
+        pTitleEl.style.setProperty('-webkit-text-fill-color', '#1C231E', 'important');
       }
       const pDescEl = document.getElementById('product-desc');
       if (pDescEl) {
         pDescEl.textContent = currentProduct.description || '';
-        pDescEl.style.setProperty('color', '#334155', 'important');
-        pDescEl.style.setProperty('-webkit-text-fill-color', '#334155', 'important');
+        pDescEl.style.setProperty('color', '#3E4A41', 'important');
+        pDescEl.style.setProperty('-webkit-text-fill-color', '#3E4A41', 'important');
       }
       document.getElementById('badge-stock').textContent = currentProduct.availability || 'In Stock';
       document.getElementById('badge-category').textContent = currentProduct.category || 'USB Storage';
@@ -1323,7 +1522,7 @@
               <div style="flex: 1; min-width: 0;">
                 <div style="font-weight: 800; color: #FFFFFF; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.name}</div>
                 <div style="font-size: 12px; color: #94A3B8; margin-top: 3px;">
-                  Capacity: <span style="color: #F59E0B; font-weight: 700;">${item.capacity}</span> &bull; ₨ ${item.unitPrice.toLocaleString()} × ${item.qty}
+                  Capacity: <span style="color: #738670; font-weight: 700;">${item.capacity}</span> &bull; ₨ ${item.unitPrice.toLocaleString()} × ${item.qty}
                 </div>
               </div>
               <div style="text-align: right;">
@@ -1568,9 +1767,9 @@
             <h2 style="font-size: 1.8rem; color: #00D2A0; margin-bottom: 8px;">Order Confirmed!</h2>
             <p style="color: #CBD5E1; font-size: 15px; margin-bottom: 20px;">
               Thank you, <strong>${name}</strong>. Your order has been registered in the system under tracking code:
-              <br><strong style="font-size: 1.2rem; color: #F59E0B; letter-spacing: 1px;">${orderId}</strong>
+              <br><strong style="font-size: 1.2rem; color: #738670; letter-spacing: 1px;">${orderId}</strong>
             </p>
-            <div style="background: #0B1D2D; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 25px; text-align: left; font-size: 14px; color: #CBD5E1;">
+            <div style="background: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 25px; text-align: left; font-size: 14px; color: #CBD5E1;">
               <div><strong>Item:</strong> ${currentProduct.name} (${selectedCapacity}) × ${qty}</div>
               <div><strong>Payment:</strong> ${payment}</div>
               <div><strong>City:</strong> ${city}</div>
@@ -1604,7 +1803,7 @@
         quoteModal.innerHTML = `
           <div class="modal-card" style="text-align: center; padding: 40px 30px;">
             <div style="font-size: 50px; margin-bottom: 15px;">📋</div>
-            <h2 style="font-size: 1.8rem; color: #F59E0B; margin-bottom: 8px;">Quotation Request Dispatched!</h2>
+            <h2 style="font-size: 1.8rem; color: #738670; margin-bottom: 8px;">Quotation Request Dispatched!</h2>
             <p style="color: #CBD5E1; font-size: 15px; margin-bottom: 20px;">
               Thank you, <strong>${contact}</strong> at <strong>${comp}</strong>. Your quotation dossier reference is:
               <br><strong style="font-size: 1.2rem; color: #00D2A0;">${quoteId}</strong>
@@ -1653,7 +1852,7 @@
         <div style="background: rgba(11,29,45,0.7); border-radius: 8px; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);">
           <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; color: #FFFFFF;">
             <span>Estimated Cart Total:</span>
-            <span id="cart-total-val" style="color: var(--color-coral-primary, #FF6B4A); font-size: 1.3rem;">₨ 0</span>
+            <span id="cart-total-val" style="color: #5C7C64; font-size: 1.3rem;">₨ 0</span>
           </div>
         </div>
 

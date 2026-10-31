@@ -14,7 +14,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../js/currency.js"></script>
-  <script src="js/admin-auth.js"></script>
   <title>Edit Product | NexDrive Admin Portal</title>
   <script>
     // URL Cleaner: Strip .html extension immediately
@@ -28,19 +27,19 @@
   </script>
   <style>
     :root {
-      --color-petrol-dark: #0B1D2D;
-      --color-petrol-surface: #102A42;
-      --color-petrol-card: #143554;
-      --color-petrol-border: rgba(255, 255, 255, 0.12);
-      --color-petrol-hover: #194064;
-      --color-coral-primary: #FF6B4A;
-      --color-coral-hover: #E85635;
-      --color-amber-gold: #F59E0B;
-      --color-mint-emerald: #00D2A0;
+      --color-petrol-dark: #FAF9F5;
+      --color-petrol-surface: #FFFFFF;
+      --color-petrol-card: #FFFFFF;
+      --color-petrol-border: #E6E0D4;
+      --color-petrol-hover: #F4F0E8;
+      --color-coral-primary: #5C7C64;
+      --color-coral-hover: #445C4A;
+      --color-amber-gold: #738670;
+      --color-mint-emerald: #467A58;
       --color-danger-red: #EF4444;
-      --color-text-white: #FFFFFF;
-      --color-text-body: #CBD5E1;
-      --color-text-muted: #94A3B8;
+      --color-text-white: #1C231E;
+      --color-text-body: #3E4A41;
+      --color-text-muted: #6E7A71;
       --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --radius-md: 10px;
       --radius-lg: 14px;
@@ -72,7 +71,7 @@
       gap: 15px;
     }
     .back-btn {
-      color: var(--color-amber-gold);
+      color: var(--color-coral-primary);
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
@@ -81,12 +80,12 @@
       gap: 6px;
       padding: 6px 12px;
       border-radius: 6px;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(92, 124, 100, 0.12);
+      border: 1px solid rgba(92, 124, 100, 0.3);
       transition: all 0.2s;
     }
     .back-btn:hover {
-      background: rgba(245, 158, 11, 0.25);
+      background: rgba(92, 124, 100, 0.22);
     }
     .header-actions {
       display: flex;
@@ -110,7 +109,7 @@
     .btn-primary {
       background: var(--color-coral-primary);
       color: #FFFFFF;
-      box-shadow: 0 4px 15px rgba(255, 107, 74, 0.35);
+      box-shadow: 0 4px 15px rgba(92, 124, 100, 0.25);
     }
     .btn-primary:hover {
       background: var(--color-coral-hover);
@@ -163,7 +162,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid #E6E0D4;
       padding-bottom: 10px;
     }
 
@@ -203,15 +202,10 @@
       border: 1px solid var(--color-petrol-border);
       border-radius: 6px;
       padding: 10px 14px;
-      color: #FFFFFF;
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      transition: border 0.2s;
+      color: var(--color-text-body); font-size: 14px; font-family: inherit; outline: none; transition: border 0.2s;
     }
     .form-control:focus {
-      border-color: var(--color-amber-gold);
-      box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+      border-color: var(--color-coral-primary); box-shadow: 0 0 8px rgba(92, 124, 100, 0.2);
     }
     textarea.form-control {
       resize: vertical;
@@ -224,13 +218,13 @@
     }
     .preview-card {
       background: var(--color-petrol-card);
-      border: 1px solid var(--color-amber-gold);
+      border: 1px solid var(--color-petrol-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
     .preview-img-box {
-      background: #090C12;
+      background: #F4F0E8;
       padding: 20px;
       text-align: center;
       position: relative;
@@ -248,8 +242,7 @@
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: var(--color-mint-emerald);
-      color: #0B1D2D;
+      background: #5C7C64; color: #FFFFFF;
       padding: 14px 22px;
       border-radius: 8px;
       font-weight: 800;
@@ -275,7 +268,7 @@
       <a href="../admin/" class="back-btn">
         &larr; Back to Dashboard
       </a>
-      <h1 id="page-heading" style="font-size: 1.25rem; color: #FFFFFF; font-weight: 800;">
+      <h1 id="page-heading" style="font-size: 1.25rem; color: #1C231E; font-weight: 800;">
         Edit Product Details
       </h1>
     </div>
@@ -287,11 +280,8 @@
       <button type="button" id="btn-delete" class="btn btn-danger" style="display: none;">
         🗑 Delete
       </button>
-      <button type="button" id="btn-duplicate" class="btn btn-outline" style="border-color: #38BDF8; color: #38BDF8;">
+      <button type="button" id="btn-duplicate" class="btn btn-outline" style="border-color: #5C7C64; color: #5C7C64;">
         📋 Duplicate
-      </button>
-      <button type="button" onclick="window.AdminAuth && window.AdminAuth.logout()" class="btn btn-outline" title="Log out">
-        🚪 Logout
       </button>
       <button type="button" id="btn-save" class="btn btn-primary">
         💾 Save Product Changes
@@ -430,7 +420,7 @@
 
         <div class="form-group">
           <label class="form-label" for="prod-image">Image File / URL *</label>
-          <input type="text" id="prod-image" class="form-control" placeholder="images/products/usb-apex-titanium.svg">
+          <input type="text" id="prod-image" class="form-control" placeholder="images/products/usb-apex-titanium.jpg">
         </div>
 
         <div style="margin-top: 10px;">
@@ -461,7 +451,7 @@
       <div class="editor-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
           <h2 class="editor-card-title" style="margin: 0;">📊 Dynamic Storage Variants &amp; Price Matrix</h2>
-          <button type="button" id="btn-add-variant" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #F59E0B; color: #F59E0B;">
+          <button type="button" id="btn-add-variant" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #5C7C64; color: #5C7C64;">
             ➕ Add Variant
           </button>
         </div>
@@ -474,7 +464,7 @@
       <div class="editor-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
           <h2 class="editor-card-title" style="margin: 0;">⚙️ Custom Dynamic Specifications</h2>
-          <button type="button" id="btn-add-spec" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #38BDF8; color: #38BDF8;">
+          <button type="button" id="btn-add-spec" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; border-color: #5C7C64; color: #5C7C64;">
             ➕ Add Specification
           </button>
         </div>
@@ -487,22 +477,22 @@
       <div class="editor-card">
         <h2 class="editor-card-title">🎨 Customization, Branding &amp; Packaging Options</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;">
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-laser" checked> Precision Laser Engraving
           </label>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-uv" checked> Full-Color UV Photographic Print
           </label>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-screen" checked> Screen Spot-Color Imprint
           </label>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-preload" checked> Preloaded Data / Autorun Partition
           </label>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-pouch" checked> Black Velvet Presentation Pouch
           </label>
-          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #CBD5E1; cursor: pointer;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #3E4A41; cursor: pointer;">
             <input type="checkbox" id="opt-tin" checked> Metallic Window Tin Box
           </label>
         </div>
@@ -524,35 +514,35 @@
     <!-- Right Column: Live Interactive Card Preview -->
     <div class="editor-preview-column">
       <div class="preview-sticky">
-        <h3 style="font-size: 0.95rem; color: var(--color-amber-gold); text-transform: uppercase; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px;">
+        <h3 style="font-size: 0.95rem; color: #5C7C64; text-transform: uppercase; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px;">
           Live Catalog Preview
         </h3>
 
         <div class="preview-card">
           <div class="preview-img-box">
-            <span id="prev-badge" style="position: absolute; top: 12px; left: 12px; background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 800;">
+            <span id="prev-badge" style="position: absolute; top: 12px; left: 12px; background: rgba(92,124,100,0.14); color: #3E5A44; border: 1px solid rgba(92,124,100,0.35); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 800;">
               In Stock
             </span>
-            <img id="prev-img" src="../images/products/usb-apex-titanium.svg" alt="Preview Image">
+            <img id="prev-img" src="../images/products/usb-apex-titanium.jpg" alt="Preview Image">
           </div>
 
           <div class="preview-body">
             <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94A3B8; margin-bottom: 6px;">
-              <span id="prev-code" style="color: #F59E0B; font-weight: 700;">USB-M100</span>
+              <span id="prev-code" style="color: #5C7C64; font-weight: 700;">USB-M100</span>
               <span id="prev-category">Titanium Metal</span>
             </div>
 
-            <h4 id="prev-name" style="font-size: 1.15rem; color: #FFFFFF; font-weight: 800; margin-bottom: 8px;">
+            <h4 id="prev-name" style="font-size: 1.15rem; color: #1C231E; font-weight: 800; margin-bottom: 8px;">
               Apex Titanium Flash Drive
             </h4>
 
-            <p id="prev-desc" style="font-size: 13px; color: #CBD5E1; line-height: 1.4; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+            <p id="prev-desc" style="font-size: 13px; color: #3E4A41; line-height: 1.4; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
               Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability...
             </p>
 
-            <div style="background: rgba(11,29,45,0.7); border-radius: 6px; padding: 10px 12px; margin-bottom: 15px;">
+            <div style="background: #F4F0E8; border: 1px solid #E6E0D4; border-radius: 6px; padding: 10px 12px; margin-bottom: 15px;">
               <div style="font-size: 11px; color: #94A3B8; text-transform: uppercase;">Wholesale Price</div>
-              <div id="prev-price" style="font-size: 1.3rem; font-weight: 900; color: #FF6B4A;">
+              <div id="prev-price" style="font-size: 1.3rem; font-weight: 900; color: #5C7C64;">
                 ₨ 1,250
               </div>
             </div>
@@ -595,7 +585,7 @@
         material: 'Die-Cast Zinc Alloy Unibody',
         dimensions: '48 × 12.2 × 4.6 mm | 14.5g',
         warranty: '5-Year Enterprise Replacement Warranty',
-        image: 'images/products/usb-apex-titanium.svg',
+        image: 'images/products/usb-apex-titanium.jpg',
         description: '',
         features: ''
       };
@@ -644,10 +634,10 @@
         const container = document.getElementById('variants-container');
         if (!container) return;
         container.innerHTML = dynamicVariants.map((v, i) => `
-          <div style="display: flex; gap: 10px; align-items: center; background: rgba(11,29,45,0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; gap: 10px; align-items: center; background: #FAF9F5; padding: 8px 12px; border-radius: 6px; border: 1px solid #E6E0D4;">
             <input type="text" class="form-control variant-cap" data-idx="${i}" value="${v.capacity}" placeholder="e.g. 64GB" style="flex: 1; padding: 6px 10px;">
             <div style="display: flex; align-items: center; gap: 6px; flex: 1.5;">
-              <span style="color: #F59E0B; font-weight: bold; font-size: 13px;">₨</span>
+              <span style="color: #5C7C64; font-weight: bold; font-size: 13px;">₨</span>
               <input type="number" class="form-control variant-price" data-idx="${i}" value="${v.price_pkr}" placeholder="Price PKR" style="padding: 6px 10px;">
             </div>
             <button type="button" class="btn btn-danger btn-remove-var" data-idx="${i}" style="padding: 6px 10px; font-size: 12px;">❌</button>
@@ -718,7 +708,7 @@
         const container = document.getElementById('specs-container');
         if (!container) return;
         container.innerHTML = customSpecs.map((s, i) => `
-          <div style="display: flex; gap: 10px; align-items: center; background: rgba(11,29,45,0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; gap: 10px; align-items: center; background: #FAF9F5; padding: 8px 12px; border-radius: 6px; border: 1px solid #E6E0D4;">
             <input type="text" class="form-control spec-lbl" data-idx="${i}" value="${s.label}" placeholder="Parameter (e.g. NAND Flash)" style="flex: 1; padding: 6px 10px;">
             <input type="text" class="form-control spec-val" data-idx="${i}" value="${s.value}" placeholder="Rating / Value" style="flex: 1.5; padding: 6px 10px;">
             <button type="button" class="btn btn-danger btn-remove-spec" data-idx="${i}" style="padding: 6px 10px; font-size: 12px;">❌</button>
@@ -798,7 +788,7 @@
       document.getElementById('prod-material').value = currentProduct.material || 'Die-Cast Zinc Alloy';
       document.getElementById('prod-dimensions').value = currentProduct.dimensions || '48 × 12.2 × 4.6 mm';
       document.getElementById('prod-warranty').value = currentProduct.warranty || '5-Year Replacement Warranty';
-      document.getElementById('prod-image').value = currentProduct.image || 'images/products/usb-apex-titanium.svg';
+      document.getElementById('prod-image').value = currentProduct.image || 'images/products/usb-apex-titanium.jpg';
       document.getElementById('prod-desc').value = currentProduct.description || '';
       document.getElementById('prod-features').value = currentProduct.features || '';
 
@@ -808,7 +798,7 @@
         const cat = document.getElementById('prod-category').value;
         const avail = document.getElementById('prod-availability').value;
         const pkr = document.getElementById('prod-price-pkr').value || 1250;
-        const img = document.getElementById('prod-image').value || 'images/products/usb-apex-titanium.svg';
+        const img = document.getElementById('prod-image').value || 'images/products/usb-apex-titanium.jpg';
         const desc = document.getElementById('prod-desc').value || 'Hardware engineered for maximum durability...';
 
         document.getElementById('prev-name').textContent = name;

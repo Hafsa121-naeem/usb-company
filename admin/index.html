@@ -14,7 +14,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../js/currency.js"></script>
-  <script src="js/admin-auth.js"></script>
   <title>NexDrive Admin Portal | USB Products Management System</title>
   
   
@@ -26,28 +25,28 @@
    ============================================================================== */
 
 :root {
-  --color-petrol-dark: #0B1D2D;
-  --color-petrol-surface: #102A42;
-  --color-petrol-card: #143554;
-  --color-petrol-border: rgba(255, 255, 255, 0.12);
-  --color-petrol-hover: #194064;
+  --color-petrol-dark: #FAF9F5;
+  --color-petrol-surface: #FFFFFF;
+  --color-petrol-card: #FFFFFF;
+  --color-petrol-border: #E6E0D4;
+  --color-petrol-hover: #F4F0E8;
 
-  --color-coral-primary: #FF6B4A;
-  --color-coral-hover: #E85635;
-  --color-coral-soft: rgba(255, 107, 74, 0.14);
+  --color-coral-primary: #5C7C64;
+  --color-coral-hover: #445C4A;
+  --color-coral-soft: rgba(92, 124, 100, 0.12);
 
-  --color-amber-gold: #F59E0B;
-  --color-amber-soft: rgba(245, 158, 11, 0.14);
+  --color-amber-gold: #738670;
+  --color-amber-soft: rgba(115, 134, 112, 0.12);
 
-  --color-mint-emerald: #00D2A0;
-  --color-mint-soft: rgba(0, 210, 160, 0.14);
+  --color-mint-emerald: #467A58;
+  --color-mint-soft: rgba(70, 122, 88, 0.12);
 
   --color-danger-red: #EF4444;
   --color-danger-soft: rgba(239, 68, 68, 0.14);
 
-  --color-text-white: #FFFFFF;
-  --color-text-body: #CBD5E1;
-  --color-text-muted: #94A3B8;
+  --color-text-white: #1C231E;
+  --color-text-body: #3E4A41;
+  --color-text-muted: #6E7A71;
 
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-family-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -83,7 +82,7 @@ body {
    Header Bar
    -------------------------------------------------------------------------- */
 .admin-header {
-  background: rgba(11, 29, 45, 0.95);
+  background: rgba(250, 249, 245, 0.96); border-bottom: 1px solid #E6E0D4;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-petrol-border);
   position: sticky;
@@ -114,7 +113,7 @@ body {
 }
 
 .admin-badge-portal {
-  background: linear-gradient(135deg, var(--color-coral-primary) 0%, var(--color-amber-gold) 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #738670 100%);
   color: #FFFFFF;
   font-size: 0.7rem;
   font-weight: 800;
@@ -177,15 +176,15 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #FF8566 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(255, 107, 74, 0.35);
+  box-shadow: 0 4px 14px rgba(92, 124, 100, 0.25);
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--color-coral-hover) 0%, var(--color-coral-primary) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 107, 74, 0.45);
+  box-shadow: 0 6px 18px rgba(92, 124, 100, 0.35);
 }
 
 .btn-secondary {
@@ -201,14 +200,16 @@ body {
 }
 
 .btn-outline-white {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #FFFFFF;
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
+  color: #1C231E !important;
+  font-weight: 700 !important;
 }
 
 .btn-outline-white:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #FFFFFF;
+  background: #F4F0E8 !important;
+  border-color: #5C7C64 !important;
+  color: #1C231E !important;
 }
 
 .btn-danger {
@@ -221,16 +222,18 @@ body {
 }
 
 .btn-amber {
-  background: linear-gradient(135deg, var(--color-amber-gold) 0%, #D97706 100%);
-  color: #0B1D2D;
+  background: #E6E0D4;
+  color: #1C231E;
+  border: 1px solid #D5CEC0;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .btn-amber:hover {
-  background: linear-gradient(135deg, #FBBF24 0%, var(--color-amber-gold) 100%);
+  background: #DDD5C7;
+  color: #1C231E;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-mint {
@@ -256,11 +259,11 @@ body {
    Main Content Layout
    -------------------------------------------------------------------------- */
 .admin-main {
-  max-width: 1400px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 28px 24px 60px;
-  flex: 1;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 18px 20px 60px !important;
+  flex: 1 !important;
 }
 
 /* Metrics Row */
@@ -315,9 +318,9 @@ body {
 }
 
 .icon-coral { background: var(--color-coral-soft); color: var(--color-coral-primary); }
-.icon-mint { background: var(--color-mint-soft); color: var(--color-mint-emerald); }
+.icon-mint { background: rgba(92, 124, 100, 0.12); color: #3E5A44; }
 .icon-amber { background: var(--color-amber-soft); color: var(--color-amber-gold); }
-.icon-blue { background: rgba(56, 189, 248, 0.14); color: #38BDF8; }
+.icon-blue { background: rgba(92, 124, 100, 0.14); color: #5C7C64; }
 
 /* --------------------------------------------------------------------------
    Filter & Search Toolbar
@@ -345,11 +348,12 @@ body {
 .search-input {
   width: 100%;
   padding: 10px 14px 10px 40px;
-  background: var(--color-petrol-dark);
-  border: 1px solid var(--color-petrol-border);
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
   border-radius: var(--radius-md);
-  color: #FFFFFF;
+  color: #1C231E !important;
   font-size: 0.9rem;
+  font-weight: 600;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -377,15 +381,21 @@ body {
 
 .select-filter {
   padding: 10px 14px;
-  background: var(--color-petrol-dark);
-  border: 1px solid var(--color-petrol-border);
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
   border-radius: var(--radius-md);
-  color: #FFFFFF;
+  color: #1C231E !important;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   outline: none;
   cursor: pointer;
   transition: border-color 0.2s ease;
+}
+
+.select-filter option {
+  background: #FFFFFF !important;
+  color: #1C231E !important;
+  font-weight: 600;
 }
 
 .select-filter:focus {
@@ -432,32 +442,35 @@ body {
 }
 
 .admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+  width: 100% !important;
+  min-width: unset !important;
+  border-collapse: collapse !important;
+  text-align: left !important;
 }
 
 .admin-table th {
-  background: #091724;
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 800;
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--color-petrol-border);
+  background: #F4F0E8 !important;
+  color: var(--color-text-muted) !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-weight: 800 !important;
+  padding: 10px 8px !important;
+  border-bottom: 1px solid var(--color-petrol-border) !important;
+  white-space: nowrap !important;
 }
 
 .admin-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  vertical-align: middle;
-  font-size: 0.875rem;
-  color: var(--color-text-body);
+  padding: 10px 8px !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  vertical-align: middle !important;
+  font-size: 0.85rem !important;
+  color: var(--color-text-body) !important;
+  white-space: nowrap !important;
 }
 
 .admin-table tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: #FAF9F5;
 }
 
 .table-product-cell {
@@ -467,17 +480,17 @@ body {
 }
 
 .product-thumb-sm {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: #081420;
-  border: 1px solid var(--color-petrol-border);
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: var(--radius-md) !important;
+  background: #F4F0E8 !important;
+  border: 1px solid var(--color-petrol-border) !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
 }
 
 .product-thumb-sm img {
@@ -487,22 +500,26 @@ body {
 }
 
 .table-product-title {
-  font-weight: 800;
-  color: #FFFFFF;
+  font-weight: 800 !important;
+  color: #1C231E !important;
+  font-size: 0.95rem;
   margin-bottom: 2px;
 }
 
 .table-product-model {
   font-family: var(--font-family-mono);
   font-size: 0.75rem;
-  color: var(--color-amber-gold);
+  color: #5C7C64 !important;
+  font-weight: 700;
 }
 
 .price-tag {
-  font-family: var(--font-family-mono);
-  font-weight: 700;
-  color: var(--color-coral-primary);
-  font-size: 0.875rem;
+  font-family: var(--font-family-mono) !important;
+  font-weight: 700 !important;
+  color: #5C7C64 !important;
+  font-size: 0.82rem !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
 }
 
 /* Availability Badges */
@@ -523,27 +540,26 @@ body {
 }
 
 .badge-in-stock {
-  background: var(--color-mint-soft);
-  color: var(--color-mint-emerald);
-  border: 1px solid rgba(0, 210, 160, 0.3);
+  background: rgba(92, 124, 100, 0.12); color: #3E5A44;
+  border: 1px solid rgba(92, 124, 100, 0.35);
 }
 
 .badge-made-to-order {
   background: var(--color-amber-soft);
   color: var(--color-amber-gold);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  border: 1px solid rgba(115, 134, 112, 0.35);
 }
 
 .badge-bulk-only {
-  background: rgba(139, 92, 246, 0.15);
-  color: #A78BFA;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(92, 124, 100, 0.14) !important;
+  color: #3E5A44 !important;
+  border: 1px solid rgba(92, 124, 100, 0.35) !important;
 }
 
 .badge-low-stock {
   background: var(--color-coral-soft);
   color: var(--color-coral-primary);
-  border: 1px solid rgba(255, 107, 74, 0.3);
+  border: 1px solid rgba(140, 150, 135, 0.35);
 }
 
 .badge-out-of-stock {
@@ -553,18 +569,24 @@ body {
 }
 
 .capacity-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  gap: 4px !important;
+  align-items: center !important;
 }
 
 .cap-pill {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-family: var(--font-family-mono);
-  color: #CBD5E1;
+  background: #F4F0E8 !important;
+  border: 1px solid #E6E0D4 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.68rem !important;
+  font-family: var(--font-family-mono) !important;
+  color: #1C231E !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
 }
 
 /* Table Action Buttons */
@@ -634,7 +656,7 @@ body {
 .card-thumb-wrap {
   position: relative;
   height: 180px;
-  background: #081420;
+  background: #F4F0E8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -676,7 +698,7 @@ body {
 .card-title {
   font-size: 1rem;
   font-weight: 800;
-  color: #FFFFFF;
+  color: #1C231E !important;
 }
 
 .card-model {
@@ -726,8 +748,7 @@ body {
   opacity: 0.6;
 }
 
-.empty-state h3 {
-  color: #FFFFFF;
+.empty-state h3 { color: #1C231E !important;
   margin-bottom: 6px;
 }
 
@@ -833,7 +854,7 @@ body {
   width: 8px;
 }
 .modal-body::-webkit-scrollbar-track {
-  background: #081420;
+  background: #F4F0E8;
 }
 .modal-body::-webkit-scrollbar-thumb {
   background: rgba(245, 158, 11, 0.4);
@@ -846,7 +867,7 @@ body {
 .modal-footer {
   padding: 14px 24px;
   border-top: 1px solid var(--color-petrol-border);
-  background: #091724;
+  background: #F4F0E8;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
@@ -883,13 +904,18 @@ body {
 .form-input, .form-select, .form-textarea {
   width: 100%;
   padding: 10px 14px;
-  background: var(--color-petrol-dark);
-  border: 1px solid var(--color-petrol-border);
+  background: #FAF9F5 !important;
+  border: 1.5px solid #E6E0D4 !important;
   border-radius: var(--radius-md);
-  color: #FFFFFF;
+  color: #1C231E !important;
   font-size: 0.875rem;
+  font-weight: 600;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select option {
+  background: #FFFFFF !important;
+  color: #1C231E !important;
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -943,7 +969,7 @@ body {
 }
 
 .upload-action-btn {
-  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #FF8566 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 0.85rem;
@@ -975,7 +1001,7 @@ body {
   width: 140px;
   height: 140px;
   border-radius: var(--radius-md);
-  background: #081420;
+  background: #F4F0E8;
   border: 1px solid var(--color-petrol-border);
   padding: 8px;
   display: flex;
@@ -1091,10 +1117,6 @@ body {
           <span id="dbStatusText">SQLite Connected (products.db)</span>
         </div>
 
-        <!-- Logout Button -->
-        <button onclick="window.AdminAuth && window.AdminAuth.logout()" class="btn btn-outline-white btn-sm" title="Log out of admin session">
-          🚪 Logout
-        </button>
         <!-- Back to Website Link -->
         <a href="../" class="btn btn-outline-white btn-sm" target="_blank" title="Open Public Website in New Tab">
           🌐 View Public Website
@@ -1147,7 +1169,7 @@ body {
       <div class="metric-card">
         <div class="metric-info">
           <h4>Hardware Categories</h4>
-          <div class="metric-number" id="metricCategories" style="color: #38BDF8;">6</div>
+          <div class="metric-number" id="metricCategories" style="color: #5C7C64;">6</div>
         </div>
         <div class="metric-icon-box icon-blue">🏷️</div>
       </div>
@@ -1399,7 +1421,7 @@ body {
         <button id="closeDeleteModalBtn" class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body" style="text-align: center; padding: 28px 20px;">
-        <div style="width: 80px; height: 80px; margin: 0 auto 16px; border-radius: var(--radius-md); background: #081420; border: 1px solid var(--color-petrol-border); padding: 8px; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 80px; height: 80px; margin: 0 auto 16px; border-radius: var(--radius-md); background: #F4F0E8; border: 1px solid var(--color-petrol-border); padding: 8px; display: flex; align-items: center; justify-content: center;">
           <img id="deleteProductImg" src="" alt="Product to delete" style="max-width: 100%; max-height: 100%; object-fit: contain;">
         </div>
         <h4 id="deleteProductTitle" style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 4px;">Product Name</h4>
@@ -1447,7 +1469,7 @@ body {
           </div>
 
           <div id="quickPreviewView" class="upload-preview-view" style="display: none; flex-direction: column; align-items: center; gap: 14px;">
-            <div class="image-preview-frame" style="width: 140px; height: 140px; margin: 0 auto; background: #081420; border-radius: 8px; border: 1px solid var(--color-petrol-border); display: flex; align-items: center; justify-content: center; padding: 8px;">
+            <div class="image-preview-frame" style="width: 140px; height: 140px; margin: 0 auto; background: #F4F0E8; border-radius: 8px; border: 1px solid var(--color-petrol-border); display: flex; align-items: center; justify-content: center; padding: 8px;">
               <img id="quickPreviewImg" src="" alt="Uploaded image preview" style="max-width: 100%; max-height: 100%; object-fit: contain;">
             </div>
             <div style="background: var(--color-petrol-dark); border: 1px solid var(--color-petrol-border); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--color-mint-emerald); font-family: var(--font-family-mono); word-break: break-all; width: 100%; text-align: center;" id="quickUrlText">
@@ -1859,6 +1881,7 @@ body {
 
   function resolveImgPath(src) {
     if (!src) return '../images/products/usb-apex-titanium.jpg';
+    src = src.replace(/\.svg$/i, '.jpg');
     if (src.startsWith('data:') || src.startsWith('http://') || src.startsWith('https://')) return src;
     if (src.startsWith('/')) return '..' + src;
     if (!src.startsWith('../')) return '../' + src;
@@ -1867,6 +1890,7 @@ body {
 
   // Load Products via API with automatic Client-Side Fallback
   async function loadProducts() {
+    try { localStorage.removeItem("nexdrive_admin_products"); localStorage.removeItem("nexdrive_products"); } catch(e){}
     try {
       const q = encodeURIComponent(searchInput.value.trim());
       const availability = encodeURIComponent(filterAvailability.value);
@@ -1965,24 +1989,24 @@ body {
             </div>
           </div>
         </td>
-        <td>
-          <span style="font-size: 0.8rem; font-weight: 700; color: #CBD5E1;">${escapeHtml(p.category || 'General')}</span>
-        </td>
-        <td>
-          <div class="capacity-pills">
+        <td style="white-space: nowrap !important;">
+    <span style="font-size: 0.85rem; font-weight: 700; color: #3E4A41 !important; white-space: nowrap !important;">${escapeHtml(p.category || 'General')}</span>
+  </td>
+        <td style="white-space: nowrap !important;">
+    <div class="capacity-pills" style="display: flex !important; flex-wrap: nowrap !important; white-space: nowrap !important; gap: 4px !important; align-items: center !important;">
             ${(p.capacity || '16GB, 32GB').split(',').map(c => `<span class="cap-pill">${escapeHtml(c.trim())}</span>`).join('')}
           </div>
         </td>
-        <td>
-          <span class="price-tag">${escapeHtml(formatPricePKR(p.price))}</span>
-        </td>
+        <td style="white-space: nowrap !important;">
+    <span class="price-tag" style="white-space: nowrap !important; display: inline-block !important;">${escapeHtml(formatPricePKR(p.price))}</span>
+  </td>
         <td>
           <span class="badge-status ${getBadgeClass(p.availability)}">
             ${escapeHtml(p.availability || 'In Stock')}
           </span>
         </td>
         <td>
-          <span class="badge-status ${p.status === 'Draft' ? 'badge-low-stock' : 'badge-in-stock'}" style="cursor: pointer; display: inline-flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; white-space: nowrap !important; gap: 6px !important; min-width: 90px !important; padding: 6px 14px !important; border-radius: 9999px !important; font-size: 0.74rem !important; font-weight: 800 !important; line-height: 1 !important;" onclick="window.adminApp.toggleStatus(${p.id})" title="Click to toggle Published/Draft">
+          <span class="badge-status ${p.status === 'Draft' ? 'badge-low-stock' : 'badge-in-stock'}" style="cursor: pointer; display: inline-flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; white-space: nowrap !important; gap: 6px !important; min-width: 76px !important; padding: 4px 10px !important; border-radius: 9999px !important; font-size: 0.74rem !important; font-weight: 800 !important; line-height: 1 !important; text-align: center !important;" onclick="window.adminApp.toggleStatus(${p.id})" title="Click to toggle Published/Draft">
             ${p.status === 'Draft' ? '👁️&nbsp;Draft' : '✅&nbsp;Live'}
           </span>
         </td>
@@ -1991,7 +2015,7 @@ body {
             <a href="product-edit?id=${p.id}" class="action-btn edit-btn" title="Edit Product on Separate Page" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; color: var(--color-coral-primary);">
               ✏️
             </a>
-            <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
+            <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #5C7C64;">
               📋
             </button>
             <button class="action-btn delete-btn" title="Delete Product" onclick="window.adminApp.promptDelete(${p.id})">
@@ -2035,7 +2059,7 @@ body {
               <a href="product-edit?id=${p.id}" class="action-btn edit-btn" title="Edit Product on Dedicated Page" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; color: var(--color-coral-primary);">
                 ✏️
               </a>
-              <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #38BDF8;">
+              <button class="action-btn" title="Duplicate Product" onclick="window.adminApp.duplicateProduct(${p.id})" style="color: #5C7C64;">
                 📋
               </button>
               <button class="action-btn delete-btn" title="Delete Product" onclick="window.adminApp.promptDelete(${p.id})">

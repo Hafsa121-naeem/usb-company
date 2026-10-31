@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About NexDrive [Company Name] - Corporate profile, business focus, hardware quality standards, and flash memory supply capabilities.">
   <title>About Us | NexDrive Flash Storage Solutions</title>
-  <style>
+  <style id="sage-light-theme">
 /* ==========================================================================
    NEXDRIVE FLASH STORAGE SOLUTIONS - MASTER STYLESHEET
    100% Static HTML5 / CSS3 Architecture - Zero JavaScript
@@ -24,51 +24,51 @@
 
 /* --------------------------------------------------------------------------
    1. CSS Custom Properties (:root)
-   Centralized multi-color palette â€” NOT just black, NOT simple blue/white
+   Centralized multi-color palette — NOT just black, NOT simple blue/white
    -------------------------------------------------------------------------- */
 :root {
   /* Rich Jewel Tones */
-  --color-petrol-dark: #0B1D2D;
-  --color-petrol-surface: #102A42;
-  --color-petrol-card: #143554;
-  --color-indigo-slate: #1A2840;
+  --color-petrol-dark: #FAF9F5;
+  --color-petrol-surface: #FFFFFF;
+  --color-petrol-card: #FFFFFF;
+  --color-indigo-slate: #F4F0E8;
 
   /* Daylight Platinum Spectrum (Crisp contrast sections) */
-  --color-pearl-bg: #F4F7FB;
+  --color-pearl-bg: #FAF9F5;
   --color-pearl-card: #FFFFFF;
-  --color-pearl-surface: #E8EEF5;
-  --color-pearl-border: #D2DEEC;
+  --color-pearl-surface: #F4F0E8;
+  --color-pearl-border: #E6E0D4;
 
   /* Multi-Color Accent Highlights */
-  --color-coral-primary: #FF6B4A;
-  --color-coral-hover: #E85635;
-  --color-coral-soft: rgba(255, 107, 74, 0.12);
+  --color-coral-primary: #5C7C64;
+  --color-coral-hover: #445C4A;
+  --color-coral-soft: rgba(92, 124, 100, 0.12);
 
-  --color-amber-gold: #F59E0B;
-  --color-amber-hover: #D97706;
-  --color-amber-soft: rgba(245, 158, 11, 0.14);
+  --color-amber-gold: #738670;
+  --color-amber-hover: #5C7C64;
+  --color-amber-soft: rgba(115, 134, 112, 0.12);
 
-  --color-mint-emerald: #00D2A0;
-  --color-mint-hover: #00B388;
-  --color-mint-soft: rgba(0, 210, 160, 0.14);
+  --color-mint-emerald: #467A58;
+  --color-mint-hover: #366044;
+  --color-mint-soft: rgba(70, 122, 88, 0.12);
 
-  --color-amethyst-violet: #8B5CF6;
-  --color-amethyst-soft: rgba(139, 92, 246, 0.14);
+  --color-amethyst-violet: #6E7E85;
+  --color-amethyst-soft: rgba(110, 126, 133, 0.12);
 
   /* Typography Colors */
-  --color-text-heading: #0B1D2D;
-  --color-text-body: #2C3E50;
-  --color-text-muted: #64748B;
-  --color-text-light: #94A3B8;
+  --color-text-heading: #1C231E;
+  --color-text-body: #3E4A41;
+  --color-text-muted: #6E7A71;
+  --color-text-light: #9DA8A0;
   --color-text-white: #FFFFFF;
 
   /* Card Category Accents */
-  --color-card-metal-accent: #F59E0B;
-  --color-card-typec-accent: #00D2A0;
-  --color-card-swivel-accent: #FF6B4A;
-  --color-card-wafer-accent: #8B5CF6;
-  --color-card-key-accent: #0284C7;
-  --color-card-wood-accent: #15803D;
+  --color-card-metal-accent: #5C7C64;
+  --color-card-typec-accent: #467A58;
+  --color-card-swivel-accent: #738670;
+  --color-card-wafer-accent: #6E7E85;
+  --color-card-key-accent: #4A6B69;
+  --color-card-wood-accent: #556B2F;
 
   /* Typography Scale */
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -104,9 +104,9 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 6px rgba(11, 29, 45, 0.06);
-  --shadow-md: 0 8px 18px rgba(11, 29, 45, 0.08);
-  --shadow-lg: 0 16px 32px rgba(11, 29, 45, 0.12);
+  --shadow-sm: 0 2px 6px rgba(28, 35, 30, 0.04);
+  --shadow-md: 0 8px 20px rgba(28, 35, 30, 0.06);
+  --shadow-lg: 0 16px 32px rgba(28, 35, 30, 0.08);
   --shadow-xl: 0 24px 48px rgba(11, 29, 45, 0.18);
 
   /* Layout */
@@ -312,16 +312,22 @@ p {
 }
 
 .section-petrol {
-  background: linear-gradient(135deg, var(--color-petrol-dark) 0%, var(--color-petrol-surface) 100%);
-  color: var(--color-text-white);
+  background: #FFFFFF;
+  color: var(--color-text-body);
+  border-top: 1px solid #E6E0D4;
+  border-bottom: 1px solid #E6E0D4;
 }
 
-.section-petrol h2, .section-petrol h3, .section-petrol p {
-  color: var(--color-text-white);
+.section-petrol h2, .section-petrol h3 {
+  color: #1C231E;
+}
+
+.section-petrol p {
+  color: #3E4A41;
 }
 
 .section-petrol .text-muted {
-  color: #CBD5E1;
+  color: #6E7A71;
 }
 
 .section-header {
@@ -363,17 +369,19 @@ p {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #E25822 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%);
   color: #FFFFFF;
-  border-color: var(--color-coral-primary);
-  box-shadow: 0 4px 14px rgba(255, 107, 74, 0.35);
+  border: 1px solid #445C4A;
+  box-shadow: 0 4px 14px rgba(92, 124, 100, 0.25);
+  font-weight: 700;
+  transition: all var(--transition-fast);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #FF7849 0%, var(--color-coral-primary) 100%);
+  background: linear-gradient(135deg, #738670 0%, #445C4A 100%);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(255, 107, 74, 0.45);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
 }
 
 .btn-mint {
@@ -442,11 +450,20 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-pearl-border);
-  box-shadow: 0 4px 18px rgba(11, 29, 45, 0.05);
+  background-color: rgba(250, 249, 245, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #E6E0D4;
+  box-shadow: 0 4px 18px rgba(28, 35, 30, 0.04);
+}
+
+.nav-link {
+  color: #2D3730;
+  font-weight: 600;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #5C7C64;
 }
 
 .header-container {
@@ -485,7 +502,7 @@ p {
   display: block;
   width: 100%;
   height: 2.5px;
-  background-color: var(--color-petrol-dark);
+  background-color: #F8FAFC;
   border-radius: var(--radius-full);
   transition: all var(--transition-fast);
 }
@@ -538,13 +555,64 @@ p {
    -------------------------------------------------------------------------- */
 .hero {
   background: 
-    radial-gradient(circle at 85% 20%, rgba(0, 210, 160, 0.15) 0%, transparent 45%),
-    radial-gradient(circle at 15% 75%, rgba(255, 107, 74, 0.12) 0%, transparent 40%),
-    linear-gradient(135deg, var(--color-petrol-dark) 0%, #122B42 50%, #1A2840 100%);
-  color: var(--color-text-white);
+    radial-gradient(circle at 85% 20%, rgba(92, 124, 100, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(217, 207, 190, 0.2) 0%, transparent 40%),
+    linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 60%, #F4F0E8 100%);
+  color: var(--color-text-body);
+  border-bottom: 1px solid #E6E0D4;
   padding: var(--space-16) 0;
   overflow: hidden;
   position: relative;
+}
+
+.hero-title {
+  color: #1C231E;
+  font-size: clamp(2.3rem, 3.8vw, 3.3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: var(--space-5);
+}
+
+.hero-title .highlight {
+  background: linear-gradient(135deg, #5C7C64 0%, #3D5343 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  color: #4D5B51;
+  font-size: var(--font-size-md);
+  line-height: 1.65;
+  margin-bottom: var(--space-8);
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: 1px solid #E6E0D4;
+}
+
+.hero-stat-item h4 {
+  color: #1C231E;
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+
+.hero-stat-item h4 span {
+  color: #5C7C64;
+}
+
+.hero-stat-item p {
+  color: #727D74;
+  font-size: var(--font-size-xs);
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .hero-grid {
@@ -560,23 +628,21 @@ p {
 }
 
 .hero-title {
-  color: var(--color-text-white);
-  font-size: clamp(2.3rem, 3.8vw, 3.3rem);
+  color: #0F172A; font-size: clamp(2.3rem, 3.8vw, 3.3rem);
   font-weight: 900;
   line-height: 1.15;
   margin-bottom: var(--space-5);
 }
 
 .hero-title .highlight {
-  background: linear-gradient(135deg, #FF7849 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #738670 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
 .hero-subtitle {
-  color: #D2DEEC;
-  font-size: var(--font-size-md);
+  color: #475569; font-size: var(--font-size-md);
   line-height: 1.65;
   margin-bottom: var(--space-8);
 }
@@ -586,18 +652,18 @@ p {
   gap: var(--space-8);
   margin-top: var(--space-10);
   padding-top: var(--space-8);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid #E2E8F0;
 }
 
 .hero-stat-item h4 {
-  color: var(--color-text-white);
+  color: #0F172A;
   font-size: var(--font-size-xl);
   font-weight: 900;
   margin-bottom: 2px;
 }
 
 .hero-stat-item h4 span {
-  color: var(--color-mint-emerald);
+  color: #5C7C64;
 }
 
 .hero-stat-item p {
@@ -633,7 +699,7 @@ p {
   width: 90%;
   height: 90%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 210, 160, 0.32) 0%, rgba(255, 107, 74, 0.24) 45%, rgba(245, 158, 11, 0.15) 70%, transparent 85%);
+  background: radial-gradient(circle, rgba(0, 210, 160, 0.32) 0%, rgba(37, 99, 235, 0.15) 45%, rgba(2, 132, 199, 0.1) 70%, transparent 85%);
   filter: blur(45px);
   z-index: 1;
   pointer-events: none;
@@ -809,8 +875,7 @@ p {
 }
 
 .page-banner p {
-  color: #D2DEEC;
-  font-size: var(--font-size-md);
+  color: #475569; font-size: var(--font-size-md);
   margin-bottom: 0;
   max-width: 780px;
 }
@@ -906,21 +971,21 @@ p {
 }
 
 .product-card-media {
-  background: linear-gradient(135deg, #10263C 0%, #0B1D2D 100%);
-  padding: var(--space-6);
+  background: #08121E;
+  padding: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  height: 250px;
   overflow: hidden;
 }
 
 .product-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform var(--transition-normal);
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .product-card:hover .product-card-media img {
@@ -931,7 +996,7 @@ p {
   position: absolute;
   top: var(--space-4);
   left: var(--space-4);
-  background: linear-gradient(135deg, #FF6B4A 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #738670 100%);
   color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 800;
@@ -1044,7 +1109,7 @@ p {
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background: linear-gradient(135deg, var(--color-coral-primary) 0%, #F59E0B 100%);
+  background: linear-gradient(135deg, #5C7C64 0%, #738670 100%);
   color: #FFFFFF;
 }
 
@@ -1065,7 +1130,7 @@ p {
 }
 
 .product-gallery-main {
-  background: linear-gradient(135deg, #10263C 0%, #0B1D2D 100%);
+  background: linear-gradient(135deg, #10263C 0%, #1C231E 100%);
   border: 1px solid var(--color-pearl-border);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
@@ -1232,7 +1297,7 @@ p {
 }
 
 .key-highlights-list li::before {
-  content: "âœ“";
+  content: "✓";
   position: absolute;
   left: 0;
   color: var(--color-mint-emerald);
@@ -1533,7 +1598,7 @@ p {
   height: 100vh;
   z-index: 999999;
   background: 
-    radial-gradient(circle at center, #102A42 0%, #081622 75%, #050E17 100%);
+    radial-gradient(circle at center, #FFFFFF 0%, #081622 75%, #050E17 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1583,7 +1648,7 @@ p {
   letter-spacing: 0.35em;
   margin-bottom: var(--space-3);
   text-transform: uppercase;
-  background: linear-gradient(135deg, #FFFFFF 0%, #00D2A0 60%, #FF6B4A 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #00D2A0 60%, #5C7C64 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1599,7 +1664,7 @@ p {
 
 .splash-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #FF6B4A, #F59E0B, #00D2A0);
+  background: linear-gradient(90deg, #5C7C64, #738670, #467A58);
   border-radius: var(--radius-full);
   animation: splashProgressSweep 0.5s ease-out forwards;
 }
@@ -1700,8 +1765,7 @@ p {
 }
 
 .cta-banner p {
-  color: #D2DEEC;
-  font-size: var(--font-size-md);
+  color: #475569; font-size: var(--font-size-md);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -1838,7 +1902,7 @@ textarea.form-control {
    15. Footer in Petrol Slate & Coral/Mint Accents
    -------------------------------------------------------------------------- */
 .site-footer {
-  background-color: var(--color-petrol-dark);
+  background-color: #F8FAFC;
   color: #94A3B8;
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -2101,6 +2165,200 @@ textarea.form-control {
   }
 }
 
+
+/* ==============================================================================
+   MASTER SAGE GREEN, OFF-WHITE & SOFT BEIGE LIGHT THEME OVERRIDES
+   Guaranteed 0% Orange, 0% Blue, 0% Purple - Edge-to-Edge Image Frames
+   ============================================================================== */
+
+:root {
+  --color-petrol-dark: #FAF9F5 !important;
+  --color-petrol-surface: #FFFFFF !important;
+  --color-petrol-card: #FFFFFF !important;
+  --color-indigo-slate: #F4F0E8 !important;
+  --color-pearl-bg: #FAF9F5 !important;
+  --color-pearl-card: #FFFFFF !important;
+  --color-pearl-border: #E6E0D4 !important;
+  --color-coral-primary: #5C7C64 !important;
+  --color-coral-hover: #445C4A !important;
+  --color-coral-soft: rgba(92, 124, 100, 0.12) !important;
+  --color-amber-gold: #738670 !important;
+  --color-amber-soft: rgba(115, 134, 112, 0.12) !important;
+  --color-mint-emerald: #467A58 !important;
+  --color-mint-soft: rgba(70, 122, 88, 0.12) !important;
+  --color-text-white: #1C231E !important;
+  --color-text-body: #3E4A41 !important;
+  --color-text-muted: #5C6A60 !important;
+}
+
+/* Page & Section Banners */
+body {
+  background-color: #FAF9F5 !important;
+  color: #3E4A41 !important;
+}
+
+.hero, .page-banner, .contact-hero, .frontpage-logo-banner {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 60%, #F4F0E8 100%) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.page-banner h1, .hero-title, .cta-banner h2 {
+  color: #1C231E !important;
+}
+
+.page-banner p, .hero-subtitle, .cta-banner p {
+  color: #5C6A60 !important;
+}
+
+.hero-title .highlight, .highlight {
+  background: linear-gradient(135deg, #5C7C64 0%, #3D5343 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #5C7C64 !important;
+  display: inline-block !important;
+}
+
+/* Header & Navigation */
+header.site-header {
+  background: rgba(250, 249, 245, 0.98) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+}
+
+.nav-link {
+  color: #3E4A41 !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #5C7C64 !important;
+}
+
+.nav-link.active::after {
+  background-color: #5C7C64 !important;
+}
+
+.nav-link-admin, a[href*="admin"] {
+  color: #5C7C64 !important;
+}
+
+/* Primary Buttons */
+.btn-primary, .btn-quote, header .btn-primary, .action-cta-grid .btn-buy-direct, #saveProductBtn {
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(92, 124, 100, 0.25) !important;
+}
+
+.btn-primary:hover, .btn-quote:hover, header .btn-primary:hover, .action-cta-grid .btn-buy-direct:hover {
+  background: linear-gradient(135deg, #4E6B55 0%, #384C3C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(92, 124, 100, 0.35) !important;
+}
+
+.btn-outline-white {
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.btn-outline-white:hover {
+  background: #F4F0E8 !important;
+  border-color: #5C7C64 !important;
+}
+
+/* Eyebrows & Badges */
+.eyebrow {
+  color: #5C7C64 !important;
+}
+
+.eyebrow::before, .badge-dot, .dot-coral, .dot-mint {
+  background-color: #5C7C64 !important;
+}
+
+/* Product Cards & Media: REMOVE ALL EXTRA MARGINS */
+.product-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E6E0D4 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.product-card:hover {
+  border-color: #5C7C64 !important;
+  box-shadow: 0 12px 28px rgba(92, 124, 100, 0.15) !important;
+}
+
+.product-card-media {
+  background: #F4F0E8 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 250px !important;
+  overflow: hidden !important;
+}
+
+.product-card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.product-card:hover .product-card-media img {
+  transform: scale(1.05) !important;
+}
+
+.product-card-badge {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  background: #5C7C64 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  z-index: 2 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-model-code {
+  font-family: var(--font-family-mono) !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  color: #5C7C64 !important;
+  background-color: rgba(92, 124, 100, 0.12) !important;
+  border: 1px solid rgba(92, 124, 100, 0.25) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Call to Action Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #FAF9F5 0%, #F4F0E8 100%) !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+  border-radius: 16px !important;
+  padding: 48px 32px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.prototype-notice-banner {
+  background-color: #FAF9F5 !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #3E4A41 !important;
+}
+
 </style>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style.css">
@@ -2111,7 +2369,7 @@ textarea.form-control {
   <header class="site-header">
     <div class="container header-container">
             <a href="./" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
-        <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 48px; width: auto; max-width: 250px; min-width: 180px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTmV4RHJpdmUgRmxhc2ggU3RvcmFnZSBTb2x1dGlvbnMgTG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImVtYmxlbUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkY3ODQ5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRDJBMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUEyQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImxvZ29HbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gTXVsdGktQ29sb3IgU2hpZWxkIEVtYmxlbSB3aXRoIFVTQiBDb3JlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj4KICAgIDwhLS0gU2hpZWxkIC8gUGx1ZyBCYXNlIHdpdGggRW1lcmFsZCAmIEFtYmVyIEJvcmRlciAtLT4KICAgIDxwYXRoIGQ9Ik00IDYgUTE0IDIgMjQgMiBRMzQgMiA0NCA2IEw0MiAzNCBRMzQgNDYgMjQgNTAgUTE0IDQ2IDYgMzQgWiIgZmlsbD0idXJsKCNzaGllbGRCZykiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIAogICAgPCEtLSBHb2xkIFVTQiBQbHVnIFRlcm1pbmFsIGF0b3Agc2hpZWxkIC0tPgogICAgPHJlY3QgeD0iMTYiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI1IiByeD0iMS41IiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOSIgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzBCMUEyQyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMwQjFBMkMiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIEdsb3dpbmcgR2VvbWV0cmljIFVTQiBUcmlkZW50IC0tPgogICAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxOCIgcj0iMy4yIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbG9nb0dsb3cpIi8+CiAgICA8cGF0aCBkPSJNMjQgMjEuNSBMMjQgMzgiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE2IDI2IEwyNCAzMCBMMzIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjI1IiByPSIyLjIiIGZpbGw9IiNGRjc4NDkiLz4KICAgIDxyZWN0IHg9IjMwIiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNDAiIHI9IjIuMiIgZmlsbD0iIzAwRDJBMCIgZmlsdGVyPSJ1cmwoI2xvZ29HbG93KSIvPgogIDwvZz4KCiAgPCEtLSBCb2xkIE1vZGVybiBXb3JkbWFyayAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzBGMjMzOCIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPk5FWDx0c3BhbiBmaWxsPSIjRkY3ODQ5Ij5EUklWRTwvdHNwYW4+PC90ZXh0PgogIDx0ZXh0IHg9IjY1IiB5PSI0NyIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwMEE4ODQiIGxldHRlci1zcGFjaW5nPSIyLjQiPkZMQVNIIFNUT1JBR0UgU1lTVEVNUzwvdGV4dD4KPC9zdmc+Cg=='">
+        <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 48px; width: auto; max-width: 250px; min-width: 180px; display: block;">
       </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
@@ -2146,7 +2404,7 @@ textarea.form-control {
       <div class="logo-banner-grid">
         <!-- Animated Brand Crest Emblem -->
         <div class="logo-banner-emblem">
-          <img src="images/hero-brand-emblem.svg" alt="NexDrive Corporate Seal and USB Trident Crest" width="110" height="110" style="width: 110px; height: 110px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMzYwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjM2MCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJOZXhEcml2ZSBPZmZpY2lhbCBDb3Jwb3JhdGUgQnJhbmQgQ3Jlc3QiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJyaW5nR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNGRjc4NDkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIzNSUiIHN0b3AtY29sb3I9IiNGNTlFMEIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI3MCUiIHN0b3AtY29sb3I9IiMwMEQyQTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOEI1Q0Y2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjb3JlQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMEQxRTMxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA4MTQyMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFRyaWRlbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkZFMDgyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI0Q5NzcwNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImVtYmxlbVNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSIxNiIgc3RkRGV2aWF0aW9uPSIxOCIgZmxvb2QtY29sb3I9IiMwODE0MjIiIGZsb29kLW9wYWNpdHk9IjAuNDUiLz4KICAgIDwvZmlsdGVyPgogICAgPGZpbHRlciBpZD0ibmVvbkdsb3ciIHg9Ii0zMCUiIHk9Ii0zMCUiIHdpZHRoPSIxNjAlIiBoZWlnaHQ9IjE2MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI1IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KCiAgICA8c3R5bGU+CiAgICAgIEBrZXlmcmFtZXMgY3Jlc3RGbG9hdCB7CiAgICAgICAgMCUsIDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoMCkgcm90YXRlKDBkZWcpOyB9CiAgICAgICAgNTAlIHsgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC0xMHB4KSByb3RhdGUoMS41ZGVnKTsgfQogICAgICB9CiAgICAgIEBrZXlmcmFtZXMgb3JiaXRSaW5nIHsKICAgICAgICAwJSB7IHRyYW5zZm9ybTogcm90YXRlKDBkZWcpOyB9CiAgICAgICAgMTAwJSB7IHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7IH0KICAgICAgfQogICAgICBAa2V5ZnJhbWVzIHB1bHNlR2xvd1JpbmcgewogICAgICAgIDAlLCAxMDAlIHsgb3BhY2l0eTogMC43OyB0cmFuc2Zvcm06IHNjYWxlKDEpOyB9CiAgICAgICAgNTAlIHsgb3BhY2l0eTogMTsgdHJhbnNmb3JtOiBzY2FsZSgxLjA1KTsgfQogICAgICB9CiAgICAgIC5hbmltLWNyZXN0IHsgYW5pbWF0aW9uOiBjcmVzdEZsb2F0IDZzIGVhc2UtaW4tb3V0IGluZmluaXRlOyB0cmFuc2Zvcm0tb3JpZ2luOiAxODBweCAxODBweDsgfQogICAgICAuYW5pbS1vcmJpdCB7IGFuaW1hdGlvbjogb3JiaXRSaW5nIDI0cyBsaW5lYXIgaW5maW5pdGU7IHRyYW5zZm9ybS1vcmlnaW46IDE4MHB4IDE4MHB4OyB9CiAgICAgIC5hbmltLWdsb3cgeyBhbmltYXRpb246IHB1bHNlR2xvd1JpbmcgNHMgZWFzZS1pbi1vdXQgaW5maW5pdGU7IHRyYW5zZm9ybS1vcmlnaW46IDE4MHB4IDE4MHB4OyB9CgogICAgICBAbWVkaWEgKHByZWZlcnMtcmVkdWNlZC1tb3Rpb246IHJlZHVjZSkgewogICAgICAgIC5hbmltLWNyZXN0LCAuYW5pbS1vcmJpdCwgLmFuaW0tZ2xvdyB7IGFuaW1hdGlvbjogbm9uZSAhaW1wb3J0YW50OyB9CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgoKICA8ZyBjbGFzcz0iYW5pbS1jcmVzdCIgZmlsdGVyPSJ1cmwoI2VtYmxlbVNoYWRvdykiPgogICAgPCEtLSBPdXRlciBBbWJpZW50IEdsb3cgQ2lyY2xlIC0tPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMTgwIiByPSIxNjAiIGZpbGw9InVybCgjcmluZ0dyYWQpIiBvcGFjaXR5PSIwLjE4IiBjbGFzcz0iYW5pbS1nbG93IiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CgogICAgPCEtLSBSb3RhdGluZyBPdXRlciBPcmJpdCBSaW5nIHdpdGggRGF0YSBOb2RlIE1hcmtzIC0tPgogICAgPGcgY2xhc3M9ImFuaW0tb3JiaXQiPgogICAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxODAiIHI9IjE1MCIgc3Ryb2tlPSJ1cmwoI3JpbmdHcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1kYXNoYXJyYXk9IjE0IDEwIDMyIDEwIi8+CiAgICAgIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjMwIiByPSI2IiBmaWxsPSIjRkY3ODQ5IiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjMzMCIgY3k9IjE4MCIgcj0iNiIgZmlsbD0iI0Y1OUUwQiIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgogICAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIzMzAiIHI9IjYiIGZpbGw9IiMwMEQyQTAiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KICAgICAgPGNpcmNsZSBjeD0iMzAiIGN5PSIxODAiIHI9IjYiIGZpbGw9IiM4QjVDRjYiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KICAgIDwvZz4KCiAgICA8IS0tIENvbmNlbnRyaWMgSW5uZXIgVGVjaCBSaW5nIC0tPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iMTgwIiByPSIxMzIiIHN0cm9rZT0icmdiYSgyNTUsIDEyMCwgNzMsIDAuMykiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtZGFzaGFycmF5PSI0IDQiIGZpbGw9Im5vbmUiLz4KCiAgICA8IS0tIENlbnRyYWwgQ29yZSBTaGllbGQgLyBNZWRhbGxpb24gLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxODAiIHI9IjEyMCIgZmlsbD0idXJsKCNjb3JlQmcpIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjMuNSIvPgoKICAgIDwhLS0gVVNCIFBsdWcgQ2FwIG9uIFRvcCBvZiBNZWRhbGxpb24gLS0+CiAgICA8cmVjdCB4PSIxNTAiIHk9IjcwIiB3aWR0aD0iNjAiIGhlaWdodD0iMjgiIHJ4PSI2IiBmaWxsPSIjMUEzQTVBIiBzdHJva2U9IiNGNTlFMEIiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHJlY3QgeD0iMTYwIiB5PSI3NiIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEyIiByeD0iMS41IiBmaWxsPSIjRkZFMDgyIi8+CiAgICA8cmVjdCB4PSIxOTAiIHk9Ijc2IiB3aWR0aD0iMTAiIGhlaWdodD0iMTIiIHJ4PSIxLjUiIGZpbGw9IiNGRkUwODIiLz4KCiAgICA8IS0tIENlbnRyYWwgTWFqZXN0aWMgR2VvbWV0cmljIFRyaWRlbnQgRW1ibGVtIC0tPgogICAgPCEtLSBUb3AgQ2VudHJhbCBOb2RlIGluIEVtZXJhbGQgLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMzAiIHI9IjExIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMzAiIHI9IjYiIGZpbGw9IiNGRkZGRkYiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIFN0ZW0gLS0+CiAgICA8cGF0aCBkPSJNMTgwIDE0NCBMMTgwIDIzNiIgc3Ryb2tlPSJ1cmwoI2dvbGRUcmlkZW50KSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIAogICAgPCEtLSBMZWZ0IFdpbmcgKENvcmFsKSAtLT4KICAgIDxwYXRoIGQ9Ik0xNDIgMTY1IEwxODAgMTkwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE0MiAxNjUgTDE0MiAxNTIiIHN0cm9rZT0iI0ZGNzg0OSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjE0OCIgcj0iOCIgZmlsbD0iI0ZGNzg0OSIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgogICAgPGNpcmNsZSBjeD0iMTQyIiBjeT0iMTQ4IiByPSI0IiBmaWxsPSIjRkZGRkZGIi8+CgogICAgPCEtLSBSaWdodCBXaW5nIChBbWJlciBEaWFtb25kKSAtLT4KICAgIDxwYXRoIGQ9Ik0yMTggMTY1IEwxODAgMTkwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjcmluZ0dyYWQpIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTIxOCAxNjUgTDIxOCAxNTIiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxyZWN0IHg9IjIxMCIgeT0iMTQwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHJ4PSIzIiBmaWxsPSIjRjU5RTBCIiB0cmFuc2Zvcm09InJvdGF0ZSg0NSAyMTggMTQ4KSIgZmlsdGVyPSJ1cmwoI25lb25HbG93KSIvPgoKICAgIDwhLS0gQm90dG9tIE5vZGUgKEFtZXRoeXN0IFZpb2xldCkgLS0+CiAgICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIyNDIiIHI9IjgiIGZpbGw9IiM4QjVDRjYiIGZpbHRlcj0idXJsKCNuZW9uR2xvdykiLz4KCiAgICA8IS0tIEJyYW5kIFR5cG9ncmFwaHkgYXJvdW5kIE1lZGFsbGlvbiAtLT4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMjcyIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIzIj5ORVhEUklWRTwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMjg4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOC41IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMDBEMkEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+VElFUi0xIEZMQVNIIFZFUklGSUVEPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg=='">
+          <img src="images/hero-brand-emblem.svg" alt="NexDrive Corporate Seal and USB Trident Crest" width="110" height="110" style="width: 110px; height: 110px; display: block;">
         </div>
 
         <!-- Brand Statement -->
@@ -2173,7 +2431,7 @@ textarea.form-control {
   <!-- Page Banner -->
   <section class="page-banner">
     <div class="container">
-      <span class="eyebrow" style="color: #FF7849;">Company Profile</span>
+      <span class="eyebrow" style="color: #5C7C64;">Company Profile</span>
       <h1>About NexDrive Solutions</h1>
       <p>
         Supplying dependable USB flash storage hardware, transparent technical specifications, and tailored commercial procurement services for corporate and commercial clients.
@@ -2202,7 +2460,7 @@ textarea.form-control {
           </div>
 
           <div>
-            <img src="images/about-facility.svg" alt="Precision Flash Memory Assembly and Quality Testing Facility" width="800" height="400" style="border-radius: var(--radius-lg); border: 1px solid var(--color-pearl-border); box-shadow: var(--shadow-md); width: 100%; height: auto; max-width: 800px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDAwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJQcmVjaXNpb24gRmxhc2ggTWVtb3J5IEFzc2VtYmx5IGFuZCBRdWFsaXR5IFRlc3RpbmcgRmFjaWxpdHkiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJmYWNpbGl0eUJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzBGMTMxRCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNzA5MEUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9Imxhc2VyQmVhbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIiBzdG9wLW9wYWNpdHk9IjAuOTUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRUY0NDQ0IiBzdG9wLW9wYWNpdHk9IjAuMSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2hpcEdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMUUyOTNCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBGMTcyQSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImdvbGRMYXNlckdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gQmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgcng9IjE2IiBmaWxsPSJ1cmwoI2ZhY2lsaXR5QmcpIi8+CgogIDwhLS0gTWF0cml4IENpcmN1aXQgR3JpZCBCYWNrZ3JvdW5kIC0tPgogIDxnIHN0cm9rZT0iIzFFMjkzQiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjYiPgogICAgPGxpbmUgeDE9IjAiIHkxPSIxMDAiIHgyPSI4MDAiIHkyPSIxMDAiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMjAwIiB4Mj0iODAwIiB5Mj0iMjAwIi8+CiAgICA8bGluZSB4MT0iMCIgeTE9IjMwMCIgeDI9IjgwMCIgeTI9IjMwMCIvPgogICAgPGxpbmUgeDE9IjE2MCIgeTE9IjAiIHgyPSIxNjAiIHkyPSI0MDAiLz4KICAgIDxsaW5lIHgxPSIzMjAiIHkxPSIwIiB4Mj0iMzIwIiB5Mj0iNDAwIi8+CiAgICA8bGluZSB4MT0iNDgwIiB5MT0iMCIgeDI9IjQ4MCIgeTI9IjQwMCIvPgogICAgPGxpbmUgeDE9IjY0MCIgeTE9IjAiIHgyPSI2NDAiIHkyPSI0MDAiLz4KICA8L2c+CgogIDwhLS0gQ2xlYW5yb29tIFNNVCBQQ0IgQm9hcmQgaW4gY2VudGVyIHdpdGggRGFyayBPYnNpZGlhbiAmIEVtZXJhbGQgQWNjZW50cyAtLT4KICA8cmVjdCB4PSIyMjAiIHk9IjgwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjI0MCIgcng9IjEwIiBmaWxsPSIjMDYxODE0IiBzdHJva2U9IiMwNTk2NjkiIHN0cm9rZS13aWR0aD0iMiIvPgogIAogIDwhLS0gUENCIENpcmN1aXQgQ29wcGVyIFRyYWNlcyAtLT4KICA8ZyBzdHJva2U9IiMxMEI5ODEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC43NSI+CiAgICA8cGF0aCBkPSJNMjQwIDEyMCBMMzAwIDEyMCBMMzMwIDE1MCBMMzMwIDIwMCIvPgogICAgPHBhdGggZD0iTTI2MCAyNjAgTDMyMCAyNjAgTDM2MCAyMjAgTDQ0MCAyMjAiLz4KICAgIDxwYXRoIGQ9Ik01NDAgMTMwIEw0ODAgMTMwIEw0NTAgMTYwIi8+CiAgICA8cGF0aCBkPSJNNTIwIDI3MCBMNDYwIDI3MCBMNDIwIDIzMCIvPgogICAgPGNpcmNsZSBjeD0iMjQwIiBjeT0iMTIwIiByPSIzIiBmaWxsPSIjMzREMzk5Ii8+CiAgICA8Y2lyY2xlIGN4PSI1NDAiIGN5PSIxMzAiIHI9IjMiIGZpbGw9IiMzNEQzOTkiLz4KICAgIDxjaXJjbGUgY3g9IjI2MCIgY3k9IjI2MCIgcj0iMyIgZmlsbD0iIzM0RDM5OSIvPgogICAgPGNpcmNsZSBjeD0iNTIwIiBjeT0iMjcwIiByPSIzIiBmaWxsPSIjMzREMzk5Ii8+CiAgPC9nPgoKICA8IS0tIENlbnRyYWwgRmxhc2ggTWVtb3J5IENvbnRyb2xsZXIgSUMgLS0+CiAgPHJlY3QgeD0iMzQwIiB5PSIxNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNiIgZmlsbD0idXJsKCNjaGlwR3JhZCkiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIzNjIiIHk9IjE5NSIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjRkJCRjI0IiBsZXR0ZXItc3BhY2luZz0iMSI+RkxBU0ggSUM8L3RleHQ+CiAgPHRleHQgeD0iMzU2IiB5PSIyMTUiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOTRBM0I4Ij5TTUkgQ09OVFJPTExFUjwvdGV4dD4KCiAgPCEtLSBDaGlwIFBpbnMgLS0+CiAgPGcgZmlsbD0iIzk0QTNCOCI+CiAgICA8cmVjdCB4PSIzNTUiIHk9IjEzMiIgd2lkdGg9IjYiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxyZWN0IHg9IjM3NSIgeT0iMTMyIiB3aWR0aD0iNiIgaGVpZ2h0PSI4IiByeD0iMSIgZmlsbD0iI0Y1OUUwQiIvPgogICAgPHJlY3QgeD0iMzk1IiB5PSIxMzIiIHdpZHRoPSI2IiBoZWlnaHQ9IjgiIHJ4PSIxIiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSI0MTUiIHk9IjEzMiIgd2lkdGg9IjYiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxyZWN0IHg9IjQzNSIgeT0iMTMyIiB3aWR0aD0iNiIgaGVpZ2h0PSI4IiByeD0iMSIgZmlsbD0iI0Y1OUUwQiIvPgogICAgPHJlY3QgeD0iMzU1IiB5PSIyNjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjgiIHJ4PSIxIiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIzNzUiIHk9IjI2MCIgd2lkdGg9IjYiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxyZWN0IHg9IjM5NSIgeT0iMjYwIiB3aWR0aD0iNiIgaGVpZ2h0PSI4IiByeD0iMSIgZmlsbD0iI0Y1OUUwQiIvPgogICAgPHJlY3QgeD0iNDE1IiB5PSIyNjAiIHdpZHRoPSI2IiBoZWlnaHQ9IjgiIHJ4PSIxIiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSI0MzUiIHk9IjI2MCIgd2lkdGg9IjYiIGhlaWdodD0iOCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxyZWN0IHg9IjMzMiIgeT0iMTU1IiB3aWR0aD0iOCIgaGVpZ2h0PSI2IiByeD0iMSIvPgogICAgPHJlY3QgeD0iMzMyIiB5PSIxNzUiIHdpZHRoPSI4IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSIzMzIiIHk9IjE5NSIgd2lkdGg9IjgiIGhlaWdodD0iNiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjMzMiIgeT0iMjE1IiB3aWR0aD0iOCIgaGVpZ2h0PSI2IiByeD0iMSIvPgogICAgPHJlY3QgeD0iMzMyIiB5PSIyMzUiIHdpZHRoPSI4IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI0NjAiIHk9IjE1NSIgd2lkdGg9IjgiIGhlaWdodD0iNiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjQ2MCIgeT0iMTc1IiB3aWR0aD0iOCIgaGVpZ2h0PSI2IiByeD0iMSIvPgogICAgPHJlY3QgeD0iNDYwIiB5PSIxOTUiIHdpZHRoPSI4IiBoZWlnaHQ9IjYiIHJ4PSIxIi8+CiAgICA8cmVjdCB4PSI0NjAiIHk9IjIxNSIgd2lkdGg9IjgiIGhlaWdodD0iNiIgcng9IjEiLz4KICAgIDxyZWN0IHg9IjQ2MCIgeT0iMjM1IiB3aWR0aD0iOCIgaGVpZ2h0PSI2IiByeD0iMSIvPgogIDwvZz4KCiAgPCEtLSBMZWZ0IFNpZGU6IFF1YWxpdHkgSW5zcGVjdGlvbiBTY29wZSAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MCwgMTAwKSI+CiAgICA8cmVjdCB3aWR0aD0iMTMwIiBoZWlnaHQ9IjIwMCIgcng9IjgiIGZpbGw9IiMxMzE4MjQiIHN0cm9rZT0iIzMzNDE1NSIgc3Ryb2tlLXdpZHRoPSIxLjIiLz4KICAgIDxjaXJjbGUgY3g9IjY1IiBjeT0iNjUiIHI9IjQwIiBmaWxsPSIjMDcwOTBFIiBzdHJva2U9IiMxMEI5ODEiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHBhdGggZD0iTTUwIDY1IEw2MCA3NSBMODAgNTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzM0RDM5OSIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHRleHQgeD0iNjUiIHk9IjEzMCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRjhGQUZDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IMnRlc3R3IFZlcmlmaWVkPC90ZXh0PgogICAgPHRleHQgeD0iNjUiIHk9IjE1MCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiM5NEEzQjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjEwMCUgRnVsbCBDYXBhY2l0eTwvdGV4dD4KICAgIDx0ZXh0IHg9IjY1IiB5PSIxNjYiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjOTRBM0I4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5CdXJuLUluIFRlc3RlZDwvdGV4dD4KICAgIDxyZWN0IHg9IjI1IiB5PSIxNzUiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNCIgcng9IjciIGZpbGw9IiMwNjVGNDYiLz4KICAgIDx0ZXh0IHg9IjY1IiB5PSIxODUiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjMzREMzk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QQVNTRUQgUUE8L3RleHQ+CiAgPC9nPgoKICA8IS0tIFJpZ2h0IFNpZGU6IExhc2VyIEVuZ3JhdmluZyBDdXN0b21pemF0aW9uIFN0YXRpb24gLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjEwLCAxMDApIj4KICAgIDxyZWN0IHdpZHRoPSIxMzAiIGhlaWdodD0iMjAwIiByeD0iOCIgZmlsbD0iIzEzMTgyNCIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjEuMiIvPgogICAgPCEtLSBMYXNlciBOb3p6bGUgLS0+CiAgICA8cGF0aCBkPSJNNTAgMjAgTDgwIDIwIEw3NSA1MCBMNTUgNTAgWiIgZmlsbD0iIzQ3NTU2OSIvPgogICAgPCEtLSBBbmltYXRlZC1zdHlsZSBMYXNlciBiZWFtIHJhZGlhdGluZyBkb3duIC0tPgogICAgPHBvbHlnb24gcG9pbnRzPSI2Myw1MCA2Nyw1MCA3OCwxMTAgNTIsMTEwIiBmaWxsPSJ1cmwoI2xhc2VyQmVhbSkiIGZpbHRlcj0idXJsKCNnb2xkTGFzZXJHbG93KSIvPgogICAgPGxpbmUgeDE9IjY1IiB5MT0iNTAiIHgyPSI2NSIgeTI9IjExMCIgc3Ryb2tlPSIjRjU5RTBCIiBzdHJva2Utd2lkdGg9IjIuNSIvPgogICAgPCEtLSBEcml2ZSB1bmRlciBsYXNlciAtLT4KICAgIDxyZWN0IHg9IjMwIiB5PSIxMTAiIHdpZHRoPSI3MCIgaGVpZ2h0PSIyNCIgcng9IjMiIGZpbGw9IiMzMzQxNTUiIHN0cm9rZT0iI0Y1OUUwQiIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICAgIDx0ZXh0IHg9IjY1IiB5PSIxMjUiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI2LjUiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGREU2OEEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNVU1RPTSBMT0dPPC90ZXh0PgogICAgPHRleHQgeD0iNjUiIHk9IjE1NSIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjRjhGQUZDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MYXNlciBFbmdyYXZpbmc8L3RleHQ+CiAgICA8dGV4dCB4PSI2NSIgeT0iMTcyIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzk0QTNCOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UHJlY2lzaW9uIE1hcmtpbmc8L3RleHQ+CiAgICA8dGV4dCB4PSI2NSIgeT0iMTg2IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAnU2Vnb2UgVUknLCBSb2JvdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iI0Y1OUUwQiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U3BvdCBQTVMgUGFudG9uZTwvdGV4dD4KICA8L2c+CiAgCiAgPCEtLSBCb3R0b20gQ2FwdGlvbiAtLT4KICA8dGV4dCB4PSI0MDAiIHk9IjM2NSIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjQ0JENUUxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IYXJkd2FyZSBBc3NlbWJseSDigKIgVGllci0xIEZsYXNoIE1lbW9yeSBDaGlwcyDigKIgUmlnb3JvdXMgQmF0Y2ggUXVhbGl0eSBBc3N1cmFuY2U8L3RleHQ+Cjwvc3ZnPgo='">
+            <img src="images/facility-hardware.jpg" alt="Precision Flash Memory Assembly and Quality Testing Facility" width="800" height="400" style="border-radius: var(--radius-lg); border: 1px solid var(--color-pearl-border); box-shadow: var(--shadow-md); width: 100%; height: auto; max-width: 800px; display: block;">
           </div>
         </div>
       </div>
@@ -2302,7 +2560,7 @@ textarea.form-control {
     <div class="container footer-top">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="images/logo.svg" alt="NexDrive Logo" width="220" height="42" class="footer-brand-logo" style="height: 40px; width: auto; max-width: 220px; display: block;" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNjAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTmV4RHJpdmUgRmxhc2ggU3RvcmFnZSBTb2x1dGlvbnMgTG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImVtYmxlbUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjRkY3ODQ5Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjRjU5RTBCIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwRDJBMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2hpZWxkQmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMTMyQjQ1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBCMUEyQyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9ImxvZ29HbG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMi41IiByZXN1bHQ9ImJsdXIiLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIi8+CiAgICA8L2ZpbHRlcj4KICA8L2RlZnM+CgogIDwhLS0gTXVsdGktQ29sb3IgU2hpZWxkIEVtYmxlbSB3aXRoIFVTQiBDb3JlIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj4KICAgIDwhLS0gU2hpZWxkIC8gUGx1ZyBCYXNlIHdpdGggRW1lcmFsZCAmIEFtYmVyIEJvcmRlciAtLT4KICAgIDxwYXRoIGQ9Ik00IDYgUTE0IDIgMjQgMiBRMzQgMiA0NCA2IEw0MiAzNCBRMzQgNDYgMjQgNTAgUTE0IDQ2IDYgMzQgWiIgZmlsbD0idXJsKCNzaGllbGRCZykiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KICAgIAogICAgPCEtLSBHb2xkIFVTQiBQbHVnIFRlcm1pbmFsIGF0b3Agc2hpZWxkIC0tPgogICAgPHJlY3QgeD0iMTYiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSI1IiByeD0iMS41IiBmaWxsPSIjRjU5RTBCIi8+CiAgICA8cmVjdCB4PSIxOSIgeT0iMSIgd2lkdGg9IjMiIGhlaWdodD0iMyIgZmlsbD0iIzBCMUEyQyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjEiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiIGZpbGw9IiMwQjFBMkMiLz4KICAgIAogICAgPCEtLSBDZW50cmFsIEdsb3dpbmcgR2VvbWV0cmljIFVTQiBUcmlkZW50IC0tPgogICAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxOCIgcj0iMy4yIiBmaWxsPSIjMDBEMkEwIiBmaWx0ZXI9InVybCgjbG9nb0dsb3cpIi8+CiAgICA8cGF0aCBkPSJNMjQgMjEuNSBMMjQgMzgiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTE2IDI2IEwyNCAzMCBMMzIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNlbWJsZW1HcmFkKSIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjI1IiByPSIyLjIiIGZpbGw9IiNGRjc4NDkiLz4KICAgIDxyZWN0IHg9IjMwIiB5PSIyMyIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjEiIGZpbGw9IiNGNTlFMEIiLz4KICAgIDxjaXJjbGUgY3g9IjI0IiBjeT0iNDAiIHI9IjIuMiIgZmlsbD0iIzAwRDJBMCIgZmlsdGVyPSJ1cmwoI2xvZ29HbG93KSIvPgogIDwvZz4KCiAgPCEtLSBCb2xkIE1vZGVybiBXb3JkbWFyayAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzIiIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICdTZWdvZSBVSScsIFJvYm90bywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iIzBGMjMzOCIgbGV0dGVyLXNwYWNpbmc9Ii0wLjUiPk5FWDx0c3BhbiBmaWxsPSIjRkY3ODQ5Ij5EUklWRTwvdHNwYW4+PC90ZXh0PgogIDx0ZXh0IHg9IjY1IiB5PSI0NyIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSI4MDAiIGZpbGw9IiMwMEE4ODQiIGxldHRlci1zcGFjaW5nPSIyLjQiPkZMQVNIIFNUT1JBR0UgU1lTVEVNUzwvdGV4dD4KPC9zdmc+Cg=='">
+          <img src="images/logo.svg" alt="NexDrive Logo" width="220" height="42" class="footer-brand-logo" style="height: 40px; width: auto; max-width: 220px; display: block;">
           <p class="footer-brand-desc">
             Professional Direct supplier of USB flash drives, high-speed memory solutions, and custom branded flash media for enterprise and institutional clients.
           </p>

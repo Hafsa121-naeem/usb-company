@@ -4,17 +4,17 @@
    ============================================================================== */
 
 :root {
-  --color-petrol-dark: #0B1D2D;
-  --color-petrol-surface: #102A42;
-  --color-petrol-card: #143554;
+  --color-petrol-dark: #FAF9F5;
+  --color-petrol-surface: #FFFFFF;
+  --color-petrol-card: #FFFFFF;
   --color-petrol-border: rgba(255, 255, 255, 0.12);
   --color-petrol-hover: #194064;
 
-  --color-coral-primary: #FF6B4A;
-  --color-coral-hover: #E85635;
+  --color-coral-primary: #5C7C64;
+  --color-coral-hover: #445C4A;
   --color-coral-soft: rgba(255, 107, 74, 0.14);
 
-  --color-amber-gold: #F59E0B;
+  --color-amber-gold: #738670;
   --color-amber-soft: rgba(245, 158, 11, 0.14);
 
   --color-mint-emerald: #00D2A0;
@@ -199,7 +199,7 @@ body {
 }
 
 .btn-amber {
-  background: linear-gradient(135deg, var(--color-amber-gold) 0%, #D97706 100%);
+  background: linear-gradient(135deg, var(--color-amber-gold) 0%, #5C7C64 100%);
   color: #0B1D2D;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
@@ -295,7 +295,7 @@ body {
 .icon-coral { background: var(--color-coral-soft); color: var(--color-coral-primary); }
 .icon-mint { background: var(--color-mint-soft); color: var(--color-mint-emerald); }
 .icon-amber { background: var(--color-amber-soft); color: var(--color-amber-gold); }
-.icon-blue { background: rgba(56, 189, 248, 0.14); color: #38BDF8; }
+.icon-blue { background: rgba(56, 189, 248, 0.14); color: #5C7C64; }
 
 /* --------------------------------------------------------------------------
    Filter & Search Toolbar
@@ -510,7 +510,7 @@ body {
 
 .badge-bulk-only {
   background: rgba(139, 92, 246, 0.15);
-  color: #A78BFA;
+  color: #5C7C64;
   border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
@@ -712,7 +712,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Modal Dialogs
+   Modal Dialogs (Scrollable & Responsive)
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
@@ -723,9 +723,10 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
   opacity: 0;
   transition: opacity 0.25s ease;
+  overflow-y: auto;
 }
 
 .modal-overlay.active {
@@ -739,12 +740,21 @@ body {
   border-radius: var(--radius-xl);
   max-width: 680px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 86vh;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
   transform: translateY(20px);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  margin: auto;
+}
+
+.modal-dialog form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -753,11 +763,12 @@ body {
 }
 
 .modal-header {
-  padding: 18px 24px;
+  padding: 16px 24px;
   border-bottom: 1px solid var(--color-petrol-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
 }
 
 .modal-header h3 {
@@ -785,18 +796,35 @@ body {
 }
 
 .modal-body {
-  padding: 24px;
+  padding: 22px 24px;
   overflow-y: auto;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: #081420;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4);
+  border-radius: 4px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-amber-gold);
 }
 
 .modal-footer {
-  padding: 16px 24px;
+  padding: 14px 24px;
   border-top: 1px solid var(--color-petrol-border);
   background: #091724;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 /* --------------------------------------------------------------------------
