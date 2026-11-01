@@ -1,236 +1,136 @@
-# NexDrive Flash Storage Solutions — Static Company Website
-
-A complete, production-ready, professional B2B static company profile and product catalog website for a USB flash drive supplier.
-
-Designed with an ultra-premium **Luxury Obsidian Carbon, Dark Titanium & Cyber Amber** visual aesthetic. Engineered with **pure semantic HTML5 and modern CSS3**, containing **zero JavaScript dependencies**, zero external libraries, and no backend frameworks.
+# Hafsa Naeem — Professional Portfolio Website
+**Target Role:** Aspiring IT Professional | Software Candidate  
+**Assessment:** Portfolio Website Challenge  
+**Contact:** [Hfsanaeem3@gmail.com](mailto:Hfsanaeem3@gmail.com)  
+**Theme:** Light Theme Only (Pristine Daylight, Executive Navy & Ice-Blue Palette)
 
 ---
 
 ## 1. Project Overview
 
-- **Business Domain:** Commercial USB Flash Storage, OEM Memory Supply, Corporate Custom Branded Flash Drives.
-- **Website Purpose:** Corporate presence, technical hardware specification catalog, and B2B quotation inquiries.
-- **Visual Palette:** Luxury Obsidian Carbon (`#06080D`), Deep Slate (`#141A29`), Burnished Gold / Cyber Amber (`#F59E0B`), and Emerald Matrix (`#10B981`) — departing completely from simple blue and white.
-- **Animation System:** Pure CSS3 hardware animations and SVG keyframe dynamics (3D floating levitation, rotating swivel arm, magnetic cap snap, flip-out chip, metallic light sheen sweep, live data transfer benchmark stream, and pulsing activity LEDs).
-- **Architecture:** 100% Static files deployable to any web server or static hosting provider.
-- **E-Commerce Notice:** This is strictly an informational and technical profile website. It contains **no online purchasing, no cart, no payment gateways, no customer accounts, and no live inventory tracking**. All transactions and quotes occur via direct corporate communication (Email, Phone, Quotation Desk).
+This is the official personal portfolio website for **Hafsa Naeem**, engineered as a responsive, accessible, single-page showcase tailored specifically for **General IT and Software** opportunities. 
+
+The website bridges Hafsa's academic background in **MBA Finance (Master of Business Administration, 2025)** and corporate experience in **Human Resources at Alhamrah Fabrics** with her active transition into modern frontend web development (**HTML5, CSS3, JavaScript, Git, and GitHub**).
+
+### Core Highlights:
+- **100% Light Theme:** Compliant with assessment core rules prohibiting dark mode or dark toggles.
+- **Bento Grid Architecture:** Clean, modern cards presenting About Me, Skills & Tools, Corporate Experience, Featured Projects, Process/Workflow, and Hiring Contact.
+- **Genuine Project Evidence:** Detailed showcase of the instructor-guided **NexDrive Flash Storage (USB Company Website)** practice project with real screenshots and technical breakdowns.
+- **Accessible & Responsive:** Fluid behavior across mobile, tablet, and wide desktop screens with zero horizontal overflow, visible focus indicators, and semantic HTML5.
+- **Zero Heavy Frameworks:** Pure semantic HTML5, modern CSS3 custom properties, and vanilla ES6+ JavaScript.
 
 ---
 
 ## 2. Technology Stack
 
-- **HTML5:** Semantic markup (`header`, `nav`, `main`, `section`, `article`, `table`, `footer`).
-- **CSS3:** Native CSS Grid, Flexbox, CSS Custom Properties (`:root`), Responsive Media Queries, and CSS-only interactive components.
-- **Pure CSS Navigation:** Responsive mobile hamburger navigation using pure CSS checkbox state without any JavaScript.
-- **Vector Graphics:** Self-contained high-detail SVG assets (`.svg`) with embedded CSS `@keyframes` for pixel-crisp rendering and smooth GPU-accelerated 60fps animations across all screen resolutions without external CDN latency.
-- **Zero Dependencies:** No Bootstrap, no Tailwind, no jQuery, no React, no NPM build steps.
+- **Markup:** Semantic HTML5 (`header`, `nav`, `main`, `section`, `article`, `figure`, `footer`)
+- **Styles:** Modern CSS3 (CSS Grid, Flexbox, CSS Custom Properties, GPU-accelerated Keyframes, Media Queries)
+- **Scripting:** Vanilla JavaScript ES6+ (No external dependencies, No jQuery, No Bootstrap)
+- **Visual Assets:** High-resolution vector graphics (SVG) and optimized JPEG/PNG project captures
+- **Typography:** Google Fonts (`Plus Jakarta Sans`, `Caveat`, `JetBrains Mono`) with local system fallbacks
 
 ---
 
 ## 3. Project File Structure
 
 ```text
-usb-company-website/
-├── index.html                      # Homepage: 3D Hero Levitation, Real-Time Benchmark Visualizer, Featured Drives, Categories, CTA
-├── about.html                      # Corporate Profile: Mission, Operating Principles, QA Testing Policies
-├── products.html                   # Master Product Catalog: Categorized Grid, Anchor Jumps, Specs Summary
-├── why-us.html                     # Supplier Advantages: QA Integrity, Custom Branding, 4-Step Procurement
-├── contact.html                    # Contact Desk: Direct channels, Quotation Checklist, Prototype Form
-├── products/                       # Dedicated Product Specification Detail Pages
-│   ├── usb-apex-titanium.html      # Model USB-M100 (Unibody Zinc-Alloy Flash Drive with Amber LED)
-│   ├── usb-duolink-pro.html        # Model USB-D200 (Dual USB-C & USB-A OTG Drive with Rotating Shield)
-│   ├── usb-orbit-swivel.html       # Model USB-S300 (Classic Capless 360° Swivel Drive with Oscillating Arm)
-│   ├── usb-cardslim-executive.html # Model USB-C400 (Ultra-Slim 2.2mm Wafer Credit Card Drive with Flip-Out Chip)
-│   ├── usb-securevault-key.html    # Model USB-K500 (IPX7 Waterproof Solid Key Drive with Water Pulse)
-│   └── usb-ecobamboo-wood.html     # Model USB-E600 (Sustainable FSC Bamboo Wooden Drive with Magnetic Dock)
+hafsa-naeem-portfolio/
+├── index.html                  # Master Single-Page Portfolio
 ├── css/
-│   └── style.css                   # Master CSS3 Stylesheet with centralized CSS Custom Properties
+│   └── style.css               # Centralized stylesheet (Light theme tokens, Bento Grid, Responsive rules)
+├── js/
+│   └── main.js                 # Vanilla JS (Modal controller, toast copy, sticky header, mobile nav)
 ├── images/
-│   ├── logo.svg                    # Titanium Wordmark & Geometric Gold USB Trident Emblem
-│   ├── hero/
-│   │   ├── hero-usb-showcase.svg   # Multi-drive animated 3D composition with tech badges & data stream
-│   │   └── factory-tech-banner.svg # SMT PCB assembly, IC controller testing, and laser engraving station
-│   └── products/                   # High-detail animated SVG product illustrations
-│       ├── usb-apex-titanium.svg   # Titanium unibody with sweeping light sheen and pulsing LED
-│       ├── usb-duolink-pro.svg     # Dual OTG drive with rotating protective shield
-│       ├── usb-orbit-swivel.svg    # Capless drive with 360-degree oscillating swivel arm
-│       ├── usb-cardslim-executive.svg # Credit card wafer drive with flip-out connector animation
-│       ├── usb-securevault-key.svg # Waterproof key drive with simulated immersion wave ripples
-│       └── usb-ecobamboo-wood.svg  # Carbonized bamboo drive with magnetic cap dock/snap motion
-├── assets/
-│   └── fonts/                      # Dedicated directory for local font assets if required
-├── robots.txt                      # Search engine crawler directives
-├── sitemap.xml                     # Search engine XML sitemap of all pages
-└── README.md                       # Complete documentation and maintenance manual
+│   ├── ui/
+│   │   ├── hero-workspace.svg          # 3D laptop, code emblem & desk accessories artwork
+│   │   ├── botanical-branch-blue.svg   # Subtle azure & navy leaf decorative flourish
+│   │   ├── botanical-branch.svg        # Purple branch variant
+│   │   ├── building-modern.svg         # Modern architectural corporate office illustration
+│   │   └── building-illustration.svg   # Classic vector office illustration
+│   ├── reference/
+│   │   ├── design-example.png          # Reference design mockup (Bento style)
+│   │   └── design-example-v2.png       # Reference design mockup (Daylight Navy & Ice-Blue)
+│   └── projects/
+│       └── usb/                        # Genuine USB company website assets
+│           ├── hero-hardware-showcase.jpg
+│           ├── facility-hardware.jpg
+│           ├── laser-engraving-custom.jpg
+│           ├── hero/hero-showcase.png
+│           └── products/               # Hardware product photos (Apex, Duolink, Swivel, etc.)
+├── verify-assets.js            # Node.js automated asset existence and path verification script
+├── test-server.js              # Local test script
+├── README.md                   # Complete technical manual & run guide
+├── DESIGN_DECISION_LOG.md      # Completed 10-section thought process & decision log
+└── SELF_REVIEW.md              # Cross-device testing, accessibility & quality audit
 ```
 
 ---
 
-## 4. How to Open and Preview the Website Locally
+## 4. How to Run Locally
 
-Because this project is built entirely on static HTML5 and CSS3:
+### Option A: Direct Browser Execution (Fastest & Zero Setup)
+Double-click `index.html` in Windows File Explorer, or right-click `index.html` and choose **Open with** &rarr; **Google Chrome / Microsoft Edge / Firefox**.
 
-1. **Direct Browser Execution:**
-   - Double-click `index.html` in your file explorer, or right-click `index.html` and select **Open with** &rarr; **Google Chrome / Microsoft Edge / Mozilla Firefox**.
-2. **Local Static Server (Optional):**
-   - If you prefer running an HTTP server (e.g. using Python or Node):
-     ```bash
-     # Using Python 3:
-     python -m http.server 8080
-     # Then open http://localhost:8080 in your browser
-     ```
-
----
-
-## 5. Maintenance & Customization Guide
-
-### 5.1 Updating Company Information
-Search and replace the placeholder text across the HTML files:
-- **Company Name:** Replace `NexDrive [Company Name Placeholder]` with your legal entity name.
-- **Logo:** Replace or edit `images/logo.svg` or update the `<img src="images/logo.svg">` reference in the `<header>` and `<footer>` sections of each HTML file.
-
-### 5.2 Updating Contact Information
-Open `contact.html` and each page's `<footer>`:
-- **Sales Email:** Replace `sales@example.com` with your verified sales email in all `mailto:` links.
-- **Telephone:** Replace `+1 (000) 000-0000` and `tel:+10000000000` with your company's phone number.
-- **Address:** Replace `[Official Corporate Address - To Be Supplied by Client]` with your registered office address.
-- **WhatsApp:** Replace `https://wa.me/00000000000` with your WhatsApp Business phone link.
-
-### 5.3 Changing the Visual Color Palette
-All core colors are centralized in `css/style.css` under the `:root` pseudo-class. Edit these hex values to centrally customize the website:
-
-```css
-:root {
-  /* Ultra-Premium Obsidian & Titanium Spectrum */
-  --color-obsidian-950: #06080D;  /* Deepest space background */
-  --color-obsidian-900: #0A0E17;  /* Master page canvas */
-  --color-card-bg: #141A29;       /* Elevated hardware cards */
-  --color-card-hover: #1E2840;    /* Interactive card hover */
-
-  /* Primary Accent: Burnished Gold & Cyber Amber */
-  --color-amber-gold: #F59E0B;    /* Primary gold CTA buttons and highlights */
-  --color-amber-light: #FBBF24;   /* Bright gold hover */
-  --color-amber-soft: rgba(245, 158, 11, 0.12); /* Subtle badge tint */
-
-  /* Secondary Accents */
-  --color-emerald-accent: #10B981;/* Verified QA status */
-}
-```
-
----
-
-## 6. How to Add a New Product
-
-Follow these 3 simple steps to add a new USB flash drive to your catalog:
-
-### Step 1: Add a Product Card in `products.html`
-Copy this template into the `<div id="all-models" class="product-grid">` container:
-
-```html
-<article id="category-anchor-id" class="product-card">
-  <div class="product-card-media">
-    <span class="product-card-badge">Titanium Series</span>
-    <img src="images/products/your-image.svg" alt="Product Name" width="600" height="450" loading="lazy">
-  </div>
-  <div class="product-card-body">
-    <div class="product-meta-header">
-      <span class="product-model-code">USB-XXXX</span>
-      <span class="product-category-name">Category Name</span>
-    </div>
-    <h2 class="product-card-title">
-      <a href="products/usb-new-model.html">Product Name</a>
-    </h2>
-    <p class="product-card-desc">
-      Short concise description highlighting construction material, design feature, and recommended usage.
-    </p>
-    <ul class="product-specs-list">
-      <li class="product-spec-row">
-        <span class="spec-label">Capacities:</span>
-        <span class="spec-val">16GB, 32GB, 64GB, 128GB</span>
-      </li>
-      <li class="product-spec-row">
-        <span class="spec-label">Interface:</span>
-        <span class="spec-val">USB 3.2 Gen 1</span>
-      </li>
-      <li class="product-spec-row">
-        <span class="spec-label">Connector:</span>
-        <span class="spec-val">Standard USB Type-A</span>
-      </li>
-      <li class="product-spec-row">
-        <span class="spec-label">Housing Material:</span>
-        <span class="spec-val">Aluminum Alloy</span>
-      </li>
-    </ul>
-    <div class="product-card-footer">
-      <a href="products/usb-new-model.html" class="btn btn-primary">View Full Specifications</a>
-    </div>
-  </div>
-</article>
-```
-
-### Step 2: Create the Dedicated Product Page in `products/`
-Duplicate an existing detail page (such as `products/usb-apex-titanium.html`) and rename it:
-1. Update `<title>` and `<meta name="description">`.
-2. Update the breadcrumb label in the `<ol class="breadcrumbs-list">`.
-3. Update the `<img>` src and alt attributes.
-4. Fill in the semantic `<table>` with the new product's specifications.
-
-### Step 3: Update `sitemap.xml` and Footers
-Add the new product URL to `sitemap.xml` and include its link in the footer USB models list across the HTML files.
-
----
-
-## 7. Placeholder Checklist Before Production Launch
-
-| Item | Placeholder Value | Action Required |
-| :--- | :--- | :--- |
-| **Company Legal Name** | `NexDrive [Company Name Placeholder]` | Replace with legal registered company name |
-| **Sales Email** | `sales@example.com` | Update to official sales email in `mailto:` links |
-| **Telephone Desk** | `+1 (000) 000-0000` | Replace with verified corporate phone number |
-| **Headquarters Address** | `[Corporate Address Placeholder]` | Update with physical corporate office address |
-| **WhatsApp Direct** | `https://wa.me/00000000000` | Update with official WhatsApp Business number |
-| **Production Domain** | `https://www.example.com` | Update in `robots.txt` and `sitemap.xml` |
-| **Illustrative Products** | 6 sample USB models | Replace or update with your verified inventory specifications |
-
----
-
-## 8. Deployment to Static Hosting
-
-The website can be hosted on any static hosting platform with zero configuration:
-
-- **GitHub Pages:** Commit files to a repository and enable GitHub Pages on the `main` branch.
-- **Cloudflare Pages / Netlify / Vercel:** Point the project to the repository with no build command (`Build command: none`, `Publish directory: .`).
-- **AWS S3 / Apache / Nginx:** Upload all files directly to the web root (`public_html` or `/var/www/html`).
-
-
----
-
-## 9. Products Management System & Admin Dashboard
-
-A lightweight, zero-dependency product management system built directly on **Node.js (native `node:sqlite`)**.
-
-### Features
-- **Admin Dashboard (`/admin`):**
-  - Add, edit, delete, and search USB products.
-  - Dedicated **📁 Upload Product Image** button with instant drag-and-drop & live preview.
-  - Manage product specifications: name, model code, category, capacity, price quote range, read speeds, interface, availability status, and marketing description.
-  - Real-time catalog metrics counters (Total Products, In Stock, Made to Order, Bulk Only, Categories).
-  - Dual view modes: **☰ List Table** and **☷ Grid Cards**.
-- **Public Synchronization (`products.html`):**
-  - Dynamically fetches and renders the live products list from the SQLite database.
-  - Automatic graceful fallback to static catalog cards if running without the server.
-- **Zero Shopping Cart / Payments:** Strictly B2B product showcase and RFQ quotation requests as specified.
-
-### Quick Start (Windows 1-Click)
-Double-click `start-server.bat` in the project folder, or run:
+### Option B: Local Static Server via Node.js
+If you prefer running a local static HTTP server:
 ```powershell
-node server.js
-```
-The server will start at `http://localhost:3000` and open `http://localhost:3000/admin`.
+# Navigate to the portfolio folder:
+cd "C:\Users\Mr Laptop\.gemini\antigravity\scratch\hafsa-naeem-portfolio"
 
-### Optional Docker Deployment
-Docker is **optional** and not required on your machine because Node.js runs directly and consumes less than 30MB of RAM. If you wish to run in a container:
-```powershell
-docker compose up -d
+# Run with npx serve or any static server:
+npx serve .
+# Or run with Node http-server:
+npx http-server -p 3000
 ```
-All database records (`data/products.db`) and uploaded images (`uploads/`) will persist on your host machine.
+Then open `http://localhost:3000` in your web browser.
+
+---
+
+## 5. Deployment Guide
+
+To deploy this website to a live public URL for assignment submission:
+
+### Method 1: GitHub Pages (Recommended)
+1. Initialize git and commit:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit: Hafsa Naeem professional portfolio"
+   ```
+2. Create a new public repository on GitHub named `hafsa-naeem-portfolio`.
+3. Push your repository:
+   ```bash
+   git remote add origin https://github.com/<your-username>/hafsa-naeem-portfolio.git
+   git branch -M main
+   git push -u origin main
+   ```
+4. On GitHub, navigate to **Settings** &rarr; **Pages**, select the `main` branch as the source, and click **Save**. Your live portfolio will be available at `https://<your-username>.github.io/hafsa-naeem-portfolio/`.
+
+### Method 2: Vercel / Netlify (Instant Drag-and-Drop)
+1. Sign in to [Vercel](https://vercel.com) or [Netlify](https://netlify.com).
+2. Drag and drop the `hafsa-naeem-portfolio` folder directly into the Netlify or Vercel dashboard.
+3. Your website will be deployed instantly with a live, publicly accessible `.vercel.app` or `.netlify.app` URL with automatic SSL.
+
+---
+
+## 6. Verification and Audit
+
+Run the built-in automated audit script to verify that all assets and paths exist on disk:
+```powershell
+node verify-assets.js
+```
+Expected output:
+```text
+--- AUDITING HAFSA NAEEM PORTFOLIO ASSETS ---
+[PASS] images/ui/hero-workspace.svg => Found
+[PASS] images/ui/botanical-branch-blue.svg => Found
+[PASS] images/ui/building-modern.svg => Found
+[PASS] images/projects/usb/hero-hardware-showcase.jpg => Found
+[PASS] images/projects/usb/facility-hardware.jpg => Found
+[PASS] images/projects/usb/laser-engraving-custom.jpg => Found
+[PASS] images/projects/usb/hero/hero-showcase.png => Found
+[PASS] js/main.js => Found
+[PASS] css/style.css => Found
+---------------------------------------------
+OVERALL ASSET AUDIT STATUS: ALL ASSETS VERIFIED
+```
