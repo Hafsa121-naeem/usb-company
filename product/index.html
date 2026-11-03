@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // Clean URL Rewriter: Instantly strip .html from address bar
+    (function() {
+      var p = window.location.pathname;
+      if (p.endsWith('.html')) {
+        var clean = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+        window.history.replaceState(null, document.title, clean + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | NexDrive Flash Storage Solutions</title>
+  <meta name="description" content="Technical specifications, direct purchase, and volume Commercial Wholesale quotation for NexDrive high-performance enterprise USB flash drives.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Product Details Page Custom Styles */
+    .product-detail-wrapper {
+      padding: var(--space-8, 32px) 0 var(--space-16, 64px);
+    }
+    .product-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 900px) {
+      .product-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .product-media-card {
+      background: var(--color-card-bg, #FFFFFF);
+      border: 1px solid #E6E0D4;
+      border-radius: var(--radius-lg, 14px);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;
+    }
+    .product-media-card img {
+  max-width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;
+  transition: transform 0.3s ease;
+}
+    .product-media-card:hover img {
+      transform: scale(1.03);
+    }
+    .product-badges-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .badge-pill {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .badge-stock {
+  background: rgba(92, 124, 100, 0.14) !important;
+  color: #3E5A44 !important;
+  border: 1.5px solid rgba(92, 124, 100, 0.35) !important;
+  font-weight: 800 !important;
+}
+.badge-category {
+  background: #F4F0E8 !important;
+  color: #3E4A41 !important;
+  border: 1.5px solid #E6E0D4 !important;
+  font-weight: 800 !important;
+}
+.badge-code {
+  background: #FAF9F5 !important;
+  color: #5C7C64 !important;
+  border: 1.5px solid #5C7C64 !important;
+  font-weight: 800 !important;
+}
+    .product-headline,
+    #product-title {
+      font-size: 2.2rem !important;
+      font-weight: 900 !important;
+      color: #1C231E !important;
+      -webkit-text-fill-color: #1C231E !important;
+      margin: 0 0 12px !important;
+      line-height: 1.2 !important;
+      letter-spacing: -0.5px !important;
+      display: block !important;
+    }
+    .product-desc,
+    #product-desc {
+      color: #334155 !important;
+      -webkit-text-fill-color: #334155 !important;
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      margin-bottom: 20px !important;
+      display: block !important;
+    }
+    .option-label {
+      color: #1C231E !important;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .product-pricing-box {
+      background: #F4F0E8;
+      border: 1px solid #E6E0D4;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .main-price-val {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #5C7C64;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .price-unit-tag {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94A3B8;
+    }
+    .option-group {
+      margin-bottom: 20px;
+    }
+    .option-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94A3B8;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .capacity-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .capacity-btn {
+      background: #143554;
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .capacity-btn.active, .capacity-btn:hover {
+      background: #738670;
+      color: #1C231E;
+      border-color: #738670;
+      box-shadow: 0 0 12px rgba(92, 124, 100, 0.25);
+    }
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      background: #143554;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .qty-stepper button {
+      background: transparent;
+      color: #FFFFFF;
+      border: none;
+      width: 36px;
+      height: 36px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .qty-stepper button:hover {
+      background: #194064;
+    }
+    .qty-stepper input {
+      width: 55px;
+      text-align: center;
+      background: transparent;
+      border: none;
+      color: #738670;
+      font-weight: 800;
+      font-size: 16px;
+      outline: none;
+    }
+    .action-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 25px 0 15px;
+    }
+    @media (max-width: 600px) {
+      .action-cta-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .btn-buy-direct {
+      background: linear-gradient(135deg, #5C7C64, #445C4A);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(92, 124, 100, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-buy-direct:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(92, 124, 100, 0.45);
+    }
+    .btn-bulk-quote {
+      background: rgba(115, 134, 112, 0.15);
+      color: #738670;
+      border: 1.5px solid #738670;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .btn-bulk-quote:hover {
+      background: #738670;
+      color: #1C231E;
+      box-shadow: 0 0 15px rgba(92, 124, 100, 0.25);
+    }
+
+    
+    .action-cta-grid {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+    .btn-add-cart {
+      background: linear-gradient(135deg, #738670 0%, #5C7C64 100%);
+      color: #1C231E;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+      flex: 1;
+      min-width: 170px;
+    }
+    .btn-add-cart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+      filter: brightness(1.08);
+    }
+    .cart-nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #738670;
+      color: #1C231E;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin-left: 10px;
+    }
+    .cart-nav-badge:hover {
+      transform: scale(1.05);
+      background: #5C7C64;
+    }
+    /* Toast Alert for Cart */
+    .cart-toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #FFFFFF;
+      border: 1px solid #00D2A0;
+      color: #FFFFFF;
+      padding: 16px 22px;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cart-toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(7, 18, 28, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: #F4F0E8;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 14px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      position: relative;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close-btn:hover {
+      color: #FFFFFF;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #1C231E !important;
+  margin-bottom: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: #738670;
+    }
+
+    /* Wholesale Tier Table */
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0 20px;
+      font-size: 13px;
+    }
+    .tier-table th, .tier-table td {
+  padding: 10px 14px !important;
+  text-align: left !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  font-size: 13.5px !important;
+  color: #1C231E !important;
+}
+    .tier-table th {
+  background: #E6E0D4 !important;
+  color: #1C231E !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  border-bottom: 2px solid #5C7C64 !important;
+}
+    .tier-table tr:hover td {
+      background: rgba(245, 158, 11, 0.05);
+    }
+  
+/* ==============================================================================
+   MASTER SAGE GREEN, OFF-WHITE & SOFT BEIGE LIGHT THEME OVERRIDES
+   Guaranteed 0% Orange, 0% Blue, 0% Purple - Edge-to-Edge Image Frames
+   ============================================================================== */
+
+:root {
+  --color-petrol-dark: #FAF9F5 !important;
+  --color-petrol-surface: #FFFFFF !important;
+  --color-petrol-card: #FFFFFF !important;
+  --color-indigo-slate: #F4F0E8 !important;
+  --color-pearl-bg: #FAF9F5 !important;
+  --color-pearl-card: #FFFFFF !important;
+  --color-pearl-border: #E6E0D4 !important;
+  --color-coral-primary: #5C7C64 !important;
+  --color-coral-hover: #445C4A !important;
+  --color-coral-soft: rgba(92, 124, 100, 0.12) !important;
+  --color-amber-gold: #738670 !important;
+  --color-amber-soft: rgba(115, 134, 112, 0.12) !important;
+  --color-mint-emerald: #467A58 !important;
+  --color-mint-soft: rgba(70, 122, 88, 0.12) !important;
+  --color-text-white: #1C231E !important;
+  --color-text-body: #3E4A41 !important;
+  --color-text-muted: #5C6A60 !important;
+}
+
+/* Page & Section Banners */
+body {
+  background-color: #FAF9F5 !important;
+  color: #3E4A41 !important;
+}
+
+.hero, .page-banner, .contact-hero, .frontpage-logo-banner {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 60%, #F4F0E8 100%) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.page-banner h1, .hero-title, .cta-banner h2 {
+  color: #1C231E !important;
+}
+
+.page-banner p, .hero-subtitle, .cta-banner p {
+  color: #5C6A60 !important;
+}
+
+.hero-title .highlight, .highlight {
+  background: linear-gradient(135deg, #5C7C64 0%, #3D5343 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #5C7C64 !important;
+  display: inline-block !important;
+}
+
+/* Header & Navigation Polish */
+header.site-header {
+  background: rgba(250, 249, 245, 0.98) !important;
+  border-bottom: 1px solid #E6E0D4 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.header-container {
+  max-width: 1360px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+.brand-logo-img {
+  height: 44px !important;
+  width: auto !important;
+  max-width: 220px !important;
+  display: block !important;
+}
+
+.site-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.nav-list {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-link {
+  color: #3E4A41 !important;
+  white-space: nowrap !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  padding: 6px 0 !important;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #5C7C64 !important;
+}
+
+.nav-link.active::after {
+  background-color: #5C7C64 !important;
+}
+
+.nav-link-admin, a[href*="admin"] {
+  color: #5C7C64 !important;
+}
+
+.cart-nav-badge {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  margin-left: 4px !important;
+}
+
+#currency-picker-mount {
+  flex-shrink: 0 !important;
+  margin: 0 4px !important;
+}
+
+.header-action {
+  flex-shrink: 0 !important;
+  margin-left: 4px !important;
+}
+
+.header-action .btn {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+}
+
+/* Primary Buttons */
+.btn-primary, .btn-quote, header .btn-primary, .action-cta-grid .btn-buy-direct, #saveProductBtn {
+  background: linear-gradient(135deg, #5C7C64 0%, #445C4A 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(92, 124, 100, 0.25) !important;
+}
+
+.btn-primary:hover, .btn-quote:hover, header .btn-primary:hover, .action-cta-grid .btn-buy-direct:hover {
+  background: linear-gradient(135deg, #4E6B55 0%, #384C3C 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(92, 124, 100, 0.35) !important;
+}
+
+.btn-outline-white {
+  background: #FFFFFF !important;
+  border: 1.5px solid #E6E0D4 !important;
+  color: #1C231E !important;
+}
+
+.btn-outline-white:hover {
+  background: #F4F0E8 !important;
+  border-color: #5C7C64 !important;
+}
+
+/* Eyebrows & Badges */
+.eyebrow {
+  color: #5C7C64 !important;
+}
+
+.eyebrow::before, .badge-dot, .dot-coral, .dot-mint {
+  background-color: #5C7C64 !important;
+}
+
+/* Product Cards & Media: REMOVE ALL EXTRA MARGINS */
+.product-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E6E0D4 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.product-card:hover {
+  border-color: #5C7C64 !important;
+  box-shadow: 0 12px 28px rgba(92, 124, 100, 0.15) !important;
+}
+
+.product-card-media {
+  background: #F4F0E8 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 250px !important;
+  overflow: hidden !important;
+}
+
+.product-card-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.product-card:hover .product-card-media img {
+  transform: scale(1.05) !important;
+}
+
+.product-card-badge {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  background: #5C7C64 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  padding: 4px 10px !important;
+  border-radius: 9999px !important;
+  z-index: 2 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-model-code {
+  font-family: var(--font-family-mono) !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  color: #5C7C64 !important;
+  background-color: rgba(92, 124, 100, 0.12) !important;
+  border: 1px solid rgba(92, 124, 100, 0.25) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+/* Call to Action Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #FAF9F5 0%, #F4F0E8 100%) !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #1C231E !important;
+  border-radius: 16px !important;
+  padding: 48px 32px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.prototype-notice-banner {
+  background-color: #FAF9F5 !important;
+  border: 1px solid #E6E0D4 !important;
+  color: #3E4A41 !important;
+}
+
+
+#currency-select-box, .currency-select {
+  background: #FAF9F5 !important;
+  color: #1C231E !important;
+  border: 1.5px solid #E6E0D4 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+#currency-select-box option, .currency-select option {
+  background: #FFFFFF !important;
+  color: #1C231E !important;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
+        <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 44px; width: auto; max-width: 220px; display: block;" onerror="this.onerror=null; this.src='images/logo.svg'">
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="./" class="nav-link">Home</a></li>
+          <li><a href="about" class="nav-link">About Us</a></li>
+          <li><a href="products" class="nav-link active">Products</a></li>
+          <li><a href="why-us" class="nav-link">Why Choose Us</a></li>
+          <li><a href="contact" class="nav-link">Contact</a></li>
+          <li><a href="admin/" class="nav-link">Admin</a></li>
+        </ul>
+
+        <!-- Currency Switcher Mount -->
+        <div id="currency-picker-mount" style="display: inline-flex; align-items: center; margin: 0 10px;"></div>
+        <a href="#view-cart" id="nav-cart-btn" class="cart-nav-badge" title="View your shopping cart">
+          🛒 Cart <span id="cart-counter">(0)</span>
+        </a>
+
+        <div class="header-action">
+          <a href="contact#quote-inquiry" class="btn btn-primary btn-sm">Request a Quote</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <nav class="breadcrumbs-bar" aria-label="Breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumbs-list">
+        <li class="breadcrumbs-item"><a href="./" class="breadcrumbs-link">Home</a></li>
+        <li class="breadcrumbs-item"><a href="products" class="breadcrumbs-link">Products</a></li>
+        <li class="breadcrumbs-item" id="crumb-product-name" aria-current="page">Loading Product...</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Product Detail View -->
+  <main class="product-detail-wrapper">
+    <div class="container">
+
+      <!-- Product Showcase Grid -->
+      <div class="product-hero-grid">
+        
+        <!-- Left: Product Media Card -->
+        <div class="product-media-card">
+          <img id="product-img" src="images/products/usb-apex-titanium.jpg" alt="Product Image" width="600" height="450">
+          <div style="margin-top: 20px; font-size: 12px; color: #94A3B8; text-align: center;">
+            <span style="color: #00D2A0;">✔ 100% Original NAND Tested</span> • Grade-A Silicon Controller
+          </div>
+        </div>
+
+        <!-- Right: Information & Action Control Center -->
+        <div class="product-info-panel">
+          
+          <div class="product-badges-bar">
+            <span id="badge-stock" class="badge-pill badge-stock">In Stock</span>
+            <span id="badge-category" class="badge-pill badge-category">Titanium Metal</span>
+            <span id="badge-code" class="badge-pill badge-code">USB-M100</span>
+          </div>
+
+          <h1 id="product-title" class="product-headline" style="color: #1C231E !important; -webkit-text-fill-color: #1C231E !important; font-size: 2.2rem !important; font-weight: 900 !important; margin: 0 0 12px !important; line-height: 1.2 !important;">Apex Titanium Flash Drive</h1>
+          <p id="product-desc" class="product-desc" style="color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 20px !important;">
+            Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.
+          </p>
+
+          <!-- Dynamic Pricing Box -->
+          <div class="product-pricing-box">
+            <div>
+              <span style="font-size: 12px; color: #94A3B8; text-transform: uppercase; font-weight: 700; display: block;">Unit Price:</span>
+              <div class="main-price-val">
+                <span id="price-display" data-price-pkr="1250">₨ 1,250</span>
+                <span class="price-unit-tag">/ unit (ex-tax)</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span style="display: inline-block; background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 4px; padding: 4px 8px; font-size: 12px; font-weight: 700;">
+                Wholesale Tier Available
+              </span>
+            </div>
+          </div>
+
+          <!-- Capacity Selector -->
+          <div class="option-group">
+            <label class="option-label">Storage Capacity:</label>
+            <div id="capacity-container" class="capacity-btn-group">
+              <button type="button" class="capacity-btn active" data-capacity="16GB" data-mult="1.0">16GB</button>
+              <button type="button" class="capacity-btn" data-capacity="32GB" data-mult="1.2">32GB</button>
+              <button type="button" class="capacity-btn" data-capacity="64GB" data-mult="1.5">64GB</button>
+              <button type="button" class="capacity-btn" data-capacity="128GB" data-mult="2.1">128GB</button>
+              <button type="button" class="capacity-btn" data-capacity="256GB" data-mult="3.5">256GB</button>
+            </div>
+          </div>
+
+          <!-- Quantity Stepper & Subtotal -->
+          <div class="option-group" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+            <div>
+              <label class="option-label">Order Quantity:</label>
+              <div class="qty-stepper">
+                <button type="button" id="qty-minus" aria-label="Decrease quantity">−</button>
+                <input type="number" id="qty-input" value="10" min="1" max="10000" aria-label="Quantity">
+                <button type="button" id="qty-plus" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <div>
+              <span class="option-label" style="text-align: right;">Estimated Subtotal:</span>
+              <div id="subtotal-display" style="font-size: 1.4rem; font-weight: 800; color: #738670; text-align: right;" data-price-pkr="12500">
+                ₨ 12,500
+              </div>
+            </div>
+          </div>
+
+          <!-- Two Direct Action Buttons -->
+          <div class="action-cta-grid">
+            <!-- 1. Add to Cart Option (Added before Buy Directly) -->
+            <button type="button" id="btn-add-to-cart" class="btn-add-cart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              Add to Cart
+            </button>
+
+            <!-- 2. Buy Directly Option -->
+            <button type="button" id="open-buy-modal" class="btn-buy-direct">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Buy Directly (Place Order)
+            </button>
+            <button type="button" id="open-quote-modal" class="btn-bulk-quote">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Get Bulk Order Quotation
+            </button>
+          </div>
+
+          <div style="font-size: 12px; color: #94A3B8; display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <span>🚚 Nationwide COD &amp; TCS Delivery</span>
+            <span>🛡️ 5-Year Replacement Warranty</span>
+            <span>⚡ Express Dispatch</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Technical Specifications & Wholesale Tiers Tabs/Section -->
+      <section style="margin-top: 40px; background: #F4F0E8; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 35px;">
+        <h2 style="font-size: 1.5rem; color: #1C231E !important; margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid #5C7C64; padding-bottom: 10px; display: inline-block;">Hardware Technical Specifications</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+          <table class="tier-table" style="margin: 0;">
+            <tbody>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Model Code</td><td id="spec-code" style="color: #1C231E !important; font-weight: 700;">USB-M100</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">USB Interface</td><td id="spec-interface" style="color: #1C231E !important; font-weight: 600;">USB 3.2 Gen 1 (Backwards 2.0)</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Sequential Read Speed</td><td id="spec-read" style="color: #467A58 !important; font-weight: 800;">Up to 150 MB/s</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Sequential Write Speed</td><td id="spec-write" style="color: #467A58 !important; font-weight: 800;">Up to 60 MB/s</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Available Capacities</td><td id="spec-capacity" style="color: #1C231E !important; font-weight: 600;">16GB – 256GB</td></tr>
+            </tbody>
+          </table>
+
+          <table class="tier-table" style="margin: 0;">
+            <tbody>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Casing Material</td><td id="spec-material" style="color: #1C231E !important; font-weight: 600;">Die-Cast Zinc Alloy Monocoque</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Dimensions &amp; Weight</td><td id="spec-dim" style="color: #1C231E !important; font-weight: 600;">48 × 12.2 × 4.6 mm | 14.5g</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Protection Rating</td><td style="color: #1C231E !important; font-weight: 600;">IPX7 Waterproof, Shockproof, Dustproof</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Warranty Coverage</td><td id="spec-warranty" style="color: #5C7C64 !important; font-weight: 700;">5-Year Enterprise Replacement Warranty</td></tr>
+              <tr><td style="color: #4B584E !important; font-weight: 700;">Stock Availability</td><td id="spec-stock" style="color: #467A58 !important; font-weight: 800;">2,500 Units Ready to Dispatch</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Feature Highlights -->
+        <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.08);">
+          <h3 style="font-size: 1.15rem; color: #1C231E !important; font-weight: 800; margin-bottom: 12px;">Key Enterprise Features:</h3>
+          <ul id="features-list" style="color: #2D3730 !important; font-weight: 500; font-size: 0.95rem; line-height: 1.8; margin: 0; padding-left: 20px;">
+            <li>Monocoque zinc-alloy casing engineered for heat dissipation and drop protection</li>
+            <li>IPX7 water &amp; dust resistant monolithic design</li>
+            <li>High-retention 3D TLC NAND memory tested via H2/F3 zero-bad-block verification</li>
+            <li>Large dual-sided area tailored for laser engraving and corporate logo UV printing</li>
+            <li>Reinforced integrated keyring hole for convenient executive everyday carry</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Dedicated Custom Logo & Image Upload Studio -->
+      <section id="custom-branding-studio" style="margin-top: 40px; background: #F4F0E8; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 14px; padding: 35px; box-shadow: 0 10px 30px rgba(28, 35, 30, 0.06); border: 1px solid #E6E0D4;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; border-bottom: 2px solid #738670; padding-bottom: 12px;">
+          <div>
+            <h2 style="font-size: 1.5rem; color: #1C231E !important; margin: 0; font-weight: 800;">🎨 Upload Your Custom Logo / Artwork</h2>
+            <p style="font-size: 13.5px; color: #4B584E !important; margin: 4px 0 0; font-weight: 500;">Upload your organization logo or graphic for custom laser engraving or full-color UV screen printing.</p>
+          </div>
+          <span style="background: rgba(0,210,160,0.15); color: #00D2A0; border: 1px solid rgba(0,210,160,0.3); border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700;">
+            ✔ Free Digital Proof in 2 Hours
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <!-- Left: Upload Box -->
+          <div>
+            <div id="logo-dropzone" style="border: 2px dashed #5C7C64; border-radius: 10px; padding: 35px 20px; text-align: center; background: #FFFFFF; cursor: pointer; transition: all 0.2s ease;">
+              <input type="file" id="logo-file-input" accept="image/*,.pdf,.ai,.eps,.svg" style="display: none;">
+              <div style="font-size: 45px; margin-bottom: 10px;">📤</div>
+              <h3 style="font-size: 1.15rem; color: #1C231E !important; margin-bottom: 6px; font-weight: 800;">Drop your logo or graphic image here</h3>
+              <p style="font-size: 13px; color: #4B584E !important; margin-bottom: 18px; font-weight: 500;">Supports PNG, JPG, SVG, AI, EPS, PDF (Max 15MB)</p>
+              <button type="button" id="btn-browse-logo" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                📁 Browse &amp; Upload Logo Image
+              </button>
+            </div>
+
+            <!-- Imprint Type Options -->
+            <div style="margin-top: 20px;">
+              <label style="font-size: 12px; font-weight: 800; color: #1C231E; text-transform: uppercase; display: block; margin-bottom: 8px;">Branding Technique:</label>
+              <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; color: #2D3730; font-weight: 600; cursor: pointer;">
+                  <input type="radio" name="imprint_method" value="Laser Engraving" checked> Laser Engraving (Permanent Metallic Etch)
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13.5px; color: #2D3730; font-weight: 600; cursor: pointer;">
+                  <input type="radio" name="imprint_method" value="Full-Color UV Print"> Full-Color UV Screen Print
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Mockup / Uploaded Image Preview -->
+          <div style="background: #FAF9F5; border: 1.5px solid #E6E0D4; border-radius: 10px; padding: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <span style="font-size: 12px; font-weight: 800; color: #5C7C64; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px;">Live Branding Mockup Preview
+            </span>
+            
+            <div id="mockup-preview-wrap" style="position: relative; width: 100%; max-width: 320px; text-align: center;">
+              <img id="mockup-base-usb" src="images/products/usb-apex-titanium.jpg" alt="USB Drive Mockup" style="width: 100%; height: auto; border-radius: 8px; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));">
+              <div id="mockup-logo-overlay" style="position: absolute; top: 48%; left: 45%; transform: translate(-50%, -50%); max-width: 110px; max-height: 40px; display: none; pointer-events: none;">
+                <img id="mockup-logo-img" src="" alt="Uploaded Logo Preview" style="max-width: 100%; max-height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));">
+              </div>
+            </div>
+
+            <div id="upload-status-text" style="font-size: 13px; color: #4B584E; margin-top: 15px; text-align: center; font-weight: 500;">
+              No custom logo uploaded yet. Click above to test your logo on this USB drive!
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 18px; width: 100%;">
+              <button type="button" id="apply-logo-buy-btn" class="btn btn-primary btn-sm" style="flex: 1; text-align: center; justify-content: center;">
+                ⚡ Order With This Logo
+              </button>
+              <button type="button" id="apply-logo-quote-btn" class="btn btn-outline-white btn-sm" style="flex: 1; text-align: center; justify-content: center;">
+                📋 Get Quote With Logo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================== -->
+  <!-- MODAL 1: DIRECT PURCHASE / INSTANT ORDER MODAL                           -->
+  <!-- ======================================================================== -->
+  <div id="buy-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="close-buy-modal">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <span style="font-size: 26px;">⚡</span>
+        <div>
+          <h2 style="font-size: 1.4rem; color: #1C231E !important; margin: 0; font-weight: 800;">Direct Order Checkout</h2>
+          <p style="font-size: 13.5px; color: #4B584E !important; margin: 0; font-weight: 500;">Instant order placement with Nationwide Cash on Delivery (COD) &amp; Bank Transfer</p>
+        </div>
+      </div>
+
+      <!-- Order Summary Card -->
+      <div style="background: #FFFFFF; border: 1px solid rgba(245,158,11,0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <strong id="buy-summary-name" style="color: #FFFFFF;">Apex Titanium Flash Drive</strong>
+          <span id="buy-summary-capacity" style="color: #738670; font-weight: 700;">16GB</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #94A3B8;">
+          <span>Quantity: <strong id="buy-summary-qty" style="color: #FFFFFF;">10 units</strong></span>
+          <span>Total: <strong id="buy-summary-total" style="color: #00D2A0; font-size: 15px;">₨ 12,500</strong></span>
+        </div>
+      </div>
+
+      <form id="direct-order-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="order-name">Full Name *</label>
+            <input type="text" id="order-name" required placeholder="e.g. Tariq Mahmood">
+          </div>
+          <div class="form-group">
+            <label for="order-phone">WhatsApp / Mobile Number *</label>
+            <input type="tel" id="order-phone" required placeholder="e.g. 0300-1234567">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="order-email">Email Address</label>
+            <input type="email" id="order-email" placeholder="name@company.com">
+          </div>
+          <div class="form-group">
+            <label for="order-city">City *</label>
+            <select id="order-city" required>
+              <option value="Karachi">Karachi</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Rawalpindi">Rawalpindi</option>
+              <option value="Faisalabad">Faisalabad</option>
+              <option value="Peshawar">Peshawar</option>
+              <option value="Multan">Multan</option>
+              <option value="Sialkot">Sialkot</option>
+              <option value="Quetta">Quetta</option>
+              <option value="Other">Other City / Overseas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="order-address">Complete Delivery Address *</label>
+          <textarea id="order-address" rows="2" required placeholder="House/Office #, Street, Area, Sector"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="order-payment">Payment Method *</label>
+            <select id="order-payment">
+              <option value="COD">Cash on Delivery (Nationwide COD)</option>
+              <option value="Bank Transfer">Direct Bank Transfer (Meezan / HBL / Alfalah)</option>
+              <option value="JazzCash / EasyPaisa">JazzCash / EasyPaisa</option>
+              <option value="Corporate PO">Corporate Purchase Order (Net 30)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="order-notes">Custom Branding / Notes</label>
+            <input type="text" id="order-notes" placeholder="e.g. Laser engrave 'ABC Corp' on side A">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-buy-direct" style="width: 100%; margin-top: 10px;">
+          Confirm &amp; Place Order Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================== -->
+  <!-- MODAL 2: BULK ORDER QUOTATION MODAL                                      -->
+  <!-- ======================================================================== -->
+  <div id="quote-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="close-quote-modal">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <span style="font-size: 26px;">📋</span>
+        <div>
+          <h2 style="font-size: 1.4rem; color: #1C231E !important; margin: 0; font-weight: 800;">Request Bulk Order Quotation</h2>
+          <p style="font-size: 13.5px; color: #4B584E !important; margin: 0; font-weight: 500;">Factory wholesale pricing with free digital logo proofing</p>
+        </div>
+      </div>
+
+      <!-- Tier Discount Table -->
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Order Tier</th>
+            <th>Discount</th>
+            <th>Estimated Unit Price</th>
+            <th>Logo Branding</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25 – 99 units</td>
+            <td style="color: #3E4A41 !important; font-weight: 600;">Standard Wholesale</td>
+            <td id="tier-1-price" style="font-weight: 700;">₨ 1,250</td>
+            <td>Laser Engraved Available</td>
+          </tr>
+          <tr>
+            <td>100 – 499 units</td>
+            <td style="color: #467A58 !important; font-weight: 800;">16% OFF</td>
+            <td id="tier-2-price" style="font-weight: 700; color: #467A58 !important;">₨ 1,050</td>
+            <td>Free 1-Side Laser Engraving</td>
+          </tr>
+          <tr>
+            <td>500 – 1,999 units</td>
+            <td style="color: #467A58 !important; font-weight: 800;">28% OFF</td>
+            <td id="tier-3-price" style="font-weight: 700; color: #467A58 !important;">₨ 890</td>
+            <td>Free Dual-Side Engraving + Gift Box</td>
+          </tr>
+          <tr>
+            <td>2,000+ units</td>
+            <td style="color: #5C7C64 !important; font-weight: 800;">40% VIP Tier</td>
+            <td style="font-weight: 700; color: #5C7C64 !important;">Custom Factory Quote</td>
+            <td>Full Custom Packaging &amp; Fast Shipping</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form id="bulk-quote-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quote-company">Company / Organization *</label>
+            <input type="text" id="quote-company" required placeholder="e.g. Apex Global Logistics">
+          </div>
+          <div class="form-group">
+            <label for="quote-contact">Contact Person *</label>
+            <input type="text" id="quote-contact" required placeholder="e.g. Zainab Asif">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quote-email">Work Email *</label>
+            <input type="email" id="quote-email" required placeholder="zainab@company.com">
+          </div>
+          <div class="form-group">
+            <label for="quote-phone">WhatsApp / Phone *</label>
+            <input type="tel" id="quote-phone" required placeholder="0321-7654321">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quote-qty">Target Quantity (Units) *</label>
+            <input type="number" id="quote-qty" value="100" min="25" step="25" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-date">Required Delivery Date</label>
+            <input type="date" id="quote-date">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="quote-details">Branding &amp; Customization Specifications</label>
+          <textarea id="quote-details" rows="2" placeholder="Specify laser engraving, color silk-screen printing, data pre-loading, or custom packaging..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-bulk-quote" style="width: 100%; margin-top: 10px;">
+          Generate Instant Quotation &amp; Send Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 NexDrive Flash Storage Solutions. All rights reserved.</p>
+      <ul class="footer-legal-links">
+        <li><a href="./">Home</a></li>
+        <li><a href="products">Products</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="admin/">Admin Portal</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/currency.js?v=2026"></script>
+  <script>
+    (async function () {
+      // Default fallback dataset in case offline or static GitHub Pages
+      const DEFAULT_PRODUCTS = {
+        1: {
+          id: 1,
+          name: "Apex Titanium Flash Drive",
+          model_code: "USB-M100",
+          category: "Titanium Metal",
+          availability: "In Stock",
+          price_pkr: 1250,
+          description: "Heavy-duty unibody zinc-alloy flash drive engineered for maximum durability, heat dissipation, and corporate keyring portability. Resistant to water, pressure, and dust.",
+          image: "images/products/usb-apex-titanium.jpg",
+          interface: "USB 3.2 Gen 1 (Backwards 2.0)",
+          read_speed: "Up to 150 MB/s",
+          write_speed: "Up to 60 MB/s",
+          material: "Die-Cast Zinc Alloy Unibody (Gunmetal Titanium)",
+          dimensions: "48 × 12.2 × 4.6 mm | 14.5g",
+          warranty: "5-Year Enterprise Replacement Warranty",
+          stock: "2,500 Units Ready to Dispatch",
+          capacities: ["16GB", "32GB", "64GB", "128GB", "256GB"],
+          features: [
+            "Monocoque zinc-alloy casing engineered for heat dissipation and drop protection",
+            "IPX7 water & dust resistant monolithic design",
+            "High-retention 3D TLC NAND memory tested via H2/F3 zero-bad-block verification",
+            "Large dual-sided area tailored for laser engraving and corporate logo UV printing",
+            "Reinforced integrated keyring hole for convenient executive everyday carry"
+          ]
+        },
+        2: {
+          id: 2,
+          name: "DuoLink Pro Dual OTG Drive",
+          model_code: "USB-D200",
+          category: "Dual USB-C / OTG",
+          availability: "In Stock",
+          price_pkr: 1650,
+          description: "Versatile 2-in-1 flash drive featuring reversible USB Type-C and standard USB Type-A connectors for seamless file transfer between smartphones, MacBooks, tablets, and Windows PCs.",
+          image: "images/products/usb-duolink-pro.jpg",
+          interface: "Dual USB-C & USB-A 3.2",
+          read_speed: "Up to 160 MB/s",
+          write_speed: "Up to 75 MB/s",
+          material: "Burnished Anodized Aluminum with 360° Steel Shield",
+          dimensions: "62 × 18 × 9 mm | 19g",
+          warranty: "5-Year Enterprise Replacement Warranty",
+          stock: "1,800 Units Ready to Dispatch",
+          capacities: ["32GB", "64GB", "128GB", "256GB", "512GB"],
+          features: [
+            "Dual reversible USB-C and USB-A plugs",
+            "Instant plug & play on Android, iOS & PC without adapters",
+            "360° swivel protective steel bridge with positive click-lock",
+            "High thermal dissipation aluminum alloy core",
+            "Dual-channel high-speed flash controller"
+          ]
+        },
+        3: {
+          id: 3,
+          name: "Orbit Swivel Flash Drive",
+          model_code: "USB-S300",
+          category: "Capless Swivel",
+          availability: "In Stock",
+          price_pkr: 850,
+          description: "The corporate industry standard capless 360-degree rotational design featuring a protective aluminum swivel clip and soft-touch body. Large surface area for laser engraving and screen printing.",
+          image: "images/products/usb-orbit-swivel.jpg",
+          interface: "USB 3.0 / USB 2.0",
+          read_speed: "Up to 90 MB/s",
+          write_speed: "Up to 35 MB/s",
+          material: "Matte Rubberized ABS Body with Aluminum Swivel Clip",
+          dimensions: "58 × 19 × 10 mm | 12g",
+          warranty: "3-Year Enterprise Replacement Warranty",
+          stock: "5,000 Units Ready to Dispatch",
+          capacities: ["8GB", "16GB", "32GB", "64GB", "128GB"],
+          features: [
+            "Capless 360-degree rotational design prevents cap loss",
+            "Large dual-side logo imprint zone for vibrant silk screening",
+            "Scratch-resistant anodized aluminum clip",
+            "Integrated activity LED indicator",
+            "Available in 12 corporate brand colorways"
+          ]
+        },
+        4: {
+          id: 4,
+          name: "CardSlim Executive Wafer Drive",
+          model_code: "USB-C400",
+          category: "Credit Card Wafer",
+          availability: "Made to Order",
+          price_pkr: 950,
+          description: "Ultra-slim 2.2mm form factor with flip-out USB connector styled identically to a standard business card. Fits perfectly in wallets with full-bleed double-sided photographic UV imprint area.",
+          image: "images/products/usb-cardslim-executive.jpg",
+          interface: "USB 3.0 Monolithic UDP",
+          read_speed: "Up to 80 MB/s",
+          write_speed: "Up to 30 MB/s",
+          material: "Ultra-Thin Polymorphic ABS Card with Flip-out UDP Chip",
+          dimensions: "85.5 × 54 × 2.2 mm | 9.5g",
+          warranty: "3-Year Enterprise Replacement Warranty",
+          stock: "3,200 Units Ready to Dispatch",
+          capacities: ["16GB", "32GB", "64GB", "128GB"],
+          features: [
+            "Exact credit card dimensions (2.2mm ultra-thin profile)",
+            "Full-bleed edge-to-edge photo UV printing on both sides",
+            "Fits seamlessly in wallets & badge holders",
+            "Waterproof monolithic UDP flash chip",
+            "High-impact promotional gifting medium"
+          ]
+        },
+        5: {
+          id: 5,
+          name: "SecureVault Key Flash Drive",
+          model_code: "USB-K500",
+          category: "Waterproof Key",
+          availability: "In Stock",
+          price_pkr: 1800,
+          description: "IPX8 waterproof monolithic UDP chip architecture shaped like a standard key for everyday keyring carry. Scratch-resistant, shockproof, and ideal for confidential file distribution.",
+          image: "images/products/usb-securevault-key.jpg",
+          interface: "USB 3.2 Gen 1 UDP",
+          read_speed: "Up to 140 MB/s",
+          write_speed: "Up to 55 MB/s",
+          material: "Polished Chrome Steel Key Alloy Monolith",
+          dimensions: "57 × 24 × 3 mm | 16g",
+          warranty: "5-Year Enterprise Replacement Warranty",
+          stock: "1,500 Units Ready to Dispatch",
+          capacities: ["32GB", "64GB", "128GB", "256GB"],
+          features: [
+            "Architectural key design blends with everyday keyring keys",
+            "IPX8 waterproof & 1-ton pressure resistant casing",
+            "Monolithic chip-on-board (COB) technology",
+            "Hardware write-protect partition support",
+            "Precision laser engravable steel surface"
+          ]
+        },
+        6: {
+          id: 6,
+          name: "EcoBamboo Wood Drive",
+          model_code: "USB-E600",
+          category: "Eco Wood",
+          availability: "Bulk Only",
+          price_pkr: 1400,
+          description: "FSC-certified organic bamboo wood housing with magnetic cap closure. Sustainable natural aesthetic tailored for eco-conscious corporate gifting, environmental summits, and ESG initiatives.",
+          image: "images/products/usb-ecobamboo-wood.jpg",
+          interface: "USB 3.0 Interface",
+          read_speed: "Up to 100 MB/s",
+          write_speed: "Up to 40 MB/s",
+          material: "100% FSC-Certified Natural Organic Bamboo Wood",
+          dimensions: "60 × 20 × 10 mm | 13g",
+          warranty: "3-Year Enterprise Replacement Warranty",
+          stock: "2,200 Units Ready to Dispatch",
+          capacities: ["16GB", "32GB", "64GB", "128GB"],
+          features: [
+            "100% Biodegradable renewable organic bamboo casing",
+            "Magnetic closure cap system with hidden neodymium magnets",
+            "Deep laser engraving with burnished contrast",
+            "Low-carbon sustainable corporate gifting solution",
+            "Eco-friendly recycled kraft presentation box included"
+          ]
+        }
+      };
+
+      // Extract target product ID or slug from URL query parameters
+      try { localStorage.removeItem("nexdrive_products"); } catch(e){} 
+ const params = new URLSearchParams(window.location.search);
+      let targetId = parseInt(params.get('id'), 10);
+      const targetModel = params.get('model');
+      const targetSlug = params.get('slug');
+
+      function findMatch(list) {
+        if (!list || !list.length) return null;
+        if (targetId) {
+          const byId = list.find(p => p.id === targetId);
+          if (byId) return byId;
+        }
+        if (targetModel) {
+          const byModel = list.find(p => p.model_code && p.model_code.toLowerCase() === targetModel.toLowerCase());
+          if (byModel) return byModel;
+        }
+        if (targetSlug) {
+          const bySlug = list.find(p => {
+            const s = (p.slug || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+            return s.includes(targetSlug) || targetSlug.includes(s);
+          });
+          if (bySlug) return bySlug;
+        }
+        return list[0];
+      }
+
+      let currentProduct = DEFAULT_PRODUCTS[targetId || 1] || DEFAULT_PRODUCTS[1];
+
+      // Try fetching live data from API or LocalStorage
+      try {
+        const res = await fetch('api/products');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.products) {
+            const found = findMatch(json.products);
+            if (found) currentProduct = Object.assign({}, currentProduct, found);
+          }
+        }
+      } catch (e) {
+        try {
+          const local = localStorage.getItem('nexdrive_products');
+          if (local) {
+            const list = JSON.parse(local);
+            const found = findMatch(list);
+            if (found) currentProduct = Object.assign({}, currentProduct, found);
+          }
+        } catch (err) {}
+      }
+
+      // Populate UI with Product Data
+      document.title = `${currentProduct.name} (${currentProduct.model_code}) | NexDrive`;
+      document.getElementById('crumb-product-name').textContent = currentProduct.name;
+      const pTitleEl = document.getElementById('product-title');
+      if (pTitleEl) {
+        pTitleEl.textContent = currentProduct.name;
+        pTitleEl.style.setProperty('color', '#1C231E', 'important');
+        pTitleEl.style.setProperty('-webkit-text-fill-color', '#1C231E', 'important');
+      }
+      const pDescEl = document.getElementById('product-desc');
+      if (pDescEl) {
+        pDescEl.textContent = currentProduct.description || '';
+        pDescEl.style.setProperty('color', '#3E4A41', 'important');
+        pDescEl.style.setProperty('-webkit-text-fill-color', '#3E4A41', 'important');
+      }
+      document.getElementById('badge-stock').textContent = currentProduct.availability || 'In Stock';
+      document.getElementById('badge-category').textContent = currentProduct.category || 'USB Storage';
+      document.getElementById('badge-code').textContent = currentProduct.model_code || 'USB-STD';
+
+      const imgEl = document.getElementById('product-img');
+      imgEl.src = (currentProduct.image || 'images/products/usb-apex-titanium.jpg').replace(/^\.\.\//, '');
+      imgEl.alt = currentProduct.name;
+
+      // Specs
+      document.getElementById('spec-code').textContent = currentProduct.model_code || 'USB-STD';
+      document.getElementById('spec-interface').textContent = currentProduct.interface || 'USB 3.2 Gen 1';
+      document.getElementById('spec-read').textContent = currentProduct.read_speed || 'Up to 150 MB/s';
+      document.getElementById('spec-write').textContent = currentProduct.write_speed || 'Up to 60 MB/s';
+      document.getElementById('spec-capacity').textContent = currentProduct.capacity || '16GB – 256GB';
+      document.getElementById('spec-material').textContent = currentProduct.material || 'Die-Cast Zinc Alloy';
+      document.getElementById('spec-dim').textContent = currentProduct.dimensions || '48 × 12 × 4.6 mm';
+      document.getElementById('spec-warranty').textContent = currentProduct.warranty || '5-Year Replacement Warranty';
+      document.getElementById('spec-stock').textContent = (currentProduct.stock_quantity ? currentProduct.stock_quantity.toLocaleString() : '2,500') + ' Units Ready to Dispatch';
+
+      if (currentProduct.features) {
+        const feats = Array.isArray(currentProduct.features) ? currentProduct.features : currentProduct.features.split('\n');
+        const featsList = document.getElementById('features-list');
+        featsList.innerHTML = feats.filter(f => f.trim()).map(f => `<li>${f.trim()}</li>`).join('');
+      }
+
+      // Base Price & Multipliers
+      let basePkr = parseFloat(currentProduct.price_pkr) || 1250;
+      let capacityMultiplier = 1.0;
+      let selectedCapacity = "16GB";
+
+      const priceDisplay = document.getElementById('price-display');
+      const subtotalDisplay = document.getElementById('subtotal-display');
+      const qtyInput = document.getElementById('qty-input');
+
+      function updateCalculation() {
+        const currentUnitPkr = Math.round(basePkr * capacityMultiplier);
+        const qty = parseInt(qtyInput.value, 10) || 1;
+        const subtotalPkr = currentUnitPkr * qty;
+
+        priceDisplay.setAttribute('data-price-pkr', currentUnitPkr);
+        subtotalDisplay.setAttribute('data-price-pkr', subtotalPkr);
+
+        if (window.CurrencyEngine) {
+          window.CurrencyEngine.apply();
+        } else {
+          priceDisplay.textContent = `₨ ${currentUnitPkr.toLocaleString()}`;
+          subtotalDisplay.textContent = `₨ ${subtotalPkr.toLocaleString()}`;
+        }
+
+        // Update modal summaries
+        document.getElementById('buy-summary-name').textContent = currentProduct.name;
+        document.getElementById('buy-summary-capacity').textContent = selectedCapacity;
+        document.getElementById('buy-summary-qty').textContent = `${qty} units`;
+        document.getElementById('buy-summary-total').textContent = window.CurrencyEngine ? window.CurrencyEngine.format(subtotalPkr) : `₨ ${subtotalPkr.toLocaleString()}`;
+
+        // Update tier wholesale prices
+        document.getElementById('tier-1-price').textContent = window.CurrencyEngine ? window.CurrencyEngine.format(currentUnitPkr) : `₨ ${currentUnitPkr}`;
+        document.getElementById('tier-2-price').textContent = window.CurrencyEngine ? window.CurrencyEngine.format(Math.round(currentUnitPkr * 0.84)) : `₨ ${Math.round(currentUnitPkr * 0.84)}`;
+        document.getElementById('tier-3-price').textContent = window.CurrencyEngine ? window.CurrencyEngine.format(Math.round(currentUnitPkr * 0.72)) : `₨ ${Math.round(currentUnitPkr * 0.72)}`;
+      }
+
+      // Dynamic Capacity Buttons
+      const capContainer = document.getElementById('capacity-container');
+      const caps = (currentProduct.capacity ? currentProduct.capacity.split(/[,–-]/) : ["16GB", "32GB", "64GB", "128GB", "256GB"]).map(s => s.trim()).filter(Boolean);
+      
+      const multipliers = { '8GB': 0.8, '16GB': 1.0, '32GB': 1.25, '64GB': 1.6, '128GB': 2.2, '256GB': 3.4, '512GB': 5.2, '1TB': 9.0 };
+
+      capContainer.innerHTML = caps.map((c, i) => {
+        const mult = multipliers[c] || (1 + i * 0.3);
+        const act = i === 0 ? 'active' : '';
+        if (i === 0) selectedCapacity = c;
+        return `<button type="button" class="capacity-btn ${act}" data-capacity="${c}" data-mult="${mult}">${c}</button>`;
+      }).join('');
+
+      capContainer.querySelectorAll('.capacity-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          capContainer.querySelectorAll('.capacity-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedCapacity = btn.getAttribute('data-capacity');
+          capacityMultiplier = parseFloat(btn.getAttribute('data-mult')) || 1.0;
+          updateCalculation();
+        });
+      });
+
+      // Stepper Handlers
+      document.getElementById('qty-minus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value, 10) || 1;
+        if (val > 1) {
+          qtyInput.value = val - 1;
+          updateCalculation();
+        }
+      });
+      document.getElementById('qty-plus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value, 10) || 1;
+        qtyInput.value = val + 1;
+        updateCalculation();
+      });
+      qtyInput.addEventListener('input', updateCalculation);
+
+      // Listen for currency change
+      document.addEventListener('currencychange', updateCalculation);
+
+      updateCalculation();
+
+      // ====================================================================
+      // Modal Triggers & Submissions
+      // ====================================================================
+      const buyModal = document.getElementById('buy-modal');
+      const quoteModal = document.getElementById('quote-modal');
+      const cartModal = document.getElementById('cartModal');
+      const cartToast = document.getElementById('cartToast');
+      const cartCounter = document.getElementById('cart-counter');
+      const navCartBtn = document.getElementById('nav-cart-btn');
+      const closeCartModal = document.getElementById('close-cart-modal');
+      const btnAddToCart = document.getElementById('btn-add-to-cart');
+      const btnClearCart = document.getElementById('btn-clear-cart');
+      const btnCartWhatsApp = document.getElementById('btn-cart-whatsapp');
+      const cartItemsList = document.getElementById('cart-items-list');
+      const cartTotalVal = document.getElementById('cart-total-val');
+
+      // Helper: Cart Storage Functions
+      function getCartItems() {
+        try {
+          return JSON.parse(localStorage.getItem('nexdrive_cart') || '[]');
+        } catch(e) {
+          return [];
+        }
+      }
+
+      function saveCartItems(cart) {
+        localStorage.setItem('nexdrive_cart', JSON.stringify(cart));
+        updateCartBadge();
+      }
+
+      function updateCartBadge() {
+        const cart = getCartItems();
+        const count = cart.reduce((total, item) => total + (parseInt(item.qty, 10) || 1), 0);
+        if (cartCounter) {
+          cartCounter.textContent = `(${count})`;
+        }
+      }
+
+      function showCartToast(title, desc) {
+        if (!cartToast) return;
+        const titleEl = document.getElementById('cartToastTitle');
+        const descEl = document.getElementById('cartToastDesc');
+        if (titleEl) titleEl.textContent = title;
+        if (descEl) descEl.textContent = desc;
+        cartToast.classList.add('active');
+        clearTimeout(cartToast._timer);
+        cartToast._timer = setTimeout(() => {
+          cartToast.classList.remove('active');
+        }, 3500);
+      }
+
+      function renderCartDrawer() {
+        if (!cartItemsList) return;
+        const cart = getCartItems();
+
+        if (cart.length === 0) {
+          cartItemsList.innerHTML = `
+            <div style="text-align: center; padding: 35px 15px; color: #94A3B8;">
+              <div style="font-size: 3.2rem; margin-bottom: 12px;">🛒</div>
+              <p style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Your cart is currently empty.</p>
+              <p style="font-size: 13px; color: #64748B;">Browse our USB drives and click "Add to Cart" to start your order.</p>
+            </div>
+          `;
+          if (cartTotalVal) cartTotalVal.textContent = '₨ 0';
+          if (btnCartWhatsApp) {
+            btnCartWhatsApp.style.opacity = '0.5';
+            btnCartWhatsApp.style.pointerEvents = 'none';
+          }
+          return;
+        }
+
+        if (btnCartWhatsApp) {
+          btnCartWhatsApp.style.opacity = '1';
+          btnCartWhatsApp.style.pointerEvents = 'auto';
+        }
+
+        let total = 0;
+        cartItemsList.innerHTML = cart.map((item, index) => {
+          const sub = (item.unitPrice || 0) * (item.qty || 1);
+          total += sub;
+          return `
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px; background: rgba(11, 29, 45, 0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; margin-bottom: 10px;">
+              <img src="${item.image || 'images/products/usb-apex-titanium.jpg'}" alt="${item.name}" style="width: 52px; height: 52px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);" onerror="this.src='images/products/usb-apex-titanium.jpg'">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-weight: 800; color: #FFFFFF; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.name}</div>
+                <div style="font-size: 12px; color: #94A3B8; margin-top: 3px;">
+                  Capacity: <span style="color: #738670; font-weight: 700;">${item.capacity}</span> &bull; ₨ ${item.unitPrice.toLocaleString()} × ${item.qty}
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 800; color: #00D2A0; font-size: 14px;">₨ ${sub.toLocaleString()}</div>
+                <button type="button" class="remove-cart-item-btn" data-index="${index}" style="background: none; border: none; color: #EF4444; font-size: 12px; cursor: pointer; text-decoration: underline; padding: 2px 0;">Remove</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        if (cartTotalVal) {
+          cartTotalVal.textContent = `₨ ${total.toLocaleString()}`;
+        }
+
+        // Attach removal handlers
+        cartItemsList.querySelectorAll('.remove-cart-item-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.target.getAttribute('data-index'), 10);
+            const currentCart = getCartItems();
+            currentCart.splice(idx, 1);
+            saveCartItems(currentCart);
+            renderCartDrawer();
+          });
+        });
+      }
+
+      // 1. Add to Cart Button Click Handler
+      if (btnAddToCart) {
+        btnAddToCart.addEventListener('click', (e) => {
+          e.preventDefault();
+          const currentUnitPkr = Math.round(basePkr * capacityMultiplier);
+          const qty = parseInt(qtyInput.value, 10) || 1;
+          const subtotalPkr = currentUnitPkr * qty;
+
+          const cart = getCartItems();
+          const existing = cart.find(i => i.id === currentProduct.id && i.capacity === selectedCapacity);
+          if (existing) {
+            existing.qty += qty;
+            existing.subtotal = existing.qty * existing.unitPrice;
+          } else {
+            cart.push({
+              id: currentProduct.id,
+              name: currentProduct.name,
+              capacity: selectedCapacity,
+              unitPrice: currentUnitPkr,
+              qty: qty,
+              subtotal: subtotalPkr,
+              image: (currentProduct.gallery && currentProduct.gallery[0]) || currentProduct.image || 'images/products/usb-apex-titanium.jpg'
+            });
+          }
+          saveCartItems(cart);
+          showCartToast('🛒 Added to Cart!', `${qty}x ${currentProduct.name} (${selectedCapacity}) added.`);
+        });
+      }
+
+      // 2. Open Cart Drawer
+      if (navCartBtn) {
+        navCartBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          renderCartDrawer();
+          if (cartModal) cartModal.classList.add('active');
+        });
+      }
+
+      // 3. Close Cart Drawer
+      if (closeCartModal) {
+        closeCartModal.addEventListener('click', () => {
+          if (cartModal) cartModal.classList.remove('active');
+        });
+      }
+
+      // 4. Clear Cart
+      if (btnClearCart) {
+        btnClearCart.addEventListener('click', () => {
+          if (confirm('Clear all items from your shopping cart?')) {
+            saveCartItems([]);
+            renderCartDrawer();
+          }
+        });
+      }
+
+      // 5. Checkout via WhatsApp
+      if (btnCartWhatsApp) {
+        btnCartWhatsApp.addEventListener('click', () => {
+          const cart = getCartItems();
+          if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+          }
+          let grandTotal = 0;
+          const itemsText = cart.map((item, idx) => {
+            const sub = (item.unitPrice || 0) * (item.qty || 1);
+            grandTotal += sub;
+            return `${idx + 1}. ${item.name} (${item.capacity})\n   • Qty: ${item.qty} units @ ₨ ${item.unitPrice.toLocaleString()}\n   • Subtotal: ₨ ${sub.toLocaleString()}`;
+          }).join('\n\n');
+
+          const orderRef = 'CART-' + Math.floor(100000 + Math.random() * 900000);
+          const message = encodeURIComponent(
+            `🛒 *NexDrive Cart Checkout Request*\n\n` +
+            `Order Ref: *${orderRef}*\n\n` +
+            `*ORDERED ITEMS:*\n${itemsText}\n\n` +
+            `*ESTIMATED TOTAL:* ₨ ${grandTotal.toLocaleString()}\n\n` +
+            `Please confirm my order and share TCS/COD delivery timeline. Thank you!`
+          );
+
+          window.open(`https://wa.me/923000000000?text=${message}`, '_blank');
+        });
+      }
+
+      // Initialize Cart Counter Badge on page load
+      updateCartBadge();
+
+      // Direct Buy Modal Triggers
+      document.getElementById('open-buy-modal').addEventListener('click', () => {
+        buyModal.classList.add('active');
+      });
+      document.getElementById('close-buy-modal').addEventListener('click', () => {
+        buyModal.classList.remove('active');
+      });
+
+      document.getElementById('open-quote-modal').addEventListener('click', () => {
+        quoteModal.classList.add('active');
+      });
+      document.getElementById('close-quote-modal').addEventListener('click', () => {
+        quoteModal.classList.remove('active');
+      });
+
+      // Close on backdrop click
+      window.addEventListener('click', (e) => {
+        if (e.target === buyModal) buyModal.classList.remove('active');
+        if (e.target === quoteModal) quoteModal.classList.remove('active');
+        if (e.target === cartModal) cartModal.classList.remove('active');
+      });
+
+      // Logo Upload & Live Mockup Handler
+      const logoDropzone = document.getElementById('logo-dropzone');
+      const logoFileInput = document.getElementById('logo-file-input');
+      const mockupLogoOverlay = document.getElementById('mockup-logo-overlay');
+      const mockupLogoImg = document.getElementById('mockup-logo-img');
+      const uploadStatusText = document.getElementById('upload-status-text');
+      const orderNotesInput = document.getElementById('order-notes');
+      const quoteDetailsInput = document.getElementById('quote-details');
+      let uploadedLogoBase64 = null;
+
+      if (document.getElementById('btn-browse-logo')) {
+        document.getElementById('btn-browse-logo').addEventListener('click', (e) => {
+          e.stopPropagation();
+          logoFileInput.click();
+        });
+      }
+
+      if (logoDropzone) {
+        logoDropzone.addEventListener('click', () => {
+          logoFileInput.click();
+        });
+
+        logoDropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          logoDropzone.style.borderColor = '#00D2A0';
+          logoDropzone.style.background = 'rgba(0, 210, 160, 0.1)';
+        });
+
+        logoDropzone.addEventListener('dragleave', () => {
+          logoDropzone.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+          logoDropzone.style.background = 'rgba(11, 29, 45, 0.6)';
+        });
+
+        logoDropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          logoDropzone.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+          logoDropzone.style.background = 'rgba(11, 29, 45, 0.6)';
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleLogoFile(e.dataTransfer.files[0]);
+          }
+        });
+      }
+
+      if (logoFileInput) {
+        logoFileInput.addEventListener('change', (e) => {
+          if (e.target.files && e.target.files[0]) {
+            handleLogoFile(e.target.files[0]);
+          }
+        });
+      }
+
+      function handleLogoFile(file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          uploadedLogoBase64 = event.target.result;
+          mockupLogoImg.src = uploadedLogoBase64;
+          mockupLogoOverlay.style.display = 'block';
+          uploadStatusText.innerHTML = `<span style="color: #00D2A0; font-weight: bold;">✔ Logo uploaded: ${file.name}</span> (${(file.size / 1024).toFixed(1)} KB)`;
+          
+          if (orderNotesInput) {
+            orderNotesInput.value = `Custom Logo Attached: ${file.name} (Laser Engraved Proof Approved)`;
+          }
+          if (quoteDetailsInput) {
+            quoteDetailsInput.value = `Attached Logo: ${file.name} for precision corporate laser engraving.`;
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (document.getElementById('apply-logo-buy-btn')) {
+        document.getElementById('apply-logo-buy-btn').addEventListener('click', () => {
+          if (!uploadedLogoBase64) {
+            logoFileInput.click();
+          } else {
+            document.getElementById('open-buy-modal').click();
+          }
+        });
+      }
+
+      if (document.getElementById('apply-logo-quote-btn')) {
+        document.getElementById('apply-logo-quote-btn').addEventListener('click', () => {
+          if (!uploadedLogoBase64) {
+            logoFileInput.click();
+          } else {
+            document.getElementById('open-quote-modal').click();
+          }
+        });
+      }
+
+      // Handle Direct Order Submission
+      document.getElementById('direct-order-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const orderId = 'NXD-' + Math.floor(100000 + Math.random() * 900000);
+        const name = document.getElementById('order-name').value;
+        const phone = document.getElementById('order-phone').value;
+        const city = document.getElementById('order-city').value;
+        const payment = document.getElementById('order-payment').value;
+        const qty = qtyInput.value;
+        const total = document.getElementById('buy-summary-total').textContent;
+
+        const whatsappMsg = encodeURIComponent(
+          `Hello NexDrive, I placed an order!\n\nOrder ID: ${orderId}\nProduct: ${currentProduct.name} (${selectedCapacity})\nQuantity: ${qty} units\nTotal: ${total}\nName: ${name}\nPhone: ${phone}\nCity: ${city}\nPayment: ${payment}`
+        );
+
+        buyModal.innerHTML = `
+          <div class="modal-card" style="text-align: center; padding: 40px 30px;">
+            <div style="font-size: 50px; margin-bottom: 15px;">🎉</div>
+            <h2 style="font-size: 1.8rem; color: #00D2A0; margin-bottom: 8px;">Order Confirmed!</h2>
+            <p style="color: #CBD5E1; font-size: 15px; margin-bottom: 20px;">
+              Thank you, <strong>${name}</strong>. Your order has been registered in the system under tracking code:
+              <br><strong style="font-size: 1.2rem; color: #738670; letter-spacing: 1px;">${orderId}</strong>
+            </p>
+            <div style="background: #FFFFFF; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 15px; margin-bottom: 25px; text-align: left; font-size: 14px; color: #CBD5E1;">
+              <div><strong>Item:</strong> ${currentProduct.name} (${selectedCapacity}) × ${qty}</div>
+              <div><strong>Payment:</strong> ${payment}</div>
+              <div><strong>City:</strong> ${city}</div>
+              <div><strong>Subtotal:</strong> ${total}</div>
+            </div>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+              <a href="https://wa.me/923000000000?text=${whatsappMsg}" target="_blank" class="btn-buy-direct" style="text-decoration: none;">
+                📱 Confirm via WhatsApp
+              </a>
+              <button onclick="window.location.reload()" class="btn btn-outline-white">
+                Back to Product
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      // Handle Bulk Quotation Submission
+      document.getElementById('bulk-quote-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const quoteId = 'QT-' + Math.floor(10000 + Math.random() * 90000);
+        const comp = document.getElementById('quote-company').value;
+        const contact = document.getElementById('quote-contact').value;
+        const phone = document.getElementById('quote-phone').value;
+        const qty = document.getElementById('quote-qty').value;
+
+        const whatsappMsg = encodeURIComponent(
+          `Hello NexDrive Sales, Requesting Bulk Quotation!\n\nQuote Ref: ${quoteId}\nProduct: ${currentProduct.name} (${selectedCapacity})\nTarget Qty: ${qty} units\nCompany: ${comp}\nContact: ${contact}\nPhone: ${phone}`
+        );
+
+        quoteModal.innerHTML = `
+          <div class="modal-card" style="text-align: center; padding: 40px 30px;">
+            <div style="font-size: 50px; margin-bottom: 15px;">📋</div>
+            <h2 style="font-size: 1.8rem; color: #738670; margin-bottom: 8px;">Quotation Request Dispatched!</h2>
+            <p style="color: #CBD5E1; font-size: 15px; margin-bottom: 20px;">
+              Thank you, <strong>${contact}</strong> at <strong>${comp}</strong>. Your quotation dossier reference is:
+              <br><strong style="font-size: 1.2rem; color: #00D2A0;">${quoteId}</strong>
+            </p>
+            <p style="color: #94A3B8; font-size: 14px; margin-bottom: 25px;">
+              Our enterprise sales account director will furnish a comprehensive digital mock-up and formal stamped PDF invoice within 2 business hours.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+              <a href="https://wa.me/923000000000?text=${whatsappMsg}" target="_blank" class="btn-bulk-quote" style="text-decoration: none;">
+                📱 Send Directly to Sales WhatsApp
+              </a>
+              <button onclick="window.location.reload()" class="btn btn-outline-white">
+                Done
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+    })();
+  </script>
+
+  <!-- Cart Notification Toast -->
+  <div id="cartToast" class="cart-toast" role="alert">
+    <span style="font-size: 24px;">🛒</span>
+    <div>
+      <div id="cartToastTitle" style="font-weight: 800; font-size: 14px; color: #00D2A0;">Added to Cart!</div>
+      <div id="cartToastDesc" style="font-size: 12px; color: #CBD5E1;">Item successfully added to your order.</div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer / Modal -->
+  <div id="cartModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cartModalTitle">
+    <div class="modal-card" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 id="cartModalTitle" style="display: flex; align-items: center; gap: 8px;">
+          <span>🛒</span> Your Shopping Cart
+        </h3>
+        <button id="close-cart-modal" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 24px;">
+        <div id="cart-items-list" style="margin-bottom: 20px;">
+          <!-- Populated by JS -->
+        </div>
+
+        <div style="background: rgba(11,29,45,0.7); border-radius: 8px; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 800; color: #FFFFFF;">
+            <span>Estimated Cart Total:</span>
+            <span id="cart-total-val" style="color: #5C7C64; font-size: 1.3rem;">₨ 0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button type="button" id="btn-clear-cart" class="btn btn-secondary" style="flex: 1;">
+            Clear Cart
+          </button>
+          <button type="button" id="btn-cart-whatsapp" class="btn btn-primary" style="flex: 2; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+            💬 Checkout via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

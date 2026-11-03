@@ -442,6 +442,7 @@ p {
 .nav-link {
   color: #2D3730;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {

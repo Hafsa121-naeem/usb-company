@@ -498,14 +498,54 @@ body {
   display: inline-block !important;
 }
 
-/* Header & Navigation */
+/* Header & Navigation Polish */
 header.site-header {
   background: rgba(250, 249, 245, 0.98) !important;
   border-bottom: 1px solid #E6E0D4 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.header-container {
+  max-width: 1360px !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+}
+
+.brand-logo-img {
+  height: 44px !important;
+  width: auto !important;
+  max-width: 220px !important;
+  display: block !important;
+}
+
+.site-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.nav-list {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .nav-link {
   color: #3E4A41 !important;
+  white-space: nowrap !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  padding: 6px 0 !important;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -518,6 +558,30 @@ header.site-header {
 
 .nav-link-admin, a[href*="admin"] {
   color: #5C7C64 !important;
+}
+
+.cart-nav-badge {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+  margin-left: 4px !important;
+}
+
+#currency-picker-mount {
+  flex-shrink: 0 !important;
+  margin: 0 4px !important;
+}
+
+.header-action {
+  flex-shrink: 0 !important;
+  margin-left: 4px !important;
+}
+
+.header-action .btn {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
 }
 
 /* Primary Buttons */
@@ -638,6 +702,19 @@ header.site-header {
   color: #3E4A41 !important;
 }
 
+
+#currency-select-box, .currency-select {
+  background: #FAF9F5 !important;
+  color: #1C231E !important;
+  border: 1.5px solid #E6E0D4 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+#currency-select-box option, .currency-select option {
+  background: #FFFFFF !important;
+  color: #1C231E !important;
+}
+
 </style>
 </head>
 <body>
@@ -646,7 +723,7 @@ header.site-header {
   <header class="site-header">
     <div class="container header-container">
       <a href="./" class="brand-link" aria-label="NexDrive Flash Storage Solutions Homepage">
-        <img src="images/logo.svg" alt="NexDrive USB Storage Logo" class="brand-logo-img" width="280" height="50">
+        <img src="images/logo.svg" alt="NexDrive Flash Storage Solutions Logo" class="brand-logo-img" width="240" height="48" style="height: 44px; width: auto; max-width: 220px; display: block;" onerror="this.onerror=null; this.src='images/logo.svg'">
       </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
@@ -663,7 +740,7 @@ header.site-header {
           <li><a href="products" class="nav-link active">Products</a></li>
           <li><a href="why-us" class="nav-link">Why Choose Us</a></li>
           <li><a href="contact" class="nav-link">Contact</a></li>
-          <li><a href="admin/" class="nav-link" style="color: var(--color-amber-gold); font-weight: 700;">Admin</a></li>
+          <li><a href="admin/" class="nav-link">Admin</a></li>
         </ul>
 
         <!-- Currency Switcher Mount -->
@@ -1110,7 +1187,7 @@ header.site-header {
   </footer>
 
   <!-- Scripts -->
-  <script src="js/currency.js"></script>
+  <script src="js/currency.js?v=2026"></script>
   <script>
     (async function () {
       // Default fallback dataset in case offline or static GitHub Pages
